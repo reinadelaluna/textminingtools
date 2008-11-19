@@ -44,6 +44,9 @@ public class TextDirectoryToARFF implements Serializable {
 
   private Hashtable<String, String> m_ClassValues = new Hashtable<String, String>();
 
+
+  private String m_ClassFileName;
+
   public TextDirectoryToARFF() throws Exception {
     configFilter();
     configClassifier();
@@ -129,11 +132,16 @@ public class TextDirectoryToARFF implements Serializable {
   }
 
 
-  private void addData(String message, String classValue, Instances dataset) {
+  private void addData(String message, String classValue, Instances dataset) throws Exception{
     // Make message into instance.
     Instance instance = makeInstance(message, dataset);
     // Set class value for instance.
+    try{
     instance.setClassValue(classValue);
+    }catch(Exception e){
+      System.out.println("error for: " + classValue);
+      throw e;
+    }
 
     // Add instance to training data.
     dataset.add(instance);
@@ -221,8 +229,24 @@ public class TextDirectoryToARFF implements Serializable {
 
     System.out.println("OOOPS! ARFF fin.");
   }
+  
+  private String getClassFileName(){
+    if(this.m_ClassFileName == null || this.m_ClassFileName.equals("")){
+      return "";      
+    }else{
+      return "-" + this.m_ClassFileName;
+    }
+  }
 
   private void doOptions(String[] options) throws Exception {
+    // Get klass file.
+    String classFileName = Utils.getOption('c', options);
+    if(classFileName == null || classFileName.equals("")){
+      this.m_ClassFileName = "";
+      
+    }else{
+      this.m_ClassFileName = classFileName;
+    }
     // Get Arff output dir.
     String arffdir = Utils.getOption('a', options);
     setM_ARFFFolder(arffdir);
@@ -231,6 +255,10 @@ public class TextDirectoryToARFF implements Serializable {
     String dirName = Utils.getOption('d', options);
     this.m_DataFolder = dirName;
     loadTrainingDataFrom(dirName);
+    
+
+    
+    
 
   }
 
@@ -304,11 +332,11 @@ public class TextDirectoryToARFF implements Serializable {
   }
 
   public void saveTrainingData() throws Exception {
-    this.saveTrainingDataAs("training.arff");
+    this.saveTrainingDataAs("training" + this.getClassFileName() + ".arff");
   }
 
   public void saveFilteredData() throws Exception {
-    this.saveFilteredDataAs("filtered.arff");
+    this.saveFilteredDataAs("filtered" + this.getClassFileName() + ".arff");
   }
 
   public void saveTrainingDataAs(String filepath) throws Exception {
@@ -330,7 +358,9 @@ public class TextDirectoryToARFF implements Serializable {
 
   private Hashtable<String, String> getClassValues(String dirName) {
     try {
-      String classValuesFile = Util.pathConcat(dirName, "-class");
+      System.out.println("Haha");
+      String classValuesFile = dirName  + this.getClassFileName() + "-class";
+      System.out.println("hehe: " + classValuesFile);
       if (!(new File(classValuesFile).exists())) {
         return new Hashtable<String, String>();
       } else {
