@@ -54,14 +54,14 @@ public class TextDirectoryToARFF implements Serializable {
     WordTokenizer tok = new WordTokenizer();
     String defaultdelim = tok.getDelimiters();
     System.out.println(tok.getDelimiters());
-    String punct = " \t\n\r" + "!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
-    tok.setDelimiters(punct);
-//    tok.setDelimiters(defaultdelim + "<>/#&+-\\[]=*|`{}");
+//    String punct = " \t\n\r" + "!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+//    tok.setDelimiters(punct + defaultdelim);"<>/#&+-\\[]=*|`{}"
+    tok.setDelimiters(defaultdelim + "!\"#$%&\'()*+,-./:;<=>?@[\\]^`{|}~\0");
 //    Util.debugExit();
     filter.setTokenizer(tok);
     filter.setLowerCaseTokens(true);
     // filter.setUseStoplist(false);
-    filter.setWordsToKeep(100000);
+    filter.setWordsToKeep(1000000);
     filter.setStopwords(Util.STOPWORDS_FILE);
     filter.setStemmer(new weka.core.stemmers.SnowballStemmer());
     // System.out.println("Stop words: " + filter.getStopwords().getName());
