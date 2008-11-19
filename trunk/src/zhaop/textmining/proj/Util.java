@@ -18,12 +18,11 @@ import weka.core.stemmers.SnowballStemmer;
 import weka.core.stemmers.Stemming;
 import weka.filters.supervised.attribute.AttributeSelection;
 
-
-
 public class Util {
-  
+
   public static String attrNameText = "text";
   public static String attrNameClass = "class";
+
   public static String pathConcat(String path, String text) {
     while (Util.hasSlash(path)) {
       path = path.substring(0, path.length() - 1);
@@ -99,9 +98,7 @@ public class Util {
 
   }
 
-
-
-  public static File loadDir(String path)throws Exception {
+  public static File loadDir(String path) throws Exception {
     File dir = new File(path);
     if (dir.exists()) {
       if (dir.isDirectory()) {
@@ -110,39 +107,40 @@ public class Util {
         throw new IOException("The directory you mentioned: " + path
             + " is actually a file.");
       }
-    }else{
+    } else {
       dir.mkdir();
       return dir;
     }
   }
-  
-  public static FastVector getFastVector(String fileName) throws Exception{
-    if(fileName.equals("")){
+
+  public static FastVector getFastVector(String fileName) throws Exception {
+    if (fileName.equals("")) {
       throw new IOException("The class list file does not exist! " + fileName);
     }
     BufferedReader br = new BufferedReader(new FileReader(fileName));
     String line = "";
     FastVector classValues = new FastVector(100);
-    while((line = br.readLine())!= null){
+    while ((line = br.readLine()) != null) {
       line = line.trim();
-      if(!line.equals(""))classValues.addElement(line);
+      if (!line.equals(""))
+        classValues.addElement(line);
     }
-    for(int i=0; i< classValues.size(); i++){
-      System.out.print((String)classValues.elementAt(i));
+    for (int i = 0; i < classValues.size(); i++) {
+      System.out.print((String) classValues.elementAt(i));
     }
     return classValues;
   }
-  
-  public static void main(String[] args) throws Exception {
-//    System.out.println(String.format("%-10.3f%-10.3f%-10.3f%-10.3f\n",
-//        0.977777, 0.2392103, 0.213021392, 1.32193123));
-    loadDir("haha");
-    
-    System.out.println("haha");
 
-    
+  public static void debugExit(String msg) {
+    System.out.println(msg);
+    debugExit();
   }
-  
+
+  public static void debugExit() {
+    System.out.println("Exiting for debug issue...");
+    System.exit(0);
+  }
+
   public static void printTable(Hashtable<String, String> ret) {
 
     Set<String> keys = ret.keySet();
@@ -167,9 +165,16 @@ public class Util {
 
   public static boolean isDirectory(String dirName) {
     File dir = new File(dirName);
-    if(dir.isDirectory())return true;
+    if (dir.isDirectory())
+      return true;
     return false;
   }
-  
+
+  public static void main(String[] args) throws Exception {
+    // System.out.println(String.format("%-10.3f%-10.3f%-10.3f%-10.3f\n",
+    // 0.977777, 0.2392103, 0.213021392, 1.32193123));
+    
+
+  }
 
 }
