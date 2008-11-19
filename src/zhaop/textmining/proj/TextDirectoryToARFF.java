@@ -11,6 +11,7 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Utils;
 import weka.core.converters.ArffSaver;
+import weka.core.tokenizers.WordTokenizer;
 import weka.filters.Filter;
 
 import weka.filters.unsupervised.attribute.Reorder;
@@ -50,14 +51,22 @@ public class TextDirectoryToARFF implements Serializable {
   
   private void configFilter() throws Exception{
     StringToWordVector filter = new StringToWordVector();
-    filter.setTokenizer(new weka.core.tokenizers.WordTokenizer());
+    WordTokenizer tok = new WordTokenizer();
+    String defaultdelim = tok.getDelimiters();
+    System.out.println(tok.getDelimiters());
+    String punct = " \t\n\r" + "!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+    tok.setDelimiters(punct);
+//    tok.setDelimiters(defaultdelim + "<>/#&+-\\[]=*|`{}");
+//    Util.debugExit();
+    filter.setTokenizer(tok);
     filter.setLowerCaseTokens(true);
     // filter.setUseStoplist(false);
-    filter.setWordsToKeep(800);
+    filter.setWordsToKeep(100000);
     filter.setStopwords(Util.STOPWORDS_FILE);
     filter.setStemmer(new weka.core.stemmers.SnowballStemmer());
     // System.out.println("Stop words: " + filter.getStopwords().getName());
     
+    filter.setIDFTransform(true);
     configFilter(filter);
   }
 
@@ -207,7 +216,7 @@ public class TextDirectoryToARFF implements Serializable {
     // this.doDummyClassify();
     // have to rerun the classification because of saving results
 
-    this.saveTrainingData();
+//    this.saveTrainingData();
     this.saveFilteredData();
 
     System.out.println("OOOPS! ARFF fin.");
