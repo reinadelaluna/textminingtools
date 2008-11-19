@@ -68,7 +68,7 @@ public class TextDirectoryToARFF implements Serializable {
     filter.setStopwords(Util.STOPWORDS_FILE);
     filter.setStemmer(new weka.core.stemmers.SnowballStemmer());
     // System.out.println("Stop words: " + filter.getStopwords().getName());
-    
+    filter.setMinTermFreq(2);
     filter.setIDFTransform(true);
     configFilter(filter);
   }
