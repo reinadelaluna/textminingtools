@@ -137,6 +137,8 @@ public class Util {
 //    System.out.println(String.format("%-10.3f%-10.3f%-10.3f%-10.3f\n",
 //        0.977777, 0.2392103, 0.213021392, 1.32193123));
     loadDir("haha");
+    
+    System.out.println("haha");
 
     
   }
@@ -168,5 +170,6 @@ public class Util {
     if(dir.isDirectory())return true;
     return false;
   }
+  
 
 }
