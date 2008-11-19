@@ -1,0 +1,27 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>craigevil</strong></div>
+				<div style="font-style:italic">BTW what is so complicated about apt-get install package? Try using Synaptic.<br /></div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+It's a matter of taste, but since 2001 I have always used the command line for everything, and I just hate it. I don't like to type. I use Synaptic in my Ubuntu, but there is a number of commercial applications such as Opera that can't be installed through Synaptic. A package installer such as Klik or Autopackage would solve the problem.These are interesting projects. Any distro uses one of them as default means of package installation?If you add the correct repos to your apt-get configuration, you can actually download most of the commercial packages you need / want.I believe that SymphonyOS uses that.<br />
+<br />
+!EDIT! No they don't, but their system does something VERY similar.Autopackage has a very limited number of packages.  You can use Autopackage/Zeroinstall in Debian with no problems. Same goes for klik.<br />
+<br />
+BTW what is so complicated about apt-get install package? Try using Synaptic.<br />
+<br />
+The Zero Install system<br />
+<a href="http://zero-install.sourceforge.net/" target="_blank">http://zero-install.sourceforge.net/</a><br />
+<br />
+klik - Linux Software Download<br />
+<a href="http://klik.atekon.de/" target="_blank">http://klik.atekon.de/</a>Hi Guys, I'd like to know if there is a distro that is based on the excellent Autopackage system. This would be so much better than &quot;emerge firefox&quot;, &quot;sudo apt-get install firefox&quot;, &quot;yum install firefox&quot; or any other complicated command line <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/mad.gif" border="0" alt="" title="Mad" class="inlineimg" /> <br />
+<br />
+Thanks,

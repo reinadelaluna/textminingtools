@@ -1,0 +1,27 @@
+It depends on the shell you are using. If it is csh it works, but, for example, you have to use export in case you use bash.<br />
+type csh and the you´ll be able to use setenv.<br />
+<br />
+Hope this helps.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by IBP </i><br />
+<b>Thanks for that, what is the difference between bash and csh, and why are such useful things as setenv not implemented in bash?<br />
+</b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+Bash and csh have two different syntax structures.  Both have similar functionality, but do things slightly differently.  For example:<br />
+in csh: setenv VAR value<br />
+in bash: export VAR=valueHow do you do a setenv in redhat 8.0 ? - setenv doesn't appear to be a command which can be called in the same way as on unix.<br />
+<br />
+ThanksThanks for that, what is the difference between bash and csh, and why are such useful things as setenv not implemented in bash?<br />
+<br />
+Software I am trying to use has a script run from &lt;cshrc&gt; in the form 'alias source /home/x/bin/setupprog' (I am just trying to run it in bashrc) that sets global variables using setenv. Since setenv doesn't work in bash can I just put the line '#! /bin/csh' at the start of the script (which is then called as an alias) ?<br />
+<br />
+Cheers

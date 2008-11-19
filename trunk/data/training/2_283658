@@ -1,0 +1,82 @@
+I wrote a script. It works clear in console while i am in as root user.<br />
+browser:<br />
+<a href="http://localhost/cgi-bin/firstcgi.pl" target="_blank">http://localhost/cgi-bin/firstcgi.pl</a><br />
+can write to a file but can not creat.<br />
+is there administration problem?<br />
+is it possible to give extra grants to a script? or apache?<br />
+if you need i can write the script.<br />
+ code here :<br />
+###########################start{}<br />
+#!/usr/bin/perl<br />
+$method=$ENV{'REQUEST_METHOD'};<br />
+if ($method eq &quot;GET&quot;){<br />
+	$form_data=$ENV{'QUERY_STRING'};<br />
+}<br />
+else{<br />
+	read(STDIN, $form_data, $ENV{'CONTENT_LENGTH'});<br />
+}<br />
+$form_data=~s/%(..)/pack(&quot;c&quot;, hex($1))/eg;<br />
+$form_data=~tr/+/ /;<br />
+@pairs=split(&quot;&amp;&quot;, $form_data);<br />
+foreach $pair(@pairs){<br />
+	($name, $value)=split(/=/, $pair);<br />
+	$frm{$name}=$value;<br />
+}<br />
+<br />
+&amp;html_bashlat;<br />
+	#open(FIN,&quot;&gt;&gt;makefilein.txt&quot;) or die &quot;Fayl in acilmadi\n &quot;;<br />
+open(FIL,&quot;&lt;makefilen.txt&quot;) or die &quot;Fayl in acilmadi\n &quot;;<br />
+	#flock(FIN, 2) or die &quot;Fayl ekskluziv olaraq baglanila bilinmedi\n ($!)&quot;;<br />
+	#open(FIL,&quot;+&gt;makefilen.txt&quot;) or die &quot;Fayl n acilmadi\n &quot;;<br />
+	#print FIN &quot;salam ala nuppala \n&quot;;<br />
+$a=&lt;FIL&gt;+1;<br />
+close(FIL);<br />
+open(FIL,&quot;&gt;makefilen.txt&quot;) or die &quot;Fayl n acilmadi\n &quot;;;<br />
+print FIL &quot;$a&quot;;<br />
+close(FIL);<br />
+$F='eth'.$a;<br />
+open(NEWF, &quot;&gt;&quot;.$F);<br />
+print NEWF &quot;$frm{'ip'}&quot;;<br />
+	#print &quot;$c $frm{'ip'}&quot;;<br />
+	#print NEWF ($frm{'zirt'}).&quot;\n&quot;;<br />
+	#print NEWF ($frm{'pirt'}).&quot;\n&quot;;<br />
+close(NEWF);<br />
+	#$a=7;<br />
+	#$a=$a+&lt;FIL&gt;;<br />
+	#print &quot;$a&quot;.&quot;\n&quot;;<br />
+	#print (&lt;FIL&gt;.&quot;\n&quot;);<br />
+	#flock(FIN, 8) or die &quot;Fayl ekskluzivlikden azad oluna bilinmedi\n &quot;;<br />
+	#close(FIN);<br />
+	#print &quot;$frm{'ip'}&quot;;	<br />
+&amp;html_kapat;<br />
+        #system(&quot;chmod 0777 *&quot;); <br />
+exit;<br />
+sub baglanti_kurulamadi{<br />
+	&amp;html_bashlat;<br />
+	print &quot;&lt;p&gt;&lt;h2&gt;&quot;;<br />
+	print &quot;$sunucu veri tabani sunucusuna baglanti kurulamadi!&quot;;<br />
+	print &quot;&lt;/h2&gt;&quot;;<br />
+	&amp;html_kapat;<br />
+	exit;<br />
+}<br />
+sub html_bashlat{<br />
+	print &quot;Content-type:text/html\n\n&quot;;<br />
+	print &quot;&lt;html&gt;\n&quot;;<br />
+#turkce karakterler sorunsuz gorunsun diye..<br />
+	print &quot;&lt;meta http-equiv='Content-Type' &quot;;	<br />
+	print &quot;      content='text/html; charset=iso-8859-9'&gt;\n&quot;;<br />
+	print &quot;&lt;meta http-equiv='Content-Type' &quot;;	<br />
+	print &quot;      content='text/html; charset=windows-1254'&gt;\n&quot;;<br />
+	print &quot;&lt;body&gt;\n&quot;;<br />
+}<br />
+sub html_kapat{<br />
+	print &quot;&lt;/body&gt;&lt;/html&gt;\n&quot;;<br />
+}<br />
+<br />
+<br />
+#####################end;<br />
+thanks in advance.<br />
+<br />
+My guess is its a permissions problem. To be able to write to an existing file, you must have write permission on that file, but to be able to create a file, you must have write permission on the directory that will contain it, which would explain why it works if the file's already there.<br />
+<br />
+This also explains why it works fine when run from the command line as root, because of course root almost certainly does have write permissions on the directory.

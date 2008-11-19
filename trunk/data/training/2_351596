@@ -1,0 +1,40 @@
+Hmm, a bit of a crude method you might want to try would be softlinking the OSS library to the alsa one, or somehow switching them so Java thinks it is using the OSS one, when really it is using alsa. Or maybe Google can find some results about how to point Java to a different library (I imagine since they are both included it wouldn't be too too hard).It's a drag, but some apps don't use Alsa and will not work. Even Mozilla Thunderbird doesn't use Alsa...I have heard that esound allows multiple sound channels at once. Not a huge issue for me so I haven't looked into it heavily...<br />
+No idea on the Java issue though, I imagine that it just says &quot;play sound&quot; to the audio layer, and Linux does the rest.OK, but can anyone explain this:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:130px; overflow:auto"><div dir="ltr" style="text-align:left;">$cd /usr/java/jre1.5.0_04/lib/i386
+$ls libjsound*
+libjsoundalsa.so  libjsound.so
+$ldd libjsoundalsa.so
+...
+libasound.so.2 =&gt; /lib/libasound.so.2 (0x001d3000)
+...</div></pre>
+</div>
+<br />
+My guess is libjsound.so is OSS and libjsoundalsa.so is ALSA. Just don't know how to tell Java which to use.<br />
+<br />
+Plan B: Make OSS behave correctly. How do I force legacy apps into not opening OSS exclusively?<br />
+<br />
+Also, if I had hardware mixing, this would have worked right?After some googling I finally found out how to make most linux apps be more cooperative WRT sound (meaning they should not hijack the soundcard for themselves like win95 back in the days). The really simple solution I used was to have the following in my /etc/asound.conf:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:274px; overflow:auto"><div dir="ltr" style="text-align:left;">pcm.!default {
+type plug
+slave.pcm &quot;swmixer&quot;
+}
+
+pcm.swmixer {
+type dmix
+ipc_key 1234
+slave {
+pcm &quot;hw:0,0&quot;
+period_time 0
+period_size 1024
+buffer_size 4096
+rate 44100
+}
+}</div></pre>
+</div>
+Works well for most apps (VLC, gstreamer, xine, ...)<br />
+Anyway, Java ignores this. If I have a Java applet with sound, subsequent sound playback will fail (e.g. opening a movie with VLC after loading a page with an applet with sound). The other way around also fails (the applet will fail while playing a movie).<br />
+I am not sure exactly what's going on, but it seems Java is using the OSS emulation layer (lsof showed java_vm opened /dev/dsp). I did rmmod snd_pcm_oss and then java_vm opened /dev/snd/pcmC0D0p instead, this is the same device as e.g. VLC will open, but it still won't cooperate. This is rather annoying and I would like to fix it somehow. Anyone?

@@ -1,0 +1,54 @@
+MasterC,<br />
+<br />
+In the command:<br />
+dd if=/dev/cdrom conv=noerror | cdrecord dev=x,x,x speed=x -v -eject -<br />
+<br />
+is there some intermediate temporary file?  What logic keeps dd from trying to read from the CD while cdrecord is writing to the CD?All of the above assume that you have a data CD, not an audio CD.<br />
+The following does too:<br />
+if you have only one drive use MasterC's method, but output to <br />
+hard drive first:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:50px; overflow:auto"><div dir="ltr" style="text-align:left;">dd if=/dev/cdrom of=/tmp/cd_image
+cdrecord dev=x,x,x speed=y -v /tmp/cd_image</div></pre>
+</div>
+Of course, /tmp needs to have 650 or 700 MB free space.I use a three step process to copy a CD to another CD.  I use the command line.<br />
+<br />
+1.  Copy the first CD to a hard disk using the cp command.<br />
+<br />
+2.  Use the mkisofs command to create an iso image file.<br />
+<br />
+3.  Use the cdrecord command to burn the iso image file to a CD-R                 <br />
+     or CD-RWFor audio CDs, you need to use cdda2wav or paranoia. The command is the samething like the dd. Read the manual pages for either cdda2wav or paranoia.i have set up a script for making mine.  i use it to copy disks for others.  haven't given it a shot for music cd's, but i think that it would work.<br />
+<br />
+#!/bin/bash<br />
+dd if=/dev/hdd | cdrecord -v speed=12 dev=0,0,0 fs=8m -data - &amp;&amp;<br />
+diff -r /cdrom /cdrom1<br />
+<br />
+i put the diff command there just to be sure that they have copied correctly.<br />
+<br />
+if your going to use it, make it exe and then put in in bin.  call it what ever you want, mine is cpcd, then all you have to do is to type that at the cmd line.<br />
+<br />
+cheers.You can do it in what will appear to be a 1 step:<br />
+dd if=/dev/cdrom conv=noerror | cdrecord dev=x,x,x speed=x -v -eject -<br />
+Don't miss that last -<br />
+<br />
+And the:<br />
+dev=x,x,x<br />
+Is substituted with what you get for your device from:<br />
+cdrecord -scanbus<br />
+<br />
+HTH<br />
+<br />
+Coolhi,<br />
+<br />
+i am currently trying to copy a CD to another CD... how?<br />
+i tried &quot;roaster&quot; (i almost forget the name of the software... but, it is shipped with the RH9 package...)??, but, it failed....<br />
+any how-to or guidances?? before that, when i am a windows user, i am using nero to burn my CD... it is pretty straight forward and easy to get the way......anyway, pls advise.... thanks...<br />
+<br />
+cheers,<br />
+yenonnstdout is the 'intermediate' file.  That's where - comes in on the end of cdrecord.  The - says &quot;take from stdin&quot;.<br />
+<br />
+dd does read.  It reads from the source cd in the /dev/cdrom slot.  The above does assume 2 drives, 1 burner and 1 source.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
+<br />
+Cool

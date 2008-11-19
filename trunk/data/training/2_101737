@@ -1,0 +1,25 @@
+I've been using Red Hat for along time now. I'm about to buy a book on linux so I have a reference to look stuff up with and to learn about this scripting thing, etc.<br />
+<br />
+But I hear a lot of fuss about Debian. I've used their apt-get and synaptic too. I like apt-get a lot.<br />
+<br />
+So what's so great about Debian?<br />
+<br />
+And ummm... which of those CD's do I need? There's like a million of them and I can't find a strait answer upon which ones are for what. I don't think I need them all.<br />
+<br />
+Thanxthere is a spot where you choose ftp or http sites for downloading files, cant remember where exactly at the moment, but it should be fairly obvious.   At the end of the installer, there is a taskel and dselect part that installs programs - I didn't run either and ended the installer.  After this you are left with the bare-bones system, and you will need to install any program, including x.  I have woody and apt-get only looked at the stable packages list, which isnt all that up to date.  I added the testing packages by adding those files to the sources.list file.I mostly use a minimal boot CD (based on bf2.4) to install Debian since I have decent cable modem connection. It contains the bare bones system and is only a 20MB download (or thereabouts). Use it to install the base system, then apt-get or dselect to get whatever you need. This is particularily nice if you like to use testing or unstable since you don't have to spend time installing the stable first. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+hwif you like apt-get, you only need disk 1,  everything else you need, you can just apt-get it.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by asb </i><br />
+<b>if you like apt-get, you only need disk 1,  everything else you need, you can just apt-get it. </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+Kewl! Is that going to be an obvious option in the installer or do I have to just select the minimal stuff and then do a dist upgrade?

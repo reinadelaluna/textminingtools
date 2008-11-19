@@ -1,0 +1,31 @@
+Hi, I am having a very tough time getting to understand the kernel and modules. I dont.<br />
+<br />
+I want &gt; to install the realtime kernel module.<br />
+<br />
+I have &gt; Debian 3.1, using the kernel image 2.6.8-2-k7 from the deb package. I have the headers package installed, and the 2.6.8 source package installed.<br />
+<br />
+I tried &gt; downloading the realtime-lsm source from their sourceforge page. I tried compiling, but it complained about not having kernel sources. This is when i installed the debain 2.6.8 kernel source package and extracted the archive it installed. I copied the config-2.6.8-2-k7 file from /boot to the source directory (renaming it to .config). Then ran 'make' in there(I imagine unnecessary to comile the whole lot, but I dont know how otherwise). Then ran 'make'(including the paremeter to specify where the kernel source is) in the directory where I download the realtime-lsm. It apears to have compiled fine. I'm sure I've done wrong above, and I don't know what to do now.<br />
+<br />
+I'd be greatfull if someone could point me in the right direction.<br />
+<br />
+I also wonder why do some packages require the kernel source to comple. I installed the nvidia driver using the instaler from nvidia.com, but it only required the headers.<br />
+<br />
+thanksHi! <br />
+can anyone give the detail of kernel compiling stepGreetings,<br />
+<br />
+ After you insert your .config file run:<br />
+<br />
+make oldconfig<br />
+<br />
+This will probably prompt you to fill in blanks to the config that have been implemented in the new kernel version. After that completes the proper series of &quot;makes&quot; are:<br />
+<br />
+make modules<br />
+make modules_install<br />
+make bzImage<br />
+make install<br />
+<br />
+You'll have to configure your boot loader to include the new kernel and then reboot.Hi,<br />
+<br />
+ Take a look at this:<br />
+<br />
+<a href="http://www.rhtalk.com/showthread.php?t=6&amp;highlight=kernel" target="_blank">http://www.rhtalk.com/showthread.php...ghlight=kernel</a>

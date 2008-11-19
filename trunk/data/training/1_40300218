@@ -1,0 +1,290 @@
+Package: apache2-common
+<br />
+Version: 2.0.48-7
+<br />
+
+<br />
+Installed is Sarge with apache, zope and plone
+<br />
+
+<br />
+I tried to install apache2-common package.
+<br />
+
+<br />
+apt-get install apache2-common
+<br />
+The package was retrieved, unpacked an start to install.
+<br />
+The information for the Security Certificate have been requestet.
+<br />
+After that the ssl keys have been created i endet at the bash without any
+<br />
+error message,
+<br />
+but trying to start apache 2 fails due the lack of apache2 bin in /usr/sbin/
+<br />
+/etc/init.d/apache2 tries to start /usr/sbin/apache2
+<br />
+
+<br />
+The Package state is installed.
+<br />
+When i try to purge it the config files in /etc/apache 2 are not removed.
+<br />
+
+<br />
+Dominik Sennfelder
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+Your message dated Mon, 15 Mar 2004 14:06:42 +0000
+<br />
+with message-id &lt;20040315140642.GD5793@mirror.positive-internet.com&gt;
+<br />
+and subject line Are you able to read?
+<br />
+has caused the attached Bug report to be marked as done.
+<br />
+
+<br />
+This means that you claim that the problem has been dealt with.
+<br />
+If this is not the case it is now your responsibility to reopen the
+<br />
+Bug report if necessary, and/or fix the problem forthwith.
+<br />
+
+<br />
+(NB: If you are a system administrator and have no idea what I am
+<br />
+talking about this indicates a serious mail system misconfiguration
+<br />
+somewhere.  Please contact me immediately.)
+<br />
+
+<br />
+Debian bug tracking system administrator
+<br />
+(administrator, Debian Bugs database)
+<br />
+
+<br />
+--------------------------------------
+<br />
+Received: (at submit) by bugs.debian.org; 15 Mar 2004 13:39:51 +0000
+<br />
+&gt;From sennfelder@schnell-im-netz.de Mon Mar 15 05:39:51 2004
+<br />
+Return-path: &lt;sennfelder@schnell-im-netz.de&gt;
+<br />
+Received: from mailmx50.schnell-im-netz.de [62.134.152.2] 
+<br />
+	by spohr.debian.org with esmtp (Exim 3.35 1 (Debian))
+<br />
+	id 1B2sJr-00010Q-00; Mon, 15 Mar 2004 05:39:51 -0800
+<br />
+Received: from mail.schnell-im-netz.de [62.180.65.196] by mailmx50.schnell-im-netz.de with ESMTP
+<br />
+  (SMTPD32-8.05) id A20C64FB010E; Mon, 15 Mar 2004 14:39:24 +0100
+<br />
+Received: from svts01 [62.180.225.37] by mail.schnell-im-netz.de with ESMTP
+<br />
+  (SMTPD32-8.05) id A1FE36800120; Mon, 15 Mar 2004 14:39:10 +0100
+<br />
+From: &quot;Dominik Sennfelder &quot; &lt;sennfelder@schnell-im-netz.de&gt;
+<br />
+To: &lt;submit@bugs.debian.org&gt;
+<br />
+Subject: Apache2 installation fails on Sarge
+<br />
+Date: Mon, 15 Mar 2004 14:39:10 +0100
+<br />
+MIME-Version: 1.0
+<br />
+Content-Type: text/plain;
+<br />
+	charset=&quot;us-ascii&quot;
+<br />
+Content-Transfer-Encoding: 7bit
+<br />
+X-Mailer: Microsoft Office Outlook, Build 11.0.5510
+<br />
+Thread-Index: AcQKkuVbCtY3iIW4TgGgoMJcJsgD4w==
+<br />
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.3790.0
+<br />
+Message-Id: &lt;<a href="msg00218.html">200403151439289.SM01412@svts01</a>&gt;
+<br />
+X-Declude-Sender: sennfelder@schnell-im-netz.de [62.180.225.37]
+<br />
+X-Note: This E-mail was scanned by Declude JunkMail (www.declude.com) for spam.
+<br />
+Organization: info@schnell-im-netz.de
+<br />
+Delivered-To: submit@bugs.debian.org
+<br />
+X-Spam-Checker-Version: SpamAssassin 2.60-bugs.debian.org_2004_03_12 
+<br />
+	(1.212-2003-09-23-exp) on spohr.debian.org
+<br />
+X-Spam-Status: No, hits=-6.4 required=4.0 tests=BAYES_01,HAS_PACKAGE,
+<br />
+	MISSING_OUTLOOK_NAME autolearn=no 
+<br />
+	version=2.60-bugs.debian.org_2004_03_12
+<br />
+X-Spam-Level: 
+<br />
+
+<br />
+Package: apache2-common
+<br />
+Version: 2.0.48-7
+<br />
+
+<br />
+Installed is Sarge with apache, zope and plone
+<br />
+
+<br />
+I tried to install apache2-common package.
+<br />
+
+<br />
+apt-get install apache2-common
+<br />
+The package was retrieved, unpacked an start to install.
+<br />
+The information for the Security Certificate have been requestet.
+<br />
+After that the ssl keys have been created i endet at the bash without any
+<br />
+error message,
+<br />
+but trying to start apache 2 fails due the lack of apache2 bin in /usr/sbin/
+<br />
+/etc/init.d/apache2 tries to start /usr/sbin/apache2
+<br />
+
+<br />
+The Package state is installed.
+<br />
+When i try to purge it the config files in /etc/apache 2 are not removed.
+<br />
+
+<br />
+Dominik Sennfelder
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+---------------------------------------
+<br />
+Received: (at 238123-done) by bugs.debian.org; 15 Mar 2004 14:06:44 +0000
+<br />
+&gt;From thom@debian.org Mon Mar 15 06:06:44 2004
+<br />
+Return-path: &lt;thom@debian.org&gt;
+<br />
+Received: from mirror.positive-internet.com [80.87.128.67] (postfix)
+<br />
+	by spohr.debian.org with esmtp (Exim 3.35 1 (Debian))
+<br />
+	id 1B2sjs-0002sl-00; Mon, 15 Mar 2004 06:06:44 -0800
+<br />
+Received: by mirror.positive-internet.com (Postfix, from userid 1002)
+<br />
+	id 01326432FA; Mon, 15 Mar 2004 14:06:42 +0000 (GMT)
+<br />
+Date: Mon, 15 Mar 2004 14:06:42 +0000
+<br />
+From: Thom May &lt;thom@debian.org&gt;
+<br />
+To: 238123-done@bugs.debian.org
+<br />
+Subject: Are you able to read?
+<br />
+Message-ID: &lt;20040315140642.GD5793@mirror.positive-internet.com&gt;
+<br />
+Mime-Version: 1.0
+<br />
+Content-Type: text/plain; charset=iso-8859-1
+<br />
+Content-Disposition: inline
+<br />
+X-Operating-System: Linux/2.6.2-1-686 (i686)
+<br />
+User-Agent: Mutt/1.5.5.1+cvs20040105i
+<br />
+Delivered-To: 238123-done@bugs.debian.org
+<br />
+X-Spam-Checker-Version: SpamAssassin 2.60-bugs.debian.org_2004_03_12 
+<br />
+	(1.212-2003-09-23-exp) on spohr.debian.org
+<br />
+X-Spam-Status: No, hits=-2.0 required=4.0 tests=BAYES_00 autolearn=no 
+<br />
+	version=2.60-bugs.debian.org_2004_03_12
+<br />
+X-Spam-Level: 
+<br />
+
+<br />
+Quoting from the description of apache2-common:
+<br />
+ This package contains all the standard apache2 modules, including SSL
+<br />
+ support.
+<br />
+ However, it does *not* include the server itself; for this you need to
+<br />
+ install one of the apache2-mpm-* packages; such as worker or prefork.
+<br />
+
+<br />
+Which part of this is tricky?
+<br />
+-Thom
+<br />
+
+<br />
+
+<br />
+
+<br />

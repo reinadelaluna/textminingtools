@@ -1,0 +1,58 @@
+And what kind of connection do you have <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" /><br />
+<br />
+Coolppp0<br />
+That tells me your ISP requires PPP to connect to them.  Since you are rx/tx packets without loss though, you shouldn't be having any problems.  I'm now leaning towards a nameserver problem.  Try pinging me:<br />
+ping -c5 4.65.24.211<br />
+And <br />
+ping -c5 masterc.no-ip.org<br />
+<br />
+Post up the results of both.<br />
+<br />
+CoolHow to get online with mandrake 9.1? <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> stupid question i know but until now i only had suse and there was kinternet with that i could connect with only one click... btw: I use KDE on mandrakeWoohoo!  Mandrake rocks!  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+CoolRight i don't know <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> so here it is <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+eth0      Protokoll:Ethernet  Hardware Adresse 00:30:84:7A:A5:34<br />
+          inet Adresse:10.0.0.10  Bcast:10.0.0.255  Maske:255.255.255.0<br />
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1<br />
+          RX packets:14 errors:0 dropped:0 overruns:0 frame:0<br />
+          TX packets:49 errors:0 dropped:0 overruns:0 carrier:0<br />
+          Kollisionen:0 Sendewarteschlangenlänge:100<br />
+          RX bytes:846 (846.0 b)  TX bytes:4764 (4.6 Kb)<br />
+          Interrupt:11 Basisadresse:0xc000<br />
+<br />
+lo        Protokoll:Lokale Schleife<br />
+          inet Adresse:127.0.0.1  Maske:255.0.0.0<br />
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1<br />
+          RX packets:53 errors:0 dropped:0 overruns:0 frame:0<br />
+          TX packets:53 errors:0 dropped:0 overruns:0 carrier:0<br />
+          Kollisionen:0 Sendewarteschlangenlänge:0<br />
+          RX bytes:3486 (3.4 Kb)  TX bytes:3486 (3.4 Kb)<br />
+<br />
+ppp0      Protokoll:Punkt-zu-Punkt Verbindung<br />
+          inet Adresse:217.236.70.38  P-z-P:217.5.98.102  Maske:255.255.255.255<br />
+          UP PUNKTZUPUNKT RUNNING NOARP MULTICAST  MTU:1492  Metric:1<br />
+          RX packets:3 errors:0 dropped:0 overruns:0 frame:0<br />
+          TX packets:11 errors:0 dropped:0 overruns:0 carrier:0<br />
+          Kollisionen:0 Sendewarteschlangenlänge:3<br />
+          RX bytes:54 (54.0 b)  TX bytes:728 (728.0 b)<br />
+ <br />
+My ISP doesn't support linux systems so i haven't any idea...DSLDo you obtain your IP via DHCP?  If you don't know, can you post up what you get from opening a terminal and typing:<br />
+/sbin/ifconfig<br />
+<br />
+DSL, unless you require PPP setup, should be either straight forward info from your ISP for your static setup, or easy as pie with DHCP.<br />
+<br />
+Cool[pacman@localhost pacman]$ ping -c5 4.65.24.211<br />
+PING 4.65.24.211 (4.65.24.211) 56(84) bytes of data.<br />
+<br />
+--- 4.65.24.211 ping statistics ---<br />
+5 packets transmitted, 0 received, 100% packet loss, time 4016ms<br />
+<br />
+[pacman@localhost pacman]$ ping -c5 masterc.no-ip.org<br />
+PING masterc.no-ip.org (4.65.24.211) 56(84) bytes of data.<br />
+<br />
+--- masterc.no-ip.org ping statistics ---<br />
+5 packets transmitted, 0 received, 100% packet loss, time 4012ms<br />
+<br />
+<br />
+dammit!! i just started Konqueror and went to web.de and i'm online!! my system tells me not a bit of being online but i'm online!! and the packages above seem to be lost <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> but i'm online!! thanks <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />

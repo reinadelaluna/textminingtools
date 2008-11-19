@@ -1,0 +1,15 @@
+Hello all<br />
+<br />
+   While trying to configure gtk+-1.2 in Red Hat 8.0 I got the following error.<br />
+<br />
+checking for X... no<br />
+configure: error: <br />
+*** X libraries or include files not found. Check 'config.log' for <br />
+*** more details.<br />
+<br />
+<br />
+Can anyone tell me why is that?Sorry, my memmory is a bit foggy so I had to look it up again. I had the same problem some time back (<a href="http://www.linuxquestions.org/questions/showthread.php?s=&amp;threadid=195254" >this</a> is the sollution I got)<br />
+<br />
+You should look for the XFree86-devel packages for your distro and version.Hello linmix<br />
+<br />
+  Could you please give me the link of X windows-devel. I couldnot find .you haven't installed xwindows-devel-***.rpm (or similar)

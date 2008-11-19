@@ -1,0 +1,562 @@
+Hello Manu,
+<br />
+
+<br />
+El lun, 21-03-2005 a las 10:03 -0800, Manu escribi&#xF3;:
+<br />
+
+<br />
+&gt; 1)  have installed this package as I have an AMD64 
+<br />
+&gt; * kernel-image-2.6.10-9-amd64-k8
+<br />
+&gt; 
+<br />
+&gt; is it a 32 bit package or 64bits? 
+<br />
+&gt; Anything special to this kernel ?   
+<br />
+
+<br />
+As far as I know it's a 64-bit kernel with IA32 emulation. In other
+<br />
+words, the kernel is 64-bit, but it supports a 32-bit user-land.
+<br />
+
+<br />
+&gt; Am I better of using a really x386 package for now?
+<br />
+
+<br />
+That depends on what you expect from a 64-bit system.
+<br />
+
+<br />
+
+<br />
+&gt; I tried to compile using /debian/rules binary-modules
+<br />
+&gt; and here is what  I get:
+<br />
+&gt; &gt; # build and install the module
+<br />
+&gt; &gt; /usr/bin/make KPKG_EXTRAV_ARG= KSRC=/usr/src/linux \
+<br />
+&gt; &gt; KVER=2.6.10-9-amd64-k8 \
+<br />
+&gt; &gt; 
+<br />
+&gt; INST_DIR=debian/ndiswrapper-modules-2.6.10-9-amd64-k8/lib/modules/2.6.10-9-amd64-k8/misc/
+<br />
+&gt; &gt; install
+<br />
+&gt; &gt; make[1]: Entering directory
+<br />
+&gt; &gt; `/usr/src/modules/ndiswrapper'
+<br />
+&gt; &gt; /usr/bin/make -C /usr/src/linux
+<br />
+&gt; &gt; SUBDIRS=/usr/src/modules/ndiswrapper \
+<br />
+&gt; &gt;         NDISWRAPPER_VERSION=1.0rc2 \
+<br />
+&gt; &gt; 	        EXTRA_VERSION= modules
+<br />
+&gt; &gt; 		make[2]: Entering directory
+<br />
+&gt; &gt; `/usr/src/kernel-headers-2.6.10-9-amd64-k8'
+<br />
+&gt; &gt; 		  CC [M]  /usr/src/modules/ndiswrapper/hal.o
+<br />
+&gt; &gt; 		  cc1: error: code model `kernel' not supported in
+<br />
+&gt; &gt; the 32 bit mode
+<br />
+
+<br />
+I'm not sure, but it looks like you're using a version of ndiswrapper
+<br />
+that doesn't support AMD64. I recommend you use the latest version. I
+<br />
+got 1.1 to work on a 64-bit kernel without any problem. I don't think
+<br />
+that you'll be able to compile a version for a 64-bit kernel with the
+<br />
+stock 32-bit compiler; I can send you the compiled ndiswrapper I use if
+<br />
+you want (64-bit, not a Debian package). Have in mind that you will need
+<br />
+a 64-bit NIC driver (available for Broadcom cards).
+<br />
+
+<br />
+I must say that it was much easier for me to install and set up a pure
+<br />
+64-bit distribution than what you are trying to accomplish, but your
+<br />
+mileage may vary.
+<br />
+
+<br />
+-- 
+<br />
+Javier Kohen &lt;jkohen@users.sourceforge.net&gt;
+<br />
+ICQ: blashyrkh #2361802
+<br />
+Jabber: jkohen@jabber.org
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00080.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> Esta parte del mensaje =?ISO-8859-1?Q?est=E1?= firmadadigitalmente</p>
+<br />
+
+<br />
+Hi, 
+<br />
+
+<br />
+I just bought a ferrari 3400. And verything seems to
+<br />
+works beside my WIFI and Sounds (work but using OSS..
+<br />
+I have a strange noise when using ESD from gnome until
+<br />
+I start playing a music....).. I have installed the
+<br />
+debian testing CD (supposely I should be in 32 bits
+<br />
+mode)
+<br />
+
+<br />
+Anyway  I have few questions as I have some problems
+<br />
+configuring the WIFI:
+<br />
+
+<br />
+1)  have installed this package as I have an AMD64 
+<br />
+* kernel-image-2.6.10-9-amd64-k8
+<br />
+
+<br />
+is it a 32 bit package or 64bits? 
+<br />
+Anything special to this kernel ?   
+<br />
+
+<br />
+Am I better of using a really x386 package for now?
+<br />
+
+<br />
+2) I need to use the ndiswrapper for my broadcom WIFI
+<br />
+card ,  I have downloaded the 2 packages
+<br />
+kernel-source-2.6.10 and kernel-headers-2.6.10-9  I
+<br />
+have bunzip2 and untar both of them
+<br />
+I made a link /usr/src/linux to point to the
+<br />
+kernel-source-2.6.10
+<br />
+I tried to compile using /debian/rules binary-modules
+<br />
+and here is what  I get:
+<br />
+&gt; # build and install the module
+<br />
+&gt; /usr/bin/make KPKG_EXTRAV_ARG= KSRC=/usr/src/linux \
+<br />
+&gt; KVER=2.6.10-9-amd64-k8 \
+<br />
+&gt; 
+<br />
+INST_DIR=debian/ndiswrapper-modules-2.6.10-9-amd64-k8/lib/modules/2.6.10-9-amd64-k8/misc/
+<br />
+&gt; install
+<br />
+&gt; make[1]: Entering directory
+<br />
+&gt; `/usr/src/modules/ndiswrapper'
+<br />
+&gt; /usr/bin/make -C /usr/src/linux
+<br />
+&gt; SUBDIRS=/usr/src/modules/ndiswrapper \
+<br />
+&gt;         NDISWRAPPER_VERSION=1.0rc2 \
+<br />
+&gt; 	        EXTRA_VERSION= modules
+<br />
+&gt; 		make[2]: Entering directory
+<br />
+&gt; `/usr/src/kernel-headers-2.6.10-9-amd64-k8'
+<br />
+&gt; 		  CC [M]  /usr/src/modules/ndiswrapper/hal.o
+<br />
+&gt; 		  cc1: error: code model `kernel' not supported in
+<br />
+&gt; the 32 bit mode
+<br />
+&gt; 		  make[3]: ***
+<br />
+[/usr/src/modules/ndiswrapper/hal.o]
+<br />
+&gt; Error 1
+<br />
+&gt; 		  make[2]: ***
+<br />
+&gt; [_module_/usr/src/modules/ndiswrapper] Error 2
+<br />
+&gt; 		  make[2]: Leaving directory
+<br />
+&gt; `/usr/src/kernel-headers-2.6.10-9-amd64-k8'
+<br />
+&gt; 		  make[1]: *** [default] Error 2
+<br />
+&gt; 		  make[1]: Leaving directory
+<br />
+&gt; `/usr/src/modules/ndiswrapper'
+<br />
+&gt; 		  make: *** [binary-modules] Error 2
+<br />
+
+<br />
+Any help would be really appreciated!
+<br />
+
+<br />
+Thanks
+<br />
+
+<br />
+Manu
+<br />
+
+<br />
+
+<br />
+
+<br />
+__________________________________________________
+<br />
+Do You Yahoo!?
+<br />
+Tired of spam?  Yahoo! Mail has the best spam protection around 
+<br />
+<a  href="http://mail.yahoo.com">http://mail.yahoo.com</a> 
+<br />
+
+<br />
+
+<br />
+
+<br />
+Hi Manu,
+<br />
+
+<br />
+El lun, 21-03-2005 a las 10:31 -0800, Manu escribi&#xF3;:
+<br />
+&gt; Hi Javier
+<br />
+&gt;  
+<br />
+&gt; &gt; 
+<br />
+&gt; &gt; As far as I know it's a 64-bit kernel with IA32
+<br />
+&gt; &gt; emulation. In other
+<br />
+&gt; &gt; words, the kernel is 64-bit, but it supports a
+<br />
+&gt; &gt; 32-bit user-land.
+<br />
+&gt; 
+<br />
+&gt; Ah , that
+<br />
+
+<br />
+
+<br />
+... partially...
+<br />
+
+<br />
+&gt; explains all the problem I had... I am not
+<br />
+&gt; ready to fully move to 64 bits as not all the packages
+<br />
+&gt; are working.. I need to run openoffice,gimp and other
+<br />
+&gt; package that are 32 bits only and I am not sure it is
+<br />
+&gt; worth the trouble yet to have a mixed environment. 
+<br />
+
+<br />
+Installing a 64-bit kernel leaves you with a 32-bit environment that
+<br />
+could potentially run 64-bit binaries (given that you installed, too,
+<br />
+the necessary libraries). Everything should work as expected, except for
+<br />
+some kernel drivers and applications that interact with them in special
+<br />
+ways (hence your sound problems, I guess).
+<br />
+
+<br />
+&gt; how do you use your 64bit environment? Server ?
+<br />
+&gt; desktop(dev, office...)? I am wanting to try the full
+<br />
+&gt; 64 bits but again, it is for a laptop usage so I
+<br />
+&gt; really want it to use
+<br />
+
+<br />
+Desktop (laptop, actually), development. I've used a standard 32-bit
+<br />
+Debian for half a year or so on this same laptop until I managed to
+<br />
+corrupt the root partition (absolutely my fault) and had to
+<br />
+reinstall :-)
+<br />
+
+<br />
+Using the 64-bit kernel that's part of the 32-bit distribution proved to
+<br />
+be more trouble than success for me, but I can't speak for everybody
+<br />
+(after all, somebody must be using it, otherwise why would it be
+<br />
+there?).
+<br />
+
+<br />
+&gt; &gt; &gt; Am I better of using a really x386 package for
+<br />
+&gt; &gt; now?
+<br />
+&gt; &gt; 
+<br />
+&gt; &gt; That depends on what you expect from a 64-bit
+<br />
+&gt; &gt; system.
+<br />
+&gt; I don t really need anything yet in 64 bit. All I need
+<br />
+&gt; is to run my debian on it and to be able to use ACPI,
+<br />
+&gt; WIFI, Sound , video ...etc. so if I use a generic x86
+<br />
+&gt; , should it work fine?
+<br />
+
+<br />
+Well, I don't need 64-bit either; but I can use it, so I do. You should
+<br />
+be fine with x86.
+<br />
+
+<br />
+
+<br />
+&gt; so do how to you use openoffice and 32 bit packages?
+<br />
+&gt; is it more complicated ? does it require too effort
+<br />
+&gt; everytime your want to run a 32 bit ? If not I might
+<br />
+&gt; consider to use a full 64 bit
+<br />
+
+<br />
+Not really, once you've set up a 32-bit chroot that becomes trivial. The
+<br />
+Debian AMD64 FAQ covers setting up the chroot pretty well and it can
+<br />
+hardly go wrong if you follow the instructions. I even think I read it's
+<br />
+possible to use OpenOffice from outside the chroot, but you'll probably
+<br />
+need it for other stuff anyway (Flash animations, Win32 video codecs,
+<br />
+etc).
+<br />
+
+<br />
+If you don't want to bother, stick to 32-bit until the world better
+<br />
+acknowledges AMD64.
+<br />
+
+<br />
+-- 
+<br />
+Javier Kohen &lt;jkohen@users.sourceforge.net&gt;
+<br />
+ICQ: blashyrkh #2361802
+<br />
+Jabber: jkohen@jabber.org
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00081.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> Esta parte del mensaje =?ISO-8859-1?Q?est=E1?= firmadadigitalmente</p>
+<br />
+
+<br />
+
+<br />
+Hi Javier
+<br />
+ 
+<br />
+&gt; 
+<br />
+&gt; As far as I know it's a 64-bit kernel with IA32
+<br />
+&gt; emulation. In other
+<br />
+&gt; words, the kernel is 64-bit, but it supports a
+<br />
+&gt; 32-bit user-land.
+<br />
+
+<br />
+Ah , that explains all the problem I had... I am not
+<br />
+ready to fully move to 64 bits as not all the packages
+<br />
+are working.. I need to run openoffice,gimp and other
+<br />
+package that are 32 bits only and I am not sure it is
+<br />
+worth the trouble yet to have a mixed environment. 
+<br />
+how do you use your 64bit environment? Server ?
+<br />
+desktop(dev, office...)? I am wanting to try the full
+<br />
+64 bits but again, it is for a laptop usage so I
+<br />
+really want it to use
+<br />
+
+<br />
+
+<br />
+&gt; 
+<br />
+&gt; &gt; Am I better of using a really x386 package for
+<br />
+&gt; now?
+<br />
+&gt; 
+<br />
+&gt; That depends on what you expect from a 64-bit
+<br />
+&gt; system.
+<br />
+I don t really need anything yet in 64 bit. All I need
+<br />
+is to run my debian on it and to be able to use ACPI,
+<br />
+WIFI, Sound , video ...etc. so if I use a generic x86
+<br />
+, should it work fine?
+<br />
+ 
+<br />
+
+<br />
+&gt; I'm not sure, but it looks like you're using a
+<br />
+&gt; version of ndiswrapper
+<br />
+&gt; that doesn't support AMD64. I recommend you use the
+<br />
+&gt; latest version. I
+<br />
+&gt; got 1.1 to work on a 64-bit kernel without any
+<br />
+&gt; problem. I don't think
+<br />
+&gt; that you'll be able to compile a version for a
+<br />
+&gt; 64-bit kernel with the
+<br />
+&gt; stock 32-bit compiler; I can send you the compiled
+<br />
+&gt; ndiswrapper I use if
+<br />
+&gt; you want (64-bit, not a Debian package). Have in
+<br />
+&gt; mind that you will need
+<br />
+&gt; a 64-bit NIC driver (available for Broadcom cards).
+<br />
+&gt; 
+<br />
+&gt; I must say that it was much easier for me to install
+<br />
+&gt; and set up a pure
+<br />
+&gt; 64-bit distribution than what you are trying to
+<br />
+&gt; accomplish, but your
+<br />
+&gt; mileage may vary.
+<br />
+&gt; 
+<br />
+
+<br />
+so do how to you use openoffice and 32 bit packages?
+<br />
+is it more complicated ? does it require too effort
+<br />
+everytime your want to run a 32 bit ? If not I might
+<br />
+consider to use a full 64 bit
+<br />
+
+<br />
+Thanks
+<br />
+
+<br />
+Manu
+<br />
+
+<br />
+
+<br />
+		
+<br />
+__________________________________ 
+<br />
+Do you Yahoo!? 
+<br />
+Yahoo! Small Business - Try our new resources site!
+<br />
+<a  href="http://smallbusiness.yahoo.com/resources/">http://smallbusiness.yahoo.com/resources/</a> 
+<br />
+
+<br />
+
+<br />
+
+<br />

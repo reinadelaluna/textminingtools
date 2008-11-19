@@ -1,0 +1,390 @@
+<tt><br>Hi,</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">I'm having a weird problem with the apache security upgrades. Does
+<br />
+anyone have a clue what might be going on here?<br>
+<br />
+<tt>Apt keeps having me download the same version over and over. I'm seeing 
+<br />
+this on both of my AMD64 servers.</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">The only thing I've done that is at all out of the ordinary is that I
+<br />
+have a locally compiled (backported) version of subversion, which
+<br />
+includes the libapache2-svn, but I don't see that it has any bearing
+<br />
+on this.<br>
+<br />
+<pre style="margin: 0em;">Apparently apt for some reason considers the version of apache it just
+<br />
+downloaded to be different from what is on the server.<br>
+<br />
+<pre style="margin: 0em;">theda:/home/faheem# apt-cache policy apache2
+<br />
+apache2:
+<br />
+  Installed: 2.0.54-5
+<br />
+  Candidate: 2.0.54-5
+<br />
+  Version Table:
+<br />
+     2.0.55-3 0
+<br />
+         50 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> unstable/main Packages
+<br />
+     2.0.54-5 0
+<br />
+         50 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> testing/main Packages
+<br />
+     2.0.54-5 0
+<br />
+        500 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main Packages
+<br />
+ *** 2.0.54-5 0
+<br />
+        100 /var/lib/dpkg/status
+<br />
+     2.0.54-4 0
+<br />
+        500 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> stable/main Packages<br>
+<br />
+<pre style="margin: 0em;">Any enlightenment appreciated. This is getting to be a rather annoying
+<br />
+problem.<br>
+<br />
+<tt>Please cc me; I'm not subscribed. Thanks.</tt><br>
+<br />
+<br>
+<br />
+<tt>                                                                Faheem.<br>
+<br />
+*****************************************************************************<br>
+<br />
+apt-get upgrade 
+<br />
+Reading Package Lists... Done<br>
+<br />
+Building Dependency Tree... Done<br>
+<br />
+The following packages will be upgraded:<br>
+<br />
+  apache2 apache2-common apache2-mpm-worker apache2-threaded-dev<br>
+<br />
+  apache2-utils libapr0 libapr0-dev<br>
+<br />
+7 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.<br>
+<br />
+Need to get 1757kB of archives.<br>
+<br />
+After unpacking 0B of additional disk space will be used.<br>
+<br />
+Do you want to continue? [Y/n] 
+<br />
+Get:1 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main libapr0 2.0.54-5 [137kB]<br>
+<br />
+Get:2 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main apache2-utils 2.0.54-5 [92.6kB]<br>
+<br />
+Get:3 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main apache2-common 2.0.54-5 [827kB]<br>
+<br />
+Get:4 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main apache2-mpm-worker 2.0.54-5 [220kB]<br>
+<br />
+Get:5 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main apache2 2.0.54-5 [33.4kB]<br>
+<br />
+Get:6 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main libapr0-dev 2.0.54-5 [279kB]<br>
+<br />
+Get:7 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main apache2-threaded-dev 2.0.54-5 [168kB]<br>
+<br />
+Fetched 1757kB in 3s (523kB/s) 
+<br />
+(Reading database ... 85869 files and directories currently installed.)<br>
+<br />
+Preparing to replace libapr0 2.0.54-5 (using .../libapr0_2.0.54-5_amd64.deb) ...<br>
+<br />
+Unpacking replacement libapr0 ...<br>
+<br />
+Preparing to replace apache2-utils 2.0.54-5 (using .../apache2-utils_2.0.54-5_amd64.deb) ...<br>
+<br />
+Unpacking replacement apache2-utils ...<br>
+<br />
+Preparing to replace apache2-common 2.0.54-5 (using .../apache2-common_2.0.54-5_amd64.deb) ...<br>
+<br />
+Unpacking replacement apache2-common ...<br>
+<br />
+Preparing to replace apache2-mpm-worker 2.0.54-5 (using .../apache2-mpm-worker_2.0.54-5_amd64.deb) ...<br>
+<br />
+Stopping web server: Apache2.<br>
+<br />
+Unpacking replacement apache2-mpm-worker ...<br>
+<br />
+Preparing to replace apache2 2.0.54-5 (using .../apache2_2.0.54-5_amd64.deb) ...<br>
+<br />
+Unpacking replacement apache2 ...<br>
+<br />
+Preparing to replace libapr0-dev 2.0.54-5 (using .../libapr0-dev_2.0.54-5_amd64.deb) ...<br>
+<br />
+Unpacking replacement libapr0-dev ...<br>
+<br />
+Preparing to replace apache2-threaded-dev 2.0.54-5 (using .../apache2-threaded-dev_2.0.54-5_amd64.deb) ...<br>
+<br />
+Unpacking replacement apache2-threaded-dev ...<br>
+<br />
+Setting up libapr0 (2.0.54-5) ...</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Setting up apache2-utils (2.0.54-5) ...
+<br />
+Setting up apache2-common (2.0.54-5) ...<br>
+<br />
+<pre style="margin: 0em;">Setting up apache2-mpm-worker (2.0.54-5) ...
+<br />
+Starting web server: Apache2.<br>
+<br />
+<pre style="margin: 0em;">Setting up apache2 (2.0.54-5) ...
+<br />
+Setting up libapr0-dev (2.0.54-5) ...
+<br />
+Setting up apache2-threaded-dev (2.0.54-5) ...<br>
+<br />
+<tt>followed by</tt><br>
+<br />
+<br>
+<br />
+<tt>apt-get upgrade 
+<br />
+Reading Package Lists... Done<br>
+<br />
+Building Dependency Tree... Done<br>
+<br />
+The following packages will be upgraded:<br>
+<br />
+  apache2 apache2-common apache2-mpm-worker apache2-threaded-dev apache2-utils libapr0 libapr0-dev<br>
+<br />
+7 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.<br>
+<br />
+Need to get 0B/1757kB of archives.<br>
+<br />
+After unpacking 0B of additional disk space will be used.<br>
+<br />
+Do you want to continue? [Y/n] 
+<br />
+[...]</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+On Wed, 2 Nov 2005 22:21:57 -0500 (EST), Faheem Mitha
+<br />
+&lt;faheem@email.unc.edu&gt; wrote:
+<br />
+
+<br />
+&gt; Hi,
+<br />
+&gt;
+<br />
+&gt; I'm having a weird problem with the apache security upgrades. Does
+<br />
+&gt; anyone have a clue what might be going on here?
+<br />
+&gt;
+<br />
+&gt; Apt keeps having me download the same version over and over. I'm seeing 
+<br />
+&gt; this on both of my AMD64 servers.
+<br />
+&gt;
+<br />
+&gt; The only thing I've done that is at all out of the ordinary is that I
+<br />
+&gt; have a locally compiled (backported) version of subversion, which
+<br />
+&gt; includes the libapache2-svn, but I don't see that it has any bearing
+<br />
+&gt; on this.
+<br />
+&gt;
+<br />
+&gt; Apparently apt for some reason considers the version of apache it just
+<br />
+&gt; downloaded to be different from what is on the server.
+<br />
+&gt;
+<br />
+&gt; theda:/home/faheem# apt-cache policy apache2
+<br />
+&gt; apache2:
+<br />
+&gt;    Installed: 2.0.54-5
+<br />
+&gt;    Candidate: 2.0.54-5
+<br />
+&gt;    Version Table:
+<br />
+&gt;       2.0.55-3 0
+<br />
+&gt;           50 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> unstable/main Packages
+<br />
+&gt;       2.0.54-5 0
+<br />
+&gt;           50 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> testing/main Packages
+<br />
+&gt;       2.0.54-5 0
+<br />
+&gt;          500 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main Packages
+<br />
+&gt;   *** 2.0.54-5 0
+<br />
+&gt;          100 /var/lib/dpkg/status
+<br />
+&gt;       2.0.54-4 0
+<br />
+&gt;          500 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> stable/main Packages
+<br />
+&gt;
+<br />
+&gt; Any enlightenment appreciated. This is getting to be a rather annoying
+<br />
+&gt; problem.
+<br />
+
+<br />
+Hi,
+<br />
+
+<br />
+I never got any replies to this query. This makes me think that I am
+<br />
+the only person experiencing the problem, which is a little worrying,
+<br />
+since I can't see anything I am doing that is causing it.
+<br />
+
+<br />
+Any clarification would be helpful, even if is just that I am the only
+<br />
+one experiencing the problem.
+<br />
+
+<br />
+Thanks.                                                         Faheem.
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Thu November 10 2005 02:13 pm, Faheem Mitha wrote:
+<br />
+&gt; On Wed, 2 Nov 2005 22:21:57 -0500 (EST), Faheem Mitha
+<br />
+&gt;
+<br />
+&gt; &lt;faheem@email.unc.edu&gt; wrote:
+<br />
+&gt; &gt; Hi,
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; I'm having a weird problem with the apache security upgrades. Does
+<br />
+&gt; &gt; anyone have a clue what might be going on here?
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Apt keeps having me download the same version over and over. I'm seeing
+<br />
+&gt; &gt; this on both of my AMD64 servers.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; The only thing I've done that is at all out of the ordinary is that I
+<br />
+&gt; &gt; have a locally compiled (backported) version of subversion, which
+<br />
+&gt; &gt; includes the libapache2-svn, but I don't see that it has any bearing
+<br />
+&gt; &gt; on this.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Apparently apt for some reason considers the version of apache it just
+<br />
+&gt; &gt; downloaded to be different from what is on the server.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; theda:/home/faheem# apt-cache policy apache2
+<br />
+&gt; &gt; apache2:
+<br />
+&gt; &gt;    Installed: 2.0.54-5
+<br />
+&gt; &gt;    Candidate: 2.0.54-5
+<br />
+&gt; &gt;    Version Table:
+<br />
+&gt; &gt;       2.0.55-3 0
+<br />
+&gt; &gt;           50 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> unstable/main Packages
+<br />
+&gt; &gt;       2.0.54-5 0
+<br />
+&gt; &gt;           50 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> testing/main Packages
+<br />
+&gt; &gt;       2.0.54-5 0
+<br />
+&gt; &gt;          500 <a  href="http://security.debian.org">http://security.debian.org</a> stable/updates/main Packages
+<br />
+&gt; &gt;   *** 2.0.54-5 0
+<br />
+&gt; &gt;          100 /var/lib/dpkg/status
+<br />
+&gt; &gt;       2.0.54-4 0
+<br />
+&gt; &gt;          500 <a  href="http://debian.csail.mit.edu">http://debian.csail.mit.edu</a> stable/main Packages
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Any enlightenment appreciated. This is getting to be a rather annoying
+<br />
+&gt; &gt; problem.
+<br />
+&gt;
+<br />
+&gt; Hi,
+<br />
+&gt;
+<br />
+&gt; I never got any replies to this query. This makes me think that I am
+<br />
+&gt; the only person experiencing the problem, which is a little worrying,
+<br />
+&gt; since I can't see anything I am doing that is causing it.
+<br />
+&gt;
+<br />
+&gt; Any clarification would be helpful, even if is just that I am the only
+<br />
+&gt; one experiencing the problem.
+<br />
+
+<br />
+No problems here, but my apache is all stock.
+<br />
+
+<br />
+
+<br />
+
+<br />

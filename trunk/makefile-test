@@ -1,0 +1,41 @@
+all: naive svm svm-wc zeror svm-tfidf svm-tf svm-wc-as svm-wc-as-bk
+
+javaExe = java
+cp =-cp "lib\weka.jar;lib\snowball.jar;bin\;"
+mem = -Xmx512m
+experimenter = zhaop.s684.proj.Experimenter 
+
+arff_dir = data/arff-test
+options_dir = -d data/training -t data/test  -r .
+options_naive = $(options_dir) -a $(arff_dir)/NB -c NaiveBayes -n "zhaop_NB.test"
+options_svm = $(options_dir) -a $(arff_dir)/SVM -c SVM -n "zhaop_SVM.test"
+options_svmwc = $(options_dir) -a $(arff_dir)/SVMWC -c SVM -f WCWordVectorFilter -n "zhaop_SVMWC.test"
+options_zeror = $(options_dir) -a $(arff_dir)/ZeroR -c ZeroR -n "zhaop_ZeroR.test"
+options_svmtfidf = $(options_dir) -a $(arff_dir)/SVMTFIDF -c SVM -f TFIDFWordVectorFilter -n "zhaop_SVMTFIDF.test"
+options_svmtf = $(options_dir) -a $(arff_dir)/SVMTF -c SVM -f TFWordVectorFilter -n "zhaop_SVMTF.test"
+options_svmwcas = $(options_dir) -a $(arff_dir)/SVMWC-AS -c SVMf WCWordVectorFilter -n "zhaop_SVMWC-AS.test" -s AttrSel
+options_svmwcasbk = $(options_dir) -a $(arff_dir)/SVMWC-AS-BACK -c SVM -f WCWordVectorFilter -n "zhaop_SVMWC-AS-BACK.test" -s AttrSelBack
+
+naive:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_naive)
+
+svm:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_svm)
+
+svm-wc:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_svmwc)
+
+zeror:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_zeror)
+
+svm-tfidf:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_svmtfidf)
+
+svm-tf:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_svmtf)
+
+svm-wc-as:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_svmwcas)
+
+svm-wc-as-bk:
+	$(javaExe) $(cp) $(mem) $(experimenter) $(options_svmwcasbk)

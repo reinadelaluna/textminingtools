@@ -1,0 +1,150 @@
+On Fri, Mar 04, 2005 at 06:29:25PM +0100, Sven Mueller wrote:
+<br />
+&gt; I used a netinst ISO from Feb 16th, but it has at least two issues:
+<br />
+&gt; 
+<br />
+&gt; 1) libc6 is installed in a version not available in debian-pure64
+<br />
+&gt;    and therefor build-essentials isn't installable unless the user
+<br />
+&gt;    specifically downgrades libc6 (and bash and base-files)
+<br />
+&gt; 2) The Sysmlinks for the current kernel are created in /boot rather than
+<br />
+&gt;    in / (where both grub and lilo expect it to be). So the user has to
+<br />
+&gt;    drop to a shell and manually set the links at the right place to
+<br />
+&gt;    make grub/lilo work.
+<br />
+
+<br />
+Grub has always expected the boot files to be in /boot, only the default
+<br />
+lilo setup uses those idiotic symlinks that clutter up /
+<br />
+
+<br />
+Fortunately /etc/kernel-img.conf allows one to turn of the creation of
+<br />
+those symlinks.
+<br />
+
+<br />
+&gt; So, which ISO should I use for installations when I intend to use 
+<br />
+&gt; /debian-pure64 (sarge)?
+<br />
+
+<br />
+Haven't installed in a while, so not sure.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Hi.</tt><br>
+<br />
+<br>
+<br />
+<tt>I used a netinst ISO from Feb 16th, but it has at least two issues:</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">1) libc6 is installed in a version not available in debian-pure64
+<br />
+   and therefor build-essentials isn't installable unless the user
+<br />
+   specifically downgrades libc6 (and bash and base-files)
+<br />
+2) The Sysmlinks for the current kernel are created in /boot rather than
+<br />
+   in / (where both grub and lilo expect it to be). So the user has to
+<br />
+   drop to a shell and manually set the links at the right place to
+<br />
+   make grub/lilo work.<br>
+<br />
+<tt>So, which ISO should I use for installations when I intend to use 
+<br />
+/debian-pure64 (sarge)?</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">regards,
+<br />
+Sven<br>
+<br />
+<br>
+<br />
+
+<br />
+Sven Mueller &lt;sm@ciphirelabs.com&gt; writes:
+<br />
+
+<br />
+&gt; Hi.
+<br />
+&gt;
+<br />
+&gt; I used a netinst ISO from Feb 16th, but it has at least two issues:
+<br />
+&gt;
+<br />
+&gt; 1) libc6 is installed in a version not available in debian-pure64
+<br />
+&gt;     and therefor build-essentials isn't installable unless the user
+<br />
+&gt;     specifically downgrades libc6 (and bash and base-files)
+<br />
+
+<br />
+You used an outdated sid image. The fixed image was uploaded on the
+<br />
+19th more than 2 weeks ago.
+<br />
+
+<br />
+&gt; 2) The Sysmlinks for the current kernel are created in /boot rather than
+<br />
+&gt;     in / (where both grub and lilo expect it to be). So the user has to
+<br />
+&gt;     drop to a shell and manually set the links at the right place to
+<br />
+&gt;     make grub/lilo work.
+<br />
+&gt;
+<br />
+&gt; So, which ISO should I use for installations when I intend to use
+<br />
+&gt; /debian-pure64 (sarge)?
+<br />
+
+<br />
+The latest, preferably the sarge image.
+<br />
+
+<br />
+&gt; regards,
+<br />
+&gt; Sven
+<br />
+
+<br />
+MfG
+<br />
+        Goswin
+<br />
+
+<br />
+
+<br />
+
+<br />

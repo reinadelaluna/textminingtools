@@ -1,0 +1,35 @@
+Hi!<br />
+<br />
+My XChat does not reply on any other CTCP query other than VERSION.<br />
+I've set up the apropriate commands in Settings &gt; Advanced &gt; CTCP Replies, <br />
+but it just doesn't obey what i've put there.<br />
+even some simplistig thing like:<br />
+TIME --&gt; echo HELLO<br />
+does not work.<br />
+<br />
+the nctcp command works fine from input box though,<br />
+/nctcp Nick BLAH answer<br />
+works fine.<br />
+<br />
+The whole CTCP section seems not to be used, but i'd like to turn it on.<br />
+<br />
+How can i do this?<br />
+<br />
+thanks in advance, polemonXChat DOES react on CTCP messages, but it shows a very weird behaviour.<br />
+some CTCP querrys require an additional parameter, but most don't. However, to make the reaction command being executed, a parameter MUST be supplied!<br />
+Example:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">/ctcp mynick TIME</div></pre>
+</div>
+Does nothing,<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">/ctcp mynick TIME a</div></pre>
+</div>
+Triggers XChat to execute the command.<br />
+Instead of 'a' you can type any character, doesn't matter if it's a number or whatever.<br />
+<br />
+Usually you don't supply a parameter (PING is an excepttion), so the reaction is not performed.<br />
+<br />
+My question is now: Hot to make those responses work without the parameter?

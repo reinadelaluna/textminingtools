@@ -1,0 +1,117 @@
+<a href="http://www.redhat.com/docs/manuals/linux/RHL-9-Manual/custom-guide/ch-network-config.html" target="_blank">http://www.redhat.com/docs/manuals/l...rk-config.html</a><br />
+<br />
+A driver for your moedem should not be needed as you have set it up with eth0 and used win to log it on so its working...<br />
+starting eth0 in linux is what you need...<br />
+go to this link, it is for RH...Could you give some more info about your connection(DHCP?) and modem(ethernet or USB?).<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>jens</strong></div>
+				<div style="font-style:italic">Could you give some more info about your connection(DHCP?) and modem(ethernet or USB?).</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Hi, I am using ethernet to access the modem. Please tell me how to start with. I have no idea how to kick start this<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>wraithe</strong></div>
+				<div style="font-style:italic">ok...have you tried using mozilla or whatever browser...<br />
+if your using eth0, unless you have some extremely weird chip then it should have detected it on install...if not then you may have to start the eth0 connection...inwhich case to make it easy let me know what distro you have ..<br />
+you can always go into your monitor app and check if it is connected and loaded...<br />
+under gnome its in applications/systemtools<br />
+in kde it should be systemtools/monitoring..</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<br />
+I am using mozzila. i am using ethernet and a modem. should i install a driver for that modem? if yes plz guide me how to install that and how should i configure my eth0, when i checked its status, its showing not active, n im unable to succeed in getting it activated.Have you even tried yet? Usually it loads the right module for you.Jefy<br />
+it's pretty stariaghtfwd .. <br />
+first, set up your ethernet card <br />
+type 'ifconfig eth0' to see what the current settings are.<br />
+unless you can see 'up', and 'running' in the output somewhere, its a more basic prob, and we can get back to that.<br />
+next thing is to make sure the ip address is on the same network as your broadband router. <br />
+A lot of routers take either 10.1.1.1 or 10.0.0.1 as default ip address,<br />
+while most local ethernet cards on Linux default to 192.168.0.x<br />
+the ifconfig query should shw your address and netmask.<br />
+check your windows box .. what's it's ip address and netmask, and gateway <br />
+ if you aren't sure how to do that .. start&gt;settings&gt;control panel&gt;network connectiopns&gt;tcp/ip&gt;properties. print the panel.<br />
+<br />
+on the linux box, set the ip address of the ethernet connection to the same network address of the windows box.<br />
+ie if windows shows the gateway address as 10.1.1.1 <br />
+and if your ifconfig shows a different one, set it<br />
+ifconfig eth0 10.1.1.3 (put an appropriate address here)<br />
+then ifconfig netmask 255.255.255.0 (if it wasn't already<br />
+then ifconfig eth0 to reprint it all .. if it looks ok ..<br />
+ping the router (the gateway)<br />
+ping 10.1.1.1 (or whatever it is<br />
+if you can see it, test that your DNS is working ok, and names will resolve ..<br />
+ping <a href="http://www.yahoo.com" target="_blank">www.yahoo.com</a>  .. if you get a reply .. it's up and away<br />
+all you need to do now is open a browser .. just type startx (ie start x server), then use Mozilla<br />
+one good thing about linux .. no rebooting every time you change anything!!<br />
+<br />
+Grif<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>Russell Griffiths</strong></div>
+				<div style="font-style:italic">Jefy<br />
+it's pretty stariaghtfwd .. <br />
+first, set up your ethernet card <br />
+type 'ifconfig eth0' to see what the current settings are.<br />
+unless you can see 'up', and 'running' in the output somewhere, its a more basic prob, and we can get back to that.<br />
+next thing is to make sure the ip address is on the same network as your broadband router. <br />
+A lot of routers take either 10.1.1.1 or 10.0.0.1 as default ip address,<br />
+while most local ethernet cards on Linux default to 192.168.0.x<br />
+the ifconfig query should shw your address and netmask.<br />
+check your windows box .. what's it's ip address and netmask, and gateway <br />
+ if you aren't sure how to do that .. start&gt;settings&gt;control panel&gt;network connectiopns&gt;tcp/ip&gt;properties. print the panel.<br />
+<br />
+on the linux box, set the ip address of the ethernet connection to the same network address of the windows box.<br />
+ie if windows shows the gateway address as 10.1.1.1 <br />
+and if your ifconfig shows a different one, set it<br />
+ifconfig eth0 10.1.1.3 (put an appropriate address here)<br />
+then ifconfig netmask 255.255.255.0 (if it wasn't already<br />
+then ifconfig eth0 to reprint it all .. if it looks ok ..<br />
+ping the router (the gateway)<br />
+ping 10.1.1.1 (or whatever it is<br />
+if you can see it, test that your DNS is working ok, and names will resolve ..<br />
+ping <a href="http://www.yahoo.com" target="_blank">www.yahoo.com</a>  .. if you get a reply .. it's up and away<br />
+all you need to do now is open a browser .. just type startx (ie start x server), then use Mozilla<br />
+one good thing about linux .. no rebooting every time you change anything!!<br />
+<br />
+Grif</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<br />
+Grif, Thanks. I think the problem is very basic. Its not able to detect the ethernet card. when i did ifconfig eth0 then its throwing an error somewhat like 'eth0:error fetching interface information:device not found.' And i went to start&gt;system settings&gt;network and tried to activate eth0 but its also showed the same error that device missing. Also i cannot find start&gt;settings&gt;control panel&gt;network connectiopns&gt;tcp/ip&gt;properties on my system. Im using a red hat linux. Plz guide me with further steps.<br />
+<br />
+Jefyif you are using the modem via ethernet, then linux should have defaulted that connection anyway...<br />
+if it is via usb, then thats another kettle of fish...<br />
+have a look and see if your modem is supported by linux...<br />
+if not then change windows over to ethernet and then reboot to linux...<br />
+check eth0 is connected and then your on line...<br />
+since you already use windows, dont worry about using linux to setup the connection, just reboot to linux and your online...then you can learn to configure it to setup your adsl once you have some fun...I have red hat linux running in my pc. I am accessing internet in windows, using a Broadband DSL, with an externel modem. How do i configure the internet in Linux? Please guide me step by step.<br />
+<br />
+Regards,<br />
+Jefy Chacko.ok...have you tried using mozilla or whatever browser...<br />
+if your using eth0, unless you have some extremely weird chip then it should have detected it on install...if not then you may have to start the eth0 connection...inwhich case to make it easy let me know what distro you have ..<br />
+you can always go into your monitor app and check if it is connected and loaded...<br />
+under gnome its in applications/systemtools<br />
+in kde it should be systemtools/monitoring..

@@ -1,0 +1,81 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>bayonetblaha</strong></div>
+				<div style="font-style:italic">I've just installed Ubuntu Hoary on my friend's P4 (128 RAM).  I personally watched it start up Windows in a matter of a few seconds and run at a decent speed.  I expected better performance from Ubuntu, but it is unreasonably slow.  It's taking it about an hour and a half to install 15 packages for the initial update.  This just doesn't make any sense... and is certainly giving a bad impression of linux.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+How can Windows start up within a few seconds on a computer with 128MB RAM? Is it Windows 98?I've just installed Ubuntu Hoary on my friend's P4 (128 RAM).  I personally watched it start up Windows in a matter of a few seconds and run at a decent speed.  I expected better performance from Ubuntu, but it is unreasonably slow.  It's taking it about an hour and a half to install 15 packages for the initial update.  This just doesn't make any sense... and is certainly giving a bad impression of linux.<br />
+<br />
+It's the sort of slow where clicking on the 'Applications' menu takes 15 seconds.What's the memory utilization?  Is it having to page quite a bit of data in and out of swap space or is there not enough swap space?  That or you might just need to trim some fat off the distro.trimming the distro sounds like a great idea, but not the real problem.  This isn't a rhetorical question: Is the default ubuntu actually FATTER than windows XP? I can't believe that.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Is the default ubuntu actually FATTER than windows XP? I can't believe that.
+			
+		</td>
+	</tr>
+	</table>
+</div> It very well could be depending on what all it is trying to load. As suggested before, try running 'top' to find out what all is running in the back ground. You need to keep in mind that Ubuntu is not &quot;Linux&quot;, it is Linux modified to be easy to use and give the user a lot of eye candy. Other distros might not be configured the same way.<br />
+<br />
+regards,<br />
+...drkstrI was shocked, too.  This guy has never had any real training or anything, but he had trimmed windows down to start up in maybe 10 seconds, I don't remember exactly.  That's when I decided he was perfect for linux... he's a tinkerer.  Of course, it's very embarassing to put linux on and watch it crawl.Unfortunately from my experience Ubuntu is as close to bloat-doze as Linux can get.  Besides Fedora Core of course.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>bayonetblaha</strong></div>
+				<div style="font-style:italic">I was shocked, too.  This guy has never had any real training or anything, but he had trimmed windows down to start up in maybe 10 seconds, I don't remember exactly.  That's when I decided he was perfect for linux... he's a tinkerer.  Of course, it's very embarassing to put linux on and watch it crawl.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+Quite frankly, I'm afraid today's Linux (esp. with GUI frontends like GNOME and KDE) isn't all that fast on a low-end computer. The core OS is still pretty fast, but all the surrounding components get heavier and heavier, with more features added to cater to the general public.<br />
+<br />
+Having said that, something may very well be wrong with his Ubuntu installation. On a P4 machine w/ 128MB RAM it should not take 15 seconds to open the menu!Try booting it up and run 'top' in the console to see what's eating up all the memory/cpu, then try to prevent those tasks from loading up at boot. Also, try running a lower end windows manager. Modern KDE and Gnome need about the same system requirements as XP, although KDE can be trimmed down quite a bit.<br />
+<br />
+daihard is right, a lot of Linux distros out there are tying to appeal to the windows market by adding in alot  of load heavy eye candy. If your friend is a tinkerer, maybe he should try something like Slackware with a low end windows manager instead. SLackware can be very customizable to all types of computers. I have it trimmed down and running great on my 400 MHz w/ 128mb of RAM server, as well as having all the eye candy on my higher end Desktop computer. Slackware is designed to make it easy to get under the hood, perfect for all of those tinkerers out there.<br />
+<br />
+regards,<br />
+...drkstrthere's just no way ubuntu is supposed to run like that... My laptop is running a celeron and 128 or maybe 256 ram (not sure), and it's downright zippy.  There has to be something wrong.My guess would be that DMA is <i>NOT</i> being used for his harddisk.<br />
+<br />
+You need to install the &quot;hdparm&quot; package if it is not already installed.  I don't know Ubuntu, but it's Debian-based and I use Debian, so the following should work:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:50px; overflow:auto"><div dir="ltr" style="text-align:left;">$ sudo apt-get update
+$ sudo apt-get install hdparm</div></pre>
+</div>
+Now run some basic hdparm commands (as root) to verify &quot;using_dma&quot; is set to &quot;on&quot;.  This is the biggest potential speed problem.  &quot;IO_support&quot; set to &quot;32-bit&quot; can also boost speed.  Don't set these unless you know your disk supports them (most anything new will).  And test that your speeds look reasonable.  The speed you are interested in is &quot;Timing buffered disk reads&quot;, the other one (Timing cache reads) is pretty meaningless.  Note: You can do damage with hdparm, so limit yourself to non-destructive commands like illustrated below until you are familiar with the command.<br />
+<br />
+The example below is from my system, and I am testing disk &quot;/dev/hdb&quot;.  You may need to adjust the disk specification (probably to /dev/hda or /dev/sda).<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:290px; overflow:auto"><div dir="ltr" style="text-align:left;"># hdparm -v /dev/hdb
+
+/dev/hdb:
+ multcount    =  0 (off)
+ IO_support   =  1 (32-bit)
+ unmaskirq    =  1 (on)
+ using_dma    =  1 (on)
+ keepsettings =  0 (off)
+ readonly     =  0 (off)
+ readahead    = 256 (on)
+ geometry     = 24321/255/63, sectors = 390721968, start = 0
+# hdparm -tT /dev/hdb
+
+/dev/hdb:
+ Timing cached reads:   2040 MB in  2.00 seconds = 1019.65 MB/sec
+ Timing buffered disk reads:  184 MB in  3.01 seconds =  61.20 MB/sec
+#</div></pre>
+</div>

@@ -1,0 +1,62 @@
+On Sat, Apr 08, 2006 at 10:49:57AM -0600, Luis Hidalgo wrote:
+<br />
+&gt; How do I flash the bios for an acer ferrari 4005? The utility acer
+<br />
+&gt; offers doesn't seem to run (on windoze), any idea on how to do it from
+<br />
+&gt; linux?
+<br />
+
+<br />
+FLash utilities usually run under DOS. I have succesfully used a
+<br />
+FreeDOS boot disk for this. Dell has a BIOSdisk utility to create such
+<br />
+disks, see <a  href="http://linux.dell.com/projects.shtml">http://linux.dell.com/projects.shtml</a>.
+<br />
+
+<br />
+
+<br />
+Erik
+<br />
+[who doesn't own an acer ferrari]
+<br />
+
+<br />
+-- 
+<br />
++-- Erik Mouw -- www.harddisk-recovery.com -- +31 70 370 12 90 --
+<br />
+| Lab address: Delftechpark 26, 2628 XH, Delft, The Netherlands
+<br />
+
+<br />
+
+<br />
+
+<br />
+Hi,
+<br />
+
+<br />
+Quick question:
+<br />
+
+<br />
+How do I flash the bios for an acer ferrari 4005? The utility acer
+<br />
+offers doesn't seem to run (on windoze), any idea on how to do it from
+<br />
+linux?
+<br />
+
+<br />
+Luis
+<br />
+
+<br />
+
+<br />
+
+<br />

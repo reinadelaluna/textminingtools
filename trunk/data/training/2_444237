@@ -1,0 +1,327 @@
+I was afraid of an answer like this.<br />
+A brief background. My original lv was lvhome which I typo'd when I extended. I forgot the &quot;+&quot; in -L+50G, I typed -L50G and may have actually reduced the size of my LV. So, I created a brand new LV; lvhome2 at 50GB.  Then I copied all the data off the corrupt LV (lvhome) and lost a lot of data.  I still have the corrupt lvhome.  So now I decided to increase my new lvhome2 by 50G as per the procedure of my original post.  This is crazy.<br />
+<br />
+Here's lvdispaly, pvdisplay, pvscan and fdisk -l, if it helps. I don't see any clues, maybe somebody else does. You will see that I have 2 250GB disks and 2 raid 1 devices. /dev/md0 is for root fs and /dev/md1 is for everything else (/home /var).<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">[root@RAMAIR root]# pvdisplay /dev/md1
+--- Physical volume ---
+PV Name               /dev/md1
+VG Name               ramairVG
+PV Size               156.26 GB [327693568 secs] / NOT usable 4.31 MB [LVM: 284 KB]
+PV#                   1
+PV Status             available
+Allocatable           yes
+Cur LV                4
+PE Size (KByte)       4096
+Total PE              40000
+Free PE               1582
+Allocated PE          38418
+PV UUID               MRoKhL-lVT3-eNaK-PN5y-xwIO-4JzG-AXEV6a
+ 
+ 
+[root@RAMAIR root]# lvdisplay   /dev/ramairVG/lvhome
+--- Logical volume ---
+LV Name                /dev/ramairVG/lvhome
+VG Name                ramairVG
+LV Write Access        read/write
+LV Status              available
+LV #                   1
+# open                 0
+LV Size                70 GB
+Current LE             17920
+Allocated LE           17920
+Allocation             next free
+Read ahead sectors     1024
+Block device           58:0
+
+[root@RAMAIR root]# pvscan
+pvscan -- reading all physical volumes (this may take a while...)
+pvscan -- ACTIVE   PV &quot;/dev/md1&quot; of VG &quot;ramairVG&quot; [156.25 GB / 6.18 GB free]
+pvscan -- total: 1 [156.26 GB] / in use: 1 [156.26 GB] / in no VG: 0 [0]
+ 
+[root@RAMAIR root]# fdisk -l
+ 
+Disk /dev/hda: 203.9 GB, 203928109056 bytes
+255 heads, 63 sectors/track, 24792 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+ 
+   Device Boot    Start       End    Blocks   Id  System
+/dev/hda1   *         1      1275  10241406   fd  Linux raid autodetect
+/dev/hda2          1276     11474  81923467+  fd  Linux raid autodetect
+ 
+Disk /dev/hdb: 203.9 GB, 203928109056 bytes
+255 heads, 63 sectors/track, 24792 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+ 
+   Device Boot    Start       End    Blocks   Id  System
+/dev/hdb1   *         1      1275  10241406   fd  Linux raid autodetect
+/dev/hdb2          1276     11474  81923467+  fd  Linux raid autodetect</div></pre>
+</div>
+<br />
+Thanks for any input, as I clearly need it!<br />
+<br />
+Edit: The LV above was the original corrupt LV. Here is the one I this post is about. <br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:242px; overflow:auto"><div dir="ltr" style="text-align:left;">[root@RAMAIR root]# lvdisplay   /dev/ramairVG/lvhome2
+--- Logical volume ---
+LV Name                /dev/ramairVG/lvhome2
+VG Name                ramairVG
+LV Write Access        read/write
+LV Status              available
+LV #                   4
+# open                 1
+LV Size                78.59 GB
+Current LE             20120
+Allocated LE           20120
+Allocation             next free
+Read ahead sectors     1024
+Block device           58:3</div></pre>
+</div>Well, that doesn't look terribly good.  The steps you took are correct, except I always do an e2fsck BETWEEN the lvextend and resize2fs commands.  resize2fs actually refuses to work, and says I must do the e2fsck first before it will continue.  Looks like it continued for you without complaining however.  I use LVM2, but I don't see how this could matter, since resize2fs is not part of LVM.<br />
+<br />
+I'm not sure what I'd do in your case.  Can you run lvdisplay and pvdisplay and pick out any clues?  Does the output of these commands look like the volume was resized as you expected?  You might try searching Google for &quot;lvm mailing list&quot; and see if that generates any useful hits pointing to LVM experts.<br />
+<br />
+Also search on &quot;lvm meta data&quot;.<br />
+<br />
+I don't know where this will lead you.  Hopefully to an answer!<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>zdenisl</strong></div>
+				<div style="font-style:italic">My original lv was lvhome which I typo'd when I extended. I forgot the &quot;+&quot; in -L+50G, I typed -L50G and may have actually reduced the size of my LV.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+How big was your ORIGINAL lvhome?  If it was originally LARGER than 50G, I would expect your typo of -L50G to have done nothing, except generate an error message telling you can't &quot;extend&quot; to something smaller than you already are.  I believe this is what the LVM2 commands will do, I don't know about LVM1.<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				So, I created a brand new LV; lvhome2 at 50GB.  Then I copied all the data off the corrupt LV (lvhome) and lost a lot of data.  I still have the corrupt lvhome.
+			
+		</td>
+	</tr>
+	</table>
+</div>
+What make you think your original lvhome was corrupt? Did you run e2fsck and get errors?  Did resize2fs complain?  Was it no longer mountable after you ran your typoed lvextend?  Did you just assume it would be corrupted because of your typo?<br />
+<br />
+Your listing shows your original lvhome at 70G.  How did you copy this into your smaller 50G lvhome2?  It wouldn't fit!  And what command would you have used to do the copy?  dd certainly wouldn't work on a logical volume (whos contents could be spread physically in various places on the disk).  I would expect that at this point lvhome2 would have contained 50G of total garbage.  And when you went to extend lvhome2, you would have just made the trash can bigger, but it was still full of garbage.  I think thats what your e2fsck errors on lvhome2 are trying to tell you.  You've got garbage.<br />
+<br />
+You might still have a chance working with the original lvhome.  But I can't tell you what to do.  Forget lvhome2 for the moment.  Exactly what steps did you do to lvhome, and in what order?  How big was it to start with?  And specifically, what made you think it was corrupt after you typoed your lvextend?  Maybe a recovery plan can be constructed if we can identify what happened.<br />
+<br />
+I will admit right off that I am NOT an LVM recovery expert.  I use LVM heavily, but haven't managed to get myself into a pickle like you have yet.  So my experience falls into &quot;using working LVM&quot;, not &quot;fixing broken LVM&quot;.  But I'm interested in your predicament, and will try to offer whatever I can come up with, idea-wise.<br />
+<br />
+I'm hoping an LVM recovery expert will jump into this thread.  I responded not because I know what you should do, but because nobody else had.  I can't imagine you're terribly happy about your current situation, so I thought I'd at least TRY to help a little.  Not too much I can offer yet.  Maybe after getting a little more background info from you.  Maybe.RH 2.4.20-8 kernel, LVM 1.0.3<br />
+<br />
+I have a file system that is I needed to extend.<br />
+<br />
+My steps:<br />
+<br />
+1. umount /home<br />
+2. e2fsck -f /dev/ramairVG/lvhome2<br />
+3. lvextend -L+20G /dev/ramairVG/lvhome2<br />
+4. resize2fs /dev/ramairVG/lvhome2<br />
+5. e2fsck -f /dev/ramairVG/lvhome2<br />
+ERRORS!!!!<br />
+<br />
+The I tried to mount /home and nothing is there?<br />
+Where's my data?<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">[root@RAMAIR /]# e2fsck -f /dev/ramairVG/lvhome2
+e2fsck 1.32 (09-Nov-2002)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/dev/ramairVG/lvhome2: 65280/7684096 files (0.2% non-contiguous), 6045979/153600
+00 blocks
+[root@RAMAIR /]# lvextend -L+20G /dev/ramairVG/lvhome2
+lvextend -- extending logical volume &quot;/dev/ramairVG/lvhome2&quot; to 78.59 GB
+lvextend -- doing automatic backup of volume group &quot;ramairVG&quot;
+lvextend -- logical volume &quot;/dev/ramairVG/lvhome2&quot; successfully extended
+
+[root@RAMAIR /]# resize2fs /dev/ramairVG/lvhome2
+resize2fs 1.32 (09-Nov-2002)
+The filesystem on /dev/ramairVG/lvhome2 is now 20602880 blocks long.
+
+[root@RAMAIR /]# e2fsck -f /dev/ramairVG/lvhome2
+e2fsck 1.32 (09-Nov-2002)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+Block bitmap differences:  -(65537--65541) -(131073--131077) -(196609--196613) -
+(262145--262149) -(327681--327685) -(360449--360453) -(393217--393221) -(425985-
+-425989) -(458753--458757) -(491521--491525) -(524289--524293) -(557057--557061)
+ -(589825--589829) -(622593--622597) -(655361--655365) -(688129--688133) -(72089
+7--720901) -(753665--753669) -(786433--786437) -(851969--851973) -(917505--91750
+9) -(950273--950277) -(983041--983045) -(1015809--1015813) -(1048577--1048581) -
+(1081345--1081349) -(1114113--1114117) -(1146881--1146885) -(1179649--1179653) -
+(1212417--1212421) -(1245185--1245189) -(1277953--1277957) -(1310721--1310725) -
+(1343489--1343493) -(1376257--1376261) -(1409025--1409029) -(1441793--1441797) -
+(1474561--1474565) -(1507329--1507333) -(1540097--1540101) -(1572865--1572869) -
+(1638401--1638405) -(1671169--1671173) -(1703937--1703941) -(1736705--1736709) -
+(1769473--1769477) -(1802241--1802245) -(1835009--1835013) -(1867777--1867781) -
+(1900545--1900549) -(1933313--1933317) -(1966081--1966085) -(1998849--1998853) -
+(2031617--2031621) -(2064385--2064389) -(2097153--2097157) -(2129921--2129925) -
+(2162689--2162693) -(2195457--2195461) -(2228225--2228229) -(2260993--2260997) -
+(2293761--2293765) -(2326529--2326533) -(2359297--2359301) -(2392065--2392069) -
+(2424833--2424837) -(2457601--2457605) -(2490369--2490373) -(2523137--2523141) -
+(2555905--2555909) -(2588673--2588677) -(2621441--2621445) -(2686977--2686981) -
+(2719745--2719749) -(2752513--2752517) -(2785281--2785285) -(2818049--2818053) -
+(2850817--2850821) -(2883585--2883589) -(2916353--2916357) -(2949121--2949125) -
+(2981889--2981893) -(3014657--3014661) -(3047425--3047429) -(3080193--3080197) -
+(3112961--3112965) -(3145729--3145733) -(3178497--3178501) -(3211265--3211269) -
+(3244033--3244037) -(3276801--3276805) -(3309569--3309573) -(3342337--3342341) -
+(3375105--3375109) -(3407873--3407877) -(3440641--3440645) -(3473409--3473413) -
+(3506177--3506181) -(3538945--3538949) -(3571713--3571717) -(3604481--3604485) -
+(3637249--3637253) -(3670017--3670021) -(3702785--3702789) -(3735553--3735557) -
+(3768321--3768325) -(3801089--3801093) -(3833857--3833861) -(3866625--3866629) -
+(3899393--3899397) -(3932161--3932165) -(3964929--3964933) -(3997697--3997701) -
+(4030465--4030469) -(4063233--4063237) -(4128769--4128773) -(4161537--4161541) -
+(4194305--4194309) -(4227073--4227077) -(4259841--4259845) -(4292609--4292613) -
+(4325377--4325381) -(4358145--4358149) -(4390913--4390917) -(4423681--4423685) -
+(4456449--4456453) -(4489217--4489221) -(4521985--4521989) -(4554753--4554757) -
+(4587521--4587525) -(4620289--4620293) -(4653057--4653061) -(4685825--4685829) -
+(4718593--4718597) -(4751361--4751365) -(4784129--4784133) -(4816897--4816901) -
+(4849665--4849669) -(4882433--4882437) -(4915201--4915205) -(4947969--4947973) -
+(4980737--4980741) -(5013505--5013509) -(5046273--5046277) -(5079041--5079045) -
+(5111809--5111813) -(5144577--5144581) -(5177345--5177349) -(5210113--5210117) -
+(5242881--5242885) -(5275649--5275653) -(5308417--5308421) -(5341185--5341189) -
+(5373953--5373957) -(5406721--5406725) -(5439489--5439493) -(5472257--5472261) -
+(5505025--5505029) -(5537793--5537797) -(5570561--5570565) -(5603329--5603333) -
+(5636097--5636101) -(5668865--5668869) -(5701633--5701637) -(5734401--5734405) -
+(5767169--5767173) -(5799937--5799941) -(5832705--5832709) -(5865473--5865477) -
+(5898241--5898245) -(5931009--5931013) -(5963777--5963781) -(5996545--5996549) -
+(6029313--6029317) -(6062081--6062085) -(6094849--6094853) -(6127617--6127621) -
+(6160385--6160389) -(6193153--6193157) -(6225921--6225925) -(6258689--6258693) -
+(6291457--6291461) -(6324225--6324229) -(6356993--6356997) -(6389761--6389765) -
+(6422529--6422533) -(6455297--6455301) -(6488065--6488069) -(6520833--6520837) -
+(6553601--6553605) -(6586369--6586373) -(6619137--6619141) -(6651905--6651909) -
+(6684673--6684677) -(6717441--6717445) -(6750209--6750213) -(6782977--6782981) -
+(6815745--6815749) -(6848513--6848517) -(6881281--6881285) -(6914049--6914053) -
+(6946817--6946821) -(6979585--6979589) -(7012353--7012357) -(7045121--7045125) -
+(7077889--7077893) -(7110657--7110661) -(7143425--7143429) -(7176193--7176197) -
+(7208961--7208965) -(7241729--7241733) -(7274497--7274501) -(7307265--7307269) -
+(7340033--7340037) -(7372801--7372805) -(7405569--7405573) -(7438337--7438341) -
+(7471105--7471109) -(7503873--7503877) -(7536641--7536645) -(7569409--7569413) -
+(7602177--7602181) -(7634945--7634949) -(7667713--7667717) -(7700481--7700485) -
+(7733249--7733253) -(7766017--7766021) -(7798785--7798789) -(7831553--7831557) -
+(7864321--7864325) -(7897089--7897093) -(7929857--7929861) -(7995393--7995397) -
+(8028161--8028165) -(8060929--8060933) -(8093697--8093701) -(8126465--8126469) -
+(8159233--8159237) -(8192001--8192005) -(8224769--8224773) -(8257537--8257541) -
+(8290305--8290309) -(8323073--8323077) -(8355841--8355845) -(8388609--8388613) -
+(8421377--8421381) -(8454145--8454149) -(8486913--8486917) -(8519681--8519685) -
+(8552449--8552453) -(8585217--8585221) -(8617985--8617989) -(8650753--8650757) -
+(8683521--8683525) -(8716289--8716293) -(8749057--8749061) -(8781825--8781829) -
+(8814593--8814597) -(8847361--8847365) -(8880129--8880133) -(8912897--8912901) -
+(8945665--8945669) -(8978433--8978437) -(9011201--9011205) -(9043969--9043973) -
+(9076737--9076741) -(9109505--9109509) -(9142273--9142277) -(9175041--9175045) -
+(9207809--9207813) -(9240577--9240581) -(9273345--9273349) -(9306113--9306117) -
+(9338881--9338885) -(9371649--9371653) -(9404417--9404421) -(9437185--9437189) -
+(9469953--9469957) -(9502721--9502725) -(9535489--9535493) -(9568257--9568261) -
+(9601025--9601029) -(9633793--9633797) -(9666561--9666565) -(9699329--9699333) -
+(9732097--9732101) -(9764865--9764869) -(9797633--9797637) -(9830401--9830405) -
+(9863169--9863173) -(9895937--9895941) -(9928705--9928709) -(9961473--9961477) -
+(9994241--9994245) -(10027009--10027013) -(10059777--10059781) -(10092545--10092
+549) -(10125313--10125317) -(10158081--10158085) -(10190849--10190853) -(1022361
+7--10223621) -(10256385--10256389) -(10289153--10289157) -(10321921--10321925) -
+(10354689--10354693) -(10387457--10387461) -(10420225--10420229) -(10452993--104
+52997) -(10485761--10485765) -(10518529--10518533) -(10551297--10551301) -(10584
+065--10584069) -(10616833--10616837) -(10649601--10649605) -(10682369--10682373)
+ -(10715137--10715141) -(10747905--10747909) -(10780673--10780677) -(10813441--1
+0813445) -(10846209--10846213) -(10878977--10878981) -(10911745--10911749) -(109
+44513--10944517) -(10977281--10977285) -(11010049--11010053) -(11042817--1104282
+1) -(11075585--11075589) -(11108353--11108357) -(11141121--11141125) -(11173889-
+-11173893) -(11206657--11206661) -(11272193--11272197) -(11304961--11304965) -(1
+1337729--11337733) -(11370497--11370501) -(11403265--11403269) -(11436033--11436
+037) -(11468801--11468805) -(11501569--11501573) -(11534337--11534341) -(1156710
+5--11567109) -(11599873--11599877) -(11632641--11632645) -(11665409--11665413) -
+(11698177--11698181) -(11730945--11730949) -(11763713--11763717) -(11796481--117
+96485) -(11829249--11829253) -(11862017--11862021) -(11894785--11894789) -(11927
+553--11927557) -(11960321--11960325) -(11993089--11993093) -(12025857--12025861)
+ -(12058625--12058629) -(12091393--12091397) -(12124161--12124165) -(12156929--1
+2156933) -(12189697--12189701) -(12222465--12222469) -(12255233--12255237) -(122
+88001--12288005) -(12320769--12320773) -(12353537--12353541) -(12386305--1238630
+9) -(12419073--12419077) -(12451841--12451845) -(12484609--12484613) -(12517377-
+-12517381) -(12550145--12550149) -(12582913--12582917) -(12615681--12615685) -(1
+2648449--12648453) -(12681217--12681221) -(12713985--12713989) -(12746753--12746
+757) -(12779521--12779525) -(12812289--12812293) -(12845057--12845061) -(1287782
+5--12877829) -(12910593--12910597) -(12943361--12943365) -(12976129--12976133) -
+(13008897--13008901) -(13041665--13041669) -(13074433--13074437) -(13107201--131
+07205) -(13139969--13139973) -(13172737--13172741) -(13205505--13205509) -(13238
+273--13238277) -(13271041--13271045) -(13303809--13303813) -(13336577--13336581)
+ -(13369345--13369349) -(13402113--13402117) -(13434881--13434885) -(13467649--1
+3467653) -(13500417--13500421) -(13533185--13533189) -(13565953--13565957) -(135
+98721--13598725) -(13631489--13631493) -(13664257--13664261) -(13697025--1369702
+9) -(13729793--13729797) -(13762561--13762565) -(13795329--13795333) -(13828097-
+-13828101) -(13860865--13860869) -(13893633--13893637) -(13926401--13926405) -(1
+3959169--13959173) -(13991937--13991941) -(14024705--14024709) -(14057473--14057
+477) -(14090241--14090245) -(14123009--14123013) -(14155777--14155781) -(1418854
+5--14188549) -(14221313--14221317) -(14254081--14254085) -(14286849--14286853) -
+(14319617--14319621) -(14352385--14352389) -(14385153--14385157) -(14417921--144
+17925) -(14450689--14450693) -(14483457--14483461) -(14516225--14516229) -(14548
+993--14548997) -(14581761--14581765) -(14614529--14614533) -(14647297--14647301)
+ -(14680065--14680069) -(14712833--14712837) -(14745601--14745605) -(14778369--1
+4778373) -(14811137--14811141) -(14843905--14843909) -(14876673--14876677) -(149
+09441--14909445) -(14942209--14942213) -(14974977--14974981) -(15007745--1500774
+9) -(15040513--15040517) -(15073281--15073285) -(15106049--15106053) -(15138817-
+-15138821) -(15171585--15171589) -(15204353--15204357) -(15237121--15237125) -(1
+5269889--15269893) -(15302657--15302661) -(15335425--15335429)
+Fix&lt;y&gt;? no
+
+
+/dev/ramairVG/lvhome2: ********** WARNING: Filesystem still has errors *********
+*
+
+/dev/ramairVG/lvhome2: 65280/10305536 files (0.6% non-contiguous), 6130518/20602
+880 blocks
+[root@RAMAIR /]#</div></pre>
+</div>haertig, thank you.<br />
+<br />
+My lvhome was about 50G before I tried to extend it. I don't remember exactly how may logical extents were allocated to the LV but it was right around 50G from df -h. I wish I remembered exactly but I don't. <br />
+<br />
+After I issued lvextend -L50G /dev/ramairVG/lvhome the command completed without any errors.  I then tried to run resize2fs on the LV to use the additional space (which I probably either only added 1 or 2 Gig or, possibly reduced 1/2G - if that's even possible) but the resize2fs command reported that I have to run e2fsck on the LV first, so I never ran resize2fs on the LV lvhome successfully.<br />
+<br />
+I know for sure that after I extended lvhome, lvdisplay showed the LV size as 50G. <br />
+<br />
+I ran e2fsck and answered YES to the errors up until I got to the error that warned on data loss.<br />
+<br />
+At that point, I decided to creat a new LV and copy over whatever data I could recover via the cp command.  My new lv (lvhome2) was created at 50G and mounted on /homebkup.  My command was:<br />
+cp -ax /home /homebkup 2&gt; /tmp/cperr.log<br />
+<br />
+The data lost was identifiable from the cperr.log file. cperr.log reported 385 failures with various errors (I/O error, invalid file type).  The 385 represents files and directories so many more the 385 files were lost.  Some of the lost directories had hundreds of files.  My original /home was 86% full and the new /homebkup is at 46% full and LV size is just about the same.<br />
+<br />
+At this point I have lvhome on /home with corruption and lvhome2 on /homebkup brand new with all recoverable data.<br />
+<br />
+lvhome - I decided to try and extend lvhome +20G and try e2fsck again.  I exteneded, then ran e2fsck.  Same errors.  This time I ran again with the -p option.  e2fsck -f -p &lt;lv&gt; failed after a min or two with the following:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:114px; overflow:auto"><div dir="ltr" style="text-align:left;">[root@RAMAIR root]# e2fsck -f -p /dev/ramairVG/lvhome
+/dev/ramairVG/lvhome: Inode 5407029 (...) is an illegal FIFO.
+ 
+ 
+/dev/ramairVG/lvhome: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
+        (i.e., without -a or -p options)</div></pre>
+</div>
+<br />
+lvhome2 - I created it at only 50G. So, I figured I'd start from scratch and try to extend it, which I did to 78.59G. I then ran resize2fs which completed. Then e2fsck which lead me to my original post because it too is reporting errors and when mounted there is no data.<br />
+<br />
+I can still mount the original corrupt lvhome and see some data.<br />
+<br />
+My file system type is ext3, could that be the problem?<br />
+<br />
+Thank you again for your help and time.

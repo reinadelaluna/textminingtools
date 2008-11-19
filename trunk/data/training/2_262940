@@ -1,0 +1,14 @@
+Finally got it. It needed the gtk+1.2 devel package.Umm.. Probably Gtk2...  it doesn't hurt to have both Gtk and Gtk2 installed though for full compatibility.  What's the exact error message your recieving?<br />
+<br />
+Learn more at <a href="http://www.gtk.org/" target="_blank">http://www.gtk.org/</a>It's  telling me it needs a certain GTK dev package for the GUI but doesn't say what package it needs.<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:82px; overflow:auto"><div dir="ltr" style="text-align:left;">Checking for GTK version ...
+Error: The GUI requires GTK devel packages (which were not found).
+
+Check &quot;configure.log&quot; if you do not understand why it failed.</div></pre>
+</div>
+<br />
+The FTP on that site is down, but I was able to get GTK+2.0 through urpmi and I'm still getting the same error.<br />
+<br />
+EDIT:<br />
+I have now also tried GTK+1.2 and gotten the same result.

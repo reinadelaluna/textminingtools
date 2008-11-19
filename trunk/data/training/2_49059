@@ -1,0 +1,21 @@
+php, php3 &amp; php4 are different... of course... <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+I have...<br />
+AddType application/x-httpd-php .php4 .php3 .phtml .php<br />
+&amp; LoadModule php4_module        modules/libphp4.so<br />
+&amp; AddModule mod_php4.cI added the lines and now the files with the .php4 dont work at all, just like the .php. So I can assume something is wrong with my script or php. I tried the script &lt;?PHP phpinfo(); ?&gt; and that works so I guess its my script? I will try a few things and report back later.I've narrowed it down to when I create a variable. I can connect to the database &quot;mysql_connect(&quot;server&quot;,&quot;username&quot;,&quot;password&quot;);&quot; and I can select the database &quot;mysql_select_db(&quot;whatever&quot;);&quot; and I can do and echo out &quot;echo &quot;blah blah blah&quot;;&quot; but as soon as I do a : &quot;$whatever = mysql_query(&quot;select * from whatever&quot;)&quot; the script wont run at all. Even early basic echos early in the script wont work.... I don't get it. Any ideas???I am trying to set up some stuff for my site and want to start using php and sql. So I have Apache and mysql installed (pre-installed from the distro). Apache works, SQL works (I have an SQL based forum running) but when I tried to write my own script and saved it with a .php extension and go to it on my site nothing happens, no sql error, no page not found error, nothing. When I save it with the extension .php4(for s#!ts and giggles) the page will load but the php scripts don't run. I am almost certain the php mod is loaded and in the php mod config I have the line &quot;AddType application/x-httpd-php .php&quot; Is there something I missed? Much appreciative. THANKS!If you're writing under PHP4, make sure you save the script as *.php4.<br />
+<br />
+I have also commented out any Module references to .php &amp; php3.<br />
+Quote from httpd.conf...<br />
+ &lt;IfModule mod_php4.c&gt;<br />
+        AddType application/x-httpd-php .php .php4 .php3 .phtml<br />
+        AddType application/x-httpd-php-source .phps<br />
+    &lt;/IfModule&gt;<br />
+    &lt;IfModule mod_php3.c&gt;<br />
+        AddType application/x-httpd-php3 .php3<br />
+        AddType application/x-httpd-php3-source .phps<br />
+    &lt;/IfModule&gt;<br />
+    &lt;IfModule mod_php.c&gt;<br />
+        AddType application/x-httpd-php .phtml<br />
+    &lt;/IfModule&gt;<br />
+<br />
+Do you have these as well?

@@ -1,0 +1,85 @@
+Why not grab apache source code and compile it from apache.org? Also, do the same with php. Building those two and getting them to work is fairly easy. Lots of documentation everywhere. <br />
+<br />
+-twantrdAll I had to do was go to my yast and in the add/remove software I just searched for gcc,  cc,  acc and c89 I installed the gcc and then went back to my term window and did the ./configure and now it worked,I have the source and I'm following the directions for installing it from the <a href="http://www.onlamp.com/pub/a/apache/2000/02/24/installing_apache.html?page=3" target="_blank">http://www.onlamp.com/pub/a/apache/2...he.html?page=3</a> webpage<br />
+which if I may say so, IS really nice site.<br />
+<br />
+Only issue I have so far is while compiling the source I get and error<br />
+<br />
+Error: could not find any of these C compilers<br />
+ anywhere in your PATH:  gcc cc acc c89<br />
+Configure terminated<br />
+<br />
+So, the first place I go is here to report this error and ask for help and the second thing I'll do is a google search and see what i have to do.I'm gathering information to configure a LAMP server on my SuSe 9.2 machine.<br />
+when I'm searching for the packages I need<br />
+such as <br />
+zlib<br />
+libpng<br />
+libjpeg<br />
+gd<br />
+gd-devel<br />
+apache<br />
+mod_php4<br />
+<br />
+the OP for each of these is as follows.<br />
+doug@linux:~&gt; rpm -q zlib<br />
+zlib-1.2.1-74<br />
+<br />
+doug@linux:~&gt; rpm -q libpng<br />
+libpng-1.2.6-4<br />
+<br />
+doug@linux:~&gt; rpm -q libjpeg<br />
+libjpeg-6.2.0-736<br />
+<br />
+doug@linux:~&gt; rpm -q gd<br />
+gd-2.0.28-2.4<br />
+<br />
+doug@linux:~&gt; rpm -q gd-devel<br />
+gd-devel-2.0.28-2.4<br />
+<br />
+doug@linux:~&gt; rpm -q apache<br />
+package apache is not installed<br />
+<br />
+<br />
+doug@linux:~&gt; rpm -q mod_php4<br />
+package mod_php4 is not installed<br />
+<br />
+SOOooo, it looks as if I need to install Apache and the mod_php4<br />
+<br />
+Now, when I go to yast and install and remove software? I see apache and it is checked along with mod_php4<br />
+<br />
+but I'll be damned if I can find it on here.<br />
+<br />
+So I went to <a href="http://www.rpmfind.net" target="_blank">www.rpmfind.net</a> and searched for apache<br />
+I downloaded  the apache-1.3.28-77.i586.rpm<br />
+<br />
+now when I try and log in as root or su and type in rpm -Uh apache-1.3.28-77.i586.rpm <br />
+<br />
+I get the following error.<br />
+<br />
+linux:/home/doug # rpm -Uh apache-1.3.28-77.i586.rpm<br />
+error: Failed dependencies:<br />
+        perl = 5.8.1 is needed by apache-1.3.28-77<br />
+        libdb-4.1.so is needed by apache-1.3.28-77<br />
+        libmm.so.13 is needed by apache-1.3.28-77<br />
+        apache_mmn_20020903 is needed by (installed) apache2-mod_python-3.1.3-37.1<br />
+        apache_mmn_20020903 is needed by (installed) apache2-mod_perl-1.99_12_20040302-38.1<br />
+        apache2 = 2.0.50 is needed by (installed) apache2-prefork-2.0.50-7.3<br />
+        apache2 = 2.0.50 is needed by (installed) apache2-worker-2.0.50-7.3<br />
+        apache2 = 2.0.50 is needed by (installed) apache2-devel-2.0.50-7.3<br />
+        apache2 is needed by (installed) apache2-mod_python-3.1.3-37.1<br />
+        apache2 is needed by (installed) apache2-mod_perl-1.99_12_20040302-38.1<br />
+linux:/home/doug #                              <br />
+<br />
+what can I do..or better yet what DO I Do to fix this so it'll work?<br />
+<br />
+<br />
+Thanks you so very much<br />
+<br />
+Doug GentryIf I do the source and complile. SHould I go in remove the RPM I downloaded and also go into yast and remove the Apache server in there. I guess just right cllick and remove all? <br />
+Then go to the apache.org site and download and compile it?<br />
+<br />
+<br />
+Thanks<br />
+DougI don't use yast that much in SuSE. I usually compile packages when I do an install. That's my route. If you see that apache is installed, then perhaps you should search for it first on your system with commands like &quot;find&quot; and &quot;locate&quot;. <br />
+<br />
+-twantrd

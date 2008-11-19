@@ -1,0 +1,29 @@
+That's konsole's shortcut - running from another terminal should fix it (like xterm), or the proper thing to do would be to go to &quot;Settings -&gt; Configure Shortcuts&quot;, find each shortcut in the list and set it to &quot;none&quot; instead of &quot;default&quot;.Thanks!!!The default behavior of KDE is evidently to capture certain keystrokes<br />
+rather than pass those keystrokes on to whatever application is<br />
+running.<br />
+<br />
+For example, in a konsole window I ssh to some machine, and<br />
+then execute &quot;emacs -nw&quot;.  That's when the bad news begins.<br />
+<br />
+Emacs relies upon specific keystrokes for various commands<br />
+and editing functions. However, rather than allowing those<br />
+keystrokes to be passed through to emacs, the konsole<br />
+captures the keystrokes -- for it's own purpose.<br />
+<br />
+A specific example is the sequence control-meta-s which instructs<br />
+emacs to initiate a regular expression search. The konsole refuses<br />
+to pass that on to emacs, and instead captures it and consequently<br />
+brings up a &quot;Rename Session - Konsole&quot; dialog box.<br />
+<br />
+How do I turn off all these lame shortcuts so that applications in<br />
+general ,and emacs in particular, are usable -- meaning they<br />
+receive the keystrokes I type ??!!<br />
+<br />
+<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/newbie.gif" border="0" alt="" title="Newbie" class="inlineimg" />Use rxvt instead of konsole? :)<br />
+<br />
+Not sure whether it's konsole or KDE, though, since<br />
+I don't use that hog.<br />
+<br />
+<br />
+Cheers,<br />
+Tink

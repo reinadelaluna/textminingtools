@@ -1,0 +1,46 @@
+Avatar,<br />
+I got it from RPMFind (rpmfind.net)  I actually used an RPM for Suse, but it all seemed to be OK<br />
+<a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=xdevel&amp;submit=Search+...&amp;system=&amp;arch=" target="_blank">http://www.rpmfind.net/linux/rpm2htm...&amp;system=&amp;arch=</a><br />
+<br />
+Cheers<br />
+JoHiya all,<br />
+I am trying to compile an application I downloaded from the net.<br />
+<br />
+I am running redhat 7.3<br />
+<br />
+I go to the directory that has the application source in it and type <br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">./configure</div></pre>
+</div>
+and get the following error<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">Checking for X... configure: error: Can't find X includes.  Please check your installation and add the correct paths!</div></pre>
+</div>
+<br />
+so I downloaded XFree86-4.2.0-72.src.rpm and installed it.<br />
+<br />
+I do the configure thing and I still get the same error.<br />
+<br />
+How do I add the directory where XFree86 Source got installed to my path (and have I installed the right thing?)<br />
+<br />
+Regards<br />
+JoThank you Jo, did you get the xdevel from your Red Had CD or from the Internet? I will start looking right now. Thank you.you need to add the libxfree86-devel packageI tried this command<br />
+<br />
+./configure --x-includes=/usr/X11R6/include<br />
+<br />
+(which exists) but I still get that error. (&quot;add the correct paths&quot; how do I find my includes?Try /usr/X11R6/include maybe the version number will be different but thats where it is on mine. Similarly /usr/X11R6/lib is where the libs are at.<br />
+<br />
+Hope that helps.MadCactus,<br />
+I'll try that - but HOW... how do I add an entry into my path?<br />
+<br />
+RegardsAvatar,<br />
+I worked out that I needed to download the xdevel package.  Given I run redhat I got it in RPM form.  <br />
+<br />
+the package I downloaded was xdevel-4.2.0-187.i586.rpm<br />
+<br />
+That solved the x includes problem (I also hacked around with my path a little, and while I do know that on its own, the path didn't fix the problem - I can't definitively state whether it was purely the xdevel package that fixed the problem, or a combination of xdevel and the path)<br />
+<br />
+regards<br />
+Jo

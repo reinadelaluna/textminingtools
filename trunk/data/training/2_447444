@@ -1,0 +1,150 @@
+The first to do is go here<br />
+<a href="http://appdb.winehq.org/appview.php?versionId=1054" target="_blank">http://appdb.winehq.org/appview.php?versionId=1054</a>Try using Crossover Office to install Windows APPs on Linux, works great <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" />!UNIX and Linux do not get along very well with directories or file names that use spaces. To move to the directory Dreamweaver MX, you need to use the command:<br />
+<br />
+cd &quot;Dreamweaver MX&quot;<br />
+<br />
+The double quotes allow Linux to handle the space character properly (as part of the name).<br />
+<br />
+To start an application from the command line with Wine, it is best to move all the way to the directory that holds the executable and then use the format:<br />
+<br />
+wine application.exe<br />
+<br />
+Where &quot;application&quot; would be the name of the Dreamweaver executable. Also remember that Linux is case sensitive.The errors are very simple. It is telling you need the require DLL files. Either try to copy from a Windows installation or download the DLL files from <a href="http://www.dll-files.com/" target="_blank">http://www.dll-files.com/</a>. Usually the DLL files are found in windows/system or windows/system32.<br />
+<br />
+I recommend using VMware instead of using WINE because the program is run more reliable in VMware.OK,<br />
+<br />
+So I used the quotes around the file name.(great suggestion by the way <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />) and this is what I got:<br />
+<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia/Dreamweaver MX&gt; wine Dreamweaver.exe<br />
+err:module:import_dll Library MFC42.DLL (which is needed by L&quot;Z:\\windows\\C\\ProgramFiles\\Macromedia\\Dreamweaver MX\\Dreamweaver.exe&quot;) not found<br />
+err:module:import_dll Library MSVCP60.dll (which is needed by L&quot;Z:\\windows\\C\\ProgramFiles\\Macromedia\\Dreamweaver MX\\Dreamweaver.exe&quot;) not found<br />
+err:module:LdrInitializeThunk Main exe initialization for L&quot;Z:\\windows\\C\\ProgramFiles\\Macromedia\\Dreamweaver MX\\Dreamweaver.exe&quot; failed, status c0000135<br />
+ <br />
+What is going on here anyone?<br />
+<br />
+Thanks<br />
+<br />
+trox<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>kencaz</strong></div>
+				<div style="font-style:italic">Well, trying to execute a directory will not work.  You need to find the .exe file that is used to start Dreamweaver in Windows.<br />
+<br />
+Even then you'll probably run into missing .dll problems.  <br />
+<br />
+Your best option is to install (setup) the application using wine by running the setup.exe.<br />
+<br />
+KC</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+Good points. The application does need to be installed first by Wine in the special windows c_drive created by Wine.<br />
+<br />
+Now that I look at it, it almost appears as though trox is trying to run it from a regular Windows partition, which cannot be done as far as I know.Hi,<br />
+<br />
+I am trying to use wine to start Macromedia's Dreamweaver MX.  This is what I am getting:<br />
+<br />
+ai@linux:/&gt; ls<br />
+bin   data1  etc   lib    media  opt   root  srv  tmp  var<br />
+boot  dev    home  lib64  mnt    proc  sbin  sys  usr  windows<br />
+ai@linux:/&gt; cd windows/C/ProgramFiles<br />
+ai@linux:/windows/C/ProgramFiles&gt; ls<br />
+3aLab<br />
+Adobe<br />
+AuctionSieve<br />
+azpr<br />
+BearShare<br />
+Common Files<br />
+Compact Wireless-G USB Adapter Wireless Network Monitor<br />
+ComPlus Applications<br />
+Cutting Edge Software<br />
+dfx<br />
+Documents To Go<br />
+DVD Decrypter<br />
+Elaborate Bytes<br />
+epson<br />
+Google<br />
+HammerTap<br />
+Handmark<br />
+HighCriteria<br />
+illiminable<br />
+ImTOO<br />
+InfinitySW<br />
+InstallShield Installation Information<br />
+Internet Explorer<br />
+iPod<br />
+iTunes<br />
+Java<br />
+Linksys Wireless-G PCI Wireless Network Monitor<br />
+Macromedia<br />
+MagicDVDRipper<br />
+MarkelSoft Dupe Eliminator 2.0 for iTunes<br />
+McAfee.com<br />
+ai@linux:/windows/C/ProgramFiles&gt; cd Macromedia<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia&gt; ls<br />
+Dreamweaver 8  Dreamweaver MX  Extension Manager<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia&gt; wine Dreamweaver MX<br />
+wine: cannot find 'Dreamweaver'<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia&gt; cd Dreamweaver MX<br />
+bash: cd: Dreamweaver: No such file or directory<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia&gt;<br />
+<br />
+as you can see Dreamweaver MX is there (it's blue in my console which means it's a directory right?) linux says it is not<br />
+<br />
+Does it have anything to do with the fact that Dreamweaver MX has spaces?<br />
+<br />
+Thanks<br />
+<br />
+troxwhat's your distro?<br />
+How did you install wine? version?<br />
+How did you install Dreamweaver? (manually, installation program ect..)You may need to change your DLL overrides to make Dreamweaver work.<br />
+<br />
+I still recommend using VMware. Use Xensource if you want a complete open source virtual machine.  Xensource can run Linux and Windows at the same time using virtual hardware extensions although you will need to do a complete computer upgrade.Well, trying to execute a directory will not work.  You need to find the .exe file that is used to start Dreamweaver in Windows.<br />
+<br />
+Even then you'll probably run into missing .dll problems.  <br />
+<br />
+Your best option is to install (setup) the application using wine by running the setup.exe.<br />
+<br />
+KCSo I found the dlls needed and installed them into the proper directory.  When I try to run wine this happens:<br />
+<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia/Dreamweaver MX&gt; wine Dreamweaver.exe<br />
+fixme:seh:EXC_RtlRaiseException call (from 0xafa37a) to unimplemented function MFC42.DLL.6571<br />
+fixme:msvcrt:_XcptFilter (-2147483392,0x55c3f960)semi-stub<br />
+<br />
+What do I do now?  I've googled this but now real luck for answers.<br />
+<br />
+Thanksjust give a look to the following URL : codeweavers . com<br />
+it will solve your problem for Flash MX and Dreamweavers and other Win Program, it's really great<br />
+<br />
+<br />
+<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/read.gif" border="0" alt="" title="Study" class="inlineimg" />Why does wine not find Dreamweaver.exe when it is clearly there?<br />
+<br />
+ai@linux:/windows/C/ProgramFiles&gt; cd Macromedia<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia&gt; ls<br />
+Dreamweaver 8  Dreamweaver MX  Extension Manager<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia&gt; cd &quot;Dreamweaver MX&quot;<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia/Dreamweaver MX&gt; ls<br />
+Configuration          mfc42.zip                 ReadMe.htm<br />
+Downloaded Extensions  MM.ASPNetDesignerMgr.dll  readme.txt<br />
+Dreamweaver.exe        MMxpt.dll                 Register.htm<br />
+Help                   msvcp60.dll               Samples<br />
+jvm                    msvcp60.zip               xerces-c_1_6.dll<br />
+License.htm            psapi.dll<br />
+mfc42.dll              ReadmeContent<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia/Dreamweaver MX&gt; wine Dreamweaver.exe<br />
+Warning: could not find DOS drive for current working directory '/windows/C/ProgramFiles/Macromedia/Dreamweaver MX', starting in the Windows directory.<br />
+wine: cannot find 'Dreamweaver.exe'<br />
+ai@linux:/windows/C/ProgramFiles/Macromedia/Dreamweaver MX&gt; wine &quot;Dreamweaver.exe&quot;<br />
+Warning: could not find DOS drive for current working directory '/windows/C/ProgramFiles/Macromedia/Dreamweaver MX', starting in the Windows directory.<br />
+wine: cannot find 'Dreamweaver.exe'<br />
+ <br />
+What do i do from here anyone?<br />
+<br />
+Thanks,<br />
+<br />
+Ti

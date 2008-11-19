@@ -1,0 +1,20 @@
+I noticed that aRts can supposedly supports network audio using MCOP(multimedia communication protocol).<br />
+<br />
+I think this is how it is enabled :<br />
+KDE / Control Center / Sound and Multimedia / Enable Networked Sound<br />
+<br />
+However I cannot find a Windows MCOP client... <br />
+<br />
+Is aRts the wrong solution in this case ?Hi all,  I have a strange question regarding network audio.<br />
+<br />
+I have a Linux box which I want to play mpeg's, but without a sound card.<br />
+<br />
+I have a Windows laptop which does have a soundcard and a pair of headphones.<br />
+<br />
+Both are connected to a LAN.<br />
+<br />
+How can I send the sound via the network to the Windows box ?  I'd prefer to avoid the radio station like applications if at all possible as they tend to get quite involved with configuring.<br />
+<br />
+What works best and is currenly maintained ?<br />
+<br />
+Thanks for any pointers.

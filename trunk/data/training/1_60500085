@@ -1,0 +1,90 @@
+Witam!
+<br />
+
+<br />
+     how to mask URL's on virtual hosts?
+<br />
+     I don't wanna to show in webrowser
+<br />
+     <a  href="http://www.mydomain.pl/page234.html">http://www.mydomain.pl/page234.html</a> or another page,
+<br />
+     but always just <a  href="http://wwww.mydomain.pl">http://wwww.mydomain.pl</a>
+<br />
+
+<br />
+-- 
+<br />
+Pozdrowienia,
+<br />
+ nieca-onet
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+In all your html page.
+<br />
+
+<br />
+insert the code belove :
+<br />
+&quot;
+<br />
+&lt;script language=&quot;javascript&quot;&gt;
+<br />
+document.location=&quot;<a  href="http://www.myURL.com&quot">http://www.myURL.com&quot</a>;;
+<br />
+&lt;/script&gt;
+<br />
+&quot;
+<br />
+
+<br />
+Good Luck
+<br />
+
+<br />
+Witam!
+<br />
+
+<br />
+     how to mask URL's on virtual hosts?
+<br />
+     I don't wanna to show in webrowser
+<br />
+     <a  href="http://www.mydomain.pl/page234.html">http://www.mydomain.pl/page234.html</a> or another page,
+<br />
+     but always just <a  href="http://wwww.mydomain.pl">http://wwww.mydomain.pl</a>
+<br />
+
+<br />
+--
+<br />
+Pozdrowienia,
+<br />
+ nieca-onet
+<br />
+
+<br />
+
+<br />
+--
+<br />
+To UNSUBSCRIBE, email to debian-apache-REQUEST@lists.debian.org
+<br />
+with a subject of &quot;unsubscribe&quot;. Trouble? Contact
+<br />
+listmaster@lists.debian.org
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />

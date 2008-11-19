@@ -1,0 +1,33 @@
+You're right that all the video players require various libraries for different types of video.<br />
+<br />
+However, this is exactly the same as on Windows - Microsoft media player doesn't automatically play every type of video; it requires a codec to be installed for each type. And the same applies to Linux video players.<br />
+<br />
+What you will find, though, is that Windows media player comes with most of the common codec libraries pre-installed, whereas most Linux installations are missing a few of the important ones.<br />
+<br />
+The trouble is that those few important ones are protected by licensing laws and patents, and they're owned by companies like Microsoft who aren't friendly toward Linux. So there are no legal versions of the codec libraries for them on Linux.<br />
+<br />
+The most common codecs that this affects are for Windows media files (.wmv), and CSS-encrypted DVDs (ie most movies that you can buy). Practically all other video file formats should be supported out of the box by any decent Linux distro, but since WMV and CSS are by far the most common video formats around, not having them does make things a bit awkward at times.<br />
+<br />
+There are unlicensed versions floating around on the web, and if you search for them you'll find them fairly easily. I'm pretty sure I've even seen links to them on this forum, but I hope you'll forgive me if I steer clear of actually linking to them.<br />
+<br />
+There are some grounds to hope that CSS will be licensed at some point in the future, but I can't see it happening for WMV files - Microsoft would laugh themselves sick if you asked to licence Windows Media files for Linux.can video player can play .avi file<br />
+for me most of my movies is .avi<br />
+<br />
+also .wmv can be change to .avi file if you have .wmv to .avi programs. so i don't think linux will ask for licens for that from windowsxine is the firefox of video players.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />I can't seem to find a video player that work, all of the video players I need need about 10 libraries, that depend on other libraries, is there any vast multi-format video players out there, there needs to be a Firefox of Media Players around. Please Help<br />
+<br />
+Plus I am a n00b which doesn't help<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by kennycc </i><br />
+[b]can video player can play .avi file<br />
+for me most of my movies is .avi
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Yes. Every Linux distro I've tried can play .avi files as part of the standard installation. That is also quite a common format, so it's good that we can play those at least. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />I'm suprised nobody has mentioned mplayer. You could install it right of the mandrake install tool easily (assuming you use mandrake) and I think the codec pack is in there too. If not, you can download a fairly meaty codec pack from mplayerhq.hu. Also, you can download the linux divx codec from divx's website, and then you should basically be good to go. If you need specific help installing any of these, just ask.vlc media player (<a href="http://www.videolan.org" target="_blank">www.videolan.org</a>) should do the trick from the start. At least the windows version seems to be able to play just about anything without extra codecs, Although i haven't gotten the linux version to work myself (click the executable but nothing happens).Well could you give me a n00bs step by step guide to install it, please

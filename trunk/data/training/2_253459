@@ -1,0 +1,137 @@
+I would make sure the Xaw3d widet set is installed on your Linux distribution. I just downloaded and compiled gv-3.5.8 myself. Aside from a few errors in the header file which I fixed, the build completed smoothly.<br />
+<br />
+Did you also follow the procedures outlined in INSTALL.Unix?Actually, I´ve been trying to install gv 3.6.1 on my Scientific Linux and I don´t seem to quite get how to deal with these Xaw3d libraries. The things is, ./configure tell me the following:<br />
+<br />
+checking for XawInitializeWidgetSet in -lXaw3d... no<br />
+configure: error: Unable to find a valid Xaw3d library. Please install it and rerun configure.<br />
+<br />
+but, when I have a look in /usr/X11R6/lib, I find the following:<br />
+lrwxr-xr-x    1 root     root           15 Oct 13 19:01 libXaw3d.so.6 -&gt; libXaw3d.so.6.1<br />
+-rwxr-xr-x    1 root     root       281028 Jun  3  2004 libXaw3d.so.6.1<br />
+lrwxr-xr-x    1 root     root           15 Oct 13 19:01 libXaw3d.so.7 -&gt; libXaw3d.so.7.0<br />
+-rw-r--r--    1 root     root       278340 Jun  3  2004 libXaw3d.so.7.0<br />
+<br />
+It isn´t clear to me why configure doesn´t find them since /usr/X11R6/lib is after all a pretty normal location... Do I need something else than these libraries? And what the heck is Xaw3d? :-)<br />
+<br />
+Thanks for your help, I really need to get gv installed soon.I'm trying toi install gv-3.5.8 (no root priveliges), but the make is failing:<br />
+...<br />
+utton.c:111: warning: excess elements in scalar initializer<br />
+Button.c:111: warning: (near initialization for `buttonClassRec')<br />
+Button.c:112: warning: excess elements in scalar initializer<br />
+Button.c:112: warning: (near initialization for `buttonClassRec')<br />
+Button.c:113: warning: excess elements in scalar initializer<br />
+Button.c:113: warning: (near initialization for `buttonClassRec')<br />
+Button.c:114: warning: excess elements in scalar initializer<br />
+Button.c:114: warning: (near initialization for `buttonClassRec')<br />
+Button.c:115: warning: excess elements in scalar initializer<br />
+Button.c:115: warning: (near initialization for `buttonClassRec')<br />
+Button.c:116: warning: excess elements in scalar initializer<br />
+Button.c:116: warning: (near initialization for `buttonClassRec')<br />
+Button.c:117: warning: excess elements in scalar initializer<br />
+Button.c:117: warning: (near initialization for `buttonClassRec')<br />
+Button.c:118: warning: excess elements in scalar initializer<br />
+Button.c:118: warning: (near initialization for `buttonClassRec')<br />
+Button.c:119: warning: excess elements in scalar initializer<br />
+Button.c:119: warning: (near initialization for `buttonClassRec')<br />
+Button.c:120: warning: excess elements in scalar initializer<br />
+Button.c:120: warning: (near initialization for `buttonClassRec')<br />
+Button.c:121: warning: excess elements in scalar initializer<br />
+Button.c:121: warning: (near initialization for `buttonClassRec')<br />
+Button.c:122: warning: excess elements in scalar initializer<br />
+Button.c:122: warning: (near initialization for `buttonClassRec')<br />
+Button.c:124: warning: excess elements in scalar initializer<br />
+Button.c:124: warning: (near initialization for `buttonClassRec')<br />
+Button.c:124: initializer element is not constant<br />
+Button.c:124: (near initialization for `buttonClassRec')<br />
+Button.c:125: warning: braces around scalar initializer<br />
+Button.c:125: warning: (near initialization for `buttonClassRec')<br />
+Button.c:127: `XtInheritChangeSensitive' undeclared here (not in a function)<br />
+Button.c:127: initializer element is not constant<br />
+Button.c:127: (near initialization for `buttonClassRec')<br />
+Button.c:127: warning: excess elements in scalar initializer<br />
+Button.c:127: warning: (near initialization for `buttonClassRec')<br />
+Button.c:128: warning: braces around scalar initializer<br />
+Button.c:128: warning: (near initialization for `buttonClassRec')<br />
+Button.c:129: `XtInheritXaw3dShadowDraw' undeclared here (not in a function)<br />
+Button.c:129: initializer element is not constant<br />
+Button.c:129: (near initialization for `buttonClassRec')<br />
+Button.c:130: warning: excess elements in scalar initializer<br />
+Button.c:130: warning: (near initialization for `buttonClassRec')<br />
+Button.c:131: warning: braces around scalar initializer<br />
+Button.c:131: warning: (near initialization for `buttonClassRec')<br />
+Button.c:133: warning: excess elements in scalar initializer<br />
+Button.c:133: warning: (near initialization for `buttonClassRec')<br />
+Button.c:134: warning: braces around scalar initializer<br />
+Button.c:134: warning: (near initialization for `buttonClassRec')<br />
+Button.c:136: warning: excess elements in scalar initializer<br />
+Button.c:136: warning: (near initialization for `buttonClassRec')<br />
+Button.c:137: warning: braces around scalar initializer<br />
+Button.c:137: warning: (near initialization for `buttonClassRec')<br />
+Button.c:139: warning: excess elements in scalar initializer<br />
+Button.c:139: warning: (near initialization for `buttonClassRec')<br />
+Button.c:140: warning: data definition has no type or storage class<br />
+Button.c: In function `Initialize':<br />
+Button.c:173: dereferencing pointer to incomplete type<br />
+Button.c: In function `Destroy':<br />
+Button.c:203: dereferencing pointer to incomplete type<br />
+Button.c:204: dereferencing pointer to incomplete type<br />
+Button.c: In function `GetHighlightedBackgroundGC':<br />
+Button.c:218: dereferencing pointer to incomplete type<br />
+Button.c:219: dereferencing pointer to incomplete type<br />
+Button.c:220: dereferencing pointer to incomplete type<br />
+Button.c: In function `GetSetBackgroundGC':<br />
+Button.c:234: dereferencing pointer to incomplete type<br />
+Button.c:235: dereferencing pointer to incomplete type<br />
+Button.c:236: dereferencing pointer to incomplete type<br />
+Button.c: In function `PaintButtonWidget':<br />
+Button.c:257: dereferencing pointer to incomplete type<br />
+Button.c:258: dereferencing pointer to incomplete type<br />
+Button.c:259: dereferencing pointer to incomplete type<br />
+Button.c:260: dereferencing pointer to incomplete type<br />
+Button.c:262: dereferencing pointer to incomplete type<br />
+Button.c:264: dereferencing pointer to incomplete type<br />
+Button.c:264: dereferencing pointer to incomplete type<br />
+Button.c:266: dereferencing pointer to incomplete type<br />
+Button.c:267: dereferencing pointer to incomplete type<br />
+Button.c:268: dereferencing pointer to incomplete type<br />
+Button.c:269: dereferencing pointer to incomplete type<br />
+Button.c:273: dereferencing pointer to incomplete type<br />
+Button.c:274: dereferencing pointer to incomplete type<br />
+Button.c:275: dereferencing pointer to incomplete type<br />
+Button.c:277: `CommandWidgetClass' undeclared (first use in this function)<br />
+Button.c:277: (Each undeclared identifier is reported only once<br />
+Button.c:277: for each function it appears in.)<br />
+Button.c:277: `commandClassRec' undeclared (first use in this function)<br />
+Button.c:278: dereferencing pointer to incomplete type<br />
+Button.c:279: dereferencing pointer to incomplete type<br />
+Button.c:280: dereferencing pointer to incomplete type<br />
+Button.c:281: dereferencing pointer to incomplete type<br />
+Button.c:283: dereferencing pointer to incomplete type<br />
+Button.c:284: dereferencing pointer to incomplete type<br />
+Button.c:285: dereferencing pointer to incomplete type<br />
+Button.c:286: dereferencing pointer to incomplete type<br />
+Button.c:286: dereferencing pointer to incomplete type<br />
+Button.c:287: dereferencing pointer to incomplete type<br />
+Button.c:287: dereferencing pointer to incomplete type<br />
+Button.c:288: dereferencing pointer to incomplete type<br />
+Button.c:293: dereferencing pointer to incomplete type<br />
+Button.c:293: dereferencing pointer to incomplete type<br />
+Button.c: In function `ButtonHighlight':<br />
+Button.c:319: dereferencing pointer to incomplete type<br />
+Button.c:320: dereferencing pointer to incomplete type<br />
+Button.c:321: dereferencing pointer to incomplete type<br />
+Button.c:323: dereferencing pointer to incomplete type<br />
+Button.c: In function `ButtonSet':<br />
+Button.c:337: dereferencing pointer to incomplete type<br />
+Button.c:338: dereferencing pointer to incomplete type<br />
+Button.c: In function `ButtonUnset':<br />
+Button.c:354: dereferencing pointer to incomplete type<br />
+Button.c: In function `ButtonReset':<br />
+Button.c:369: dereferencing pointer to incomplete type<br />
+make[1]: *** [Button.o] Error 1<br />
+make[1]: Leaving directory `/home/vinayak/.inst/gv-3.5.8/source'<br />
+make: *** [all] Error 2<br />
+<br />
+Any idea how to fix it?<br />
+<br />
+Thanks

@@ -1,0 +1,44 @@
+Is it supposed to be world writable? I tried chmod to make it read
+<br />
+only but that does not seem to work. That's pretty strange...
+<br />
+Wha
+<br />
+
+<br />
+Alex.
+<br />
+
+<br />
+
+<br />
+
+<br />
+El jue, 19-05-2005 a las 00:14 +0200, Alexandru Cabuz escribi&#xF3;:
+<br />
+&gt; Is it supposed to be world writable? I tried chmod to make it read
+<br />
+&gt; only but that does not seem to work. That's pretty strange...
+<br />
+
+<br />
+Huh, it's a symbolic link, that's why.
+<br />
+
+<br />
+-- 
+<br />
+Javier Kohen &lt;jkohen@users.sourceforge.net&gt;
+<br />
+ICQ: blashyrkh #2361802
+<br />
+Jabber: jkohen@jabber.org
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00114.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> This is a digitally signed message part</p>
+<br />
+
+<br />

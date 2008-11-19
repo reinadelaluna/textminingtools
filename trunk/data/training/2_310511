@@ -1,0 +1,11 @@
+I have since switched to the java-based Ninan.  It is great and I use it everyday on Windows and Linux now rather than NewsLeecher and nzbget, respectively.  Check it out:<br />
+<br />
+<a href="http://ninan.sourceforge.net" target="_blank">http://ninan.sourceforge.net</a><br />
+--<br />
+Kristian HermansenI contibute to the nzbget project, and I am using it almost everyday!  I love it, but it is nothing like NewsLeecher on Windows.  Have you tried nzbget 0.2.0?  I am using it with the ncurses mode turned on -- see the options in the man page.<br />
+<br />
+Anyways, there is also BNR2, aka Binary News Reaper.  I hate it though, but it does have a GUI.  You might want that.  There is also Pan, but I don't think it is suitable for binaries unless they changed things in recent versions...<br />
+<br />
+Kristian Hermansenpan is ok and works for binaries BUT it eats a lot of memory....if your using kde klibido seems to work fine Ive been using it for about a week but  in klibido if the post isnt yy/uu encoded it may fail to downloadCan anyone recommend a good usenet binary file grabber for linux?  It doesn't have to have a GUI, command line is fine too.  I've tried <a href="http://sourceforge.net/projects/nzbget/" target="_blank">nzbget</a> but it seems to have trouble reading some .nzb files, and I'm not sure if it is still being developed.<br />
+<br />
+Any other recommendations?

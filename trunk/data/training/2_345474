@@ -1,0 +1,161 @@
+first i don't know one single thing about rpms but i think<br />
+repeat the build procedure this time doing it on the laptop so all the build directories are in the right place ??<br />
+don't even have to install it just create the build.I still have not figured out the &quot;make rpm&quot; problem, so I just did &quot;make;sudo make install&quot;.<br />
+But now the module wont load due to an unknown symbol &quot;get_current&quot;!<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				sudo modprobe ndiswrapper<br />
+FATAL: Error inserting ndiswrapper (/lib/modules/2.6.13-rc4-RT-V0.7.52-13/misc/ndiswrapper.ko): Unknown symbol in module, or unknown parameter (see dmesg)
+			
+		</td>
+	</tr>
+	</table>
+</div>
+dmesg gives me:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				ndiswrapper: Unknown symbol get_current<br />
+ndiswrapper: Unknown symbol get_current<br />
+ndiswrapper: Unknown symbol get_current
+			
+		</td>
+	</tr>
+	</table>
+</div>
+POOP!wade, did you manage to find a solution to  compiling ndiswrapper on a custom kernel, as i have exactly the same problem although mine is more problematic as i need to use the custom kernel to include the modules for my AMD processor and for my custom DSDT table (goes into thermal overrun otherwise) any help is very much appreciated.  Cheers GrahamI am also trying to install ndiswrapper, except that I am using Fedora Core 3, the 2.6.13-rc4-RT-V0.7.52-13 kernel, and I am buildding from the ndiswrapper 1.2.1 tar.gz file, not the src rpm.<br />
+<br />
+I try &quot;sudo make rpm&quot; but I get:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				[wade@transport ndiswrapper-1.2]$ sudo make rpm<br />
+mkdir -p ndiswrapper-1.2<br />
+for subdir in utils driver debian; do \<br />
+  if test &quot;$subdir&quot; = .; then :; else \<br />
+    test -d ndiswrapper-1.2/$subdir \<br />
+    || mkdir ndiswrapper-1.2/$subdir \<br />
+    || exit 1; \<br />
+  fi; \<br />
+done<br />
+make -C driver distdir=../ndiswrapper-1.2/driver dist<br />
+make[1]: Entering directory `/home/wade/ndiswrapper-1.2/driver'<br />
+make[1]: Leaving directory `/home/wade/ndiswrapper-1.2/driver'<br />
+make -C utils distdir=../ndiswrapper-1.2/utils dist<br />
+make[1]: Entering directory `/home/wade/ndiswrapper-1.2/utils'<br />
+make[1]: Leaving directory `/home/wade/ndiswrapper-1.2/utils'<br />
+make -C debian distdir=../ndiswrapper-1.2/debian dist<br />
+make[1]: Entering directory `/home/wade/ndiswrapper-1.2/debian'<br />
+make[1]: Leaving directory `/home/wade/ndiswrapper-1.2/debian'<br />
+# Update version in dist rpm spec file - don't crash if it fails<br />
+sed -i &quot;s/\%define\s\+ndiswrapper_version\s\+[^\}]\+\}/%define ndiswrapper_version 1.2\}/&quot; ndiswrapper-1.2/ndiswrapper.spec<br />
+tar cfz ndiswrapper-1.2.tar.gz ndiswrapper-1.2<br />
+rpmbuild -ta ndiswrapper-1.2.tar.gz --define=&quot;ndiswrapper_version 1.2&quot;<br />
+error: Failed build dependencies:<br />
+        /lib/modules/2.6.13-rc4-RT-V0.7.52-13/build/Makefile is needed by ndiswrapper-1.2-1.i386<br />
+make: *** [rpm] Error 1
+			
+		</td>
+	</tr>
+	</table>
+</div>
+I then try &quot;sudo pmbuild -ta ndiswrapper-1.2.tar.gz --define=&quot;ndiswrapper_version 1.2&quot; -vv&quot; and get:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				
+sudo rpmbuild -ta ndiswrapper-1.2.tar.gz --define=&quot;ndiswrapper_version 1.2&quot; -vv<br />
+D: opening  db environment /var/lib/rpm/Packages joinenv<br />
+D: opening  db index       /var/lib/rpm/Packages rdonly mode=0x0<br />
+D: locked   db index       /var/lib/rpm/Packages<br />
+D: ========== +++ ndiswrapper-1.2-1 i386/linux 0x0<br />
+D: opening  db index       /var/lib/rpm/Depends create mode=0x0<br />
+D: opening  db index       /var/lib/rpm/Basenames rdonly mode=0x0<br />
+D: opening  db index       /var/lib/rpm/Providename rdonly mode=0x0<br />
+D:  Requires: /lib/modules/2.6.13-rc4-RT-V0.7.52-13/build/Makefile NO<br />
+D: package ndiswrapper-1.2-1.i386 has unsatisfied Requires: /lib/modules/2.6.13-rc4-RT-V0.7.52-13/build/Makefile<br />
+D: closed   db index       /var/lib/rpm/Depends<br />
+D: closed   db index       /var/lib/rpm/Providename<br />
+D: closed   db index       /var/lib/rpm/Basenames<br />
+D: closed   db index       /var/lib/rpm/Packages<br />
+D: closed   db environment /var/lib/rpm/Packages<br />
+error: Failed build dependencies:<br />
+        /lib/modules/2.6.13-rc4-RT-V0.7.52-13/build/Makefile is needed by ndiswrapper-1.2-1.i386
+			
+		</td>
+	</tr>
+	</table>
+</div>
+but clearly the Makefile is there:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				-rw-r--r--  wade     wade     root<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/redface.gif" border="0" alt="" title="Embarrassment" class="inlineimg" />bject_r:src_t              /lib/modules/2.6.13-rc4-RT-V0.7.52-13/build/Makefile
+			
+		</td>
+	</tr>
+	</table>
+</div>
+so what is up (wo)man?///////////////////////////////////<br />
+// BACKGROUND //<br />
+///////////////////////////////////<br />
+<br />
+ok, i'm trying to install ndiswrapper on my laptop, which is running Fedora Core 4 (via the upgrade feature, from Fedora Core 3) so i can use my linksys WPC54Gv2 wireless card (PCMCIA).  i can create the kernel module and userspace utilities for it by using a simple 'make rpm'.  however, the fedora core kernels are configured w/ 4K stacks instead of 8K stacks.  this is a problem for ndiswrapper (which allows the use of windows wireless card drivers in linux) because many windows drivers won't work w/ 4K stacks.  i assume this is my problem, as everything goes well until i load the module w/ the card in (freezes during runtime, kernel panics at boot time).<br />
+<br />
+so, i got the src.rpm for the kernel and recreated the source tree as instructed in the fedora core 4 release notes.  used their config and changed the stack size option (which is under Kernel Hacking). briefly:<br />
+rpm -Uvh kernel-2.6.12-1.1398_FC4.src.rpm<br />
+cd /usr/src/redhat/SPECS<br />
+rpmbuild -bp --target $(arch) kernel-2.6.spec<br />
+&lt;go to source dir, get i686 config file into .config&gt;<br />
+make oldconfig<br />
+make menuconfig (changed stack size only)<br />
+make rpm<br />
+<br />
+this was all done on my desktop (running Fedora Core 3).  moved the kernel rpm over to my laptop and installed.  i can now boot this kernel (2.6.12-prep) w/out problems. <br />
+<br />
+now, if i try to 'make rpm' for ndiswrapper, it says it needs /lib/modules/2.6.12-prep/build/Makefile, which doesn't exist.  i've tried making this directory a symlink to the expanded source tree, which clearly has the makefile (the tree is present on the laptop, there just wasn't enough disk space to build it there).<br />
+<br />
+when i first installed fedora core 4, i couldn't build against the current kernel due to the same error.  this was fixed by installing the corresponding kernel-devel rpm.<br />
+<br />
+i've examined the structure of the existing /lib/modules directories and attempted to mimic them manually (by creating symlinks), but have been unsuccessful.<br />
+<br />
+///////////////////////////<br />
+// QUESTION //<br />
+///////////////////////////<br />
+<br />
+what do i need to do to be able to compile the module against this new kernel that has no kernel-devel rpm to go with it?  can i create this rpm somehow?  can the appropriate /lib/modules directory be created from the source tree, src.rpm, or otherwise?<br />
+<br />
+any advice, including pointers to resources, will be greatly appreciated.ndiswrapper compiles and builds fine on my custom kernel, i just can't insert the module as it says its in the wrong format.  Any ideas??Hi!<br />
+<br />
+I have a HP Pavilion zd8179ea and have installed Linux Fedora on it. I am trying to make the wireless connection work. It has the Broadcom chipset. I followed the procedure and I have done all the steps right till I have reached the NDISWRAPPER steps. I am trying to enter the ¨make¨ command and the ¨make install¨ command but I get an error message. This is the error:<br />
+<br />
+[root@localhost ndiswrapper-1.26]# make<br />
+make -C driver<br />
+make[1]: Entering directory `/home/user01/ndiswrapper-1.26/driver'<br />
+Can't find kernel build files in /lib/modules/2.6.18-1.2200.fc5smp/build;<br />
+  give the path to kernel build directory with<br />
+  KBUILD=&lt;path&gt; argument to make<br />
+make[1]: *** [prereq_check] Error 1<br />
+make[1]: Leaving directory `/home/user01/ndiswrapper-1.26/driver'<br />
+make: *** [all] Error 2<br />
+[root@localhost ndiswrapper-1.26]#<br />
+<br />
+What is going wrong? I am doing something wrong? Please help me as soon as possible cause my work depends on that...<br />
+<br />
+Thank you

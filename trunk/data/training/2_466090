@@ -1,0 +1,13 @@
+Yes! its there.ldd (prefix)/lib/wine/winex11.drv.soWhat do you mean?this is the error:<br />
+<br />
+err:imagelist:ImageList_ReplaceIcon no color!<br />
+err:imagelist:ImageList_ReplaceIcon no color!<br />
+err:imagelist:ImageList_ReplaceIcon no color!<br />
+err:imagelist:ImageList_ReplaceIcon no color!<br />
+Application tried to create a window, but no driver could be loaded.<br />
+The X11 driver is missing.  Check your build!<br />
+Application tried to create a window, but no driver could be loaded.<br />
+The X11 driver is missing.  Check your build!I am using UBUNTU linux and i installed WINE. The installation is good...i followed everything that was said in the WINE website on how to install WINE. but when i try to run WINE it says that it can not create a window because X11 driver is missing. I tried to find X11 in the UBUNTU packages if it is there and i install every packe with X11 on it, then i compile and install WINE again but still it is still looking for X11.Pls help!!!!!Can you paste the exact error pls.Thanks for the help! i cant find the driver so i just uninstall wine and install it again now it works. thanks for the help!<br />
+<br />
+-SBN-Im sorry but i dont know how to do that. can you teach me pls.Run ldd on it. Make sure there aren't any missing deps.Nevermind that,<br />
+do you have a winex11.drv.so in your (prefix)/lib/wine director and is not corrupted?hmmm...is your DISPLAY environment variable setup properly?

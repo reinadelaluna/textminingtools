@@ -1,0 +1,44 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				libogg 1.1-59 conflict<br />
+ - Required by:<br />
+ - libogg-devel requires libogg = 1.1-<br />
+ - Conflict Resolution:<br />
+ - Do Not Set libogg to Protected<br />
+ - Ignore Conflict and Risk System Inconsistencies
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+What &quot;Protected&quot; means, I think, has something to do with permissions on the folder or program.<br />
+<br />
+What I think there saying here is don't restricked access to libogg it might need to use it sometime.<br />
+<br />
+You can make it to were no user or program can execute, read, and/or know if the program/folder exists even to the administrator (root).<br />
+<br />
+Go to libogg and check weather it is executable, readable, and acknowledgeable by at least root. If not change the permissions .<br />
+<br />
+If you don't have and window manager to do this in. Search the forums for a way to <u>change permissions with the CLI</u>-Command Line Interface (or  terminal).I'm installing KDevelop using YaST in SuSE 9.2.<br />
+<br />
+I've been notified that there is a dependency conflict.<br />
+<br />
+libogg 1.1-59 conflict<br />
+- Required by:<br />
+  - libogg-devel requires libogg = 1.1-<br />
+- Conflict Resolution:<br />
+ - Do Not Set libogg to Protected<br />
+ - Ignore Conflict and Risk System Inconsistencies<br />
+<br />
+So I have a choice of not setting it to Protected - I don't even know what that means.<br />
+Or<br />
+Ignore the Conflict.<br />
+<br />
+I don't really see a problem here if I leave the 1.1-59 version that I installed earlier for MPlayer. I'd rather not downgrade if I don't have to. But, the wording on the two choices has me confused. <br />
+<br />
+Any clarification?

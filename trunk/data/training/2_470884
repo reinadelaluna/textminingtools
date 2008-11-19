@@ -1,0 +1,23 @@
+A default compile and configuration of Apache will set you up for that htdocs directory you're used to.  However, if you're not compiling it yourself and are installing it from some distro's packaging system, all the defaults may have been changed.<br />
+<br />
+On my Debian box with Apache installed from a package, my main config file is not the expected httpd.conf -- it's apache2.conf.  This was probably set by the package maintainer in the configure script or somewhere else during compilation.<br />
+<br />
+My apache2.conf contains the line &quot;Include /etc/apache2/sites-enabled/[^.#]*&quot; so I then go look at /etc/apache2/sites-enabled/000-default (the only file in that directory).  Inside that file I find what I'm looking for, a directive that says &quot;DocumentRoot /var/www&quot;<br />
+<br />
+These are not standard Apache defaults, they were evidently chosen by the package maintainer.  I'm sure you're running into a similar situation.I think whereis only finds commands, <b>man whereis</b>.  <br />
+<br />
+I'm using Debian Sarge and for apache2, the document root is /var/www as defined in the file <b>/etc/apache2/sites-available/default</b>I'm sorry- I didn't understand what you mean. <br />
+<br />
+It appears to be /var/www for me as well.<br />
+<br />
+Thanks!I did a whereis search on &quot;sites-available&quot;, but it came up with nothing.I installed Apache (with PHP) on my Debian system using this:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">apt-get install apache2 libapache2-mod-php4</div></pre>
+</div>
+<br />
+However, I can't seem to find the webroot folder... isn't it usually /var/www/htdocs? <br />
+<br />
+Any help is appreciated.<br />
+<br />
+K-kunIf you mean the document root, you can check the file /etc/apache2/sites-available/default.

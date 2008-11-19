@@ -1,0 +1,30 @@
+Precise&amp;short! I love it!<br />
+<br />
+Thanks really much<br />
+<br />
+If anyone has other ideas,let me know.<br />
+<br />
+see yaHow I should manage a 80gb disk ,in a dual boot laptop, with Debian and WinXp?<br />
+<br />
+There are already two partitions in vfat format of about 40 gb each, the former is for WinXp.<br />
+<br />
+I have thought about two ways:<br />
+-50/50, like it's now<br />
+-more space for winxp, and I'd keep data in WinXp partition, creating a hard link to &quot;MyDoc&quot; dir in Linux, leaving in /home   only files necessary for my profile<br />
+ex:/home/hamtavs/ /*all hidden folders*/<br />
+/home/hamtavs/MyDoc--&gt;/mnt/hda1/documents..../MyDoc<br />
+/*my personal data*/<br />
+<br />
+I hope I was clear<br />
+<br />
+thanksWindows:<br />
+12 GB (NTFS) for Windows OS and Programs.<br />
+30 GB (FAT32) for data which space can be used by both OSes for transfers back-ups, etc.  Move My Documents to this partition.<br />
+<br />
+Linux:<br />
+1 GB /<br />
+1 GB /tmp<br />
+.5 GB swap<br />
+5 GB /usr<br />
+3 GB /var<br />
+27.5 /home

@@ -1,0 +1,58 @@
+<font face="Franklin Gothic Medium"><font color="Blue">Hi ALL, <br />
+<br />
+I have recently installed FC5 from a DVD which i got with a Linux Magazine. After installing I am not able to use &quot;Add/Remove Software&quot; and also Package updater &quot;Pup&quot;.<br />
+<br />
+The package pirut for &quot;pup&quot; is correctly installed. <br />
+<br />
+When i select &quot;Add/Remove Software&quot; from the menu i get the error as &quot;Unable to retreive software information&quot;. Same happens with  &quot;Pup&quot;<br />
+<br />
+When i installed it for the first time, I wasn't able to mount the CDROM as root !!!. Reinstalled , Now CDROM problem is over <br />
+<br />
+But no luck with &quot;Add/Remove Software&quot;<br />
+<br />
+Please help me on this.<br />
+<br />
+Regards,<br />
+<br />
+Athreya VC<br />
+<br />
+<a href="mailto:athreyavc@yahoo.co.in">athreyavc@yahoo.co.in</a></font></font><font face="Book Antiqua"><font color="Blue">Dear ALL, <br />
+<br />
+I got the detailed explanation of prblem and steps to follow to resolve it. <br />
+<br />
+Thanks for the all the support. Now problem is solved and &quot;Add/ Remove Programs&quot; is working fine. <br />
+<br />
+Thanks Again <br />
+<br />
+Athreya VC</font></font>i had this problem on my home PC with no internet access...<br />
+for me i had to make local repositories using the ISO's and link them accordingly to the *.repo file(s) in the /etc/yum.repos.d/ folder<br />
+<br />
+there is a detailed explanation of this somewhere on this forum...<br />
+so perhaps your *.repo files might need to be edited.<br />
+i had the change the baseurl line to link them where i put the entire contents of the first installation disc, and the according RPMS folders from the rest of the discs.<br />
+<br />
+so my guess is check ur *.repo files... although if you have internet access, everything should be working fine by default.<br />
+<br />
+--------------------------------------------------------------------------------------------<br />
+here, also note this:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>stanton-finley.net</strong></div>
+				<div style="font-style:italic">As you continue please keep the following in mind: You should not use the livna.org repository in conjunction with the dag/freshrpms/dries/newrpms (RPMforge) collection of rpms in your configuration files for automatic updates. Use one group or the other but not both. These two groups are mutually incompatible and can cause errors in your installation if used together for automatic updates. Regardless of which group you choose you should also avoid using the ATrpms repository in your yum or apt configuration files for these reasons. Some additional information can be found here</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<a href="http://stanton-finley.net/fedora_core_5_installation_notes.html#Warning" target="_blank">http://stanton-finley.net/fedora_cor...s.html#Warning</a>The RedHat &quot;Add/Remove Software&quot; config has always been a real dog with lots of problems.<br />
+<br />
+It’s easier to use yum for the purpose or to install yumex if you want to do it through a GUI:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;"># yum install yumex”</div></pre>
+</div><img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/twocents.gif" border="0" alt="" title="Two Cents" class="inlineimg" />

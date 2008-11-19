@@ -1,0 +1,52 @@
+well didnt read all your post so here is a list of files mplayer installs it may differ slightly from yours but you get the idea.<br />
+<br />
+usr/<br />
+usr/doc/<br />
+usr/doc/MPlayer-1.0pre6a/<br />
+usr/doc/MPlayer-1.0pre6a/AUTHORS<br />
+usr/doc/MPlayer-1.0pre6a/ChangeLog<br />
+usr/doc/MPlayer-1.0pre6a/LICENSE<br />
+usr/doc/MPlayer-1.0pre6a/README<br />
+usr/bin/<br />
+usr/bin/mencoder<br />
+usr/bin/mplayer<br />
+usr/lib/<br />
+usr/lib/libdha.so.1.0<br />
+usr/lib/mplayer/<br />
+usr/lib/mplayer/vidix/<br />
+usr/lib/mplayer/vidix/cyberblade_vid.so<br />
+usr/lib/mplayer/vidix/mach64_vid.so<br />
+usr/lib/mplayer/vidix/mga_crtc2_vid.so<br />
+usr/lib/mplayer/vidix/mga_vid.so<br />
+usr/lib/mplayer/vidix/nvidia_vid.so<br />
+usr/lib/mplayer/vidix/pm3_vid.so<br />
+usr/lib/mplayer/vidix/radeon_vid.so<br />
+usr/lib/mplayer/vidix/rage128_vid.so<br />
+usr/lib/mplayer/vidix/savage_vid.so<br />
+usr/lib/mplayer/vidix/sis_vid.so<br />
+usr/lib/mplayer/vidix/unichrome_vid.so<br />
+usr/man/<br />
+usr/man/man1/<br />
+usr/man/man1/mplayer.1.gz<br />
+usr/share/<br />
+usr/share/applications/<br />
+usr/share/applications/mplayer.desktop<br />
+usr/share/pixmaps/<br />
+usr/share/pixmaps/mplayer-desktop.xpmHi,<br />
+<br />
+thank you very much for your response, and thats all I needed the perfect post reply.<br />
+<br />
+thanks againHi,<br />
+<br />
+I installed mplayer with these commands <br />
+<br />
+./configure --prefix=/usr swith --confdir=/etc/mplayer --enable-largefiles &amp;&amp;<br />
+make &amp;&amp;<br />
+make install &amp;&amp;<br />
+install -d -m755 /usr/share/doc/mplayer &amp;&amp;<br />
+cp -R DOCS/* /usr/share/doc/mplayer &amp;&amp;<br />
+make -C libavcodec/libpostproc install<br />
+<br />
+Then sice I have had nothing, but problems with  MPlayer-1.0pre6a, so I tried to uninstall the package and recieved an error message. I figured no problem downloaded the current cvs, and istalled it with the same commands. I recieved the same errors, and problems decieded to uninstall it typed make uninstall, and recieved the same error. I want to know everything it installed. I never had a problem uninstalling a program, and i am new at this so please help me. I have decieded to give up on mplayer in favor of xine.<br />
+<br />
+thanks

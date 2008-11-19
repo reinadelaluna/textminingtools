@@ -1,0 +1,43 @@
+I have a problem mounting an external USB HDD. Running gnome-volume-manager gives<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:242px; overflow:auto"><div dir="ltr" style="text-align:left;">manager.c/1250: mount_all: mounting /dev/sda1
+mount: wrong fs type, bad option, bad superblock on /dev/sda1,
+       missing codepage or other error
+       In some cases useful info is found in syslog - try
+       dmesg | tail  or so
+
+manager.c/1250: mount_all: mounting /dev/hda1
+manager.c/659: /org/freedesktop/Hal/devices/block_3_1 already mounted, not mounting again
+manager.c/1250: mount_all: mounting /dev/hda2
+Error: device /dev/hda2 is not removable
+manager.c/1250: mount_all: mounting /dev/hda5
+Warning: device /dev/hda5 is already handled by /etc/fstab, supplied label is ignored
+mount: according to mtab, none is already mounted on none
+mount failed</div></pre>
+</div>
+<br />
+So checking dmesg | tail gives<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:178px; overflow:auto"><div dir="ltr" style="text-align:left;">  Vendor: Maxtor 6  Model: L608MD9G          Rev: BANC
+  Type:   Direct-Access                      ANSI SCSI revision: 02
+usb-storage: device scan complete
+SCSI device sda: 586114704 512-byte hdwr sectors (300091 MB)
+sda: assuming drive cache: write through
+SCSI device sda: 586114704 512-byte hdwr sectors (300091 MB)
+sda: assuming drive cache: write through
+ /dev/scsi/host0/bus0/target0/lun0: p1
+Attached scsi disk sda at scsi0, channel 0, id 0, lun 0
+EXT2-fs: corrupt root inode, run e2fsck</div></pre>
+</div>
+<br />
+So apparantly it is a corrupt root inode and e2fsck can correct this. Since it is a full 250 GB HDD I want to ruin anything unintentionally. So, please if anyone know how to do this correct, please help me out.Is sda1 supposed to contain an ext3 filesystem?<br />
+<br />
+If yes and assuming that sda1 isn’t mounted, then run e2fsck on the indicated partition.<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;"># e2fsck -v /dev/sda1</div></pre>
+</div>

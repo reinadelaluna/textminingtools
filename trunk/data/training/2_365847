@@ -1,0 +1,10 @@
+I had the same problem, you can try some solutions before you reinstall<br />
+<a href="http://www.linuxquestions.org/questions/showthread.php?s=&amp;threadid=365342" >Click over here!</a>i want to listen to mp3, i try installing other players but also got erroWhy not u use the existing applications in linux?I tried it in mandriva also failed.<br />
+Anything can replace Real?i try to locate the file by using the 2 commands shown in your post, but nothing show upI try installing realplayer in my fedora core 4 by typing:<br />
+./RealPlayer10GOLD.bin<br />
+<br />
+and i had this error message:<br />
+<br />
+./RealPlayer10GOLD.bin: error while loading shared libraries: libstdc++.so.5: cannot open shared object file: No such file or directory<br />
+<br />
+I am a newbie in Linux... can anybody help me? Thanks alot!!! =)there is a few players installed with fedora 4, but they don't support mp3 files

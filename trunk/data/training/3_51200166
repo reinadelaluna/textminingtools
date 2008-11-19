@@ -1,0 +1,70 @@
+<tt>Hi!</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">After the board suggestion now the special one:
+<br />
+I need 4 Firewire 800 cards on ONE PC.<br>
+<br />
+<tt>Because of this special situation, I thought about 2 PCIe and two PCI-X 
+<br />
+firewire 800 cards.<br>
+<br />
+Has anyone a suggestion which card works under amd64 flawless at full speed?</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Cya
+<br />
+Lars
+<br />
+--
+<br />
+-------------------------------------------------------------
+<br />
+TU Graz, Institut f&uuml;r ComputerGraphik &amp; WissensVisualisierung
+<br />
+Tel.: +43 316 873-5405       E-Mail: l.schimmer@cgv.tugraz.at
+<br />
+PGP-Key-ID: 0xB87A0E03<br>
+<br />
+<br>
+<br />
+
+<br />
+On Fri, Dec 09, 2005 at 12:28:58AM +0100, Lars Schimmer wrote:
+<br />
+&gt; After the board suggestion now the special one:
+<br />
+&gt; I need 4 Firewire 800 cards on ONE PC.
+<br />
+
+<br />
+How many ports do you need though?  Most cards have multiple ports and
+<br />
+the port count varies with the card model.
+<br />
+
+<br />
+&gt; Because of this special situation, I thought about 2 PCIe and two PCI-X 
+<br />
+&gt; firewire 800 cards.
+<br />
+&gt; Has anyone a suggestion which card works under amd64 flawless at full speed?
+<br />
+
+<br />
+I have only used onboard firewire 400 personally, which seems to work
+<br />
+just fine.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />

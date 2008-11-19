@@ -1,0 +1,41 @@
+Can you do a network install?<br />
+<br />
+Here's some info about it:<br />
+<br />
+<a href="http://www.redhat.com/docs/manuals/linux/RHL-9-Manual/install-guide/s1-begininstall-net.html" target="_blank">http://www.redhat.com/docs/manuals/l...stall-net.html</a><br />
+<br />
+Lyle.You can also mount the image as a loop device<br />
+ #  mount -o loop /path/to/isofile /mnt/tmp<br />
+ #  cd /mnt/tmp<br />
+ #  ls<br />
+    directory1/  directory2/  bigfile1  bigfile2  bigfile3  bigfile4<br />
+<br />
+And then make new ISO images from the data<br />
+on the image, like so:<br />
+<br />
+ # mkisofs -J -R -o /my/tempdir/part1.iso  bigfile1 bigfile2 directory1<br />
+ # mkisofs -J -R -o /my/tempdir/part2.iso  bigfile3 bigfile4 directory2<br />
+<br />
+# cd /<br />
+# umount /mnt/tmp<br />
+<br />
+Then use /my/tempdir/part1.iso  and part2.iso, your fresh small ISO files.may be the <br />
+<br />
+<b>isosize</b> command may helpI guess the first step is to see if the installer has the pcnet_cs driver.  If you can't get the network up using the install disks or CDROM you'll have to use the split, zipdisk, and cat route.<br />
+<br />
+It will ask you for a local IP address, netmask, etc if you chose a network install.<br />
+<br />
+I'd avoid using the NFS method If you haven't set up NFS before.  The HTTP method seems like it would be the simplest.<br />
+<br />
+Lyle.under i have dial-ups???<br />
+You kiddding????????You can use the split command to split files up.  See man split.  Use the cat command to put them back together.<br />
+<br />
+Of course, the pieces split produces wouldn't be ISO images anymore in the strictest sense.  So if you actually wanted to use the pieces as little ISO images then split and cat won't be on much help.<br />
+<br />
+   LyleUse the search function here in the forum. The question of installing linux without a CDrom has been asked and answered several times over the past few months.<br />
+<br />
+Enjoy!<br />
+--- Cerberebut how can i put it back the way it was. because i have a small gateway laptop and it's cdrom broke. So, i was thinking there is anyway i could install from harddrive. The good thing was that i have a 100 zip drive which will help me  do it under my concern.i see what you both talking about. <br />
+But i had tried. But it didn't workout. <br />
+The problem was that i have a pcmcia ethenet card. this card oesn't have a specific driver for itself. but it use &quot;pcnet_cs&quot; which i do have on my driver disc. Everytime, after i load the driver the light on the ethenet card comes on which shows that i does work. but the problem was that can i go to the step where i can specify my local IP address?? Also, which option do i use? NFS, HTTP or FTP??<br />
+Could anyone go step by step?? or just a more specify guide??Is there anyway i could split an ISO image in to several small iso images?If u want to install linux then why split ur ISO , go for network installation

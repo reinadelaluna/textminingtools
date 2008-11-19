@@ -1,0 +1,536 @@
+Matthew Robinson wrote:
+<br />
+
+<br />
+&gt;  
+<br />
+&gt;  
+<br />
+&gt;
+<br />
+&gt;&gt;&gt;Try changing the driver in xorg.conf to 'vesa'. This will be much
+<br />
+&gt;&gt;&gt;slower than the binary Nvidia drivers, but if it works, youve found
+<br />
+&gt;&gt;&gt;your problem.
+<br />
+&gt;&gt;&gt;
+<br />
+&gt;&gt;&gt;
+<br />
+&gt;&gt;&gt;
+<br />
+&gt;&gt;&gt;
+<br />
+&gt;&gt;&gt;    
+<br />
+&gt;&gt;&gt;
+<br />
+&gt;&gt;Thanks Matt.  I have changed the driver to Vesa, and so far I can't make
+<br />
+&gt;&gt;it crash.  I am now upgrading from stable to unstable (amd64) and
+<br />
+&gt;&gt;downloading a current smp kernel.  If all stays stable (pun intended), then
+<br />
+&gt;&gt;I'll ask the experts for suggestions regarding graphics boards and drivers.
+<br />
+&gt;&gt;
+<br />
+&gt;&gt;Thanks much,
+<br />
+&gt;&gt;  russ
+<br />
+&gt;&gt;
+<br />
+&gt;&gt;  
+<br />
+&gt;&gt;
+<br />
+&gt; If the vesa driver works, the open source 'nv' driver, may also work.
+<br />
+&gt; Its nvidia specific, but not as good as the official binary nvidia
+<br />
+&gt; drivers. As far as I know, nv performs much better than vesa, but much
+<br />
+&gt; worse than nvidia.
+<br />
+&gt;
+<br />
+No, I started the whole process with the open source 'nv' driver.  I will
+<br />
+try it again after this upgrade completes, but 'nv' is what I was using for
+<br />
+several weeks before finally trying 'nvidia' which did not help, either.
+<br />
+
+<br />
+Thanks again.
+<br />
+  Russ
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Sat, Sep 02, 2006 at 04:59:21PM -0500, Russ Cook wrote:
+<br />
+&gt; I have an Asus A8N32-SLI Deluxe motherboard with AMD Athlon 4800 dual
+<br />
+&gt; core cpu, with 4 MB of Corsair TwinX ram sticks.  I have an older
+<br />
+&gt; GeForce4 MX 420 graphics board with 64 MB ram.  I have updated my bios
+<br />
+&gt; to version 1303, with no impact.  I am running kernel
+<br />
+&gt; 2.6.8-11-amd64-generic.  I have also run the smp kernels, with the same
+<br />
+&gt; problem.
+<br />
+&gt; 
+<br />
+&gt; When interacting in X, the system will hang unexpectedly.  I can ssh to
+<br />
+&gt; the machine from another box, and the command 'top' will show eithe
+<br />
+&gt; XFree86 or Xorg (whichever is running) to be using 100 % cpu (when
+<br />
+&gt; running smp).
+<br />
+&gt; 
+<br />
+&gt; The machine has never frozen on me when running commands from ssh at
+<br />
+&gt; another box.  Google search has shown many people having similar
+<br />
+&gt; problems with various motherboards.  I have run memtest on all my memory
+<br />
+&gt; sticks, one at a time, and all together, with no detected faults.
+<br />
+&gt; 
+<br />
+&gt; I also tried loading the nvidia video driver, but no help.
+<br />
+&gt; 
+<br />
+&gt; I have tried the Knoppix 5.0.1 and Kubuntu 6.06 live CDs, and get the
+<br />
+&gt; same problem.  Is anyone else running this same motherboard without
+<br />
+&gt; problems?  If you had problems and solved them, can you share your
+<br />
+&gt; process? 
+<br />
+
+<br />
+I've had a similar problem, but it went away when I installed Ubuntu.
+<br />
+Whatever they've done right, I hope it propagates to Debian soon.
+<br />
+By the way, I had the same problem whether in 32 and 64-bit more,
+<br />
+and whether I used the vesa, nv, or nvidia drivers.
+<br />
+&gt; 
+<br />
+&gt; Does Nvidia offer drivers for the NForce4 motherboard chipset, and if
+<br />
+&gt; so, does it make any difference?  I plan to upgrade my video board, but
+<br />
+&gt; I want to get a stable system first, before putting more $ into it. 
+<br />
+&gt; Could the older video board be part of the problem?
+<br />
+&gt; 
+<br />
+&gt; Any help most gratefully accepted.
+<br />
+&gt; 
+<br />
+&gt; Thanks,
+<br />
+&gt;   Russ
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Russ Cook wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Matthew Robinson wrote:</tt><br>
+<br />
+<br>
+<br />
+<tt> </tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt></tt><br>
+<br />
+<br>
+<br />
+<tt><br>   </tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">Try changing the driver in xorg.conf to 'vesa'. This will be much
+<br />
+slower than the binary Nvidia drivers, but if it works, youve found
+<br />
+your problem.<br>
+<br />
+<tt></tt><br>
+<br />
+<br>
+<br />
+<tt><br>  </tt><br>
+<br />
+<br>
+<br />
+<tt>       </tt><br>
+<br />
+<br>
+<br />
+</blockquote><pre style="margin: 0em;">Thanks Matt.  I have changed the driver to Vesa, and so far I can't make
+<br />
+it crash.  I am now upgrading from stable to unstable (amd64) and
+<br />
+downloading a current smp kernel.  If all stays stable (pun intended), then
+<br />
+I'll ask the experts for suggestions regarding graphics boards and drivers.<br>
+<br />
+<pre style="margin: 0em;">Thanks much,
+<br />
+russ<br>
+<br />
+<tt></tt><br>
+<br />
+<br>
+<br />
+<tt>     </tt><br>
+<br />
+<br>
+<br />
+</blockquote><pre style="margin: 0em;">If the vesa driver works, the open source 'nv' driver, may also work.
+<br />
+Its nvidia specific, but not as good as the official binary nvidia
+<br />
+drivers. As far as I know, nv performs much better than vesa, but much
+<br />
+worse than nvidia.<br>
+<br />
+<tt>   </tt><br>
+<br />
+<br>
+<br />
+</blockquote><pre style="margin: 0em;">No, I started the whole process with the open source 'nv' driver.  I will
+<br />
+try it again after this upgrade completes, but 'nv' is what I was using for
+<br />
+several weeks before finally trying 'nvidia' which did not help, either.<br>
+<br />
+<pre style="margin: 0em;">Thanks again.
+<br />
+ Russ<br>
+<br />
+<tt> </tt><br>
+<br />
+<br>
+<br />
+</blockquote><pre style="margin: 0em;">Well,  I am now successfully running amd64 unstable.  The nv driver was
+<br />
+installed by default, and as before, caused my system to hang from X apps.
+<br />
+I have changed the config file to use the vesa driver, and now I can run
+<br />
+without crashes.  Thanks to those who offered help, especially Matt.<br>
+<br />
+<tt>Next question, I'd like obtain a quality graphics card with hardware 
+<br />
+acceleration for use with the flightgear flight simulator (the primary<br>
+<br />
+reason for building this system).  Can the kind folks on this list provide<br>
+<br />
+suggestions of boards that are successfully running on this board?</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Again, my system is Asus A8N32SLI Deluxe, AMD64 4800+ dual core,
+<br />
+4 GB Corsair TwinX ram (to be reduced to 2 GB due to MB ram limitations).<br>
+<br />
+<pre style="margin: 0em;">Thanks again,
+<br />
+  Russ<br>
+<br />
+<br>
+<br />
+
+<br />
+I have an Asus A8N32-SLI Deluxe motherboard with AMD Athlon 4800 dual
+<br />
+core cpu, with 4 MB of Corsair TwinX ram sticks.  I have an older
+<br />
+GeForce4 MX 420 graphics board with 64 MB ram.  I have updated my bios
+<br />
+to version 1303, with no impact.  I am running kernel
+<br />
+2.6.8-11-amd64-generic.  I have also run the smp kernels, with the same
+<br />
+problem.
+<br />
+
+<br />
+When interacting in X, the system will hang unexpectedly.  I can ssh to
+<br />
+the machine from another box, and the command 'top' will show eithe
+<br />
+XFree86 or Xorg (whichever is running) to be using 100 % cpu (when
+<br />
+running smp).
+<br />
+
+<br />
+The machine has never frozen on me when running commands from ssh at
+<br />
+another box.  Google search has shown many people having similar
+<br />
+problems with various motherboards.  I have run memtest on all my memory
+<br />
+sticks, one at a time, and all together, with no detected faults.
+<br />
+
+<br />
+I also tried loading the nvidia video driver, but no help.
+<br />
+
+<br />
+I have tried the Knoppix 5.0.1 and Kubuntu 6.06 live CDs, and get the
+<br />
+same problem.  Is anyone else running this same motherboard without
+<br />
+problems?  If you had problems and solved them, can you share your
+<br />
+process? 
+<br />
+
+<br />
+Does Nvidia offer drivers for the NForce4 motherboard chipset, and if
+<br />
+so, does it make any difference?  I plan to upgrade my video board, but
+<br />
+I want to get a stable system first, before putting more $ into it. 
+<br />
+Could the older video board be part of the problem?
+<br />
+
+<br />
+Any help most gratefully accepted.
+<br />
+
+<br />
+Thanks,
+<br />
+  Russ
+<br />
+
+<br />
+
+<br />
+<p><strong>Attachment:
+<br />
+<a href="bin00000.bin" ><tt>lspci.txt</tt></a></strong><br>
+<br />
+<em>Description:</em> plain/text</p>
+<br />
+
+<br />
+Matthew Robinson wrote:
+<br />
+
+<br />
+&gt; Russ Cook wrote:
+<br />
+&gt;
+<br />
+&gt;&gt; I have an Asus A8N32-SLI Deluxe motherboard with AMD Athlon 4800 dual
+<br />
+&gt;&gt; core cpu, with 4 MB of Corsair TwinX ram sticks.  I have an older
+<br />
+&gt;&gt; GeForce4 MX 420 graphics board with 64 MB ram.  I have updated my bios
+<br />
+&gt;&gt; to version 1303, with no impact.  I am running kernel
+<br />
+&gt;&gt; 2.6.8-11-amd64-generic.  I have also run the smp kernels, with the same
+<br />
+&gt;&gt; problem.
+<br />
+&gt;&gt;
+<br />
+&gt;&gt; When interacting in X, the system will hang unexpectedly.  I can ssh to
+<br />
+&gt;&gt; the machine from another box, and the command 'top' will show eithe
+<br />
+&gt;&gt; XFree86 or Xorg (whichever is running) to be using 100 % cpu (when
+<br />
+&gt;&gt; running smp).
+<br />
+&gt;&gt;
+<br />
+&gt;&gt; The machine has never frozen on me when running commands from ssh at
+<br />
+&gt;&gt; another box.  Google search has shown many people having similar
+<br />
+&gt;&gt; problems with various motherboards.  I have run memtest on all my memory
+<br />
+&gt;&gt; sticks, one at a time, and all together, with no detected faults.
+<br />
+&gt;&gt;
+<br />
+&gt;&gt; I also tried loading the nvidia video driver, but no help.
+<br />
+&gt;&gt;
+<br />
+&gt;&gt; I have tried the Knoppix 5.0.1 and Kubuntu 6.06 live CDs, and get the
+<br />
+&gt;&gt; same problem.  Is anyone else running this same motherboard without
+<br />
+&gt;&gt; problems?  If you had problems and solved them, can you share your
+<br />
+&gt;&gt; process?
+<br />
+&gt;&gt; Does Nvidia offer drivers for the NForce4 motherboard chipset, and if
+<br />
+&gt;&gt; so, does it make any difference?  I plan to upgrade my video board, but
+<br />
+&gt;&gt; I want to get a stable system first, before putting more $ into it.
+<br />
+&gt;&gt; Could the older video board be part of the problem?
+<br />
+&gt;&gt;
+<br />
+&gt;&gt; Any help most gratefully accepted.
+<br />
+&gt;&gt;
+<br />
+&gt;&gt; Thanks,
+<br />
+&gt;&gt;   Russ
+<br />
+&gt;&gt;
+<br />
+&gt;&gt;   
+<br />
+&gt;
+<br />
+&gt; Try changing the driver in xorg.conf to 'vesa'. This will be much
+<br />
+&gt; slower than the binary Nvidia drivers, but if it works, youve found
+<br />
+&gt; your problem.
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt;
+<br />
+Thanks Matt.  I have changed the driver to Vesa, and so far I can't make
+<br />
+it crash.  I am now upgrading from stable to unstable (amd64) and
+<br />
+downloading a current smp kernel.  If all stays stable (pun intended), then
+<br />
+I'll ask the experts for suggestions regarding graphics boards and drivers.
+<br />
+
+<br />
+Thanks much,
+<br />
+  russ
+<br />
+
+<br />
+
+<br />
+
+<br />
+<table width="100%"><tr><td bgcolor="#ffffff" style="background-color: #ffffff; color: #000000; "><font color="#000000">
+<br />
+
+<br />
+
+<br />
+
+<br />
+<pre wrap="">  
+<br />
+
+<br />
+<blockquote cite="" type="cite">
+<br />
+  <blockquote type="cite">
+<br />
+    <pre wrap="">Try changing the driver in xorg.conf to 'vesa'. This will be much
+<br />
+slower than the binary Nvidia drivers, but if it works, youve found
+<br />
+your problem.
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+    
+<br />
+  </blockquote>
+<br />
+  <pre wrap=""><!---->Thanks Matt.  I have changed the driver to Vesa, and so far I can't make
+<br />
+it crash.  I am now upgrading from stable to unstable (amd64) and
+<br />
+downloading a current smp kernel.  If all stays stable (pun intended), then
+<br />
+I'll ask the experts for suggestions regarding graphics boards and drivers.
+<br />
+
+<br />
+Thanks much,
+<br />
+  russ
+<br />
+
+<br />
+  
+<br />
+</blockquote>
+<br />
+If the vesa driver works, the open source 'nv' driver, may also work.
+<br />
+Its nvidia specific, but not as good as the official binary nvidia
+<br />
+drivers. As far as I know, nv performs much better than vesa, but much
+<br />
+worse than nvidia.<br>
+<br />
+<br>
+<br />
+
+<br />
+
+<br />
+</font></td></tr></table>
+<br />

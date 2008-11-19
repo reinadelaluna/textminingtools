@@ -1,0 +1,30 @@
+Not quite sure I understand that request ... <br />
+<br />
+Do you actually need a PCMCIA driver (at no<br />
+point you mention whether the box is a notebook<br />
+or not)?  Or do you just want to get rid of the <br />
+message?<br />
+<br />
+In terms of &quot;into X server&quot; ... do you mean a graphical<br />
+login screen or what?<br />
+<br />
+<br />
+Cheers,<br />
+TinkThanks for the attention<br />
+<br />
+I meant a pc not a notebook.  The problem disappeared  when I reinstalled and unchecked the  rc.pcmcia choice at boot options during post install config.Hi,<br />
+<br />
+I have P4 845gl chipset with AC97 onboard sound card, Nvidia geforce fx 5200 video card, adsl modem for broadband (dataone in India), 56k soft internal  modem<br />
+<br />
+I have installed slackware 10.1.  I could successfully get into X server after the necessary configuration processes. No problem configuring nvidia card also.<br />
+<br />
+What I find now is that when I boot to level 3 from floppy ( I preferred  not to install lilo), I get the following message :<br />
+<br />
+&quot;Starting PCMCIA services<br />
+Card Mgr (74) no pcmcia drivers in /proc/devices&quot;  /proc/devices file is empty<br />
+<br />
+However, I can boot into level 1 and go into X server as well.<br />
+<br />
+Is there somthing I can do so that I can boot directly into level 3 and into X server as well<br />
+<br />
+regards

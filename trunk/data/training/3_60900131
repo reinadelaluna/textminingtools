@@ -1,0 +1,152 @@
+Try deborphan
+<br />
+
+<br />
+Later
+<br />
+Lee Begg
+<br />
+
+<br />
+On Saturday 09 September 2006 23:13, Ernest jw ter Kuile wrote:
+<br />
+&gt; It's not as is my disk is full, but every now and then I like to cleanup a
+<br />
+&gt; bit.
+<br />
+&gt;
+<br />
+&gt; Over the years I have accumulated many packages the were installed because
+<br />
+&gt; of some dependancy that no longer applies.
+<br />
+&gt;
+<br />
+&gt; Anybody here that can either give a quick course, or give a pointer to
+<br />
+&gt; information on how to search for packages that are libraries with no
+<br />
+&gt; dependancies other than their own docs and/or their -dev version ?
+<br />
+&gt;
+<br />
+&gt; I had a look at cruft, but that only checks for file which do not appear in
+<br />
+&gt; the package database. This is is good for cleaning up too, but not for
+<br />
+&gt; search for packages which are perfectly well installed but which have no
+<br />
+&gt; usefull dependancy.
+<br />
+&gt;
+<br />
+&gt; Actually, _is_ there some kind of mark on packages which were installed
+<br />
+&gt; only to satisfy a dependancy ?
+<br />
+&gt;
+<br />
+&gt; Cheers,
+<br />
+&gt;
+<br />
+&gt; Ernest.
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00007.pgp" ><tt>pgp00007.pgp</tt></a></strong><br>
+<br />
+<em>Description:</em> PGP signature</p>
+<br />
+
+<br />
+On Saturday 09 September 2006 13:13, Ernest jw ter Kuile wrote:
+<br />
+&gt; It's not as is my disk is full, but every now and then I like to cleanup a
+<br />
+&gt; bit.
+<br />
+&gt;
+<br />
+&gt; Over the years I have accumulated many packages the were installed because
+<br />
+&gt; of some dependancy that no longer applies.
+<br />
+&gt;
+<br />
+&gt; Anybody here that can either give a quick course, or give a pointer to
+<br />
+&gt; information on how to search for packages that are libraries with no
+<br />
+&gt; dependancies other than their own docs and/or their -dev version ?
+<br />
+&gt;
+<br />
+&gt;
+<br />
+hmm, try a:
+<br />
+aptitude --purge-unused upgrade
+<br />
+
+<br />
+in general, if you try to use aptitude, it has automatic removal of unused 
+<br />
+packages, every time you install, upgrade or remove something. Both 
+<br />
+command-line and gui are wonderful!
+<br />
+
+<br />
+Cheers,
+<br />
+Dimitris
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+It's not as is my disk is full, but every now and then I like to cleanup a bit. 
+<br />
+
+<br />
+Over the years I have accumulated many packages the were installed because of some dependancy 
+<br />
+that no longer applies. 
+<br />
+
+<br />
+Anybody here that can either give a quick course, or give a pointer to information on how to search for packages that
+<br />
+are libraries with no dependancies other than their own docs and/or their -dev version ?
+<br />
+
+<br />
+I had a look at cruft, but that only checks for file which do not appear in the package database. This is is 
+<br />
+good for cleaning up too, but not for search for packages which are perfectly well installed but which 
+<br />
+have no usefull dependancy.
+<br />
+
+<br />
+Actually, _is_ there some kind of mark on packages which were installed only to satisfy a dependancy ?
+<br />
+
+<br />
+Cheers,
+<br />
+
+<br />
+Ernest.
+<br />
+
+<br />
+
+<br />
+
+<br />

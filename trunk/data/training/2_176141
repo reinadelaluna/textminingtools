@@ -1,0 +1,9 @@
+did you even read the manual??<br />
+the codecs have to be compiled into mplayer itself,<br />
+un-tar mplayer, un-tar the codecs, and move codec directory into<br />
+the mplayer source where they should be then............<br />
+./configure<br />
+make <br />
+su-(password) make installAh... Okay. Thanks...<br />
+About the subs... Any solution?Hi... I've downloaded mplayer and the codecs in their page but the files that I downloaded had no install system. They were all *.dll or executable (but no way to execute them). In a post here someone said that the files should be copied to /usr/local/lib/codecs (created dir) however, my xmms (kaffeine) can't open my movies, only mplayer... How can I solve this?<br />
+Another thing. In mplayer, I can't see subtitles. I have *.avi (movie) and *.sub (subtitle) but mplayer crashes when I try to open them... Can anyone help?

@@ -1,0 +1,9 @@
+hi<br />
+At first i must say that i have rather slow machine so i'm searching apps which are don't need fast processor etc.<br />
+I want to install SimpleKDE and I don't know how. I get three files which is:<br />
+1. simplekde-arts-1.4.1.tar.gz<br />
+2. simplekdebase-3.4.1.tar.gz<br />
+3. simplekdelibs-3.4.1.tar.gz<br />
+Which I should install first.<br />
+<br />
+Thank You for any idea.I believe that the install order for Simple is the same as for main KDE: arts, libs and then base.  And then everything else.

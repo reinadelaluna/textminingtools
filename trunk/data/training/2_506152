@@ -1,0 +1,37 @@
+Both of you need to make better use of the search feature. Flash 9 for linux is out. Just install the file in the firefox/plugins directory.I'm perfectly well aware of the search feature...<br />
+<br />
+The Flash 9 plugin didn't work for me when I first tried it in fc5..the v7 plugin is the only one I could ever get to work.Hi <br />
+I recently Installed Firefox 2 on my fedora core 5 but couldnot install <br />
+flash plugin and various sites kept on showing the missing plugin and additional plugin tags.<br />
+I have tried it both by rpm pakages and direct instalations but couldnt get through<br />
+please help me outJust to clarify. Flash 9 does work with fedora. There are many threads that cover this topic and how to install. I wont bother posting links, since you know how to use the search engine.<br />
+<br />
+Good Luck.The only plugin I've managed to get to work on any distro is from the Adobe website:<br />
+<br />
+<a href="http://www.adobe.com/shockwave/download/alternates/" target="_blank">http://www.adobe.com/shockwave/download/alternates/</a><br />
+<br />
+follow the link to the Linux x86 version (Flash Player 7 for Mozilla 1.2)<br />
+<br />
+...in the archive there's an installer that will put the plugins in the correct directories (remember the firefox install directory is /lib/firefox_whatever_version_you_have as it will look for a &quot;plugin&quot; directory here)<br />
+<br />
+Hope this works !I tried to install flash-9 for firefox-2.0 on FC6.  Here's my odyssey<br />
+<br />
+First I tried what any normal unsuspecting person would do.  I tried to download flash-9 from here<br />
+<a href="http://www.adobe.com/downloads/" target="_blank">http://www.adobe.com/downloads/</a><br />
+The Download link next to Adobe® Flash® Player 9 is this<br />
+<a href="http://www.adobe.com/go/getflashplayer" target="_blank">http://www.adobe.com/go/getflashplayer</a><br />
+Looks like I should be able to get flash 9 by clicking the link there, right?<br />
+Wrong. This link takes you here and you see a &quot;Download Now&quot; button.  The only problem is the link is this<br />
+<a href="http://fpdownload.macromedia.com/get/flashplayer/current/install_flash_player_7_linux.tar.gz" target="_blank">http://fpdownload.macromedia.com/get...7_linux.tar.gz</a><br />
+Huh?  OK, so it is detecting my OS and telling me I need flash-7 <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/confused.gif" border="0" alt="" title="Confused" class="inlineimg" /><br />
+<br />
+The thing is, you need to get flash-9 some other way.  I went here after a quick google search<br />
+<a href="http://www.adobe.com/go/labs_gnav_downloads" target="_blank">http://www.adobe.com/go/labs_gnav_downloads</a><br />
+Then clicked the &quot;Download&quot; link next to Flash Player 9 Update beta 2<br />
+<a href="http://labs.adobe.com/downloads/flashplayer9.html" target="_blank">http://labs.adobe.com/downloads/flashplayer9.html</a><br />
+There is still a problem.  This link only gives you the libflashplayer.so file.  You need the flashplayer.xpt file as well.  Luckily for me, I was able to use the one in the flash-7 tarball.  I put them both in the plugins directory for my firefox-2.0 installation and voila! It works.<br />
+<br />
+You can test your flash install here<br />
+<a href="http://www.adobe.com/shockwave/welcome/" target="_blank">http://www.adobe.com/shockwave/welcome/</a><br />
+<br />
+Now I wonder what is the difference between shockwave and flashplayer?

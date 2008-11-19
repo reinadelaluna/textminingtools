@@ -1,0 +1,21 @@
+a) every completed file will stay in your cache, only the current one is lost<br />
+<br />
+b) use a better mirror really... this isn't going to be a client side issue, it's much more likely to be your network or a restriction of the remote server. you might be able to find a faster mirror of whatever repo you use.<br />
+<br />
+c) the main unoffial one seems to be Livna. try googling for livna.repo. there are then the larger generic ones like dag and atrpms. actually atrpms have a yum / up2date / apt configuration rpm which contains a lot of popular repos ready to roll for all three solutions, might be your best bet.hello....<br />
+<br />
+i am using synaptic now besides yum...<br />
+<br />
+i started a full update this morning. and at first the download speed was gd, then it dropped to 1000+bytes/sec....i am stil on the downloading package files screen.... <br />
+<br />
+a) if i click cancel, will my 150 packages download be wasted?<br />
+<br />
+b) is there some way to speed it up? <br />
+<br />
+c) may i have some apt-get repositories from those of you also running FC4?<br />
+<br />
+Ackerleya)i) will the install be corrupted or left hanging or something like that?<br />
+<br />
+a)ii) how should i complete the install? (if there is a problem)<br />
+<br />
+b and c) thanks for your advice, i will add more repos

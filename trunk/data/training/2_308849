@@ -1,0 +1,46 @@
+I only encounter a few LaTeX experts on Linux forums.<br />
+<br />
+The only help I can give is to ask if you have the Gentle and Short manuals for LaTeX?  My son is a math research professor, and in 1999, he told me he uses LaTeX to produce his published journal articles, the ones which keep his pay check coming.  To my surprise, I found Mandrake 6.5 had LaTeX included, so I found the two manuals mentioned. I still have them in my computer, since I made backups of all relevant files.<br />
+<br />
+A couple years ago, with Mandrake 8.0, I made a book using LyX, the LaTeX front end, which is available as a tar ball if your distro doesn't have it.  I even made a really nice index using the LyX markers, and the command makeindex.  This was a book of my letters home from the army in the 60's for my kids, since only one of them gets the original letters.<br />
+<br />
+If you can't find those two manuals via google, or they don't have the information you need, I would suggest some determined googling for a LaTeX forum.  I am confident they exist since a lot of folks use LaTeX, especially for academic work, but some even use it for their word processor.  A lot of folks are going to have similar needs and questions.<br />
+<br />
+Sorry I can't help you better.There is a kde program called Kile that you might consider using.  I believe that the title is an acronym for KDE Interactive Latex Environment.<br />
+   It has wizards, plus a Latex reference.<br />
+<br />
+Is this close to what you are trying to do?<br />
+\begin{array}{ccc}<br />
+\begin{tabular}{|c|}\caption{table1} \\<br />
+\hline entry a \\ <br />
+\hline entry b \\ <br />
+\hline entry c \\ <br />
+\hline entry d \\ <br />
+\hline entry e \\ <br />
+\hline <br />
+\end{tabular}  &amp; \begin{tabular}{|c|}\caption{table2} \\<br />
+\hline entry 1 \\ <br />
+\hline entry 2 \\ <br />
+\hline entry 3 \\ <br />
+\hline entry 4 \\ <br />
+\hline entry 5 \\ <br />
+\hline <br />
+\end{tabular}  &amp; \begin{tabular}{|c|}\caption{table3} \\<br />
+\hline entry 6 \\ <br />
+\hline entry 7 \\ <br />
+\hline entry 8 \\ <br />
+\hline entry 9 \\ <br />
+\hline entry 10 \\ <br />
+\hline <br />
+\end{tabular} <br />
+\end{array}<br />
+<br />
+Also, there is a web site <a href="http://www.ctan.org" target="_blank">www.ctan.org</a> ( Comprehensive Tex Archive Network ) that has references to many manuals and resources for latex.  Kile probably comes with your Linux distribution, or you could google for their home page.Hi all,<br />
+<br />
+Got some questions on latex. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+1) How can I place three different tables using tablular envirnoment on the same row?<br />
+2) How can I make a table caption for each table?<br />
+<br />
+<br />
+Newbie in latex. Thanks!

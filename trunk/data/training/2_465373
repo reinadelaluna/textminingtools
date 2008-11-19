@@ -1,0 +1,122 @@
+OK, then I feel much better leaving it as it is.  (Slowly but surely learning)According to <font color="Blue">man procmail</font>:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:98px; overflow:auto"><div dir="ltr" style="text-align:left;">Suspicious rcfile &quot;x&quot;  The  owner  of the rcfile was not the recipient or root, the file was
+                       world  writable,  or  the  directory  that  contained  it  was  world
+                       writable,  or this was the default rcfile ($HOME/.procmailrc) and ei-
+                       ther it was group writable or the directory  that  contained  it  was
+                       group writable (the rcfile was not used).</div></pre>
+</div>
+<br />
+Alternatively, you have lmcilwai<font color="Red">n</font> as the home directory name but you have lmcilwai as the user:group - is there a typo?<br />
+<br />
+Do any of those possibilities fit your setup?Your owner and group are correct, it is just truncating to keep the columns in ls -l neatly lined up.Hello all,<br />
+<br />
+I'm having an issue that I need to try and have fixed.  Fetchmail on my machine is complaining that it can't read my .procmailrc file in my home directory that is used for mail filtering.<br />
+<br />
+What I am getting in my fetchmail log is:<br />
+procmail: Suspicious rcfile &quot;/home/lmcilwain/.procmailrc&quot;<br />
+procmail: Couldn't read &quot;/home/lmcilwain/.procmailrc&quot;<br />
+<br />
+Nothing has changed with this file in months and all of a sudden it just stopped working.<br />
+Here are the permissions on my .procmailrc file:<br />
+<br />
+-rw-r--r--    1 lmcilwai  lmcilwai      1484 18 Jul 23:34 .procmailrc<br />
+<br />
+Can anyone help me figure out what in the world is going on with this?Edit: Hopefully Matir's suggestions fixes the problem before you get to trying this...<br />
+<br />
+On my system, I can create a user:group of lmcilwain:lmcilwain and the ownership displays correctly (doesn't truncate the last 'n'). Are the other files in that directory owned the same way? If so, does running the following as root work?<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">chown -Rc lmcilwain:lmcilwain /home/lmcilwain</div></pre>
+</div>
+If not, you should be able to type the following to get the uid:gid for the lmcilwain user:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">id lmcilwain</div></pre>
+</div>
+If it returned (for example):<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">uid=1014(lmcilwain) gid=118(lmcilwain) groups=118(lmcilwain)</div></pre>
+</div>
+Then you could run:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">chown -Rc 1014:118 /home/lmcilwain</div></pre>
+</div>The permissions I have for my home directory is as follows:<br />
+<br />
+drwxrwxrwx   77 lmcilwai  lmcilwai  2618 19 Jul 00:10 lmcilwainBecause the directory is group/world-writable, it will not use the .procmailrc file for fear that someone else could have placed a malicious .procmailrc file there to obtain copies of your email.  Try removing group and world write permissions.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>lmcilwain</strong></div>
+				<div style="font-style:italic">(Slowly but surely learning)</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+That's what we're here for.  I'm glad we were able to help you with this.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />What are the permissions on /home/lmcilwain?<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>gilead</strong></div>
+				<div style="font-style:italic">On my system, I can create a user:group of lmcilwain:lmcilwain and the ownership displays correctly (doesn't truncate the last 'n'). Are the other files in that directory owned the same way? If so, does running the following as root work?<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">chown -Rc lmcilwain:lmcilwain /home/lmcilwain</div></pre>
+</div>
+If not, you should be able to type the following to get the uid:gid for the lmcilwain user:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">id lmcilwain</div></pre>
+</div>
+If it returned (for example):<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">uid=1014(lmcilwain) gid=118(lmcilwain) groups=118(lmcilwain)</div></pre>
+</div>
+Then you could run:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">chown -Rc 1014:118 /home/lmcilwain</div></pre>
+</div></div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<br />
+Many setups truncate usernames to 8 characters (the original UNIX max username length).  Others replace usernames &gt; 8 chars with the numeric UID.  I doubt it's mis-owned.Well it seems that the issue was that my user directory was set to world writeable.  I didn't put two and two together...<br />
+<br />
+I was working on trying to share a folder via smb on my system and I must have done something screwy.  I went back to what I was doing and noticed that mistake (wierd).  So I sent the permission as close to what I remember as possible and then checked my fetchmail and procmail logs and low and behold it is filtering again.<br />
+<br />
+Procmail Log:<br />
+procmail: Assigning &quot;LASTFOLDER=/var/mail/lmcilwain&quot;<br />
+procmail: Opening &quot;/var/mail/lmcilwain&quot;<br />
+procmail: Acquiring kernel-lock<br />
+procmail: [6580] Wed Jul 19 00:30:58 2006<br />
+procmail: Notified comsat: &quot;procmail.log@19***:/var/mail/lmcilwain&quot;<br />
+From lmcilwain  Wed Jul 19 00:30:56 2006<br />
+ Subject: test<br />
+ Folder: /var/mail/lmcilwain     <br />
+<br />
+Fetchmail Log:<br />
+procmail: [6580] Wed Jul 19 00:30:56 2006<br />
+procmail: Assigning &quot;LOGNAME=procmail.log&quot;<br />
+procmail: Assigning &quot;LOGFILE=procmail.log&quot;<br />
+procmail: Opening &quot;procmail.log&quot;<br />
+<br />
+<br />
+I do however want to fix the way my UID and GID ownership is displaying but I'm tempted to leave it as is if its working for me...  <br />
+<br />
+Thanks for the help guys, I really appreciate it.No its not a typo that was what I cut and pasted right fromt he terminal.. My username is definitly not lmcilwai.<br />
+<br />
+But how can I fix this.  This user doesn't exist anywhere so I can't figure out a user ID that correspond to it to change the ownership.

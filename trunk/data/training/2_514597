@@ -1,0 +1,88 @@
+Hi!<br />
+I'm using Gentoo and when i was trying to update amarok to version media-sound/amarok-1.4.4-r3 the compilation failed with the following error:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:434px; overflow:auto"><div dir="ltr" style="text-align:left;">#emerge amarok
+*****************
+some output
+*****************
+i686-pc-linux-gnu-g++: /usr/lib/libGL.so: No such file or directory
+make[4]: *** [libamarok.la] Error 1
+make[4]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4/amarok/src'
+make[3]: *** [all-recursive] Error 1
+make[3]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4/amarok/src'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4/amarok'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4'
+make: *** [all] Error 2
+
+!!! ERROR: media-sound/amarok-1.4.4-r3 failed.
+Call stack:
+  ebuild.sh, line 1546:   Called dyn_compile
+  ebuild.sh, line 937:   Called src_compile
+  amarok-1.4.4-r3.ebuild, line 72:   Called kde_src_compile
+  kde.eclass, line 170:   Called kde_src_compile 'all'
+  kde.eclass, line 340:   Called kde_src_compile 'myconf' 'configure' 'make'
+  kde.eclass, line 336:   Called die
+
+!!! died running emake, kde_src_compile:make
+!!! If you need support, post the topmost build error, and the call stack if relevant.</div></pre>
+</div>
+<br />
+I searched for the libGL.so and created a symbolic link to what i found:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:130px; overflow:auto"><div dir="ltr" style="text-align:left;">#slocate libGL.so
+/usr/lib/opengl/nvidia/lib/libGL.so.1.0.8776
+/usr/lib/opengl/nvidia/lib/libGL.so
+/usr/lib/opengl/nvidia/lib/libGL.so.1
+/usr/lib/libGL.so.1.0.8762
+/usr/lib/libGL.so.1
+#ln -s /usr/lib/opengl/nvidia/lib/libGL.so /usr/lib/libGL.so</div></pre>
+</div>
+<br />
+Then i tried to emerge amarok again and got another error:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">#emerge amarok
+*****************
+some output
+*****************
+/bin/sh ../../libtool --silent --mode=link --tag=CXX i686-pc-linux-gnu-g++  -Wno-long-long -Wundef -ansi -D_XOPEN_SOURCE=500 -D_BSD_SOURCE -Wcast-align -Wconversion -Wchar-subscripts -Wall -W -Wpointer-arith -DNDEBUG -DNO_DEBUG -O2 -O2 -march=athlon-xp -fomit-frame-pointer -Wformat-security -Wmissing-format-attribute -Wno-non-virtual-dtor -fno-exceptions -fno-check-new -fno-common -DQT_CLEAN_NAMESPACE -DQT_NO_ASCII_CAST -DQT_NO_STL -DQT_NO_COMPAT -DQT_NO_TRANSLATION    -o amarokapp -L/usr/kde/3.5/lib -L/usr/qt/3/lib -L/usr/lib    -L/usr/kde/3.5/lib -R /usr/lib -R /usr/kde/3.5/lib -R /usr/qt/3/lib -R /usr/lib -R /usr/kde/3.5/lib main.o ../../amarok/src/amarokcore/libamarokcore.la libamarok.la ../../amarok/src/analyzers/libanalyzers.la ../../amarok/src/plugin/libplugin.la ../../amarok/src/statusbar/libstatusbar.la ../../amarok/src/metadata/libmetadata.la -lkutils -lkio -lkdeui -lkdecore -lkhtml -lknewstuff -L/usr/lib -ltag -lGL  ../../amarok/src/sqlite/libsqlite.la
+/usr/lib/libGL.so: undefined reference to `_nv001215gl'
+/usr/lib/libGL.so: undefined reference to `_nv001213gl'
+/usr/lib/libGL.so: undefined reference to `_nv001214gl'
+/usr/lib/libGL.so: undefined reference to `_nv001212gl'
+collect2: ld returned 1 exit status
+make[4]: *** [amarokapp] Error 1
+make[4]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4/amarok/src'
+make[3]: *** [all-recursive] Error 1
+make[3]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4/amarok/src'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4/amarok'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/var/tmp/portage/amarok-1.4.4-r3/work/amarok-1.4.4'
+make: *** [all] Error 2
+
+!!! ERROR: media-sound/amarok-1.4.4-r3 failed.
+Call stack:
+  ebuild.sh, line 1546:   Called dyn_compile
+  ebuild.sh, line 937:   Called src_compile
+  amarok-1.4.4-r3.ebuild, line 72:   Called kde_src_compile
+  kde.eclass, line 170:   Called kde_src_compile 'all'
+  kde.eclass, line 340:   Called kde_src_compile 'myconf' 'configure' 'make'
+  kde.eclass, line 336:   Called die
+
+!!! died running emake, kde_src_compile:make
+!!! If you need support, post the topmost build error, and the call stack if relevant.</div></pre>
+</div>
+<br />
+That's strange, because i had no problems with libGL.so before, and previous version of amarok emerged without any problems. Also tried to update nvidia-drivers, but i'm already using the latest stable version.<br />
+<br />
+Did someone experienced common problem?its a pretty big mess to try to compile against nvidia libs<br />
+try making that link to a X11 openGL library or GLU or something.<br />
+then after the compile  take the link away.<br />
+nvidia libs are compatable.The problem was that i had no other libGL to choose. I have updated the mesa package, it provide the new libGL and linked /usr/lib/libGL to /usr/lib/opengl/xorg-x11/lib/libGL.so.<br />
+That solved the problem amarok merged without any errors!<br />
+Many thanks! <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />

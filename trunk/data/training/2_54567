@@ -1,0 +1,35 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by undershepherd </i><br />
+<b>Can I install the GnuCash 1.6.7 from the MDK 9 CD in MDK 9.1? or vice versa?</b>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+Sure you can<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<b><br />
+Second question: If I have RH 8 installed, can I install GnuCash from the MDK CDs (either one) on RH8? <br />
+</b>
+			
+		</td>
+	</tr>
+	</table>
+</div><br />
+Shouldn't be a problem as Mandy is 100% RedHat compatible, at least that's what they say <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" />Hey y'all/. Set up: I have MDK 9.0 and 9.1 on CDs. MDK 9 has GnuCash 1.6.7 and MDK has GnuCash 1.8.1. Question: Can I install the GnuCash 1.6.7 from the MDK 9 CD in MDK 9.1? or vice versa?  I have tried downloading hte newest version of GnuCash (1.8.2) and configuring it, it asks for about 20 other packages. I have tried 1.8.1 on MDK 9.1, but it doesn't import QIFs very well. <br />
+Second question: If I have RH 8 installed, can I install GnuCash from the MDK CDs (either one) on RH8? <br />
+<br />
+Thanks <br />
+<br />
+Ray Salemink<br />
+<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/newbie.gif" border="0" alt="" title="Newbie" class="inlineimg" />

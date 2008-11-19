@@ -1,0 +1,24 @@
+It might be that root is not allowed to log in automatically<br />
+<br />
+hamishDon't know the why this isn't working, but I'm wondering why it's even necessary. It seems a lot more secure, and probably not too difficult to change the permissions for the files that you would be accessing rather than setting up a root login.Hello<br />
+<br />
+I have been trying to automated a login to my media centre PC. I would like to log in as root so that there are never any permissions issues.  The PC is off net.<br />
+<br />
+I have already edited /etc/gdm/gdm.conf and set:<br />
+<br />
+AutomaticLoginEnable=true<br />
+AutomaticLogin=root<br />
+AllowRoot=true<br />
+<br />
+However, when I reboot, it still goes to GDM login screen, from where I can login as root.<br />
+<br />
+How can I make root automatically login, without needing to type in username/password?<br />
+<br />
+I'm running Ubuntu Breezy, with Gnome and GDM.<br />
+<br />
+Thanks<br />
+HamishHello,<br />
+<br />
+I do not think that GDM allows autologin of root for security reasons. But why would you want to. Even though you are off the net, as root it is very easy to issue a command that will cripple your Linux distro or worse. It is just safer and smarter to login as user and only change to root when necessary. But that is just my humble opinion.<br />
+<br />
+I hope that this helps.

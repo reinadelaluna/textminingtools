@@ -1,0 +1,248 @@
+Processing commands for control@bugs.debian.org:
+<br />
+
+<br />
+&gt; tags 263101 pending
+<br />
+Bug#263101: FTBFS on GNU/k*BSD (config.* update)
+<br />
+Tags were: patch
+<br />
+Tags added: pending
+<br />
+
+<br />
+&gt; thanks mate
+<br />
+Stopping processing here.
+<br />
+
+<br />
+Please contact me if you need assistance.
+<br />
+
+<br />
+Debian bug tracking system administrator
+<br />
+(administrator, Debian Bugs database)
+<br />
+
+<br />
+
+<br />
+
+<br />
+Package: apache2
+<br />
+Severity: wishlist
+<br />
+Tags: patch
+<br />
+
+<br />
+Hi!
+<br />
+
+<br />
+Please could you update config.{guess,sub}? This will fix FTBFS on GNU/k*BSD.
+<br />
+
+<br />
+Thanks.
+<br />
+
+<br />
+--- old/apache2-2.0.50/debian/rules	2004-08-03 01:51:58.000000000 +0200
+<br />
++++ apache2-2.0.50/debian/rules	2004-08-03 00:14:20.000000000 +0200
+<br />
+@@ -85,6 +85,10 @@
+<br />
+ 
+<br />
+ configure: $(STAMP_DIR)/configure
+<br />
+ $(STAMP_DIR)/configure: $(STAMP_DIR)/source.make 
+<br />
++	for i in build srclib/pcre srclib/apr/build srclib/apr-util/build \
+<br />
++		srclib/apr-util/xml/expat/conftools ; do \
+<br />
++		cp /usr/share/misc/config.* $(B)/$$i ; \
+<br />
++	done
+<br />
+ 	cd $(B) &amp;&amp; ./buildconf
+<br />
+ 	touch $@ 
+<br />
+ 
+<br />
+@@ -115,7 +119,7 @@
+<br />
+ 	for i in $(FIRSTMPM) $(OTHERMPMS); do \
+<br />
+ 		rm -f debian/apache2-mpm-$$i.postinst ;\
+<br />
+ 		rm -f debian/apache2-mpm-$$i.init.d ;\
+<br />
+-    done
+<br />
++	done
+<br />
+ 	rm -f debian/apache2-mpm-prefork.init.d
+<br />
+ 	dh_clean
+<br />
+ 
+<br />
+-- System Information:
+<br />
+Debian Release: testing/unstable
+<br />
+  APT prefers unstable
+<br />
+  APT policy: (500, 'unstable')
+<br />
+Architecture: kfreebsd-i386 (i386)
+<br />
+Kernel: GNU/kFreeBSD 5.2.1-5
+<br />
+Locale: LANG=C, LC_CTYPE=C (ignored: LC_ALL set to C)
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Tue, Aug 03, 2004 at 10:39:13AM +1000, Daniel Stone wrote:
+<br />
+&gt; tags 263101 pending
+<br />
+&gt; thanks mate
+<br />
+&gt; 
+<br />
+&gt; Robert,
+<br />
+&gt; I already merged something quite like this into my tla archive, and it's
+<br />
+&gt; pending upload (waiting for something more dramatic to change, I
+<br />
+&gt; suppose).
+<br />
+
+<br />
+Nice, thanks.
+<br />
+
+<br />
+-- 
+<br />
+Robert Millan
+<br />
+
+<br />
+(Debra and Ian) (Gnu's Not (UNiplexed Information and Computing System))/\
+<br />
+(kernel of *(Berkeley Software Distribution))
+<br />
+
+<br />
+
+<br />
+
+<br />
+tags 263101 pending
+<br />
+thanks mate
+<br />
+
+<br />
+Robert,
+<br />
+I already merged something quite like this into my tla archive, and it's
+<br />
+pending upload (waiting for something more dramatic to change, I
+<br />
+suppose).
+<br />
+
+<br />
+:) d
+<br />
+
+<br />
+On Tue, Aug 03, 2004 at 01:54:27AM +0200, Robert Millan wrote:
+<br />
+&gt; Hi!
+<br />
+&gt; 
+<br />
+&gt; Please could you update config.{guess,sub}? This will fix FTBFS on GNU/k*BSD.
+<br />
+&gt; 
+<br />
+&gt; Thanks.
+<br />
+&gt; 
+<br />
+&gt; --- old/apache2-2.0.50/debian/rules	2004-08-03 01:51:58.000000000 +0200
+<br />
+&gt; +++ apache2-2.0.50/debian/rules	2004-08-03 00:14:20.000000000 +0200
+<br />
+&gt; @@ -85,6 +85,10 @@
+<br />
+&gt;  
+<br />
+&gt;  configure: $(STAMP_DIR)/configure
+<br />
+&gt;  $(STAMP_DIR)/configure: $(STAMP_DIR)/source.make 
+<br />
+&gt; +	for i in build srclib/pcre srclib/apr/build srclib/apr-util/build \
+<br />
+&gt; +		srclib/apr-util/xml/expat/conftools ; do \
+<br />
+&gt; +		cp /usr/share/misc/config.* $(B)/$$i ; \
+<br />
+&gt; +	done
+<br />
+&gt;  	cd $(B) &amp;&amp; ./buildconf
+<br />
+&gt;  	touch $@ 
+<br />
+&gt;  
+<br />
+&gt; @@ -115,7 +119,7 @@
+<br />
+&gt;  	for i in $(FIRSTMPM) $(OTHERMPMS); do \
+<br />
+&gt;  		rm -f debian/apache2-mpm-$$i.postinst ;\
+<br />
+&gt;  		rm -f debian/apache2-mpm-$$i.init.d ;\
+<br />
+&gt; -    done
+<br />
+&gt; +	done
+<br />
+&gt;  	rm -f debian/apache2-mpm-prefork.init.d
+<br />
+&gt;  	dh_clean
+<br />
+
+<br />
+-- 
+<br />
+Daniel Stone                                                &lt;daniels@debian.org&gt;
+<br />
+Debian: the universal operating system                     <a  href="http://www.debian.org">http://www.debian.org</a>
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00000.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> Digital signature</p>
+<br />
+
+<br />

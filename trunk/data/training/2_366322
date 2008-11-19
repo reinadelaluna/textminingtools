@@ -1,0 +1,16 @@
+hi<br />
+<br />
+I saved a view profile in konqueror and I want to load it every time konqueror is started. How can i do this?<br />
+I don't find the option in konqueror.<br />
+<br />
+Here is what i did: I changed some view settings, saved this as a profile. So now i can choose that profile in konqueror. But i want to load it automatically every time konqueror is started<br />
+<br />
+thxWhat you have to do is change the command line that launches konqueror, either in the menu or in the desktop icons.<br />
+<br />
+For the menu right click the K and select edit menu pick the menu entry and change the command line too:<br />
+<br />
+kfmclient openProfile thedefaultprofilename<br />
+<br />
+For Icons right click them and select the application tab, and change the command there to the same as above.thanks, it's working<br />
+<br />
+appreciate your help!

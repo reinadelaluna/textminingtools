@@ -1,0 +1,21 @@
+This is the file contents:<br />
+<br />
+#!/bin/sh<br />
+<br />
+# Red Hat Linux VNC session startup script<br />
+unset SESSION_MANAGER<br />
+exec /etc/X11/xinit/xinitrc<br />
+<br />
+What should i put to make it work with KDE desktops?well the VNC file obviously refers to the xinitrc file, but in your /etc/X11 directory. You are probably using the xinitrc in your home directory for your local sessions. Set the one in /etc/X11 to exec kde instead of gnome-session and all should be sweet.Hi:<br />
+<br />
+I managed to put VNC Server to work. I can access the linux box from my XP box without problems.<br />
+<br />
+The thing is that im getting GNOME Desktops instead of the KDE.<br />
+<br />
+Any ideas??<br />
+<br />
+Thanksedit your ~/.vnc/xstartup file. It acts as the xinitrc file, only for the VNC server. <br />
+<br />
+Note: by ~/ I mean the home directory of the user running the VNC server.<br />
+<br />
+By default it uses a crappy window manager, I prefer to set my VNC windowmanager to fvwm2, it is light weight, fast, and very functional.

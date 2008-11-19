@@ -1,0 +1,12 @@
+hi <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> <br />
+can anyone provide me with a cd burner rpm for redhat 7.2 please? i have an atapi cd burner not scsi if that makes a difference which i was told it does but i'm a nOOb and don't know much<br />
+thank you <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />You want cdrecord which is a great commandline tool, and you may want a graphical frontend like Gtoaster or X-CD-Roast.ya see i thought that it did as well but its not here i remember the last time i was using redhat a while ago i had to find it online somewhere and install it but i can't remember what it was called or where i found it or how to do it :/ cuz i'm a pothead and i don't remember anything heheTry reading <a href="http://www.tldp.org/HOWTO/CD-Writing-HOWTO.html" target="_blank">this</a> one ... it explains why<br />
+IDE or SCSI doesn't really make a <br />
+difference ... <br />
+<br />
+As for &quot;burning programs&quot;: I'd dare to bet<br />
+that RH 7.2 had at least ONE with it :)<br />
+Look again.<br />
+<br />
+Cheers,<br />
+Tink

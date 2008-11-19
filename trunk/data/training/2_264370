@@ -1,0 +1,9 @@
+I figured that out too and was for a while using emacs for editing my matlab files.<br />
+But then I got hold of one more Monitor and finaly figured out how to get xinerama to work acceptable so now I am running tri-head kde with xinerama support and have therefor migrated back to the matlab built-in editor.<br />
+<br />
+thx for your answer.<br />
+<br />
+much appreciated <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" />I think you can use any text editor to do this job. Some of the editors even have highlight mode for m-script.Well I am wondering if there is a shell script for running the M-file editor without running Matlab as a whole.<br />
+The reason I am asking is that I am running dual head under KDE but without xinerama support and I want matlab to run on one screen and the editor on the other.<br />
+<br />
+Thx in advance

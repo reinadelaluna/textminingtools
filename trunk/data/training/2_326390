@@ -1,0 +1,34 @@
+Strange thing, I tried a system(&quot;whoami&quot;) and my script answers ... apache !!!<br />
+Why SuExec does not work ?Hi there,<br />
+<br />
+I've got a permission problem with SuExec/Apache 2.046<br />
+<br />
+Here is my VirtualHost config in httpd.conf :<br />
+<br />
+&lt;VirtualHost my.ip:80&gt;<br />
+ServerName mydomain.com<br />
+ServerAlias <a href="http://www.mydomain.com" target="_blank">www.mydomain.com</a><br />
+DocumentRoot /var/www/home/myuser/mydomain.com<br />
+SuExecUserGroup myuser myuser<br />
+&lt;/VirtualHost&gt;<br />
+<br />
+/var/www/home/user/mydomain.com is chmod 755, owned by user/group &quot;myuser&quot;<br />
+<br />
+Here is the result of `suexec -V` :<br />
+<br />
+ -D AP_DOC_ROOT=&quot;/var/www&quot;<br />
+ -D AP_GID_MIN=100<br />
+ -D AP_HTTPD_USER=&quot;apache&quot;<br />
+ -D AP_LOG_EXEC=&quot;/var/log/httpd/suexec.log&quot;<br />
+ -D AP_SAFE_PATH=&quot;/usr/local/bin:/usr/bin:/bin&quot;<br />
+ -D AP_UID_MIN=500<br />
+ -D AP_USERDIR_SUFFIX=&quot;public_html&quot;<br />
+<br />
+Now if I test a php file in this website:<br />
+&lt;?php system(&quot;touch testfile&quot;); ?&gt;<br />
+<br />
+I get a permission denied error when trying to create the file via system(&quot;touch file&quot;) or via fopen(&quot;file&quot;,&quot;w&quot;) ...<br />
+Can someone explain this ?<br />
+<br />
+Thanks in advance.<br />
+Ben

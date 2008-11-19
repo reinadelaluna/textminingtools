@@ -1,0 +1,42 @@
+For Daily Graph, every 5 minute average for 24 hours:<br />
+RRA:AVERAGE:0.5:1:288<br />
+<br />
+ok theres 24 hours in a day<br />
+1440 minutes in a day<br />
+your are logging every 5 minutes<br />
+therefore you want to use 288 logs per day<br />
+<br />
+same goes with the rest of them<br />
+<br />
+For Weekly Graph, every 30 minute average for 7 days:<br />
+RRA:AVERAGE:0.5:6:336<br />
+<br />
+7 days * 24 hours * 60 mins = 10080 mins<br />
+you log every 5 mins so 10080/5 = 2016 samples per week<br />
+you want to average every 6 samples so 2016/6 = 336<br />
+<br />
+<br />
+im still learning how to use rrdtool but reading through the online help on the website<br />
+<a href="http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/" target="_blank">http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/</a><br />
+<br />
+and going through the samples and tutorials at<br />
+<a href="http://martybugs.net/linux/rrdtool/traffic.cgi" target="_blank">http://martybugs.net/linux/rrdtool/traffic.cgi</a><br />
+<br />
+i am getting better<br />
+:-)<br />
+good luckI want to make rrd graphs similar to how MRTG works &amp; I am logging various temperatures at 5 minute intervals.  Are these the correct formulas  to feed into &quot;rrdtool create&quot; so it has the correct data to make the graphs?  I couldn't find &quot;cookbook recipes&quot; for this anywhere, although I'm sure it has been done many times before...<br />
+<br />
+For Daily Graph, every 5 minute average for 24 hours:<br />
+RRA:AVERAGE:0.5:1:288<br />
+<br />
+For Weekly Graph, every 30 minute average for 7 days:<br />
+RRA:AVERAGE:0.5:6:336<br />
+<br />
+For Monthly Graph, every 2 hour average for 30 days:<br />
+RRA:AVERAGE:0.5:24:360<br />
+<br />
+For Yearly Graph, every 1 day average for 365 days:<br />
+RRA:AVERAGE:0.5:288:365<br />
+<br />
+Thanks,<br />
+Josh

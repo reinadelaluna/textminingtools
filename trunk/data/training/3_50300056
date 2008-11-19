@@ -1,0 +1,2616 @@
+Hello,
+<br />
+I have lately been trying to get metissa
+<br />
+(<a  href="http://insitu.lri.fr/~chapuis/metisse/index.html">http://insitu.lri.fr/~chapuis/metisse/index.html</a>) running on my
+<br />
+laptop, but it fails at configure with the following error:
+<br />
+configure: error: GL header found, but fail to found libGL (use LDFLAGS?)
+<br />
+
+<br />
+But I have the gl development libraries installed and when I try to
+<br />
+look for it I get the following:
+<br />
+/usr/lib/libGL.a
+<br />
+/usr/X11R6/lib/libGL.a
+<br />
+
+<br />
+Does anyone have any idea what could be the cause of this?
+<br />
+-- 
+<br />
+Cheers,
+<br />
+Karol Krizka
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt><br>What's the compiler command-line that causes the error and what does the 
+<br />
+compiler display?</tt><br>
+<br />
+<br>
+<br />
+<tt>If it's using configure you can get a lot of information from the 
+<br />
+config.log file.</tt><br>
+<br />
+<br>
+<br />
+<tt>Karol Krizka wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">Hello,
+<br />
+I have lately been trying to get metissa
+<br />
+(<a  href="http://insitu.lri.fr/~chapuis/metisse/index.html">http://insitu.lri.fr/~chapuis/metisse/index.html</a>) running on my
+<br />
+laptop, but it fails at configure with the following error:
+<br />
+configure: error: GL header found, but fail to found libGL (use LDFLAGS?)<br>
+<br />
+<pre style="margin: 0em;">But I have the gl development libraries installed and when I try to
+<br />
+look for it I get the following:
+<br />
+/usr/lib/libGL.a
+<br />
+/usr/X11R6/lib/libGL.a<br>
+<br />
+<tt>Does anyone have any idea what could be the cause of this?
+<br />
+</tt></blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">--
+<br />
+Javier Kohen &lt;jkohen@users.sourceforge.net&gt;
+<br />
+ICQ: blashyrkh #2361802
+<br />
+Jabber: jkohen@jabber.org<br>
+<br />
+<br>
+<br />
+
+<br />
+On Wed, Mar 02, 2005 at 09:36:43PM -0800, Karol Krizka wrote:
+<br />
+&gt; On Thu, 03 Mar 2005 00:11:45 -0500, Javier Kohen
+<br />
+&gt; &lt;jkohen@users.sourceforge.net&gt; wrote:
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; What's the compiler command-line that causes the error and what does the
+<br />
+&gt; &gt; compiler display?
+<br />
+&gt; The following is the command:
+<br />
+&gt; g++ -o conftest -g -O2  -I/usr/X11R6/include  -L/usr/X11R6/lib
+<br />
+&gt; conftest.cc -lGL   -L /usr/X11R6/lib64/  -lSM -lICE -lX11  -ldl
+<br />
+&gt; and the following is the error:
+<br />
+&gt; /usr/X11R6/lib/libGL.a(glthread.o)(.text+0x17): In function
+<br />
+&gt; `_glthread_InitTSD':: undefined reference to `pthread_key_create'
+<br />
+&gt; /usr/X11R6/lib/libGL.a(glthread.o)(.text+0x55): In function `_glthread_GetTSD':
+<br />
+&gt; : undefined reference to `pthread_getspecific'
+<br />
+&gt; /usr/X11R6/lib/libGL.a(glthread.o)(.text+0x96): In function `_glthread_SetTSD':
+<br />
+&gt; : undefined reference to `pthread_setspecific'
+<br />
+&gt; collect2: ld returned 1 exit status
+<br />
+
+<br />
+Looks like something was configured and/or compiled with pthread support
+<br />
+(or expecting it).  Does amd64 even support pthreads?  Are you perhaps
+<br />
+missing a -lpthread in there?
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Thu, 03 Mar 2005 00:11:45 -0500, Javier Kohen
+<br />
+&lt;jkohen@users.sourceforge.net&gt; wrote:
+<br />
+&gt;
+<br />
+&gt; What's the compiler command-line that causes the error and what does the
+<br />
+&gt; compiler display?
+<br />
+The following is the command:
+<br />
+g++ -o conftest -g -O2  -I/usr/X11R6/include  -L/usr/X11R6/lib
+<br />
+conftest.cc -lGL   -L /usr/X11R6/lib64/  -lSM -lICE -lX11  -ldl
+<br />
+and the following is the error:
+<br />
+/usr/X11R6/lib/libGL.a(glthread.o)(.text+0x17): In function
+<br />
+`_glthread_InitTSD':: undefined reference to `pthread_key_create'
+<br />
+/usr/X11R6/lib/libGL.a(glthread.o)(.text+0x55): In function `_glthread_GetTSD':
+<br />
+: undefined reference to `pthread_getspecific'
+<br />
+/usr/X11R6/lib/libGL.a(glthread.o)(.text+0x96): In function `_glthread_SetTSD':
+<br />
+: undefined reference to `pthread_setspecific'
+<br />
+collect2: ld returned 1 exit status
+<br />
+
+<br />
+&gt;
+<br />
+&gt; If it's using configure you can get a lot of information from the
+<br />
+&gt; config.log file.
+<br />
+Yes, this is the configure script. I attached the config.log
+<br />
+&gt;
+<br />
+&gt; Karol Krizka wrote:
+<br />
+&gt; &gt; Hello,
+<br />
+&gt; &gt; I have lately been trying to get metissa
+<br />
+&gt; &gt; (<a  href="http://insitu.lri.fr/~chapuis/metisse/index.html">http://insitu.lri.fr/~chapuis/metisse/index.html</a>) running on my
+<br />
+&gt; &gt; laptop, but it fails at configure with the following error:
+<br />
+&gt; &gt; configure: error: GL header found, but fail to found libGL (use LDFLAGS?)
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; But I have the gl development libraries installed and when I try to
+<br />
+&gt; &gt; look for it I get the following:
+<br />
+&gt; &gt; /usr/lib/libGL.a
+<br />
+&gt; &gt; /usr/X11R6/lib/libGL.a
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Does anyone have any idea what could be the cause of this?
+<br />
+&gt;
+<br />
+&gt; --
+<br />
+&gt; Javier Kohen &lt;jkohen@users.sourceforge.net&gt;
+<br />
+&gt; ICQ: blashyrkh #2361802
+<br />
+&gt; Jabber: jkohen@jabber.org
+<br />
+&gt;
+<br />
+&gt; --
+<br />
+&gt; To UNSUBSCRIBE, email to debian-amd64-REQUEST@lists.debian.org
+<br />
+&gt; with a subject of &quot;unsubscribe&quot;. Trouble? Contact listmaster@lists.debian.org
+<br />
+&gt;
+<br />
+&gt;
+<br />
+--
+<br />
+Cheers,
+<br />
+Karol Krizka
+<br />
+This file contains any messages produced by compilers while
+<br />
+running configure, to aid debugging if configure makes a mistake.
+<br />
+
+<br />
+It was created by nucleo configure 0.1, which was
+<br />
+generated by GNU Autoconf 2.58.  Invocation command line was
+<br />
+
+<br />
+  $ ./configure --prefix=/usr LDFLAGS=-L/usr/X11R6/lib
+<br />
+
+<br />
+## --------- ##
+<br />
+## Platform. ##
+<br />
+## --------- ##
+<br />
+
+<br />
+hostname = zorka
+<br />
+uname -m = x86_64
+<br />
+uname -r = 2.6.10-9-amd64-k8
+<br />
+uname -s = Linux
+<br />
+uname -v = #1 Wed Feb 9 22:29:16 CET 2005
+<br />
+
+<br />
+/usr/bin/uname -p = unknown
+<br />
+/bin/uname -X     = unknown
+<br />
+
+<br />
+/bin/arch              = x86_64
+<br />
+/usr/bin/arch -k       = unknown
+<br />
+/usr/convex/getsysinfo = unknown
+<br />
+hostinfo               = unknown
+<br />
+/bin/machine           = unknown
+<br />
+/usr/bin/oslevel       = unknown
+<br />
+/bin/universe          = unknown
+<br />
+
+<br />
+PATH: /usr/local/bin
+<br />
+PATH: /usr/bin
+<br />
+PATH: /bin
+<br />
+PATH: /usr/bin/X11
+<br />
+PATH: /usr/games
+<br />
+
+<br />
+
+<br />
+## ----------- ##
+<br />
+## Core tests. ##
+<br />
+## ----------- ##
+<br />
+
+<br />
+configure:1558: checking for a BSD-compatible install
+<br />
+configure:1613: result: /usr/bin/install -c
+<br />
+configure:1624: checking whether build environment is sane
+<br />
+configure:1667: result: yes
+<br />
+configure:1718: checking for gawk
+<br />
+configure:1734: found /usr/bin/gawk
+<br />
+configure:1744: result: gawk
+<br />
+configure:1754: checking whether make sets $(MAKE)
+<br />
+configure:1774: result: yes
+<br />
+configure:2024: checking build system type
+<br />
+configure:2042: result: x86_64-unknown-linux-gnu
+<br />
+configure:2050: checking host system type
+<br />
+configure:2064: result: x86_64-unknown-linux-gnu
+<br />
+configure:2084: checking for style of include used by make
+<br />
+configure:2112: result: GNU
+<br />
+configure:2183: checking for gcc
+<br />
+configure:2199: found /usr/bin/gcc
+<br />
+configure:2209: result: gcc
+<br />
+configure:2453: checking for C compiler version
+<br />
+configure:2456: gcc --version &lt;/dev/null &gt;&amp;5
+<br />
+gcc (GCC) 4.0.0 20050125 (experimental) (Debian 4.0-0pre5.0.0.1.gcc4)
+<br />
+Copyright (C) 2005 Free Software Foundation, Inc.
+<br />
+This is free software; see the source for copying conditions.  There is NO
+<br />
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<br />
+
+<br />
+configure:2459: $? = 0
+<br />
+configure:2461: gcc -v &lt;/dev/null &gt;&amp;5
+<br />
+Using built-in specs.
+<br />
+Configured with: ../src/configure -v --enable-languages=c,c++,java,f95,objc,ada --prefix=/usr --libexecdir=/usr/lib --enable-shared --with-system-zlib --enable-nls --enable-threads=posix --without-included-gettext --program-suffix=-4.0 --enable-__cxa_atexit --enable-libstdcxx-allocator=mt --enable-clocale=gnu --enable-libstdcxx-debug --enable-java-gc=boehm --enable-java-awt=gtk --enable-mpfr x86_64-linux
+<br />
+Thread model: posix
+<br />
+gcc version 4.0.0 20050125 (experimental) (Debian 4.0-0pre5.0.0.1.gcc4)
+<br />
+configure:2464: $? = 0
+<br />
+configure:2466: gcc -V &lt;/dev/null &gt;&amp;5
+<br />
+gcc: '-V' option must have argument
+<br />
+configure:2469: $? = 1
+<br />
+configure:2492: checking for C compiler default output file name
+<br />
+configure:2495: gcc   -L/usr/X11R6/lib conftest.c  &gt;&amp;5
+<br />
+configure:2498: $? = 0
+<br />
+configure:2544: result: a.out
+<br />
+configure:2549: checking whether the C compiler works
+<br />
+configure:2555: ./a.out
+<br />
+configure:2558: $? = 0
+<br />
+configure:2575: result: yes
+<br />
+configure:2582: checking whether we are cross compiling
+<br />
+configure:2584: result: no
+<br />
+configure:2587: checking for suffix of executables
+<br />
+configure:2589: gcc -o conftest   -L/usr/X11R6/lib conftest.c  &gt;&amp;5
+<br />
+configure:2592: $? = 0
+<br />
+configure:2617: result: 
+<br />
+configure:2623: checking for suffix of object files
+<br />
+configure:2644: gcc -c   conftest.c &gt;&amp;5
+<br />
+configure:2647: $? = 0
+<br />
+configure:2669: result: o
+<br />
+configure:2673: checking whether we are using the GNU C compiler
+<br />
+configure:2697: gcc -c   conftest.c &gt;&amp;5
+<br />
+configure:2703: $? = 0
+<br />
+configure:2707: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:2710: $? = 0
+<br />
+configure:2713: test -s conftest.o
+<br />
+configure:2716: $? = 0
+<br />
+configure:2729: result: yes
+<br />
+configure:2735: checking whether gcc accepts -g
+<br />
+configure:2756: gcc -c -g  conftest.c &gt;&amp;5
+<br />
+configure:2762: $? = 0
+<br />
+configure:2766: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:2769: $? = 0
+<br />
+configure:2772: test -s conftest.o
+<br />
+configure:2775: $? = 0
+<br />
+configure:2786: result: yes
+<br />
+configure:2803: checking for gcc option to accept ANSI C
+<br />
+configure:2873: gcc  -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:2879: $? = 0
+<br />
+configure:2883: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:2886: $? = 0
+<br />
+configure:2889: test -s conftest.o
+<br />
+configure:2892: $? = 0
+<br />
+configure:2910: result: none needed
+<br />
+configure:2928: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+conftest.c:2: error: syntax error before 'me'
+<br />
+configure:2934: $? = 1
+<br />
+configure: failed program was:
+<br />
+| #ifndef __cplusplus
+<br />
+|   choke me
+<br />
+| #endif
+<br />
+configure:3069: checking dependency style of gcc
+<br />
+configure:3152: result: gcc3
+<br />
+configure:3169: checking for a sed that does not truncate output
+<br />
+configure:3223: result: /bin/sed
+<br />
+configure:3226: checking for egrep
+<br />
+configure:3236: result: grep -E
+<br />
+configure:3252: checking for ld used by gcc
+<br />
+configure:3319: result: /usr/bin/ld
+<br />
+configure:3328: checking if the linker (/usr/bin/ld) is GNU ld
+<br />
+configure:3343: result: yes
+<br />
+configure:3348: checking for /usr/bin/ld option to reload object files
+<br />
+configure:3355: result: -r
+<br />
+configure:3364: checking for BSD-compatible nm
+<br />
+configure:3406: result: /usr/bin/nm -B
+<br />
+configure:3410: checking whether ln -s works
+<br />
+configure:3414: result: yes
+<br />
+configure:3421: checking how to recognise dependent libraries
+<br />
+configure:3621: result: file_magic ELF [0-9][0-9]*-bit [LM]SB (shared object|dynamic lib )
+<br />
+configure:3706: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:3709: $? = 0
+<br />
+configure:3835: checking how to run the C preprocessor
+<br />
+configure:3870: gcc -E  conftest.c
+<br />
+configure:3876: $? = 0
+<br />
+configure:3908: gcc -E  conftest.c
+<br />
+conftest.c:11:28: error: ac_nonexistent.h: No such file or directory
+<br />
+configure:3914: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| /* end confdefs.h.  */
+<br />
+| #include &lt;ac_nonexistent.h&gt;
+<br />
+configure:3953: result: gcc -E
+<br />
+configure:3977: gcc -E  conftest.c
+<br />
+configure:3983: $? = 0
+<br />
+configure:4015: gcc -E  conftest.c
+<br />
+conftest.c:11:28: error: ac_nonexistent.h: No such file or directory
+<br />
+configure:4021: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| /* end confdefs.h.  */
+<br />
+| #include &lt;ac_nonexistent.h&gt;
+<br />
+configure:4065: checking for ANSI C header files
+<br />
+configure:4090: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4096: $? = 0
+<br />
+configure:4100: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4103: $? = 0
+<br />
+configure:4106: test -s conftest.o
+<br />
+configure:4109: $? = 0
+<br />
+configure:4198: gcc -o conftest -g -O2  -L/usr/X11R6/lib conftest.c  &gt;&amp;5
+<br />
+conftest.c: In function 'main':
+<br />
+conftest.c:28: warning: incompatible implicit declaration of built-in function 'exit'
+<br />
+configure:4201: $? = 0
+<br />
+configure:4203: ./conftest
+<br />
+configure:4206: $? = 0
+<br />
+configure:4221: result: yes
+<br />
+configure:4245: checking for sys/types.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for sys/stat.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for stdlib.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for string.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for memory.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for strings.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for inttypes.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for stdint.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4245: checking for unistd.h
+<br />
+configure:4261: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4267: $? = 0
+<br />
+configure:4271: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4274: $? = 0
+<br />
+configure:4277: test -s conftest.o
+<br />
+configure:4280: $? = 0
+<br />
+configure:4291: result: yes
+<br />
+configure:4317: checking dlfcn.h usability
+<br />
+configure:4329: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:4335: $? = 0
+<br />
+configure:4339: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4342: $? = 0
+<br />
+configure:4345: test -s conftest.o
+<br />
+configure:4348: $? = 0
+<br />
+configure:4358: result: yes
+<br />
+configure:4362: checking dlfcn.h presence
+<br />
+configure:4372: gcc -E  conftest.c
+<br />
+configure:4378: $? = 0
+<br />
+configure:4398: result: yes
+<br />
+configure:4433: checking for dlfcn.h
+<br />
+configure:4440: result: yes
+<br />
+configure:4505: checking for g++
+<br />
+configure:4521: found /usr/bin/g++
+<br />
+configure:4531: result: g++
+<br />
+configure:4547: checking for C++ compiler version
+<br />
+configure:4550: g++ --version &lt;/dev/null &gt;&amp;5
+<br />
+g++ (GCC) 4.0.0 20050125 (experimental) (Debian 4.0-0pre5.0.0.1.gcc4)
+<br />
+Copyright (C) 2005 Free Software Foundation, Inc.
+<br />
+This is free software; see the source for copying conditions.  There is NO
+<br />
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<br />
+
+<br />
+configure:4553: $? = 0
+<br />
+configure:4555: g++ -v &lt;/dev/null &gt;&amp;5
+<br />
+Using built-in specs.
+<br />
+Configured with: ../src/configure -v --enable-languages=c,c++,java,f95,objc,ada --prefix=/usr --libexecdir=/usr/lib --enable-shared --with-system-zlib --enable-nls --enable-threads=posix --without-included-gettext --program-suffix=-4.0 --enable-__cxa_atexit --enable-libstdcxx-allocator=mt --enable-clocale=gnu --enable-libstdcxx-debug --enable-java-gc=boehm --enable-java-awt=gtk --enable-mpfr x86_64-linux
+<br />
+Thread model: posix
+<br />
+gcc version 4.0.0 20050125 (experimental) (Debian 4.0-0pre5.0.0.1.gcc4)
+<br />
+configure:4558: $? = 0
+<br />
+configure:4560: g++ -V &lt;/dev/null &gt;&amp;5
+<br />
+g++: '-V' option must have argument
+<br />
+configure:4563: $? = 1
+<br />
+configure:4566: checking whether we are using the GNU C++ compiler
+<br />
+configure:4590: g++ -c   conftest.cc &gt;&amp;5
+<br />
+configure:4596: $? = 0
+<br />
+configure:4600: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4603: $? = 0
+<br />
+configure:4606: test -s conftest.o
+<br />
+configure:4609: $? = 0
+<br />
+configure:4622: result: yes
+<br />
+configure:4628: checking whether g++ accepts -g
+<br />
+configure:4649: g++ -c -g  conftest.cc &gt;&amp;5
+<br />
+configure:4655: $? = 0
+<br />
+configure:4659: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4662: $? = 0
+<br />
+configure:4665: test -s conftest.o
+<br />
+configure:4668: $? = 0
+<br />
+configure:4679: result: yes
+<br />
+configure:4721: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+configure:4727: $? = 0
+<br />
+configure:4731: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4734: $? = 0
+<br />
+configure:4737: test -s conftest.o
+<br />
+configure:4740: $? = 0
+<br />
+configure:4766: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+conftest.cc: In function 'int main()':
+<br />
+conftest.cc:26: error: 'exit' was not declared in this scope
+<br />
+configure:4772: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| #define STDC_HEADERS 1
+<br />
+| #define HAVE_SYS_TYPES_H 1
+<br />
+| #define HAVE_SYS_STAT_H 1
+<br />
+| #define HAVE_STDLIB_H 1
+<br />
+| #define HAVE_STRING_H 1
+<br />
+| #define HAVE_MEMORY_H 1
+<br />
+| #define HAVE_STRINGS_H 1
+<br />
+| #define HAVE_INTTYPES_H 1
+<br />
+| #define HAVE_STDINT_H 1
+<br />
+| #define HAVE_UNISTD_H 1
+<br />
+| #define HAVE_DLFCN_H 1
+<br />
+| /* end confdefs.h.  */
+<br />
+| 
+<br />
+| int
+<br />
+| main ()
+<br />
+| {
+<br />
+| exit (42);
+<br />
+|   ;
+<br />
+|   return 0;
+<br />
+| }
+<br />
+configure:4721: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+/usr/include/stdlib.h:640: error: 'void exit(int)' conflicts with previous using declaration 'void std::exit(int)'
+<br />
+/usr/include/stdlib.h:640: error: 'void exit(int)' conflicts with used function
+<br />
+conftest.cc:22: error: 'void std::exit(int)' previously declared here
+<br />
+configure:4727: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| #define STDC_HEADERS 1
+<br />
+| #define HAVE_SYS_TYPES_H 1
+<br />
+| #define HAVE_SYS_STAT_H 1
+<br />
+| #define HAVE_STDLIB_H 1
+<br />
+| #define HAVE_STRING_H 1
+<br />
+| #define HAVE_MEMORY_H 1
+<br />
+| #define HAVE_STRINGS_H 1
+<br />
+| #define HAVE_INTTYPES_H 1
+<br />
+| #define HAVE_STDINT_H 1
+<br />
+| #define HAVE_UNISTD_H 1
+<br />
+| #define HAVE_DLFCN_H 1
+<br />
+| /* end confdefs.h.  */
+<br />
+| extern &quot;C&quot; void std::exit (int) throw (); using std::exit;
+<br />
+| #include &lt;stdlib.h&gt;
+<br />
+| int
+<br />
+| main ()
+<br />
+| {
+<br />
+| exit (42);
+<br />
+|   ;
+<br />
+|   return 0;
+<br />
+| }
+<br />
+configure:4721: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+/usr/include/stdlib.h:640: error: 'void exit(int)' conflicts with previous using declaration 'void std::exit(int)'
+<br />
+/usr/include/stdlib.h:640: error: 'void exit(int)' conflicts with used function
+<br />
+conftest.cc:22: error: 'void std::exit(int)' previously declared here
+<br />
+configure:4727: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| #define STDC_HEADERS 1
+<br />
+| #define HAVE_SYS_TYPES_H 1
+<br />
+| #define HAVE_SYS_STAT_H 1
+<br />
+| #define HAVE_STDLIB_H 1
+<br />
+| #define HAVE_STRING_H 1
+<br />
+| #define HAVE_MEMORY_H 1
+<br />
+| #define HAVE_STRINGS_H 1
+<br />
+| #define HAVE_INTTYPES_H 1
+<br />
+| #define HAVE_STDINT_H 1
+<br />
+| #define HAVE_UNISTD_H 1
+<br />
+| #define HAVE_DLFCN_H 1
+<br />
+| /* end confdefs.h.  */
+<br />
+| extern &quot;C&quot; void std::exit (int); using std::exit;
+<br />
+| #include &lt;stdlib.h&gt;
+<br />
+| int
+<br />
+| main ()
+<br />
+| {
+<br />
+| exit (42);
+<br />
+|   ;
+<br />
+|   return 0;
+<br />
+| }
+<br />
+configure:4721: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+configure:4727: $? = 0
+<br />
+configure:4731: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4734: $? = 0
+<br />
+configure:4737: test -s conftest.o
+<br />
+configure:4740: $? = 0
+<br />
+configure:4766: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+configure:4772: $? = 0
+<br />
+configure:4776: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:4779: $? = 0
+<br />
+configure:4782: test -s conftest.o
+<br />
+configure:4785: $? = 0
+<br />
+configure:4810: checking dependency style of g++
+<br />
+configure:4893: result: gcc3
+<br />
+configure:4915: checking how to run the C++ preprocessor
+<br />
+configure:4946: g++ -E  conftest.cc
+<br />
+configure:4952: $? = 0
+<br />
+configure:4984: g++ -E  conftest.cc
+<br />
+conftest.cc:25:28: error: ac_nonexistent.h: No such file or directory
+<br />
+configure:4990: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| #define STDC_HEADERS 1
+<br />
+| #define HAVE_SYS_TYPES_H 1
+<br />
+| #define HAVE_SYS_STAT_H 1
+<br />
+| #define HAVE_STDLIB_H 1
+<br />
+| #define HAVE_STRING_H 1
+<br />
+| #define HAVE_MEMORY_H 1
+<br />
+| #define HAVE_STRINGS_H 1
+<br />
+| #define HAVE_INTTYPES_H 1
+<br />
+| #define HAVE_STDINT_H 1
+<br />
+| #define HAVE_UNISTD_H 1
+<br />
+| #define HAVE_DLFCN_H 1
+<br />
+| #ifdef __cplusplus
+<br />
+| extern &quot;C&quot; void exit (int) throw ();
+<br />
+| #endif
+<br />
+| /* end confdefs.h.  */
+<br />
+| #include &lt;ac_nonexistent.h&gt;
+<br />
+configure:5029: result: g++ -E
+<br />
+configure:5053: g++ -E  conftest.cc
+<br />
+configure:5059: $? = 0
+<br />
+configure:5091: g++ -E  conftest.cc
+<br />
+conftest.cc:25:28: error: ac_nonexistent.h: No such file or directory
+<br />
+configure:5097: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| #define STDC_HEADERS 1
+<br />
+| #define HAVE_SYS_TYPES_H 1
+<br />
+| #define HAVE_SYS_STAT_H 1
+<br />
+| #define HAVE_STDLIB_H 1
+<br />
+| #define HAVE_STRING_H 1
+<br />
+| #define HAVE_MEMORY_H 1
+<br />
+| #define HAVE_STRINGS_H 1
+<br />
+| #define HAVE_INTTYPES_H 1
+<br />
+| #define HAVE_STDINT_H 1
+<br />
+| #define HAVE_UNISTD_H 1
+<br />
+| #define HAVE_DLFCN_H 1
+<br />
+| #ifdef __cplusplus
+<br />
+| extern &quot;C&quot; void exit (int) throw ();
+<br />
+| #endif
+<br />
+| /* end confdefs.h.  */
+<br />
+| #include &lt;ac_nonexistent.h&gt;
+<br />
+configure:5192: checking for g77
+<br />
+configure:5208: found /usr/bin/g77
+<br />
+configure:5218: result: g77
+<br />
+configure:5233: checking for Fortran 77 compiler version
+<br />
+configure:5236: g77 --version &lt;/dev/null &gt;&amp;5
+<br />
+GNU Fortran (GCC) 3.4.4 20050203 (prerelease) (Debian 3.4.3-9.0.0.1.gcc4)
+<br />
+Copyright (C) 2004 Free Software Foundation, Inc.
+<br />
+
+<br />
+GNU Fortran comes with NO WARRANTY, to the extent permitted by law.
+<br />
+You may redistribute copies of GNU Fortran
+<br />
+under the terms of the GNU General Public License.
+<br />
+For more information about these matters, see the file named COPYING
+<br />
+or type the command `info -f g77 Copying'.
+<br />
+configure:5239: $? = 0
+<br />
+configure:5241: g77 -v &lt;/dev/null &gt;&amp;5
+<br />
+Reading specs from /usr/lib/gcc/x86_64-linux/3.4.4/specs
+<br />
+Configured with: ../src/configure -v --enable-languages=c,c++,java,f77,pascal,objc,ada,treelang --prefix=/usr --libexecdir=/usr/lib --with-gxx-include-dir=/usr/include/c++/3.4 --enable-shared --with-system-zlib --enable-nls --without-included-gettext --program-suffix=-3.4 --enable-__cxa_atexit --enable-libstdcxx-allocator=mt --enable-clocale=gnu --enable-libstdcxx-debug --enable-java-gc=boehm --enable-java-awt=gtk --disable-werror x86_64-linux
+<br />
+Thread model: posix
+<br />
+gcc version 3.4.4 20050203 (prerelease) (Debian 3.4.3-9.0.0.1.gcc4)
+<br />
+configure:5244: $? = 0
+<br />
+configure:5246: g77 -V &lt;/dev/null &gt;&amp;5
+<br />
+g77: `-V' option must have argument
+<br />
+configure:5249: $? = 1
+<br />
+configure:5257: checking whether we are using the GNU Fortran 77 compiler
+<br />
+configure:5271: g77 -c  conftest.F &gt;&amp;5
+<br />
+configure:5277: $? = 0
+<br />
+configure:5281: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:5284: $? = 0
+<br />
+configure:5287: test -s conftest.o
+<br />
+configure:5290: $? = 0
+<br />
+configure:5303: result: yes
+<br />
+configure:5309: checking whether g77 accepts -g
+<br />
+configure:5321: g77 -c -g conftest.f &gt;&amp;5
+<br />
+configure:5327: $? = 0
+<br />
+configure:5331: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:5334: $? = 0
+<br />
+configure:5337: test -s conftest.o
+<br />
+configure:5340: $? = 0
+<br />
+configure:5352: result: yes
+<br />
+configure:5382: checking the maximum length of command line arguments
+<br />
+configure:5441: result: 32768
+<br />
+configure:5452: checking command to parse /usr/bin/nm -B output from gcc object
+<br />
+configure:5541: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:5544: $? = 0
+<br />
+configure:5548: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[ 	]\([ABCDGISTW][ABCDGISTW]*\)[ 	][ 	]*\(\)\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2\3 \3/p' \&gt; conftest.nm
+<br />
+configure:5551: $? = 0
+<br />
+configure:5603: gcc -o conftest -g -O2  -L/usr/X11R6/lib conftest.c conftstm.o &gt;&amp;5
+<br />
+configure:5606: $? = 0
+<br />
+configure:5644: result: ok
+<br />
+configure:5648: checking for objdir
+<br />
+configure:5663: result: .libs
+<br />
+configure:5753: checking for ar
+<br />
+configure:5769: found /usr/bin/ar
+<br />
+configure:5780: result: ar
+<br />
+configure:5833: checking for ranlib
+<br />
+configure:5849: found /usr/bin/ranlib
+<br />
+configure:5860: result: ranlib
+<br />
+configure:5913: checking for strip
+<br />
+configure:5929: found /usr/bin/strip
+<br />
+configure:5940: result: strip
+<br />
+configure:5994: checking for file
+<br />
+configure:6047: result: /usr/bin/file
+<br />
+configure:6202: checking if gcc static flag  works
+<br />
+configure:6225: result: yes
+<br />
+configure:6242: checking if gcc supports -fno-rtti -fno-exceptions
+<br />
+configure:6260: gcc -c -g -O2  -fno-rtti -fno-exceptions conftest.c &gt;&amp;5
+<br />
+cc1: warning: command line option &quot;-fno-rtti&quot; is valid for C++/ObjC++ but not for C
+<br />
+configure:6264: $? = 0
+<br />
+configure:6275: result: no
+<br />
+configure:6290: checking for gcc option to produce PIC
+<br />
+configure:6467: result: -fPIC
+<br />
+configure:6474: checking if gcc PIC flag -fPIC works
+<br />
+configure:6492: gcc -c -g -O2  -fPIC -DPIC conftest.c &gt;&amp;5
+<br />
+configure:6496: $? = 0
+<br />
+configure:6507: result: yes
+<br />
+configure:6531: checking if gcc supports -c -o file.o
+<br />
+configure:6559: gcc -c -g -O2  -o out/conftest2.o conftest.c &gt;&amp;5
+<br />
+configure:6563: $? = 0
+<br />
+configure:6580: result: yes
+<br />
+configure:6606: checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+<br />
+configure:7420: result: yes
+<br />
+configure:7446: checking whether -lc should be explicitly linked in
+<br />
+configure:7451: gcc -c -g -O2  conftest.c &gt;&amp;5
+<br />
+configure:7454: $? = 0
+<br />
+configure:7468: gcc -shared conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\&gt;\&amp;1 \| grep  -lc  \&gt;/dev/null 2\&gt;\&amp;1
+<br />
+configure:7471: $? = 0
+<br />
+configure:7483: result: no
+<br />
+configure:7491: checking how to hardcode library paths into programs
+<br />
+configure:7516: result: immediate
+<br />
+configure:7530: checking whether stripping libraries is possible
+<br />
+configure:7535: result: yes
+<br />
+configure:7557: checking dynamic linker characteristics
+<br />
+configure:8068: result: GNU/Linux ld.so
+<br />
+configure:8880: checking if libtool supports shared libraries
+<br />
+configure:8882: result: yes
+<br />
+configure:8885: checking whether to build shared libraries
+<br />
+configure:8934: result: yes
+<br />
+configure:8937: checking whether to build static libraries
+<br />
+configure:8941: result: no
+<br />
+configure:9032: creating libtool
+<br />
+configure:9576: checking for ld used by g++
+<br />
+configure:9643: result: /usr/bin/ld -m elf_x86_64
+<br />
+configure:9652: checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld
+<br />
+configure:9667: result: no
+<br />
+configure:9718: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+<br />
+configure:10533: result: yes
+<br />
+configure:10551: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+configure:10554: $? = 0
+<br />
+configure:10650: checking for g++ option to produce PIC
+<br />
+configure:10902: result: -fPIC
+<br />
+configure:10909: checking if g++ PIC flag -fPIC works
+<br />
+configure:10927: g++ -c -g -O2  -fPIC -DPIC conftest.cc &gt;&amp;5
+<br />
+configure:10931: $? = 0
+<br />
+configure:10942: result: yes
+<br />
+configure:10966: checking if g++ supports -c -o file.o
+<br />
+configure:10994: g++ -c -g -O2  -o out/conftest2.o conftest.cc &gt;&amp;5
+<br />
+configure:10998: $? = 0
+<br />
+configure:11015: result: yes
+<br />
+configure:11041: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+<br />
+configure:11066: result: yes
+<br />
+configure:11137: checking how to hardcode library paths into programs
+<br />
+configure:11162: result: immediate
+<br />
+configure:11176: checking whether stripping libraries is possible
+<br />
+configure:11181: result: yes
+<br />
+configure:11203: checking dynamic linker characteristics
+<br />
+configure:11714: result: GNU/Linux ld.so
+<br />
+configure:12999: checking if libtool supports shared libraries
+<br />
+configure:13001: result: yes
+<br />
+configure:13004: checking whether to build shared libraries
+<br />
+configure:13022: result: yes
+<br />
+configure:13025: checking whether to build static libraries
+<br />
+configure:13029: result: no
+<br />
+configure:13041: checking for g77 option to produce PIC
+<br />
+configure:13218: result: -fPIC
+<br />
+configure:13225: checking if g77 PIC flag -fPIC works
+<br />
+configure:13243: g77 -c -g -O2 -fPIC conftest.f &gt;&amp;5
+<br />
+configure:13247: $? = 0
+<br />
+configure:13258: result: yes
+<br />
+configure:13282: checking if g77 supports -c -o file.o
+<br />
+configure:13310: g77 -c -g -O2 -o out/conftest2.o conftest.f &gt;&amp;5
+<br />
+configure:13314: $? = 0
+<br />
+configure:13331: result: yes
+<br />
+configure:13357: checking whether the g77 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+<br />
+configure:14151: result: yes
+<br />
+configure:14222: checking how to hardcode library paths into programs
+<br />
+configure:14247: result: immediate
+<br />
+configure:14261: checking whether stripping libraries is possible
+<br />
+configure:14266: result: yes
+<br />
+configure:14288: checking dynamic linker characteristics
+<br />
+configure:14799: result: GNU/Linux ld.so
+<br />
+configure:18894: checking for C++ compiler version
+<br />
+configure:18897: g++ --version &lt;/dev/null &gt;&amp;5
+<br />
+g++ (GCC) 4.0.0 20050125 (experimental) (Debian 4.0-0pre5.0.0.1.gcc4)
+<br />
+Copyright (C) 2005 Free Software Foundation, Inc.
+<br />
+This is free software; see the source for copying conditions.  There is NO
+<br />
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+<br />
+
+<br />
+configure:18900: $? = 0
+<br />
+configure:18902: g++ -v &lt;/dev/null &gt;&amp;5
+<br />
+Using built-in specs.
+<br />
+Configured with: ../src/configure -v --enable-languages=c,c++,java,f95,objc,ada --prefix=/usr --libexecdir=/usr/lib --enable-shared --with-system-zlib --enable-nls --enable-threads=posix --without-included-gettext --program-suffix=-4.0 --enable-__cxa_atexit --enable-libstdcxx-allocator=mt --enable-clocale=gnu --enable-libstdcxx-debug --enable-java-gc=boehm --enable-java-awt=gtk --enable-mpfr x86_64-linux
+<br />
+Thread model: posix
+<br />
+gcc version 4.0.0 20050125 (experimental) (Debian 4.0-0pre5.0.0.1.gcc4)
+<br />
+configure:18905: $? = 0
+<br />
+configure:18907: g++ -V &lt;/dev/null &gt;&amp;5
+<br />
+g++: '-V' option must have argument
+<br />
+configure:18910: $? = 1
+<br />
+configure:18913: checking whether we are using the GNU C++ compiler
+<br />
+configure:18969: result: yes
+<br />
+configure:18975: checking whether g++ accepts -g
+<br />
+configure:19026: result: yes
+<br />
+configure:19068: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+configure:19074: $? = 0
+<br />
+configure:19078: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:19081: $? = 0
+<br />
+configure:19084: test -s conftest.o
+<br />
+configure:19087: $? = 0
+<br />
+configure:19113: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+configure:19119: $? = 0
+<br />
+configure:19123: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:19126: $? = 0
+<br />
+configure:19129: test -s conftest.o
+<br />
+configure:19132: $? = 0
+<br />
+configure:19157: checking dependency style of g++
+<br />
+configure:19240: result: gcc3
+<br />
+configure:19270: checking for a BSD-compatible install
+<br />
+configure:19325: result: /usr/bin/install -c
+<br />
+configure:19337: checking whether byte ordering is bigendian
+<br />
+configure:19364: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+configure:19370: $? = 0
+<br />
+configure:19374: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:19377: $? = 0
+<br />
+configure:19380: test -s conftest.o
+<br />
+configure:19383: $? = 0
+<br />
+configure:19407: g++ -c -g -O2  conftest.cc &gt;&amp;5
+<br />
+conftest.cc: In function 'int main()':
+<br />
+conftest.cc:32: error: 'big' was not declared in this scope
+<br />
+conftest.cc:32: error: expected `;' before 'endian'
+<br />
+configure:19413: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| #define STDC_HEADERS 1
+<br />
+| #define HAVE_SYS_TYPES_H 1
+<br />
+| #define HAVE_SYS_STAT_H 1
+<br />
+| #define HAVE_STDLIB_H 1
+<br />
+| #define HAVE_STRING_H 1
+<br />
+| #define HAVE_MEMORY_H 1
+<br />
+| #define HAVE_STRINGS_H 1
+<br />
+| #define HAVE_INTTYPES_H 1
+<br />
+| #define HAVE_STDINT_H 1
+<br />
+| #define HAVE_UNISTD_H 1
+<br />
+| #define HAVE_DLFCN_H 1
+<br />
+| #ifdef __cplusplus
+<br />
+| extern &quot;C&quot; void exit (int) throw ();
+<br />
+| #endif
+<br />
+| /* end confdefs.h.  */
+<br />
+| #include &lt;sys/types.h&gt;
+<br />
+| #include &lt;sys/param.h&gt;
+<br />
+| 
+<br />
+| int
+<br />
+| main ()
+<br />
+| {
+<br />
+| #if BYTE_ORDER != BIG_ENDIAN
+<br />
+|  not big endian
+<br />
+| #endif
+<br />
+| 
+<br />
+|   ;
+<br />
+|   return 0;
+<br />
+| }
+<br />
+configure:19548: result: no
+<br />
+configure:19643: checking for dlopen in -ldl
+<br />
+configure:19673: g++ -o conftest -g -O2  -L/usr/X11R6/lib conftest.cc -ldl   &gt;&amp;5
+<br />
+configure:19679: $? = 0
+<br />
+configure:19683: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:19686: $? = 0
+<br />
+configure:19689: test -s conftest
+<br />
+configure:19692: $? = 0
+<br />
+configure:19705: result: yes
+<br />
+configure:19722: checking for X
+<br />
+configure:19952: result: libraries /usr/X11R6/lib, headers /usr/X11R6/include
+<br />
+configure:20124: g++ -o conftest -g -O2  -L/usr/X11R6/lib conftest.cc  -ldl  -L/usr/X11R6/lib -lX11 &gt;&amp;5
+<br />
+configure:20130: $? = 0
+<br />
+configure:20134: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:20137: $? = 0
+<br />
+configure:20140: test -s conftest
+<br />
+configure:20143: $? = 0
+<br />
+configure:20301: checking for gethostbyname
+<br />
+configure:20358: g++ -o conftest -g -O2  -L/usr/X11R6/lib conftest.cc  -ldl &gt;&amp;5
+<br />
+configure:20364: $? = 0
+<br />
+configure:20368: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:20371: $? = 0
+<br />
+configure:20374: test -s conftest
+<br />
+configure:20377: $? = 0
+<br />
+configure:20389: result: yes
+<br />
+configure:20540: checking for connect
+<br />
+configure:20597: g++ -o conftest -g -O2  -L/usr/X11R6/lib conftest.cc  -ldl &gt;&amp;5
+<br />
+configure:20603: $? = 0
+<br />
+configure:20607: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:20610: $? = 0
+<br />
+configure:20613: test -s conftest
+<br />
+configure:20616: $? = 0
+<br />
+configure:20628: result: yes
+<br />
+configure:20703: checking for remove
+<br />
+configure:20760: g++ -o conftest -g -O2  -L/usr/X11R6/lib conftest.cc  -ldl &gt;&amp;5
+<br />
+configure:20766: $? = 0
+<br />
+configure:20770: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:20773: $? = 0
+<br />
+configure:20776: test -s conftest
+<br />
+configure:20779: $? = 0
+<br />
+configure:20791: result: yes
+<br />
+configure:20866: checking for shmat
+<br />
+configure:20923: g++ -o conftest -g -O2  -L/usr/X11R6/lib conftest.cc  -ldl &gt;&amp;5
+<br />
+configure:20929: $? = 0
+<br />
+configure:20933: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:20936: $? = 0
+<br />
+configure:20939: test -s conftest
+<br />
+configure:20942: $? = 0
+<br />
+configure:20954: result: yes
+<br />
+configure:21038: checking for IceConnectionNumber in -lICE
+<br />
+configure:21068: g++ -o conftest -g -O2  -L/usr/X11R6/lib -L/usr/X11R6/lib conftest.cc -lICE   -ldl &gt;&amp;5
+<br />
+configure:21074: $? = 0
+<br />
+configure:21078: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:21081: $? = 0
+<br />
+configure:21084: test -s conftest
+<br />
+configure:21087: $? = 0
+<br />
+configure:21100: result: yes
+<br />
+configure:21135: checking GL/gl.h usability
+<br />
+configure:21147: g++ -c -g -O2  -I/usr/X11R6/include  conftest.cc &gt;&amp;5
+<br />
+configure:21153: $? = 0
+<br />
+configure:21157: test -z 
+<br />
+			 || test ! -s conftest.err
+<br />
+configure:21160: $? = 0
+<br />
+configure:21163: test -s conftest.o
+<br />
+configure:21166: $? = 0
+<br />
+configure:21176: result: yes
+<br />
+configure:21180: checking GL/gl.h presence
+<br />
+configure:21190: g++ -E  -I/usr/X11R6/include  conftest.cc
+<br />
+configure:21196: $? = 0
+<br />
+configure:21216: result: yes
+<br />
+configure:21251: checking for GL/gl.h
+<br />
+configure:21258: result: yes
+<br />
+configure:21277: checking for glFlush in -lGL
+<br />
+configure:21307: g++ -o conftest -g -O2  -I/usr/X11R6/include  -L/usr/X11R6/lib conftest.cc -lGL   -L/usr/X11R6/lib  -lSM -lICE -lX11  -ldl &gt;&amp;5
+<br />
+/usr/X11R6/lib/libGL.a(glthread.o)(.text+0x17): In function `_glthread_InitTSD':
+<br />
+: undefined reference to `pthread_key_create'
+<br />
+/usr/X11R6/lib/libGL.a(glthread.o)(.text+0x55): In function `_glthread_GetTSD':
+<br />
+: undefined reference to `pthread_getspecific'
+<br />
+/usr/X11R6/lib/libGL.a(glthread.o)(.text+0x96): In function `_glthread_SetTSD':
+<br />
+: undefined reference to `pthread_setspecific'
+<br />
+collect2: ld returned 1 exit status
+<br />
+configure:21313: $? = 1
+<br />
+configure: failed program was:
+<br />
+| /* confdefs.h.  */
+<br />
+| 
+<br />
+| #define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+| #define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+| #define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+| #define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+| #define PACKAGE &quot;nucleo&quot;
+<br />
+| #define VERSION &quot;0.1&quot;
+<br />
+| #define STDC_HEADERS 1
+<br />
+| #define HAVE_SYS_TYPES_H 1
+<br />
+| #define HAVE_SYS_STAT_H 1
+<br />
+| #define HAVE_STDLIB_H 1
+<br />
+| #define HAVE_STRING_H 1
+<br />
+| #define HAVE_MEMORY_H 1
+<br />
+| #define HAVE_STRINGS_H 1
+<br />
+| #define HAVE_INTTYPES_H 1
+<br />
+| #define HAVE_STDINT_H 1
+<br />
+| #define HAVE_UNISTD_H 1
+<br />
+| #define HAVE_DLFCN_H 1
+<br />
+| #ifdef __cplusplus
+<br />
+| extern &quot;C&quot; void exit (int) throw ();
+<br />
+| #endif
+<br />
+| #define HAVE_DLOPEN 1
+<br />
+| #define HAVE_XWINDOW 1
+<br />
+| #define HAVE_GL_GL_H 1
+<br />
+| #define HAVE_OPENGL 1
+<br />
+| /* end confdefs.h.  */
+<br />
+| 
+<br />
+| /* Override any gcc2 internal prototype to avoid an error.  */
+<br />
+| #ifdef __cplusplus
+<br />
+| extern &quot;C&quot;
+<br />
+| #endif
+<br />
+| /* We use char because int might match the return type of a gcc2
+<br />
+|    builtin and then its argument prototype would still apply.  */
+<br />
+| char glFlush ();
+<br />
+| int
+<br />
+| main ()
+<br />
+| {
+<br />
+| glFlush ();
+<br />
+|   ;
+<br />
+|   return 0;
+<br />
+| }
+<br />
+configure:21339: result: no
+<br />
+configure:21349: error: GL header found, but fail to found libGL (use LDFLAGS?)
+<br />
+
+<br />
+## ---------------- ##
+<br />
+## Cache variables. ##
+<br />
+## ---------------- ##
+<br />
+
+<br />
+ac_cv_build=x86_64-unknown-linux-gnu
+<br />
+ac_cv_build_alias=x86_64-unknown-linux-gnu
+<br />
+ac_cv_c_bigendian=no
+<br />
+ac_cv_c_compiler_gnu=yes
+<br />
+ac_cv_cxx_compiler_gnu=yes
+<br />
+ac_cv_env_CC_set=
+<br />
+ac_cv_env_CC_value=
+<br />
+ac_cv_env_CFLAGS_set=
+<br />
+ac_cv_env_CFLAGS_value=
+<br />
+ac_cv_env_CPPFLAGS_set=
+<br />
+ac_cv_env_CPPFLAGS_value=
+<br />
+ac_cv_env_CPP_set=
+<br />
+ac_cv_env_CPP_value=
+<br />
+ac_cv_env_CXXCPP_set=
+<br />
+ac_cv_env_CXXCPP_value=
+<br />
+ac_cv_env_CXXFLAGS_set=
+<br />
+ac_cv_env_CXXFLAGS_value=
+<br />
+ac_cv_env_CXX_set=
+<br />
+ac_cv_env_CXX_value=
+<br />
+ac_cv_env_F77_set=
+<br />
+ac_cv_env_F77_value=
+<br />
+ac_cv_env_FFLAGS_set=
+<br />
+ac_cv_env_FFLAGS_value=
+<br />
+ac_cv_env_LDFLAGS_set=set
+<br />
+ac_cv_env_LDFLAGS_value=-L/usr/X11R6/lib
+<br />
+ac_cv_env_build_alias_set=
+<br />
+ac_cv_env_build_alias_value=
+<br />
+ac_cv_env_host_alias_set=
+<br />
+ac_cv_env_host_alias_value=
+<br />
+ac_cv_env_target_alias_set=
+<br />
+ac_cv_env_target_alias_value=
+<br />
+ac_cv_exeext=
+<br />
+ac_cv_f77_compiler_gnu=yes
+<br />
+ac_cv_func_connect=yes
+<br />
+ac_cv_func_gethostbyname=yes
+<br />
+ac_cv_func_remove=yes
+<br />
+ac_cv_func_shmat=yes
+<br />
+ac_cv_have_x='have_x=yes 		ac_x_includes=/usr/X11R6/include ac_x_libraries=/usr/X11R6/lib'
+<br />
+ac_cv_header_GL_gl_h=yes
+<br />
+ac_cv_header_dlfcn_h=yes
+<br />
+ac_cv_header_inttypes_h=yes
+<br />
+ac_cv_header_memory_h=yes
+<br />
+ac_cv_header_stdc=yes
+<br />
+ac_cv_header_stdint_h=yes
+<br />
+ac_cv_header_stdlib_h=yes
+<br />
+ac_cv_header_string_h=yes
+<br />
+ac_cv_header_strings_h=yes
+<br />
+ac_cv_header_sys_stat_h=yes
+<br />
+ac_cv_header_sys_types_h=yes
+<br />
+ac_cv_header_unistd_h=yes
+<br />
+ac_cv_host=x86_64-unknown-linux-gnu
+<br />
+ac_cv_host_alias=x86_64-unknown-linux-gnu
+<br />
+ac_cv_lib_GL_glFlush=no
+<br />
+ac_cv_lib_ICE_IceConnectionNumber=yes
+<br />
+ac_cv_lib_dl_dlopen=yes
+<br />
+ac_cv_objext=o
+<br />
+ac_cv_path_install='/usr/bin/install -c'
+<br />
+ac_cv_prog_AWK=gawk
+<br />
+ac_cv_prog_CPP='gcc -E'
+<br />
+ac_cv_prog_CXXCPP='g++ -E'
+<br />
+ac_cv_prog_ac_ct_AR=ar
+<br />
+ac_cv_prog_ac_ct_CC=gcc
+<br />
+ac_cv_prog_ac_ct_CXX=g++
+<br />
+ac_cv_prog_ac_ct_F77=g77
+<br />
+ac_cv_prog_ac_ct_RANLIB=ranlib
+<br />
+ac_cv_prog_ac_ct_STRIP=strip
+<br />
+ac_cv_prog_cc_g=yes
+<br />
+ac_cv_prog_cc_stdc=
+<br />
+ac_cv_prog_cxx_g=yes
+<br />
+ac_cv_prog_egrep='grep -E'
+<br />
+ac_cv_prog_f77_g=yes
+<br />
+ac_cv_prog_make_make_set=yes
+<br />
+ac_cv_warnings=no
+<br />
+am_cv_CC_dependencies_compiler_type=gcc3
+<br />
+am_cv_CXX_dependencies_compiler_type=gcc3
+<br />
+lt_cv_deplibs_check_method='file_magic ELF [0-9][0-9]*-bit [LM]SB (shared object|dynamic lib )'
+<br />
+lt_cv_file_magic_cmd='$MAGIC_CMD'
+<br />
+lt_cv_file_magic_test_file='/lib/libc.so.6 /lib/libc-2.3.3.so'
+<br />
+lt_cv_ld_reload_flag=-r
+<br />
+lt_cv_objdir=.libs
+<br />
+lt_cv_path_LD=/usr/bin/ld
+<br />
+lt_cv_path_LDCXX='/usr/bin/ld -m elf_x86_64'
+<br />
+lt_cv_path_MAGIC_CMD=/usr/bin/file
+<br />
+lt_cv_path_NM='/usr/bin/nm -B'
+<br />
+lt_cv_path_SED=/bin/sed
+<br />
+lt_cv_prog_compiler_c_o=yes
+<br />
+lt_cv_prog_compiler_c_o_CXX=yes
+<br />
+lt_cv_prog_compiler_c_o_F77=yes
+<br />
+lt_cv_prog_compiler_rtti_exceptions=no
+<br />
+lt_cv_prog_gnu_ld=yes
+<br />
+lt_cv_prog_gnu_ldcxx=no
+<br />
+lt_cv_sys_global_symbol_pipe='sed -n -e '\''s/^.*[ 	]\([ABCDGISTW][ABCDGISTW]*\)[ 	][ 	]*\(\)\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2\3 \3/p'\'''
+<br />
+lt_cv_sys_global_symbol_to_c_name_address='sed -n -e '\''s/^: \([^ ]*\) $/  {\&quot;\1\&quot;, (lt_ptr) 0},/p'\'' -e '\''s/^[BCDEGRST] \([^ ]*\) \([^ ]*\)$/  {&quot;\2&quot;, (lt_ptr) \&amp;\2},/p'\'''
+<br />
+lt_cv_sys_global_symbol_to_cdecl='sed -n -e '\''s/^. .* \(.*\)$/extern int \1;/p'\'''
+<br />
+lt_cv_sys_max_cmd_len=32768
+<br />
+lt_lt_cv_prog_compiler_c_o='&quot;yes&quot;'
+<br />
+lt_lt_cv_prog_compiler_c_o_CXX='&quot;yes&quot;'
+<br />
+lt_lt_cv_prog_compiler_c_o_F77='&quot;yes&quot;'
+<br />
+lt_lt_cv_sys_global_symbol_pipe='&quot;sed -n -e '\''s/^.*[ 	]\\([ABCDGISTW][ABCDGISTW]*\\)[ 	][ 	]*\\(\\)\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2\\3 \\3/p'\''&quot;'
+<br />
+lt_lt_cv_sys_global_symbol_to_c_name_address='&quot;sed -n -e '\''s/^: \\([^ ]*\\) \$/  {\\\&quot;\\1\\\&quot;, (lt_ptr) 0},/p'\'' -e '\''s/^[BCDEGRST] \\([^ ]*\\) \\([^ ]*\\)\$/  {\&quot;\\2\&quot;, (lt_ptr) \\&amp;\\2},/p'\''&quot;'
+<br />
+lt_lt_cv_sys_global_symbol_to_cdecl='&quot;sed -n -e '\''s/^. .* \\(.*\\)\$/extern int \\1;/p'\''&quot;'
+<br />
+
+<br />
+## ----------------- ##
+<br />
+## Output variables. ##
+<br />
+## ----------------- ##
+<br />
+
+<br />
+ACLOCAL='${SHELL} /home/kkrizka/Sources/nucleo-0.1/build-utils/missing --run aclocal-1.8'
+<br />
+AMDEPBACKSLASH='\'
+<br />
+AMDEP_FALSE='#'
+<br />
+AMDEP_TRUE=''
+<br />
+AMTAR='${SHELL} /home/kkrizka/Sources/nucleo-0.1/build-utils/missing --run tar'
+<br />
+AR='ar'
+<br />
+AUTOCONF='${SHELL} /home/kkrizka/Sources/nucleo-0.1/build-utils/missing --run autoconf'
+<br />
+AUTOHEADER='${SHELL} /home/kkrizka/Sources/nucleo-0.1/build-utils/missing --run autoheader'
+<br />
+AUTOMAKE='${SHELL} /home/kkrizka/Sources/nucleo-0.1/build-utils/missing --run automake-1.8'
+<br />
+AWK='gawk'
+<br />
+CC='gcc'
+<br />
+CCDEPMODE='depmode=gcc3'
+<br />
+CFLAGS='-g -O2'
+<br />
+CPP='gcc -E'
+<br />
+CPPFLAGS=' -I/usr/X11R6/include '
+<br />
+CXX='g++'
+<br />
+CXXCPP='g++ -E'
+<br />
+CXXDEPMODE='depmode=gcc3'
+<br />
+CXXFLAGS='-g -O2'
+<br />
+CYGPATH_W='echo'
+<br />
+DEFS=''
+<br />
+DEPDIR='.deps'
+<br />
+DISABLE_SILENT=''
+<br />
+ECHO='echo'
+<br />
+ECHO_C=''
+<br />
+ECHO_N='-n'
+<br />
+ECHO_T=''
+<br />
+EGREP='grep -E'
+<br />
+EXEEXT=''
+<br />
+F77='g77'
+<br />
+FFLAGS='-g -O2'
+<br />
+FFMPEG_CPPFLAGS=''
+<br />
+FFMPEG_LDFLAGS=''
+<br />
+FREETYPE_CONFIG=''
+<br />
+HAVE_AGL='0'
+<br />
+HAVE_AGL_FALSE=''
+<br />
+HAVE_AGL_TRUE=''
+<br />
+HAVE_DLOPEN='1'
+<br />
+HAVE_FFMPEG=''
+<br />
+HAVE_FFMPEG_FALSE=''
+<br />
+HAVE_FFMPEG_TRUE=''
+<br />
+HAVE_GLX='0'
+<br />
+HAVE_GLX_FALSE=''
+<br />
+HAVE_GLX_TRUE=''
+<br />
+HAVE_HOWL=''
+<br />
+HAVE_HOWL_FALSE=''
+<br />
+HAVE_HOWL_TRUE=''
+<br />
+HAVE_OPENGL='1'
+<br />
+HAVE_OPENGL_FALSE=''
+<br />
+HAVE_OPENGL_TRUE=''
+<br />
+HAVE_VNC=''
+<br />
+HAVE_VNC_FALSE=''
+<br />
+HAVE_VNC_TRUE=''
+<br />
+HAVE_XINPUT='0'
+<br />
+HAVE_XINPUT_FALSE=''
+<br />
+HAVE_XINPUT_HOTPLUG='0'
+<br />
+HAVE_XINPUT_HOTPLUG_FALSE=''
+<br />
+HAVE_XINPUT_HOTPLUG_TRUE=''
+<br />
+HAVE_XINPUT_TRUE=''
+<br />
+HAVE_XWINDOW='1'
+<br />
+HAVE_XWINDOW_FALSE=''
+<br />
+HAVE_XWINDOW_TRUE=''
+<br />
+HOWL_CPPFLAGS=''
+<br />
+HOWL_LDFLAGS=''
+<br />
+INSTALL_DATA='${INSTALL} -m 644'
+<br />
+INSTALL_PROGRAM='${INSTALL}'
+<br />
+INSTALL_SCRIPT='${INSTALL}'
+<br />
+INSTALL_STRIP_PROGRAM='${SHELL} $(install_sh) -c -s'
+<br />
+LDFLAGS='-L/usr/X11R6/lib'
+<br />
+LIBOBJS=''
+<br />
+LIBS=' -L/usr/X11R6/lib  -lSM -lICE -lX11  -ldl'
+<br />
+LIBTOOL='$(SHELL) $(top_builddir)/libtool'
+<br />
+LN_S='ln -s'
+<br />
+LTLIBOBJS=''
+<br />
+MAKEINFO='${SHELL} /home/kkrizka/Sources/nucleo-0.1/build-utils/missing --run makeinfo'
+<br />
+NUCLEO_INCLUDEDIR='${includedir}/nucleo'
+<br />
+NUCLEO_PLUGINS_DIR='${pkglibdir}'
+<br />
+NUCLEO_RESOURCES_DIR='${pkgdatadir}'
+<br />
+OBJEXT='o'
+<br />
+OS_IS_LINUX_FALSE=''
+<br />
+OS_IS_LINUX_TRUE=''
+<br />
+OS_IS_MACOSX_FALSE=''
+<br />
+OS_IS_MACOSX_TRUE=''
+<br />
+PACKAGE='nucleo'
+<br />
+PACKAGE_BUGREPORT='roussel@lri.fr'
+<br />
+PACKAGE_NAME='nucleo'
+<br />
+PACKAGE_STRING='nucleo 0.1'
+<br />
+PACKAGE_TARNAME='nucleo'
+<br />
+PACKAGE_VERSION='0.1'
+<br />
+PATH_SEPARATOR=':'
+<br />
+RANLIB='ranlib'
+<br />
+SET_MAKE=''
+<br />
+SHELL='/bin/sh'
+<br />
+STRIP='strip'
+<br />
+VERSION='0.1'
+<br />
+VNC_CPPFLAGS=''
+<br />
+VNC_LDFLAGS=''
+<br />
+XINPUT_LIBS=''
+<br />
+X_CFLAGS=' -I/usr/X11R6/include'
+<br />
+X_EXTRA_LIBS=''
+<br />
+X_LIBS=' -L/usr/X11R6/lib'
+<br />
+X_PRE_LIBS=' -lSM -lICE'
+<br />
+ac_ct_AR='ar'
+<br />
+ac_ct_CC='gcc'
+<br />
+ac_ct_CXX='g++'
+<br />
+ac_ct_F77='g77'
+<br />
+ac_ct_RANLIB='ranlib'
+<br />
+ac_ct_STRIP='strip'
+<br />
+am__fastdepCC_FALSE='#'
+<br />
+am__fastdepCC_TRUE=''
+<br />
+am__fastdepCXX_FALSE='#'
+<br />
+am__fastdepCXX_TRUE=''
+<br />
+am__include='include'
+<br />
+am__leading_dot='.'
+<br />
+am__quote=''
+<br />
+bindir='${exec_prefix}/bin'
+<br />
+build='x86_64-unknown-linux-gnu'
+<br />
+build_alias=''
+<br />
+build_cpu='x86_64'
+<br />
+build_os='linux-gnu'
+<br />
+build_vendor='unknown'
+<br />
+datadir='${prefix}/share'
+<br />
+exec_prefix='NONE'
+<br />
+host='x86_64-unknown-linux-gnu'
+<br />
+host_alias=''
+<br />
+host_cpu='x86_64'
+<br />
+host_os='linux-gnu'
+<br />
+host_vendor='unknown'
+<br />
+includedir='${prefix}/include'
+<br />
+infodir='${prefix}/info'
+<br />
+install_sh='/home/kkrizka/Sources/nucleo-0.1/build-utils/install-sh'
+<br />
+libdir='${exec_prefix}/lib'
+<br />
+libexecdir='${exec_prefix}/libexec'
+<br />
+localstatedir='${prefix}/var'
+<br />
+mandir='${prefix}/man'
+<br />
+mkdir_p='mkdir -m 0755 -p --'
+<br />
+oldincludedir='/usr/include'
+<br />
+prefix='/usr'
+<br />
+program_transform_name='s,x,x,'
+<br />
+sbindir='${exec_prefix}/sbin'
+<br />
+sharedstatedir='${prefix}/com'
+<br />
+sysconfdir='${prefix}/etc'
+<br />
+target_alias=''
+<br />
+
+<br />
+## ----------- ##
+<br />
+## confdefs.h. ##
+<br />
+## ----------- ##
+<br />
+
+<br />
+#define HAVE_DLFCN_H 1
+<br />
+#define HAVE_DLOPEN 1
+<br />
+#define HAVE_GL_GL_H 1
+<br />
+#define HAVE_INTTYPES_H 1
+<br />
+#define HAVE_MEMORY_H 1
+<br />
+#define HAVE_OPENGL 1
+<br />
+#define HAVE_STDINT_H 1
+<br />
+#define HAVE_STDLIB_H 1
+<br />
+#define HAVE_STRINGS_H 1
+<br />
+#define HAVE_STRING_H 1
+<br />
+#define HAVE_SYS_STAT_H 1
+<br />
+#define HAVE_SYS_TYPES_H 1
+<br />
+#define HAVE_UNISTD_H 1
+<br />
+#define HAVE_XWINDOW 1
+<br />
+#define PACKAGE &quot;nucleo&quot;
+<br />
+#define PACKAGE_BUGREPORT &quot;roussel@lri.fr&quot;
+<br />
+#define PACKAGE_NAME &quot;nucleo&quot;
+<br />
+#define PACKAGE_STRING &quot;nucleo 0.1&quot;
+<br />
+#define PACKAGE_TARNAME &quot;nucleo&quot;
+<br />
+#define PACKAGE_VERSION &quot;0.1&quot;
+<br />
+#define STDC_HEADERS 1
+<br />
+#define VERSION &quot;0.1&quot;
+<br />
+#endif
+<br />
+#ifdef __cplusplus
+<br />
+extern &quot;C&quot; void exit (int) throw ();
+<br />
+
+<br />
+configure: exit 1
+<br />
+
+<br />
+
+<br />

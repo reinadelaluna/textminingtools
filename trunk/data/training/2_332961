@@ -1,0 +1,51 @@
+Hi!<br />
+<br />
+You can use:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+	<div class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:82px; overflow:auto">
+		<code style="white-space:nowrap">
+		<div dir="ltr" style="text-align:left;">
+			Thanks Boby, <br />
+You have been of immense help.<br />
+<br />
+<br />
+<br />
+Prabhat SoniHello everybody,<br />
+<br />
+I have this php code in a script which has a switch statement:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:370px; overflow:auto"><div dir="ltr" style="text-align:left;">&lt;?php
+ include &quot;/usr/local/include/php/fns.php&quot;;
+?&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Bla blah Blah&lt;/title&gt;&lt;/head&gt;
+&lt;body bgcolor=&quot;pink&quot;&gt;
+&lt;?php
+ switch($_POST['act_choice'])
+   {
+     case &quot;pgpr&quot;:
+        pgpr_form1();
+	break;
+     case &quot;alpha&quot;:
+        alpha_form1();
+	break;
+     case &quot;vpt&quot;:
+	vpt_form1();
+        break;
+   }
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div></pre>
+</div> <br />
+<br />
+Is there a php function which can directly open a given html page. In above case, I want that in case &quot;ppr&quot; a form (say ppr_form.html) should open, similarly for case &quot;alpha&quot; a form - alpha_form.html, should be opened. I believe there is some php function which should do it.<br />
+<br />
+Can anyone guide a greenhorn like me?<br />
+<br />
+<br />
+Thanks in advance.<br />
+<br />
+<br />
+Prabhat Soni

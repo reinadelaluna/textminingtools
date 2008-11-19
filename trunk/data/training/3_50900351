@@ -1,0 +1,330 @@
+On Sat, Sep 17, 2005 at 09:45:24PM +1000, Dean Hamstead wrote:
+<br />
+&gt; ok huray video works
+<br />
+&gt; on to sound
+<br />
+&gt; 
+<br />
+&gt; this board has an Realtek ALC850 8-channel audio CODEC which in lspci is
+<br />
+&gt; CK804 AC97 audio codec. the realtek site claims this is supported with
+<br />
+&gt; snd-intel8x0
+<br />
+&gt; 
+<br />
+&gt; alsa-conf shows up nothing, modprobing it works but the card isnt detected
+<br />
+&gt; 
+<br />
+&gt; any ideas? this kernel is a tad old - although its straight out of
+<br />
+&gt; 'unstable'
+<br />
+
+<br />
+If adding snd-intel8x0 to /etc/modules doesn't find the chip on boot,
+<br />
+then you may need a newer kernel/newer alsa driver to support the new
+<br />
+chip.  Many chips are supported in 2.6.11+ that were not in 2.6.8 for
+<br />
+example.
+<br />
+
+<br />
+Are you running the current kernel for unstable? (That would be 2.6.12).
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+<pre style="margin: 0em;">i updated to 2.6.12 (from debian) and it works fine now
+<br />
+cheers<br>
+<br />
+<tt>Dean</tt><br>
+<br />
+<br>
+<br />
+<tt>Yannick - Debian/Linux wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hi,</tt><br>
+<br />
+<br>
+<br />
+<tt>I've a different chip but with the same driver as you : it seems broken 
+<br />
+on the debian kernel 2.6.8, try another one. I've no problem getting 
+<br />
+sound with other kernels (provided by debian or kernel.org).</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Regards
+<br />
+Yannick<br>
+<br />
+<tt>Dean Hamstead a &eacute;crit :</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>2.6.8-11-amd64-k8</tt><br>
+<br />
+<br>
+<br />
+<tt>straight from the mirror</tt><br>
+<br />
+<br>
+<br />
+<tt>Dean</tt><br>
+<br />
+<br>
+<br />
+<tt>Frederik Schueler wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hello,</tt><br>
+<br />
+<br>
+<br />
+<tt>On Sat, Sep 17, 2005 at 09:45:24PM +1000, Dean Hamstead wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">any ideas? this kernel is a tad old - although its straight out of
+<br />
+'unstable'
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<tt></tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Which kernel version are you using? does it work with
+<br />
+linux-image-2.6.12-1-amd64-k8 (or what your flavour is)?<br>
+<br />
+<pre style="margin: 0em;">Best regards
+<br />
+Frederik Schueler<br>
+<br />
+</blockquote><br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+</blockquote><pre style="margin: 0em;"><br>--
+<br />
+WWW: <a  href="http://dean.bong.com.au">http://dean.bong.com.au</a>  LAN: <a  href="http://www.bong.com.au">http://www.bong.com.au</a>
+<br />
+EMAIL: dean@bong.com.au       or       djzort@bong.com.au
+<br />
+ICQ: 16867613<br>
+<br />
+<br>
+<br />
+
+<br />
+<tt>2.6.8-11-amd64-k8</tt><br>
+<br />
+<br>
+<br />
+<tt>straight from the mirror</tt><br>
+<br />
+<br>
+<br />
+<tt>Dean</tt><br>
+<br />
+<br>
+<br />
+<tt>Frederik Schueler wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hello,</tt><br>
+<br />
+<br>
+<br />
+<tt>On Sat, Sep 17, 2005 at 09:45:24PM +1000, Dean Hamstead wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">any ideas? this kernel is a tad old - although its straight out of
+<br />
+'unstable'
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Which kernel version are you using? does it work with
+<br />
+linux-image-2.6.12-1-amd64-k8 (or what your flavour is)?<br>
+<br />
+<pre style="margin: 0em;">Best regards
+<br />
+Frederik Schueler<br>
+<br />
+</blockquote><pre style="margin: 0em;"><br>--
+<br />
+WWW: <a  href="http://dean.bong.com.au">http://dean.bong.com.au</a>  LAN: <a  href="http://www.bong.com.au">http://www.bong.com.au</a>
+<br />
+EMAIL: dean@bong.com.au       or       djzort@bong.com.au
+<br />
+ICQ: 16867613<br>
+<br />
+<br>
+<br />
+
+<br />
+<pre style="margin: 0em;">ok huray video works
+<br />
+on to sound<br>
+<br />
+<pre style="margin: 0em;">this board has an Realtek ALC850 8-channel audio CODEC which in lspci is
+<br />
+CK804 AC97 audio codec. the realtek site claims this is supported with
+<br />
+snd-intel8x0<br>
+<br />
+<tt>alsa-conf shows up nothing, modprobing it works but the card isnt detected</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">any ideas? this kernel is a tad old - although its straight out of
+<br />
+'unstable'<br>
+<br />
+<pre style="margin: 0em;">Dean
+<br />
+--
+<br />
+WWW: <a  href="http://dean.bong.com.au">http://dean.bong.com.au</a>  LAN: <a  href="http://www.bong.com.au">http://www.bong.com.au</a>
+<br />
+EMAIL: dean@bong.com.au       or       djzort@bong.com.au
+<br />
+ICQ: 16867613<br>
+<br />
+<br>
+<br />
+
+<br />
+<tt>Hi,</tt><br>
+<br />
+<br>
+<br />
+<tt>I've a different chip but with the same driver as you : it seems broken 
+<br />
+on the debian kernel 2.6.8, try another one. I've no problem getting 
+<br />
+sound with other kernels (provided by debian or kernel.org).</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Regards
+<br />
+Yannick<br>
+<br />
+<tt>Dean Hamstead a &eacute;crit :</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>2.6.8-11-amd64-k8</tt><br>
+<br />
+<br>
+<br />
+<tt>straight from the mirror</tt><br>
+<br />
+<br>
+<br />
+<tt>Dean</tt><br>
+<br />
+<br>
+<br />
+<tt>Frederik Schueler wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hello,</tt><br>
+<br />
+<br>
+<br />
+<tt>On Sat, Sep 17, 2005 at 09:45:24PM +1000, Dean Hamstead wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">any ideas? this kernel is a tad old - although its straight out of
+<br />
+'unstable'
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;"><br>Which kernel version are you using? does it work with
+<br />
+linux-image-2.6.12-1-amd64-k8 (or what your flavour is)?<br>
+<br />
+<pre style="margin: 0em;">Best regards
+<br />
+Frederik Schueler<br>
+<br />
+</blockquote><br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+Hello,
+<br />
+
+<br />
+On Sat, Sep 17, 2005 at 09:45:24PM +1000, Dean Hamstead wrote:
+<br />
+&gt; any ideas? this kernel is a tad old - although its straight out of
+<br />
+&gt; 'unstable'
+<br />
+
+<br />
+Which kernel version are you using? does it work with
+<br />
+linux-image-2.6.12-1-amd64-k8 (or what your flavour is)?
+<br />
+
+<br />
+Best regards
+<br />
+Frederik Schueler
+<br />
+
+<br />
+-- 
+<br />
+ENOSIG
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00038.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> Digital signature</p>
+<br />
+
+<br />

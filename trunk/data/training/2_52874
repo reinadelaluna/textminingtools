@@ -1,0 +1,13 @@
+I'm wanting to consolidate 2 servers, a Samba server and an e-mail server running on the &quot;other&quot; OS.  The Samba server has about 50 users with &quot;nologin&quot; as their shell and no home directory.  Would I need to change anything with these user accounts to be able to move the e-mail server to Postfix on the same server?<br />
+<br />
+ThanksOh... I thought you didn't want a home directory...<br />
+<br />
+Postfix puts the mail in /var/spool/mail and IMAP users would file the mail (as well as 'sent' and 'trash') in a home directory. qmail skips the /var/spool thing and places iincoming mail into a home dir. I do believe that both postfix and qmail support virtual users.Well the no home directory sure does throw a curve into the situation. You could use virtual users for the mailboxes and authenticate them against /etc/passwd (provided that the smbpasswd/unix passwd is synch'd) or you could create the new virtual mail accounts that require separate passwords and build a new auth scheme (PAM/LDAP/bdb/SQL).<br />
+<br />
+My limited understanding of the vmailmgr is that the virtual uses live under the home folder of the virtual domain created for them. Matbe have a look at qmail.org and see what your options are. There's a  few guides on using qmail/courier/vmailmgr and I'd suggest you dig through before ou commit to one or the other. One note - courier IMAP does not play nice with PHP; if you use any of the IMAP functionality of PHP then you'll need to do some funky trick with the UW-IMAP source and rebuild the PHP from source.Just to see if I understand, you are saying that Postfix does require a home directory?  There are only 50 or so users using this server, so adding home directories via a short script wouldn't be a problem if needed.  <br />
+<br />
+Is access to a shell account required?  <br />
+<br />
+Unlike Postfix, qmail does not require a home directory?<br />
+<br />
+Thanks again.

@@ -1,0 +1,110 @@
+Hi,
+<br />
+
+<br />
+I am packaging OpenGroupware.org [1] which comes with an apache module
+<br />
+that enables the webserver to handle the HTTP requests for the
+<br />
+application server.
+<br />
+
+<br />
+1) Is there a policy regarding naming, location in the filesystem etc.
+<br />
+for apache modules?
+<br />
+
+<br />
+2) The module needs some entries in httpd.conf. How do I handles this
+<br />
+best? I could output a note which tells the user to update his
+<br />
+httpd.conf but I would prefer something more automatic.
+<br />
+
+<br />
+Thanks in advance,
+<br />
+Sebastian
+<br />
+
+<br />
+[1] <a  href="http://www.opengroupware.org">http://www.opengroupware.org</a>
+<br />
+
+<br />
+-- 
+<br />
+PGP-Key: <a  href="http://www.mmweg.rwth-aachen.de/~sebastian.ley/public.key">http://www.mmweg.rwth-aachen.de/~sebastian.ley/public.key</a>
+<br />
+Fingerprint: A46A 753F AEDC 2C01 BE6E  F6DB 97E0 3309 9FD6 E3E6
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Sun, 25 Jan 2004, Sebastian Ley wrote:
+<br />
+
+<br />
+&gt; Hi,
+<br />
+&gt;
+<br />
+&gt; I am packaging OpenGroupware.org [1] which comes with an apache module
+<br />
+&gt; that enables the webserver to handle the HTTP requests for the
+<br />
+&gt; application server.
+<br />
+&gt;
+<br />
+&gt; 1) Is there a policy regarding naming, location in the filesystem etc.
+<br />
+&gt; for apache modules?
+<br />
+
+<br />
+Yes, please read carefully README.modules shipped with apache-dev.
+<br />
+
+<br />
+&gt; 2) The module needs some entries in httpd.conf. How do I handles this
+<br />
+&gt; best? I could output a note which tells the user to update his
+<br />
+&gt; httpd.conf but I would prefer something more automatic.
+<br />
+
+<br />
+you can use /etc/apache/conf.d without mangling httpd.conf
+<br />
+
+<br />
+Regards
+<br />
+Fabio
+<br />
+
+<br />
+-- 
+<br />
+Our mission: make IPv6 the default IP protocol
+<br />
+&quot;We are on a mission from God&quot; - Elwood Blues
+<br />
+
+<br />
+<a  href="http://www.itojun.org/paper/itojun-nanog-200210-ipv6isp/mgp00004.html">http://www.itojun.org/paper/itojun-nanog-200210-ipv6isp/mgp00004.html</a>
+<br />
+
+<br />
+
+<br />
+
+<br />

@@ -1,0 +1,10 @@
+when i reboot my clock is off by fifteen minutes. oh joy. i rebooted last time and not only is it off by 10 or 15 minutes but is now suspiciously on a twelve-hour clock.<br />
+<br />
+i recall having the time problem one other time (also in suse, i believe) but the clock prefferences changing thats a new one on me.ok that worked.. <br />
+i just rebooted and the clock continued to say the right timeMaybe needs system to hardware sync.<br />
+<br />
+Set the correct time ( use correct time ) with the command: date -s &quot;04/13/2005 19:44:00&quot;<br />
+<br />
+Then sync it with the command: /sbin/hwclock --systohcok so im never satisfied and i tried to set up a dual boot last night and it didnt work.. but anyway i reinstalled suse and the clock is messed up again.<br />
+<br />
+this time the /sbin/hwclock --systohc deal isnt working it out.

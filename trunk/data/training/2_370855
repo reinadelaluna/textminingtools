@@ -1,0 +1,19 @@
+&quot;-c&quot; is under query options.  You have to have &quot;-q&quot; first to use it, like &quot;rpm -qc xine&quot;now we are all sure that grub has a config file ... right ??? i know that the config file is /etc/grub.conf....<br />
+i tried the following :  <br />
+[root@Fedora /]# rpm -qc grub<br />
+[root@Fedora /]#<br />
+<br />
+i know that i typed the package name wrong ... but how can i know what is the exact name of grub package ???? is there a way to list packages with RPM ..... is there a way to list all packages begins with letter G for example ..??? thanks again ...You also have to remember that not all apps will have config files so you may not get any output after running &quot;rpm -qc appname&quot;.i was rading in the RPM MAN page which says that in order to view the config file for a package , you use -c option. i have XINE media player and i needed to modify something in it's config file .... i typed this in the shell : <br />
+<br />
+[root@Fedora ~]# rpm -q xine<br />
+xine-0.99.3-4.1.fc3<br />
+[root@Fedora ~]# rpm -c xine<br />
+<br />
+instead of showing the logfile location , i get the help page ..... anyone can help me with this ?????thanks first. i know that xine has a config file .... or at least that's what was written in <a href="http://www.xinehq.com" target="_blank">www.xinehq.com</a> ..... i added a new library and i need to modify the config file to point at it. i will show you my shell output and probably you can help me : <br />
+<br />
+[root@Fedora /]# rpm -q xine<br />
+xine-0.99.3-4.1.fc3<br />
+[root@Fedora /]# rpm -qc xine<br />
+[root@Fedora /]#<br />
+<br />
+as you see that i'm getting no output which means that the xine has no config file to configure ... but i read in LQ that there is a config file to modify ..... thanks ..

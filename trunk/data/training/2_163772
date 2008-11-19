@@ -1,0 +1,9 @@
+I'd suggest using the search feature ... this question<br />
+has been asked and answered HEAPS of times.<br />
+<br />
+Use the terms &quot;fstab permissions FAT user&quot;<br />
+<br />
+<br />
+<br />
+Cheers,<br />
+TinkThanks, I already found answer and solved problemHello. At startup I mount my /dev/hdb1 and /dev/hdb2 partitions to /mnt/files and /mnt/backup. They are FAT32. But, by default, there are permissions only for root and all other users can't work with them. How do I set those permissions? Thank you. I tried <i>chmod</i> , but it doesn't work.

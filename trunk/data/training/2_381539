@@ -1,0 +1,20 @@
+Hi,<br />
+<br />
+I have a 60gig usb2 hard rive. I would like to be able to boot a distro of linux from it. I would like it to have hardware detection so that I can use it on multiple machines. <br />
+<br />
+Don't really mind which distro.<br />
+<br />
+Unfortunately, I have no idea what my best option is and searching around hasn't helped me. <br />
+<br />
+I have plenty of linux experience, just not in this specfic manner.<br />
+<br />
+<br />
+Any help much appreciated<br />
+<br />
+<br />
+Matt1. does your computer's BIOS support booting from USB? <br />
+<br />
+2. and i think you will have to use a distro that can be installed to a USB harddrive Damn Small Linux does on USB pendrives <a href="http://www.damnsmalllinux.org/" target="_blank">http://www.damnsmalllinux.org/</a> <br />
+<br />
+maybe other distros do too...<br />
+<a href="http://www.distrowatch.com/" target="_blank">http://www.distrowatch.com/</a>

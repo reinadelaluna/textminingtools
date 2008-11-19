@@ -1,0 +1,60 @@
+Try either:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:114px; overflow:auto"><div dir="ltr" style="text-align:left;">/usr/sbin/usradd
+
+or 
+
+cd /usr/sbin
+./useradd</div></pre>
+</div>do a:<br />
+ls -l /usr/sbin/useraddif finds it but still says it does not exist. Very confused[root@localhost sbin]# useradd kathy<br />
+bash: useradd: command not found<br />
+[root@localhost sbin]#<br />
+<br />
+Still get this? no matter what dir I am inGuys... I am a newbie at Red Hat and want to get in the linux scene.. I know a little unix but that is about all. Anyway I am trying to add users in the command base and everytime I type useradd I get this:<br />
+<br />
+bash: useradd: command not found<br />
+<br />
+Please help as I have no clue what is wrong<br />
+<br />
+Thanks<br />
+<br />
+AmdmhzYou have to be root to add users, that program should be in /sbin or /usr/sbin, try specifying the whole path.this is what I get from that command:<br />
+<br />
+[root@localhost /]# ls -l /usr/sbin/useradd<br />
+-rwxr-xr-x    1 root     root        56088 Feb 12  2003 /usr/sbin/useradd<br />
+[root@localhost /]# useradd kathy<br />
+bash: useradd: command not found<br />
+[root@localhost /]# cd /usr/sbin/useradd<br />
+bash: cd: /usr/sbin/useradd: Not a directory<br />
+[root@localhost /]# cd /usr/sbin<br />
+[root@localhost sbin]# useradd kathy<br />
+bash: useradd: command not found<br />
+[root@localhost sbin]#Try:  locate useradd<br />
+<br />
+Or try using the GUI user tool:<br />
+<br />
+<a href="http://www.redhat.com/docs/manuals/linux/RHL-8.0-Manual/custom-guide/ch-redhat-config-users.html" target="_blank">http://www.redhat.com/docs/manuals/l...fig-users.html</a>still nothing.. Here is the info you requested.<br />
+<br />
+[root@localhost /]# locate useradd<br />
+/etc/default/useradd<br />
+/usr/sbin/useradd<br />
+/usr/sbin/luseradd<br />
+/usr/share/doc/samba-2.2.7a/LDAP/smbldap-tools/smbldap-useradd.pl<br />
+/usr/share/man/man8/useradd.8.gz<br />
+/usr/share/man/fr/man8/useradd.8.gz<br />
+/usr/share/man/id/man8/useradd.8.gz<br />
+/usr/share/man/it/man8/useradd.8.gz<br />
+/usr/share/man/ja/man8/useradd.8.gz<br />
+/usr/share/man/pl/man8/useradd.8.gz<br />
+[root@localhost /]#<br />
+<br />
+<br />
+ThanksHave you tried typing the absolute path to useradd?<br />
+<br />
+like<br />
+<br />
+/usr//sbin/useradd<br />
+<br />
+Post the output of the locate useradd if that does not work.

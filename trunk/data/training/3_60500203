@@ -1,0 +1,400 @@
+<tt>On Mon, 15 May 2006, Karl Schmidt wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>I'm now thinking it might be the NForce4 chipset - I need to find out where I 
+<br />
+might snag a newer kernel for sarge - and I am concerned that there is a 
+<br />
+change about the initrd that might make this a problem?
+<br />
+</tt></blockquote><tt><br>yes, but of course this is only a problem if you use an initrd to boot. I<br>
+<br />
+use a backported version of yaird for this purpose. Also, if you use them<br>
+<br />
+you will need backported versions of some other packages, e.g. udev,<br>
+<br />
+module-init-tools, a handful more packages which I don't remember. All in<br>
+<br />
+all, I think I needed some 5 backported packages, and it was not a very big<br>
+<br />
+problem. I routinely compile kernels from the linux-source package in<br>
+<br />
+unstable on these sarge machines using make-kpkg, and install them without 
+<br />
+problems.</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Bye
+<br />
+Giacomo<br>
+<br />
+<pre style="margin: 0em;">--
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">Giacomo Mulas &lt;gmulas@ca.astro.it&gt;
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">OSSERVATORIO ASTRONOMICO DI CAGLIARI
+<br />
+Str. 54, Loc. Poggio dei Pini * 09012 Capoterra (CA)<br>
+<br />
+<pre style="margin: 0em;">Tel. (OAC): +39 070 71180 248     Fax : +39 070 71180 222
+<br />
+Tel. (UNICA): +39 070 675 4916
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">&quot;When the storms are raging around you, stay right where you are&quot;
+<br />
+                          (Freddy Mercury)
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">--
+<br />
+Il messaggio e' stato analizzato alla ricerca di virus o
+<br />
+contenuti pericolosi da MailScanner, ed e'
+<br />
+risultato non infetto.<br>
+<br />
+<br>
+<br />
+
+<br />
+On Mon, May 15, 2006 at 12:52:04PM -0500, Karl Schmidt wrote:
+<br />
+&gt; Is anyone using software raid (mdraid) and/or jfs with success on AMD64?
+<br />
+&gt; 
+<br />
+&gt; I finally finished an install on a Tyan S2865 and was installing some extra 
+<br />
+&gt; packages - I suddenly had massive file corruption and an unbootable system.
+<br />
+
+<br />
+I have done raid1 no problem on amd64.  The sarge installer had no
+<br />
+problem setting that up.  LVM and ext3 works fine with it too.  Never
+<br />
+even looked at jfs.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Mon, May 15, 2006 at 07:21:04PM -0500, Karl Schmidt wrote:
+<br />
+&gt; I found some backports at:
+<br />
+&gt; <a  href="http://www.backports.org/debian/pool/main/l/linux-2.6/">http://www.backports.org/debian/pool/main/l/linux-2.6/</a>
+<br />
+&gt; 
+<br />
+&gt; I think these will work?
+<br />
+&gt; 
+<br />
+&gt; Any way to apt-get from the installer shell so it brings in the 
+<br />
+&gt; dependencies?
+<br />
+
+<br />
+In /etc/apt/sources.list try adding:
+<br />
+deb <a  href="http://www.backports.org/debian">http://www.backports.org/debian</a> sarge-backports main contrib non-free
+<br />
+
+<br />
+Then apt-get update and you should be able to install with apt-get.  I
+<br />
+have found initramfs-tools the best initrd for new kernels.  yaird
+<br />
+didn't get along with my system last I tried it so I stopped trying it.
+<br />
+:)
+<br />
+
+<br />
+&gt; Can anyone tell me what kernel version the AMD64 kernels changed from 
+<br />
+&gt; kernel-image to linux-image?
+<br />
+
+<br />
+Debian changed to linux-image starting with 2.6.12.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Giacomo Mulas wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>On Mon, 15 May 2006, Karl Schmidt wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>I'm now thinking it might be the NForce4 chipset - I need to find out 
+<br />
+where I might snag a newer kernel for sarge - and I am concerned that 
+<br />
+there is a change about the initrd that might make this a problem?
+<br />
+</tt></blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<tt>yes, but of course this is only a problem if you use an initrd to boot. I<br>
+<br />
+use a backported version of yaird for this purpose. Also, if you use them<br>
+<br />
+you will need backported versions of some other packages, e.g. udev,<br>
+<br />
+module-init-tools, a handful more packages which I don't remember. All in<br>
+<br />
+all, I think I needed some 5 backported packages, and it was not a very big<br>
+<br />
+problem. I routinely compile kernels from the linux-source package in<br>
+<br />
+unstable on these sarge machines using make-kpkg, and install them 
+<br />
+without problems.
+<br />
+</tt></blockquote><pre style="margin: 0em;"><br>I found some backports at:
+<br />
+<a  href="http://www.backports.org/debian/pool/main/l/linux-2.6/">http://www.backports.org/debian/pool/main/l/linux-2.6/</a><br>
+<br />
+<tt>I think these will work?</tt><br>
+<br />
+<br>
+<br />
+<tt>Any way to apt-get from the installer shell so it brings in the dependencies?</tt><br>
+<br />
+<br>
+<br />
+<tt>,.,.</tt><br>
+<br />
+<br>
+<br />
+<tt>Can anyone tell me what kernel version the AMD64 kernels changed from 
+<br />
+kernel-image to linux-image?</tt><br>
+<br />
+<br>
+<br />
+<tt></tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">----------------------------------------------------------------
+<br />
+Karl Schmidt                         EMail Karl@xtronics.com
+<br />
+Transtronics, Inc.    		       WEB <a  href="http://xtronics.com">http://xtronics.com</a>
+<br />
+3209 West 9th Street                    Ph (785) 841-3089
+<br />
+Lawrence, KS 66049                     FAX (785) 841-0434<br>
+<br />
+<pre style="margin: 0em;"><br>When angry count four; when very angry, swear. --Mark Twain
+<br />
+----------------------------------------------------------------<br>
+<br />
+<br>
+<br />
+
+<br />
+On Mon, May 15, 2006 at 02:14:23PM -0500, Karl Schmidt wrote:
+<br />
+&gt; I'm now thinking it might be the NForce4 chipset - I need to find out where 
+<br />
+&gt; I might snag a newer kernel for sarge - and I am concerned that there is a 
+<br />
+&gt; change about the initrd that might make this a problem?
+<br />
+&gt; 
+<br />
+&gt; I also think they changed kernel-image to linux-kernel ?
+<br />
+&gt; 
+<br />
+&gt; My plan is to drop to shell and wget a newer kernel if I can find one.
+<br />
+
+<br />
+backports.org might have one along with the required tool updates.  At
+<br />
+least they do for i386.  I think they have amd64 packages too but I
+<br />
+haven't checked.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>On Mon, 15 May 2006, Lennart Sorensen wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">backports.org might have one along with the required tool updates.  At
+<br />
+least they do for i386.  I think they have amd64 packages too but I
+<br />
+haven't checked.
+<br />
+</blockquote><tt><br>They do.</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">bye
+<br />
+Giacomo<br>
+<br />
+<pre style="margin: 0em;">--
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">Giacomo Mulas &lt;gmulas@ca.astro.it&gt;
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">OSSERVATORIO ASTRONOMICO DI CAGLIARI
+<br />
+Str. 54, Loc. Poggio dei Pini * 09012 Capoterra (CA)<br>
+<br />
+<pre style="margin: 0em;">Tel. (OAC): +39 070 71180 248     Fax : +39 070 71180 222
+<br />
+Tel. (UNICA): +39 070 675 4916
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">&quot;When the storms are raging around you, stay right where you are&quot;
+<br />
+                         (Freddy Mercury)
+<br />
+_________________________________________________________________<br>
+<br />
+<pre style="margin: 0em;">--
+<br />
+Il messaggio e' stato analizzato alla ricerca di virus o
+<br />
+contenuti pericolosi da MailScanner, ed e'
+<br />
+risultato non infetto.<br>
+<br />
+<br>
+<br />
+
+<br />
+<tt>Lennart Sorensen wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>On Mon, May 15, 2006 at 12:52:04PM -0500, Karl Schmidt wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Is anyone using software raid (mdraid) and/or jfs with success on AMD64?</tt><br>
+<br />
+<br>
+<br />
+<tt>I finally finished an install on a Tyan S2865 and was installing some extra 
+<br />
+packages - I suddenly had massive file corruption and an unbootable system.
+<br />
+</tt></blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">I have done raid1 no problem on amd64.  The sarge installer had no
+<br />
+problem setting that up.  LVM and ext3 works fine with it too.  Never
+<br />
+even looked at jfs.<br>
+<br />
+<tt>Len Sorensen
+<br />
+</tt></blockquote><tt><br>I'm now thinking it might be the NForce4 chipset - I need to find out where I 
+<br />
+might snag a newer kernel for sarge - and I am concerned that there is a change 
+<br />
+about the initrd that might make this a problem?</tt><br>
+<br />
+<br>
+<br />
+<tt>I also think they changed kernel-image to linux-kernel ?</tt><br>
+<br />
+<br>
+<br />
+<tt>My plan is to drop to shell and wget a newer kernel if I can find one.</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">----------------------------------------------------------------
+<br />
+Karl Schmidt                         EMail Karl@xtronics.com
+<br />
+Transtronics, Inc.    		       WEB <a  href="http://xtronics.com">http://xtronics.com</a>
+<br />
+3209 West 9th Street                    Ph (785) 841-3089
+<br />
+Lawrence, KS 66049                     FAX (785) 841-0434<br>
+<br />
+<pre style="margin: 0em;"><br>Time wounds all heels.
+<br />
+----------------------------------------------------------------<br>
+<br />
+<br>
+<br />
+
+<br />
+<tt>Is anyone using software raid (mdraid) and/or jfs with success on AMD64?</tt><br>
+<br />
+<br>
+<br />
+<tt>I finally finished an install on a Tyan S2865 and was installing some extra 
+<br />
+packages - I suddenly had massive file corruption and an unbootable system.</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">----------------------------------------------------------------
+<br />
+Karl Schmidt                         EMail Karl@xtronics.com
+<br />
+Transtronics, Inc.    		       WEB <a  href="http://xtronics.com">http://xtronics.com</a>
+<br />
+3209 West 9th Street                    Ph (785) 841-3089
+<br />
+Lawrence, KS 66049                     FAX (785) 841-0434<br>
+<br />
+<pre style="margin: 0em;"><br>When everything is coming my way, I'm probably in the wrong lane.
+<br />
+----------------------------------------------------------------<br>
+<br />
+<br>
+<br />
+
+<br />

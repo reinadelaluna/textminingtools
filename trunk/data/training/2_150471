@@ -1,0 +1,13 @@
+I use a wacom graphire tablet with mouse and got a similar problem.<br />
+I think it was because kde was defaulting its' windows behaviour. <br />
+I have my windows look-n-feel set on 'click to focus', but it kept changing to 'focus under mouse' and every time I passed the cursor over a header bar or menu icon, it acted like a click.<br />
+I had to use ctrl+alt+backspace to kill the session and log back in.<br />
+After resetting my desktop configurations a few times, it started to behave.I had the same thing happen to me in windows.  It was a mouse going bad.i often do have this sort of magic. It happens because i use switch ( 4 PCs are connected to one monitor,keyboard, optical mouse). What i do is ctr+alt+F1 into text mode and after that ctr+alt+F7 back into X, which cures this illness until i use switch again. hope this helpsI think it's indeed your optical mouse. A friend of mine has a labtec one or so that ocassionally goes crazy. Try switching mouses and see if the problem persists.I just bought the mouse. I have a wireless router as well, could this be the issue????Yes, but the thing I wonder is, why windows are moved/resized.. bicoz i never click!Hi,<br />
+<br />
+It occurs almost twice a day, i don't know if it's Mozilla or KDE (because i'm often browsing sites when the problem happens), but suddenly, the cursor goes everywhere and very fast bringing with it some of the windows and/or resizes them. Other windows appear and move/diseappear just after.<br />
+This moment of madness is about 5seconds long, and it's only when i touch the mouse that windows go crazy. It's like i had taken a border/title of all windows at the same time and i resized/moved them very fast<br />
+<br />
+Maybe the problem comes from my optical mouse...<br />
+<br />
+Thanx<br />
+Sorry for my poor englishI have a wireless mouse and that does that once in a while too

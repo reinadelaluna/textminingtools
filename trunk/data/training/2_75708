@@ -1,0 +1,36 @@
+I like the <a href="http://www.icewalkers.com/Linux/Software/56450/gentoo.html" target="_blank">Gentoo file manager</a> (not to be confused with the distro).<br />
+<br />
+I probably use <a href="http://www.ibiblio.org/mc/" target="_blank">Midnight Commander</a> mor than any file manager as it is so handy.<br />
+<a href="http://www.linuxgazette.com/issue23/wkndmech_dec97/mc_article.html" target="_blank">An Introduction to the Midnight Commander</a><br />
+<br />
+# Redhat links<br />
+<a href="http://www.redhat.com/docs/manuals/linux/" target="_blank">RedHat Linux Manuals</a><br />
+Get your <a href="http://havardk.xmms.org/dist/xmms-1.2.7-rh8-rh9-rpm/" target="_blank">mp3 support here</a><br />
+<a href="http://www.rpm.org/max-rpm/" target="_blank">Maximum RPM</a><br />
+<a href="http://rpmfind.net/" target="_blank">rpmfind</a><br />
+Easier software management: <a href="http://apt4rpm.sourceforge.net/" target="_blank">apt4rpm</a> - <a href="http://www.ximian.com/products/ximian_red_carpet/" target="_blank">Red Carpet</a><br />
+<a href="http://www.mplug.org/phpwiki/index.php/RedHat8.0TipsTricks" target="_blank">RedHat 8.0 Tips &amp; Tricks</a><br />
+<br />
+# Redhat 7.3 down configuration commands<br />
+<b>setup</b> leads to several configuration tools<br />
+<br />
+# Redhat 7.3 up configuration commands<br />
+Configure soundcard:<br />
+<b>redhat-config-soundcard</b><br />
+Configure X server:<br />
+<b>redhat-config-xfree86</b><br />
+Configure network:<br />
+<b>redhat-config-network</b><br />
+Manage software:<br />
+<b>redhat-config-packages</b><br />
+<br />
+# Handling NTFS<br />
+<a href="http://www.tldp.org/HOWTO/Filesystems-HOWTO-5.html" target="_blank">New Technology FileSystem (NTFS) HOWTOs</a><br />
+<a href="http://linux-ntfs.sourceforge.net/" target="_blank">Linux NTFS project</a>DrOzz mentioned Rox (<a href="http://rox.sourceforge.net" target="_blank">http://rox.sourceforge.net</a>).  I've been using this wonderful filemanager for months, and it's as featureful as it is lightning fast <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+-Andrewi seen this mentioned on a thread --&gt; <a href="http://rox.sourceforge.net" target="_blank">http://rox.sourceforge.net</a><br />
+and the guy that mentions it states that its very fast..but i have no idea ...anyways i'll leave you with a list that you can look at:<br />
+<a href="http://www.linux.org/apps/all/System/File_Managers-1.html?sort=updated" target="_blank">http://www.linux.org/apps/all/System...l?sort=updated</a>I tried out endeavour but . it doesnt have the elegance of kfmclient <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> I am downloading evidence right now <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />.. will give it a shot soonDoes anyone know of a fast filemanager for enlightenment ??<br />
+Or even a fm that i can use with kde ? iKonqueror is KDE's default File Manager and web browser.<br />
+<br />
+<a href="http://evidence.sourceforge.net/" target="_blank">Evidence</a> will be E's file manager when <a href="http://www.enlightenment.org/pages/enlightenment.html" target="_blank">E 0.17</a> is eventually perfected. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/cool.gif" border="0" alt="" title="Cool" class="inlineimg" />

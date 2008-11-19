@@ -1,0 +1,28 @@
+You must now figure out where that RPM stashed the plugin :-) Once you find it make a symbolic link in your ~/.mozilla/plugins directory to it like this:<br />
+ln -s /location/of/mozilla/plugin ~/.mozilla/pluginsThanks very much!<a href="http://java.com/en/download/help/5000010500.xml#rpm" target="_blank">http://java.com/en/download/help/5000010500.xml#rpm</a><br />
+provides for Red Hat and Suse. But what about Mandrake? Does anyone knows how to get tarballs or rpm for JRE for Mandrake?I downloaded as you adviced and i will install using instructions on <a href="http://docs.sun.com/source/819-0080/install.html#wp20327" target="_blank">http://docs.sun.com/source/819-0080/...l.html#wp20327</a>. My primary goal for now is to enable JRE in firefox. Do you know how i can do that after i install java? By the way what is bin file, first time i see it on linux and what about checksum, i cannot find providers checksum to verify download? thanks!The link I posted was for the Java SDK, which include the JRE and the development tools, compilers etc. It does contain the browser plugin but also contains a whole lot of other stuff you won't need.<br />
+<br />
+Regards,<br />
+Jimvin<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>dm39i</strong></div>
+				<div style="font-style:italic"><a href="http://java.com/en/download/help/5000010500.xml#rpm" target="_blank">http://java.com/en/download/help/5000010500.xml#rpm</a><br />
+provides for Red Hat and Suse. But what about Mandrake? Does anyone knows how to get tarballs or rpm for JRE for Mandrake?</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+The RPM install file works on pretty much all modern Linux distributions that support RPM. The distros listed are ones known to work with this java package, and I have seen it working on Mandrake  10.0, 10.1 and Mandriva 2005.<br />
+<br />
+Download the latest RPM from <a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">http://java.sun.com/j2se/1.5.0/download.jsp</a><br />
+<br />
+Regards,<br />
+JimvinYou provided a very good link for java download but i'm not sure is there JRE. there are bunch of java software but i'm in doubt if J2EE 1.4 is JRE. Otherwise i have to use my link.<br />
+I sure will use it when i want to set up java but for know i only need java plugin for mozilla so i can view games. Does downloads from your link also installs plugin so i can view games?Sounds pretty simple. i have though a problem. I know that .mozilla exists in my home directory ( ( i installed firefox in my home directory) but i cannot see it in Konqueror. But i guess it doesn't meter if it's hidden. Anyway, do you know maybe how to see hidden files?<br />
+<br />
+By the way, funny note about Microsoft. Hope one day Linux will be equal to Microsoft in terms of users.

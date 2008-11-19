@@ -1,0 +1,12 @@
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:130px; overflow:auto"><div dir="ltr" style="text-align:left;">[root@localhost root]# wine dcom98.exe
+wineserver: /root/.wine/config is not a valid registry file
+wine: for some mysterious reason, the wine server failed to run.
+[root@localhost root]# WINEDLLOVERRIDES=&quot;ole32=n&quot; wine dcom95.exe
+wineserver: /root/.wine/config is not a valid registry file
+wine: for some mysterious reason, the wine server failed to run.
+[root@localhost root]#</div></pre>
+</div> <br />
+<br />
+what can i do with this...Wine is a user program, which should not be run as root. Try running it as a user (after setting up a .config file for the user). It will probably work better then.

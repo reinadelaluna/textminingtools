@@ -1,0 +1,163 @@
+Hi all -<br />
+<br />
+I'm trying to set up a new web server under Debian unstable, using Apache 2.0.54.  There are no virtual hosts, only the single, default host.  I need http: on port 80 and https: on port 443.  Certificate and key files are set up and referenced correctly in /etc/apache2/mods-available/ssl.conf (and the symlink exists to this file in /etc/apache2/mods-enabled).<br />
+<br />
+Right now, it's only speaking SSL on *both* ports 80 and 443.  <br />
+<br />
+If I try to access it on port 80 via plain http: (<a href="http://yoda.malibyte.net" target="_blank">http://yoda.malibyte.net</a> *or* <a href="http://yoda.malibyte.net:80" target="_blank">http://yoda.malibyte.net:80</a>), I get:<br />
+<br />
+<br />
+Bad Request<br />
+<br />
+Your browser sent a request that this server could not understand.<br />
+Reason: You're speaking plain HTTP to an SSL-enabled server port.<br />
+Instead use the HTTPS scheme to access this URL, please.<br />
+<br />
+    Hint: <a href="https://yoda.malibyte.net/" target="_blank">https://yoda.malibyte.net/</a><br />
+<br />
+Apache/2.0.54 (Debian GNU/Linux) PHP/4.3.10-15 mod_ssl/2.0.54 OpenSSL/0.9.7g Server at yoda.malibyte.net Port 443<br />
+<br />
+<br />
+So, http: requests are getting routed to port 443, which is obviously speaking SSL (as it should - but why are http: requests getting sent there?).<br />
+<br />
+If I try speaking SSL on port 80  (<a href="https://yoda.malibyte.net:80" target="_blank">https://yoda.malibyte.net:80</a>) - the request goes through and I get the box asking me if I want to accept the certificate (and if I do, it serves up the page).  This also works correctly on port 443 (<a href="https://yoda.malibyte.net" target="_blank">https://yoda.malibyte.net</a>).<br />
+<br />
+<br />
+Here are the config files:<br />
+<br />
+/etc/apache2/sites-available/mod-default:<br />
+<br />
+Listen 80<br />
+ServerAdmin <a href="mailto:adm@malibyte.net">adm@malibyte.net</a><br />
+ServerName yoda.malibyte.net<br />
+DocumentRoot &quot;/var/www/html/&quot;<br />
+&lt;Directory /&gt;<br />
+        Options FollowSymLinks<br />
+        AllowOverride None<br />
+        AllowOverride Options FileInfo<br />
+&lt;/Directory&gt;<br />
+&lt;Directory &quot;/var/www/html/&quot;&gt;<br />
+        Options Indexes FollowSymLinks MultiViews<br />
+#       AllowOverride None<br />
+        AllowOverride Options FileInfo<br />
+        Order allow,deny<br />
+        allow from all<br />
+        # This directive allows us to have apache2's default start page<br />
+        # in /apache2-default/, but still have / go to the right place<br />
+#       RedirectMatch ^/$ /apache2-default/<br />
+&lt;/Directory&gt;<br />
+ScriptAlias /cgi-bin/ /var/www/cgi-bin/<br />
+&lt;Directory &quot;/var/www/cgi-bin/&quot;&gt;<br />
+        AllowOverride None<br />
+        Options ExecCGI -MultiViews +SymLinksIfOwnerMatch<br />
+        Order allow,deny<br />
+        Allow from all<br />
+&lt;/Directory&gt;<br />
+<br />
+ErrorLog /var/log/apache2/error.log<br />
+<br />
+# Possible values include: debug, info, notice, warn, error, crit,<br />
+# alert, emerg.<br />
+LogLevel debug<br />
+CustomLog /var/log/apache2/access.log combined<br />
+ServerSignature On<br />
+<br />
+Alias /doc/ &quot;/usr/share/doc/&quot;<br />
+&lt;Directory &quot;/usr/share/doc/&quot;&gt;<br />
+        Options Indexes MultiViews FollowSymLinks<br />
+        AllowOverride None<br />
+        Order deny,allow<br />
+        Deny from all<br />
+        Allow from 127.0.0.0/255.0.0.0 ::1/128<br />
+&lt;/Directory&gt;<br />
+<br />
+A variation of this file with most of the above in a <br />
+&lt;VirtualHost *&gt;...&lt;/VirtualHost&gt; construct didn't work any better.<br />
+<br />
+<br />
+And /etc/apache2/mods-available/ssl.conf:<br />
+<br />
+&lt;IfModule mod_ssl.c&gt;<br />
+SSLRandomSeed startup builtin<br />
+SSLRandomSeed connect builtin<br />
+AddType application/x-x509-ca-cert .crt<br />
+AddType application/x-pkcs7-crl    .crl<br />
+SSLPassPhraseDialog  builtin<br />
+SSLSessionCache         dbm:/var/run/apache2/ssl_scache<br />
+SSLSessionCacheTimeout  300<br />
+SSLMutex  file:/var/run/apache2/ssl_mutex<br />
+SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL<br />
+SetEnvIf User-Agent &quot;.*MSIE.*&quot; \<br />
+         nokeepalive ssl-unclean-shutdown \<br />
+         downgrade-1.0 force-response-1.0<br />
+&lt;/IfModule&gt;<br />
+<br />
+##<br />
+## SSL Host Context<br />
+##<br />
+<br />
+DefaultType text/html<br />
+Listen 443<br />
+<br />
+&lt;VirtualHost _default_&gt;<br />
+ServerName yoda.malibyte.net<br />
+ServerAdmin <a href="mailto:adm@malibyte.net">adm@malibyte.net</a><br />
+DocumentRoot &quot;/var/www/html&quot;<br />
+<br />
+SSLEngine On<br />
+<br />
+ErrorLog /var/log/apache2/ssl_error.log<br />
+TransferLog /var/log/apache2/ssl_access.log<br />
+SSLCertificateFile /etc/apache2/ssl/ssl.crt/xxxx.crt<br />
+SSLCertificateKeyFile /etc/apache2/ssl/ssl.key/xxxx.key<br />
+&lt;Files ~ &quot;\.(cgi|shtml|phtml|php3?)$&quot;&gt;<br />
+    SSLOptions +StdEnvVars<br />
+&lt;/Files&gt;<br />
+&lt;Directory &quot;/var/www/cgi-bin&quot;&gt;<br />
+    SSLOptions +StdEnvVars<br />
+&lt;/Directory&gt;<br />
+<br />
+ScriptAlias /cgi-bin/ /var/www/cgi-bin/<br />
+&lt;Directory &quot;/var/www/cgi-bin/&quot;&gt;<br />
+        AllowOverride None<br />
+        Options ExecCGI -MultiViews +SymLinksIfOwnerMatch<br />
+        Order allow,deny<br />
+        Allow from all<br />
+&lt;/Directory&gt;<br />
+CustomLog /var/log/apache2/ssl_request.log \<br />
+          &quot;%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \&quot;%r\&quot; %b&quot;<br />
+AddType application/x-httpd-php .php .phtml<br />
+AddType application/x-httpd-php-source .phps<br />
+DirectoryIndex index.php index.html<br />
+&lt;/VirtualHost&gt;<br />
+<br />
+I've Googled this and found a few similar, but not the same, issues; several involve the older Apache 1.3.xx - there are significant differences in the config files.<br />
+<br />
+I'm not finding anything useful in the log files which would give me an idea as to what's up.<br />
+<br />
+I'm sure I'm missing something simple here.  If anyone could clue me in, I'd appreciate the help.<br />
+<br />
+Thanks....BobFixed.  Why it didn't work last night has me scratching my head, but it<br />
+seems to be OK now.<br />
+<br />
+<br />
+&gt;Subject: Re: SSL on port 80<br />
+  <br />
+&gt;Robert:<br />
+<br />
+&gt;Very odd.  When I had tried to add the &quot;:443&quot; to the virtual host<br />
+&gt;construct last night, it kept on giving me syntax errors.  Today it<br />
+&gt;worked.  Very strange.  That was one to the first things I did, and it<br />
+&gt;didn't work...but now it is.  Hmmmm....I must have had something else<br />
+&gt;out of whack as well.  Anyway, thanks for getting me to try it again!<br />
+ <br />
+&gt;Bob<br />
+<br />
+&gt;On Sat, 9 Jul 2005, Robert N. Waybright wrote:<br />
+<br />
+&gt;&gt; Bob,<br />
+&gt;&gt; I am no great Apache guru, but it looks like you may have defined<br />
+&gt;&gt; your default virtual host to be SSL (note the SSLEngine On).  Mine<br />
+&gt;&gt; has a host section plus a _default_:443 section that looks like this:<br />
+&gt;&gt;<br />
+&gt;&gt; &lt;VirtualHost _default_:443&gt;

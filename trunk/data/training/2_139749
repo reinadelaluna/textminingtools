@@ -1,0 +1,8 @@
+I was led to believe that a default install of postfix, configured with nothing but your hostname and domain name will not be an open relay. I can telnet to port 25 on localhost and manually send mail with HELO, MAIL, RCPT etc. What's to stop other people doing this when I open up the server to the world?<br />
+<br />
+markThe smtp server should only deliver mail to the local machine unless the mail is from the local machine.<br />
+<br />
+Of course you can also implement SMTP Authentication which would allow deliver of mail to outside machines if it comes in from an authenticated user.Thanks, that puts my mind at rest. I was going to spend today implementing SASL authentication, but I wanted to make sure it was quite safe in the mean time.<br />
+<br />
+cheers<br />
+mark

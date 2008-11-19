@@ -1,0 +1,53 @@
+I think I found the cause of my problems. I have accidentally corrupted the partition table so that the partition was shorter than the filesystem (not much shorter, maybe just a few MB). Anyway, restoring the original partition size with LVM didn't help (maybe the exact layout wasn't preserved). I expect that this truncated part is gone forever (of course if anyone has a suggestion as to how to get it back, its welcomed).<br />
+So, the question still remains, can I somehow patch up the filesystem so that it is error-free, sacrificing the damaged files? I read about the ext2/ext3 file system and its structure is distributed all over the disk so the block groups &quot;below&quot; where I screwed the partition up should be 100% ok.<br />
+<br />
+EDIT: Recreating the filesystem is not possible for me. I have nowhere near the storage needed to keep a duplicate of this partition spanning over two 160GB drives.According to the manpage, the -r flag is on by default. I also need the -y flag or else I would have to answer yes 10000 times or so (the messages in the first post keeps repeating for different blocks). Still, answering 'yes' doesn't do anything because nothing is ever written to the disk (repairs seem to be deferred and discarded when the fs checker fails).<br />
+<br />
+I just downloaded the latest e2fsprogs (1.38). It's a long shot, but I'm hoping they made some magic changes that solves my problems. I will know in a couple of hours.<br />
+In the meantime: Are there any other ext2/ext3 tools? I know PartitionMagic but I have not seen any suggestion that it will understand LVM so I assume it does not.I let e2fsck run for a really long time (since my last post). Of course that made a mess of my filesystem and it ended with something like &quot;*** FILESYSTEM WAS MODIFIED ***&quot;. Now I can't even mount it. debugfs doesn't like my root inode and the &quot;ls /&quot; command fails with &quot;Ext2 inode is not a directory&quot;.<br />
+&quot;stat /&quot; gives<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:178px; overflow:auto"><div dir="ltr" style="text-align:left;">Inode: 2   Type: bad type    Mode:  0000   Flags: 0x0   Generation: 0
+User:     0   Group:     0   Size: 0
+File ACL: 0    Directory ACL: 0
+Links: 0   Blockcount: 0
+Fragment:  Address: 0    Number: 0    Size: 0
+ctime: 0x00000000 -- Thu Jan  1 01:00:00 1970
+atime: 0x00000000 -- Thu Jan  1 01:00:00 1970
+mtime: 0x00000000 -- Thu Jan  1 01:00:00 1970
+dtime: 0x42d7c54c -- Fri Jul 15 16:16:44 2005
+BLOCKS:</div></pre>
+</div>
+<br />
+EDIT: I got fed up with this and bought a new 250 GB firewire drive :/. I now use debugfs' &quot;rdump&quot; function to (slowly) copy the data back to the new disk. The problem was that the root directory inode was corrupted, all the other data seems to copy nicely (so far).Try running 'fsck -r /dev/PARTITION'.  I assume your partition is unmounted when you try these tricks.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />No, it's about 20GB free on the filesystem (out of 309 GB). The problem is, I need to take it down by 10 GB so that it will fit on another hard drive. I think my problems started when running resize2fs but I'm not sure since I didn't run e2fsck before that.<br />
+<br />
+resize2fs dies with &quot;Illegal triply indirect block found while trying to resize&quot; when trying for hours. I use maximum debug level and it seems to move a lot of blocks around, but when it fails the disk seems untouched (the same blocks want to be moved again when trying a second time).<br />
+<br />
+Because both tools fail before doing anything to the disk, I have no way of fixing the errors. Is there anyway of forcing repairs, even if that means losing some files? I really see no other solution (apart from buying a new hard disk).<br />
+<br />
+EDIT: Sorry, completely forgot to mention. This is a LVM partition. I don't know if that makes a difference?When I run e2fsck I get the following message <br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">Restarting e2fsck from the beginning</div></pre>
+</div> <br />
+<br />
+What does the above message mean? I get a lot of errors like<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">Error allocating 1 contiguous block(s) in block group 25 for inode bitmap: Could not allocate block in ext2 filesystem</div></pre>
+</div> <br />
+and<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">Group 0's inode table at 1037 conflicts with some other fs block.</div></pre>
+</div> <br />
+<br />
+But even when I answer yes to fix all of them, the second iteration of e2fsck produces exactly the same results. It seems to be stuck in an infinite loop. The partition is &gt; 300 GB so each iteration takes hours.<br />
+<br />
+Googling for it didn't provide anything useful (but the source of the e2fsck tool, which confirmed my suspicion that the printf(&quot;Restarting e2fsck from the beginning...&quot;) is followed by a goto to the beginning <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" /> ).<br />
+<br />
+So, what's the point of all this and how can I fix it. I guess some of my files are &quot;frelled&quot; but most files seems to be OK (I can mount the fs with no problems).<br />
+I need it to pass the e2fsck because I want to do a resize2fs on it later on.The filesystem isn't full, is it?  If it's having a hard time allocating, that could be the problem.Understood.  Do you have another partition on the &quot;top end&quot; of this one?  If not, you could try maximizing the size of the partition.

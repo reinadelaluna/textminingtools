@@ -1,0 +1,3 @@
+Hey guys i was wondering if you could help me setup a dual monitor system. i am running knoppix and i would like to setup to flat screen monitors onto my computer. any help would be very nice. Thank youI'm running XFree86 4.3 on two displays with Xinerama enabled on Debian Sarge.  As it is, when the screensaver comes on it only comes on the primary display.  Are there any screensavers/settings available to allow me to run either one big or two small screensavers on both of my screens at once?Strange, I more or less run the same, only I get 2 screensavers, one on each screen<br />
+therefore I can assure you that it is possible,<br />
+let me rumage through my settings.

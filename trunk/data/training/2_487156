@@ -1,0 +1,15 @@
+Hi,<br />
+I installed nessus on my Ubuntu 6.06 Dapper drake. I got error in starting nessusd. Then I removed all the package. again reinstalled, but I am getting the following error. Also, if I try to install anything new, it installs but shows the following at the end. I am new in linux.<br />
+<br />
+<br />
+<br />
+Setting up nessusd (2.2.6-0ubuntu2) ...<br />
+update-rc.d: /etc/init.d/nessusd: file does not exist<br />
+dpkg: error processing nessusd (--configure):<br />
+subprocess post-installation script returned error exit status 1<br />
+Errors were encountered while processing:<br />
+nessusd<br />
+E: Sub-process /usr/bin/dpkg returned an error code (1)<br />
+<br />
+<br />
+Thanks.Please post your thread in only one forum.  Posting a single thread in the most relevant forum will make it easier for members to help you and will keep the discussion in one place.  This thread is being closed because it is a duplicate.

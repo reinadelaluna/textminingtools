@@ -1,0 +1,30 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>incognito_kanchi</strong></div>
+				<div style="font-style:italic">P&gt;S hey matthew how do i find if the machine use power saving features to power down components like the hard disk and putting the monitor into sleep mode</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Does the hard disk spin down if you leave the machine inactive for some time?  If it does, you may notice some seconds delay when you come back to the machine after it has been idle for some time, as well as the sound of the hard disk &quot;spinning up&quot;.<br />
+<br />
+ACPI is sometimes the cause of some of these intermittent problems.  You can tun off ACPI by passing the <b>acpi=off</b> option <a href="http://en.opensuse.org/SDB:Inserting_Boot_Options_Permanently#Procedure_with_YaST2_in_SuSE_10.0_or_Newer_.28GRUB.29" target="_blank">to the kernel at boot time</a>.  This is just a guess though - don't give up if it doesn't help!Could also be a swap issue. What does &quot;free -m&quot; show ???.Does the machine use power saving features to power down components like the hard disk and putting the monitor into sleep mode?Hi,<br />
+  I have SuSE10-2.6.13-15.8 server(which i'm using as a workstation for some scintific experiments) . If I keep it ON the whole night and unlock it in the morning , the mouse and entire cpu freezes ( pauses) for 7-8 seconds and becomes normal again. and keeps on happening before i reboot the server. After rebooting, it's fine for the whole day.<br />
+Appreciate your help<img src="http://linuxquestions.cachefly.net/images/questions/images/statusicon/forum_new.gif" border="0" alt="" title="Penguin" class="inlineimg" />Here is the output of the free -m command<br />
+<br />
+<br />
+:~ # free -m<br />
+             total       used       free     shared    buffers     cached<br />
+Mem:          2024       1973         51          0          0       1593<br />
+-/+ buffers/cache:        379       1645<br />
+Swap:         1780          0       1780<br />
+<br />
+P&gt;S hey matthew how do i find if the machine use power saving features to power down components like the hard disk and putting the monitor into sleep mode<br />
+<br />
+Thank you guys

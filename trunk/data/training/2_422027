@@ -1,0 +1,9 @@
+If you wanna change the preferences do this:<br />
+<br />
+Go into modify--&gt;Preferences--&gt;Download--&gt;Download Action<br />
+<br />
+And there modify the string about rm files.real media player won't play some of those files either <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<a href="http://ubuntuforums.org/archive/index.php/t-76935.html" target="_blank">http://ubuntuforums.org/archive/index.php/t-76935.html</a><br />
+<br />
+you need the real media player plugin for firefox - from the mozilla web page.I am using firefox. I was browsing snehatv.com, in that there were some .rm files i wanted to play. What happened was, the browser hs set totem player as default to play those files. If i want to set it to realplayer, what should i do?<br />
+Its really irritating that Totem does not respond well.

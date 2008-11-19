@@ -1,0 +1,24 @@
+Well i don't know how much programming knowledge you have or exactly what your looking for in the logs but you can probably write some simple scripts to search through them for you.   Then you could use cron to have it happen periodically.  The beauty of open source is that you don't have to wait for developers to make a product your looking for.  So if you do have programming knowledge you could try to write a simple program and have it online and other people can take what you have started and expand apon it so in the future someone looking for a program like you want can find it.I can't believe this kind of software isn't readily available. I simply need a software package that can display log files and provide some searching/filtering capabilities.<br />
+<br />
+There are dozens of packages that will do &quot;log analysis&quot; (pie charts, stats, 8x10 glossy photographs with arrows and a paragraph on the back of each one detailing what it is about), but we have webtracker for that.<br />
+<br />
+The only good package I've found is xpolog but the newness of the software/company combined with the high price isn't sitting well with me.<br />
+<br />
+We generate close to 2Gb of logs on each of about a dozen servers each day, on a group of servers 400 miles away. I need to provide a troupe of developers/consultants a way of sifting through them other than ftping the damn things for them every day.<br />
+<br />
+Has anyone else solved this problem?This is like the other numerous packages that are out there. They do analysis for you.  I want something<br />
+that will simply provide access to dozens of different logs (very large ones) with some searching and<br />
+filtering capablities.<br />
+<br />
+Xpolog looks really good but too much of a risk/$$$ ratio in my opinion for this kind of utility and size<br />
+of their company.But you can get anything you want at OSS's restaurant!<br />
+<br />
+So I'm sure something will turn up. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+(No, I couldn't resist either. And can you imagine fifty people a day - I said *fifty* people a day - walking in, singing a bar of OSS's Restaurant and walking out? Friends, they may think it's a *movement*.)Take a look at LogWatch:<br />
+<a href="http://www.logwatch.org/" target="_blank">http://www.logwatch.org/</a>&quot;... 8x10 glossy photographs with arrows and a paragraph on the back of each one...&quot;<br />
+<br />
+-------------------------------------------<br />
+Son, it's a typical case of American blind computing, and your monitor isn't gonna look at the 27 8 x 10 colored glossy photographs covered with circles and arrows and paragraph on the back of each one 'splainin' what each one is, to be used as evidence against you in a log file.<br />
+<br />
+Sorry, couldn't resist. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />Try awstats, webalizer and urchin (which is commercial) software available with all the features that u require

@@ -1,0 +1,38 @@
+Lucky you : I criused by this post 2 hours ago having the same problem, now I'm back and that with a solution <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+I tried every idea I could google my hands on, before I found it :<br />
+<br />
+Go to opera.com, in the distrolist click STATIC RPM , download, install.<br />
+(Do not click FC or any other distro)<br />
+<br />
+I tested this with static deb since I'm running debian, but the principle is the same, download a package that's now been &quot;colored&quot; to your particular distro.<br />
+<br />
+<br />
+Hope it helpstype opera in consolesorry, I'm fresh out of ideas<br />
+<br />
+I hope someone else can help youwhat happens if you just type &quot;opera&quot; in a console<br />
+and when you clicked the links, have you checked your procestable? maybe they're running on the background?Just installed latest version of opera on fc4 (java already installed). About 6 start buttons <br />
+appear in various menus however when I start, nothing happens (no errors, nothing).<br />
+<br />
+AnyoneCrispy,<br />
+<br />
+Well done, it worked like a charm. <br />
+<br />
+PaulI get this:<br />
+<br />
+ERROR: ld.so: object 'libjvm.so' from LD_PRELOAD cannot be preloaded: ignored.<br />
+ERROR: ld.so: object 'libawt.so' from LD_PRELOAD cannot be preloaded: ignored.<br />
+Session management error: Authentication Rejected, reason : None of the authentication protocols specified are supported and host-based authentication failed<br />
+Segmentation faultI'm not quite sure and I'm not an expert either<br />
+but I think you don't have permissions for opera<br />
+try running it as root and see if it works <br />
+(just type &quot;su&quot; and you will become superuser, then give your password and type &quot;opera&quot; again)<br />
+<br />
+if it works like that, you'll have to change the rights to the operafileMattentaart<br />
+<br />
+Already tried and it does not work. Any other suggestions !<br />
+<br />
+PaulCool<br />
+<br />
+<br />
+Info works best when shared <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" />

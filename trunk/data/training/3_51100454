@@ -1,0 +1,480 @@
+On Wed, Nov 16, 2005 at 09:25:53AM +1100, Hamish Moffatt wrote:
+<br />
+&gt; On Tue, Nov 15, 2005 at 05:52:09PM +0100, Klaus Pieper wrote:
+<br />
+&gt; &gt; kp@groucho64:/boot$ grep -i sata  config
+<br />
+&gt; &gt; # CONFIG_BLK_DEV_IDE_SATA is not set
+<br />
+&gt; &gt; CONFIG_SCSI_SATA=y
+<br />
+&gt; &gt; # CONFIG_SCSI_SATA_AHCI is not set
+<br />
+&gt; &gt; # CONFIG_SCSI_SATA_SVW is not set
+<br />
+&gt; &gt; # CONFIG_SCSI_SATA_NV is not set
+<br />
+&gt; &gt; CONFIG_SCSI_SATA_PROMISE=y
+<br />
+&gt; 
+<br />
+&gt; But weren't you talking about PATA ports?
+<br />
+&gt; 
+<br />
+&gt; &gt; # CONFIG_SCSI_SATA_VITESSE is not set
+<br />
+&gt; &gt; kp@groucho64:/boot$ grep -i scsi  config
+<br />
+&gt; &gt; CONFIG_BLK_DEV_IDESCSI=m
+<br />
+&gt; 
+<br />
+&gt; Isn't this a bad idea in 2.6?
+<br />
+
+<br />
+Usually yes.  You don't HAVE to use it, just because the module is
+<br />
+compiled.  It just means it is there as an option if you want it without
+<br />
+recompiling the kernel.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">Do
+<br />
+you have enough pata devices to need the promise port yet?
+<br />
+</blockquote><tt><br>Yes, I have disks on /dev/hda (system) and hdb (windoze) and DVD burner 
+<br />
+and reader on hdc and hdd; I use sda for data and backups.</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+On 2005-11-15 17:52 +0100, Klaus Pieper wrote:
+<br />
+
+<br />
+&gt; &gt;It seems that there is simply no module for it in the kernel and that  
+<br />
+&gt; &gt;the g&eacute;n&eacute;ric ide module doest support this attachement.
+<br />
+
+<br />
+Does or doesn't ?
+<br />
+
+<br />
+&gt; Yes.
+<br />
+
+<br />
+Yes you're correct, there is no module or yes there's a module,
+<br />
+you're wrong ? :-)
+<br />
+
+<br />
+I also have an Asus A8V and the 2.6.13 kernel doesn't seem to see
+<br />
+the Promise PDC20378, at least not as an IDE interface. There is
+<br />
+no /proc/ide/ide2. Accesses to /dev/hde and /dev/hdf fail with &quot;No
+<br />
+such device or address&quot;.
+<br />
+
+<br />
+If there is a way to access the IDE interface on the PDC20378, I'd
+<br />
+like to know how.
+<br />
+
+<br />
+-- 
+<br />
+Andr&eacute; Majorel &lt;URL:<a  href="http://www.teaser.fr/~amajorel/">http://www.teaser.fr/~amajorel/</a>&gt;
+<br />
+Do not use this account for regular correspondence.
+<br />
+See the URL above for contact information.
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Le 14.11.2005 21:50:47, Klaus Pieper a &eacute;crit?:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">Do
+<br />
+you have enough pata devices to need the promise port yet?
+<br />
+</blockquote><tt><br>Yes, I have disks on /dev/hda (system) and hdb (windoze) and DVD  
+<br />
+burner and reader on hdc and hdd; I use sda for data and backups.
+<br />
+</tt></blockquote><tt><br>I never manage neither to have the promise port to works with PATA  
+<br />
+disks.</tt><br>
+<br />
+<br>
+<br />
+<tt>It seems that there is simply no module for it in the kernel and that  
+<br />
+the g&eacute;n&eacute;ric ide module doest support this attachement.</tt><br>
+<br />
+<br>
+<br />
+<tt>Jean-Luc
+<br />
+</tt><p><strong>Attachment:
+<br />
+<a href="pgp00047.pgp" ><tt>pgp00047.pgp</tt></a></strong><br>
+<br />
+<em>Description:</em> PGP signature</p>
+<br />
+
+<br />
+On Tue, Nov 15, 2005 at 05:52:09PM +0100, Klaus Pieper wrote:
+<br />
+&gt; kp@groucho64:/boot$ grep -i sata  config
+<br />
+&gt; # CONFIG_BLK_DEV_IDE_SATA is not set
+<br />
+&gt; CONFIG_SCSI_SATA=y
+<br />
+&gt; # CONFIG_SCSI_SATA_AHCI is not set
+<br />
+&gt; # CONFIG_SCSI_SATA_SVW is not set
+<br />
+&gt; # CONFIG_SCSI_SATA_NV is not set
+<br />
+&gt; CONFIG_SCSI_SATA_PROMISE=y
+<br />
+
+<br />
+But weren't you talking about PATA ports?
+<br />
+
+<br />
+&gt; # CONFIG_SCSI_SATA_VITESSE is not set
+<br />
+&gt; kp@groucho64:/boot$ grep -i scsi  config
+<br />
+&gt; CONFIG_BLK_DEV_IDESCSI=m
+<br />
+
+<br />
+Isn't this a bad idea in 2.6?
+<br />
+
+<br />
+confused,
+<br />
+Hamish
+<br />
+-- 
+<br />
+Hamish Moffatt VK3SB &lt;hamish@debian.org&gt; &lt;hamish@cloud.net.au&gt;
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Mon, Nov 14, 2005 at 08:14:43PM +0100, Klaus Pieper wrote:
+<br />
+&gt; I use an Asus A8V with two disks in the Via IDE controller and a PATA 
+<br />
+&gt; drive on the Promise Controller. Never got this setup running with 
+<br />
+&gt; debian. The sarge and testing installation cds did not recognize the 
+<br />
+&gt; drive; also tried the new 2.6.14 kernel with unstable, which hangs 
+<br />
+&gt; during bootup.
+<br />
+&gt; 
+<br />
+&gt; Gentoo booted the stuff without problems, so I ported the 2.6.12 Gentoo 
+<br />
+&gt; kernel (vanilla plus tons of patches) and compiled it with make-kpkg.
+<br />
+&gt; 
+<br />
+&gt; Anybody got this up on debian?
+<br />
+
+<br />
+I have only used the via pata ports and the promise and via sata ports
+<br />
+so far on the board.
+<br />
+
+<br />
+I run 3 sata drives (2 on via ports and one on promise) and one dvd
+<br />
+writer on the via pata ports.  That works fine (2.6.8 didn't see the
+<br />
+promise sata, but 2.6.11+ does).  Not sure if the pata port on the
+<br />
+promise is fully supported yet or if it requires external patches.  Do
+<br />
+you have enough pata devices to need the promise port yet?
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>I use an Asus A8V with two disks in the Via IDE controller and a PATA 
+<br />
+drive on the Promise Controller. Never got this setup running with 
+<br />
+debian. The sarge and testing installation cds did not recognize the 
+<br />
+drive; also tried the new 2.6.14 kernel with unstable, which hangs 
+<br />
+during bootup.</tt><br>
+<br />
+<br>
+<br />
+<tt>Gentoo booted the stuff without problems, so I ported the 2.6.12 Gentoo 
+<br />
+kernel (vanilla plus tons of patches) and compiled it with make-kpkg.</tt><br>
+<br />
+<br>
+<br />
+<tt>Anybody got this up on debian?</tt><br>
+<br />
+<br>
+<br />
+<tt>Yours, Klaus</tt><br>
+<br />
+<br>
+<br />
+<tt>Probing IDE interface ide1...<br>
+<br />
+hdc: PLEXTOR DVDR PX-708A, ATAPI CD/DVD-ROM drive<br>
+<br />
+hdd: TOSHIBA DVD-ROM SD-M1712, ATAPI CD/DVD-ROM drive<br>
+<br />
+ide1 at 0x170-0x177,0x376 on irq 15<br>
+<br />
+hda: max request size: 128KiB<br>
+<br />
+hda: 240121728 sectors (122942 MB) w/7936KiB Cache, CHS=65535/16/63, 
+<br />
+UDMA(133)<br>
+<br />
+hda: cache flushes supported<br>
+<br />
+ hda: hda1 hda2 hda3 hda4 &lt; hda5 hda6 &gt;<br>
+<br />
+hdb: max request size: 128KiB<br>
+<br />
+hdb: 40188960 sectors (20576 MB) w/380KiB Cache, CHS=39870/16/63, UDMA(100)<br>
+<br />
+hdb: cache flushes not supported<br>
+<br />
+ hdb: hdb1 hdb2<br>
+<br />
+libata version 1.11 loaded.<br>
+<br />
+sata_promise version 1.01<br>
+<br />
+ACPI: PCI Interrupt 0000:00:08.0[A] -&gt; GSI 18 (level, low) -&gt; IRQ 18<br>
+<br />
+sata_promise PATA port found<br>
+<br />
+ata1: SATA max UDMA/133 cmd 0xFFFFC20000004200 ctl 0xFFFFC20000004238 
+<br />
+bmdma 0x0 irq 18<br>
+<br />
+ata2: SATA max UDMA/133 cmd 0xFFFFC20000004280 ctl 0xFFFFC200000042B8 
+<br />
+bmdma 0x0 irq 18<br>
+<br />
+ata3: PATA max UDMA/133 cmd 0xFFFFC20000004300 ctl 0xFFFFC20000004338 
+<br />
+bmdma 0x0 irq 18<br>
+<br />
+ata1: no device found (phy stat 00000000)<br>
+<br />
+scsi0 : sata_promise<br>
+<br />
+ata2: no device found (phy stat 00000000)<br>
+<br />
+scsi1 : sata_promise<br>
+<br />
+ata3: dev 0 cfg 49:2f00 82:7c6b 83:7f09 84:4003 85:7c69 86:3e01 87:4003 
+<br />
+88:407f<br>
+<br />
+ata3: dev 0 ATA, max UDMA/133, 320173056 sectors: lba48<br>
+<br />
+ata3: dev 0 configured for UDMA/133<br>
+<br />
+scsi2 : sata_promise<br>
+<br />
+  Vendor: ATA       Model: Maxtor 6Y160P0    Rev: YAR4<br>
+<br />
+  Type:   Direct-Access                      ANSI SCSI revision: 05<br>
+<br />
+sata_via version 1.1<br>
+<br />
+ACPI: PCI Interrupt 0000:00:0f.0[B] -&gt; GSI 20 (level, low) -&gt; IRQ 20<br>
+<br />
+PCI: Via IRQ fixup for 0000:00:0f.0, from 10 to 4<br>
+<br />
+sata_via(0000:00:0f.0): routed to hard irq line 4<br>
+<br />
+ata4: SATA max UDMA/133 cmd 0xE800 ctl 0xE402 bmdma 0xD400 irq 20<br>
+<br />
+ata5: SATA max UDMA/133 cmd 0xE000 ctl 0xD802 bmdma 0xD408 irq 20<br>
+<br />
+ata4: no device found (phy stat 00000000)<br>
+<br />
+scsi3 : sata_via<br>
+<br />
+ata5: no device found (phy stat 00000000)<br>
+<br />
+scsi4 : sata_via<br>
+<br />
+SCSI device sda: 320173056 512-byte hdwr sectors (163929 MB)<br>
+<br />
+SCSI device sda: drive cache: write back<br>
+<br />
+SCSI device sda: 320173056 512-byte hdwr sectors (163929 MB)<br>
+<br />
+SCSI device sda: drive cache: write back<br>
+<br />
+ sda: sda1 sda2 sda3 sda4 &lt; sda5 sda6 sda7 sda8 sda9 &gt;<br>
+<br />
+Attached scsi disk sda at scsi2, channel 0, id 0, lun 0<br>
+<br />
+Attached scsi generic sg0 at scsi2, channel 0, id 0, lun 0,  type 0</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+<tt>Le 16.11.2005 16:05:39, Andre Majorel a &eacute;crit?:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>On 2005-11-15 17:52 +0100, Klaus Pieper wrote:</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">&gt; &gt;It seems that there is simply no module for it in the kernel and
+<br />
+that
+<br />
+&gt; &gt;the g&eacute;n&eacute;ric ide module doest support this attachement.<br>
+<br />
+<tt>Does or doesn't ?
+<br />
+</tt></blockquote><tt><br>Sorry doesNt .. :)</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt><br>&gt; Yes.</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Yes you're correct, there is no module or yes there's a module,
+<br />
+you're wrong ? :-)<br>
+<br />
+<pre style="margin: 0em;">I also have an Asus A8V and the 2.6.13 kernel doesn't seem to see
+<br />
+the Promise PDC20378, at least not as an IDE interface. There is
+<br />
+no /proc/ide/ide2. Accesses to /dev/hde and /dev/hdf fail with &quot;No
+<br />
+such device or address&quot;.<br>
+<br />
+<pre style="margin: 0em;">If there is a way to access the IDE interface on the PDC20378, I'd
+<br />
+like to know how.
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<tt>Jean-Luc
+<br />
+</tt><p><strong>Attachment:
+<br />
+<a href="pgp00049.pgp" ><tt>pgp00049.pgp</tt></a></strong><br>
+<br />
+<em>Description:</em> PGP signature</p>
+<br />
+
+<br />
+&gt; I also have an Asus A8V and the 2.6.13 kernel doesn't seem to see
+<br />
+&gt; the Promise PDC20378, at least not as an IDE interface. There is
+<br />
+&gt; no /proc/ide/ide2. Accesses to /dev/hde and /dev/hdf fail with &quot;No
+<br />
+&gt; such device or address&quot;.
+<br />
+
+<br />
+Well the 20378 identifies itself as a SATA controller to the PCI system.
+<br />
+The promise_sata driver handles the sata ports just fine, but yeah I
+<br />
+certainly have not seen a pata port on it working with linux.  I didn't
+<br />
+actually realize it had one either as I had never considered using more
+<br />
+than one pata device on my machine so far.
+<br />
+
+<br />
+&gt; If there is a way to access the IDE interface on the PDC20378, I'd
+<br />
+&gt; like to know how.
+<br />
+
+<br />
+It is not currently supported, but there is apparently a prelimenary
+<br />
+patch that tries to add pata support to the 20378 driver in libata.  See 
+<br />
+<a  href="http://linux.yyz.us/sata/sata-status.html#tx2">http://linux.yyz.us/sata/sata-status.html#tx2</a> for details.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />

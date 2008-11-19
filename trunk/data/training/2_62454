@@ -1,0 +1,57 @@
+I'll take a look when I get home tonight... I already modd'd the matrix saver that comes with it (just turned the colors from green to neon blue).Hey all...<br />
+<br />
+In the Slack9 distro, and a few others actually, there is a screen saver packaged that is called Star Wars.<br />
+It's nothing fancy but scrolling text like the intro to the starwars movies... blah blah anyway...<br />
+<br />
+Is there a way to edit what is being scrolled? When I cilck the settings button it says there is no setup for this screen saver.<br />
+<br />
+Just curios if there is a file somewhere I can edit or so...<br />
+<br />
+Tnx.<br />
+<br />
+L8rz<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				and as for my time... don't worry about it. usually I'm at work and bored to tears when I'm on this blog.
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+too funny. I know the feeling... well sometimes.<br />
+I appreciate the help.<br />
+Found out:<br />
+<br />
+Once i use xscreensaver-demo settings and restart the daemon, it uses that particular screensaver since the daemon is running. I just disabled the KDE saver and it appears to be working fine.<br />
+<br />
+Tnx for da help.<br />
+<br />
+L8rzok... no need to hack code.  if you execute xscreensaver-demo and scroll down to starwars and click the settings button.  You should see a text entry field labeled &quot;Text Program&quot;... type something in here to dump text to the screen saver...<br />
+<br />
+example:<br />
+cat /usr/src/linux/README<br />
+<br />
+or if you wanted to have a random selection of text files you could setup a bash or perl script.Yeah that's what I thot, but I can't seem to find anything related to it.<br />
+Any ideas? i did a google but couldn't find anything even remotely related to this. Most of the results were bs microsloth wintendo saverz.<br />
+<br />
+I even tried to find the actual saver and its source but that was a no go as well.<br />
+<br />
+tnx.<br />
+<br />
+L8rzkewl. that worked... only does the X srvr use this version? or the version thats installed via KDE3?<br />
+In the control center the star wars saver doesn't allow for setting changes and says:<br />
+sh: line1: /usr/games/fortune: No such file or directory<br />
+<br />
+If I use the xscreensaver-demo and restart the daemon via the menu, will this screen saver now take over what is set in KDE or do I need to disable the KDE saver....<br />
+<br />
+Preciate your time.<br />
+<br />
+L8rznot a problem.I think its coded to pull a text from the kernel directory (or more likely the /usr/doc directory).  If you can't change its behavior the nice way (through config files)  do it the hard way... rewrite its code.xscreensaver is a daemon that runs independant of KDE... I don't know what KDE uses for a screensaver (there are at least two in existance xlock and xscreensaver).  However if KDE does not use xscreensaver I suppose one option to fix this would either be to disable KDE's screensaver and in your ~/.xinitrc file put a line as follows<br />
+<br />
+xscreensaver &amp;<br />
+<br />
+just some thoughts... and as for my time... don't worry about it.  usually I'm at work and bored to tears when I'm on this blog.

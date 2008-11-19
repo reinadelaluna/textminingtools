@@ -1,0 +1,6 @@
+I'm running ubuntu dapper and tried to install ezpublish-src via the synaptic package manager. It did it's bits and all seemed to go well.     But where has it gone and how do i run it? I can't find it on the menu's anywhere. I've seen it various directories so i believe it is there. How do i run it and use it etc?You might find it in /usr/src. If it isn't there then you can find it with the find command as follows:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">find / -name \*ezpub\*</div></pre>
+</div>
+Hopefully at least some of the files, or the directory where they reside, have &quot;ezpub&quot; in their name.

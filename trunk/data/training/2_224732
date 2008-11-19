@@ -1,0 +1,180 @@
+<b>Edited some mistakes I made in here. I put the edited lines in bold and underlined the parts I changed.</b><br />
+<br />
+Do you want to find files that have never been accessed in the last 180 days, or do you want files that have not been modified in the last 180 days? Those are two different things. Plus, looking at your command, I don't think it will work. Try this for files that have not been accessed in the last 180 days (meaning no one has opened the files at all:<br />
+<br />
+<b>find / <u>-name</u> '*' -atime +179</b><br />
+<br />
+That will find all files that have  been accessed 180 days ago or longer.<br />
+<br />
+Now add the -exec option to execute tar/gizip on it. Tar and gzip have an option to delete the originals after you are done zipping them up.<br />
+<br />
+<b>find / <u>-name</u> '*' -atime +179 -type f -exec tar cvfz --remove-files files_180days_older.tar.gz <u>{} \;</u><br />
+<br />
+To use exec, you must include {} to represent the found files from the find operation and end the command of -exec with a semi-colon. The semi-colon must be escaped from the shell, so \; comes at the end of the command in -exec.<br />
+<br />
+But this will only process the last file in the list into that tar file, so it will not work. When you use -exec, it handles one found file at a time, so you end up with a tar file with only the last file in it and all the ones you found deleted. Very dangerous - not the way to go.<br />
+<br />
+Instead, use xargs and a pipe to pass it more gracefully.<br />
+<br />
+<br />
+find / -name '*' -atime +179 -type f | xargs tar cvfz --remove-files files_180days_older.tar.gz <br />
+<br />
+That should actually work, however, when I did it, the tarball had an annoying directory structure in it instead of just dumping the files. I guess you could use the option in tar to ignore paths and directory structure if you wanted.<br />
+</b><br />
+<br />
+If you want to use the create date instead of the access date, then atime -&gt; ctime. If you want the modified date, then atime -&gt; mtime.<br />
+<br />
+Before you run this command, you should run parts of it to see if you get what you expect.<br />
+<br />
+First just run the find part and see if it finds what you want my outputing to a text file:<br />
+<br />
+<b>find / <u>-name</u> '*' -atime +179 -type f</b><br />
+<br />
+Take a look at the contents and test for success. If it finds what you want, then add the tar portion to the end without the remove-files option, and see if that works. Once you have run it two or three times successfully, then you can run the whole thing.<br />
+<br />
+Never run anything that may be destructive to files like this all in one execution - that's a great way to lose data.<br />
+<br />
+Get ready to reinstall if you break something running this as root from the root directory.The find method is much better and much simpler too. Why don't you read up on bash scripts and then check the man pages for find? Getting someone to give you the solution right in your face is hardly ever the best way.hi i have used like the following<br />
+<br />
+<br />
+find . -name '*'  -type f  | xargs tar cvf --remove-files files_180days_older.tar.gz <br />
+<br />
+but the files have created with the name --remove-files not the name with<br />
+files_180days_older.tar.gz.<br />
+if i have used as u specoified in the option cvfz i got the invalid option -z error i have.<br />
+Another one problem with the find is whenever we have used find command, the lastaccess time of the file has changed.. we need to avoid this.<br />
+is there any other way without this problem( changing the last access time)<br />
+<br />
+-arockiaHello <br />
+<br />
+ i need some help.<br />
+<br />
+I have to write one shell script.<br />
+<br />
+in this shell script  i have to found six months old file  and compress that files into zip then i have to remove the six months old files.<br />
+<br />
+<br />
+IF ANY ONE KNOW HOW TO DO THIS PLEASE LET ME KNOW .<br />
+IT'S VERY URGENThi<br />
+<br />
+ in the previous reply you have specified to use ls -l. but know you have specifed with find examples.<br />
+Can u please explain every steps in the previous repliy with example.<br />
+<br />
+the example with find command is very good explanation.<br />
+<br />
+I need the script for the following steps/<br />
+<br />
+find the files which last accessed time/modified time is before 6 months<br />
+then we have to zip that files into a zip files<br />
+then we have to remove the files.<br />
+<br />
+if u give the example for the above steps then it will be very useful for me.<br />
+<br />
+please don't mind i have asked every steps..<br />
+<br />
+-thanks<br />
+arockia<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by arockia </i><br />
+hi i have used like the following<br />
+<br />
+<br />
+find . -name '*'  -type f  | xargs tar cvf --remove-files files_180days_older.tar.gz <br />
+<br />
+but the files have created with the name --remove-files not the name with<br />
+files_180days_older.tar.gz.
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+You will have to experiment on your side, that's how we all learned this stuff. Now that you know that find, xargs, and tar can be used to do what you want, read the man pages for each and continue experimenting with commands until you get the one you want, then come back here and post what you learned for others to find.<br />
+<br />
+My first idea would be to move the --remove-files option to after tar but before cvfz option.<br />
+<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				if i have used as u specoified in the option cvfz i got the invalid option -z error i have.
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+The z option passes the tarball through gzip. What distribution of Linux are you running? Most Unix tar commands allow passing through gzip using tar z.<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Another one problem with the find is whenever we have used find command, the lastaccess time of the file has changed.. we need to avoid this.<br />
+is there any other way without this problem( changing the last access time)<br />
+<br />
+-arockia 
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+Then do not search on access time, but instead on &quot;modified time&quot; = mtime. <br />
+<br />
+Either way, I don't think you want to do this, because many programs and files that Linux ships with have created and modified dates greater than 180 days ago, and if you remove them and tar them up, you will break your operating system.<br />
+<br />
+Be careful and only run this in a directory with a -maxdepth set on the find correctly.<br />
+<br />
+Test using &quot;echo&quot; before you test using tar with --remove-files.hi<br />
+<br />
+ u are correct.. i have to found the solution for the problem i don't try to get everything from others..<br />
+<br />
+i have used the following commands<br />
+<br />
+find . *.* -mtime -180 | xargs tar -rfc HalfYear_incremental.tar<br />
+<br />
+but whenever  i have used the find command  the last accessed time of every files has changed , is it correct?<br />
+<br />
+But whenever i have given 180 i think this is the number of days, but  i got the files listed which i have include last week itself..<br />
+I don't know anything about linux that's why i have asked the steps in the previous reply , please don't mind.<br />
+<br />
+is anything wrong  with the command i have used please inform me and tell me how we can remove the files in the same command itself.<br />
+<br />
+-arockiaSomething like this should or might work, just cd into the directory you want to look in and do:<br />
+<br />
+find . -mtime +(#ofdays)<br />
+<br />
+Say I wanted to find any file that's been modified 7 or more days ago, I'd do a:<br />
+<br />
+find . -mtime +7<br />
+<br />
+If you only want to find files and exclude directories:<br />
+<br />
+find . -type f -mtime +7<br />
+<br />
+And then you can use the -exec to execute particular commands..  and so on.<br />
+<br />
+Its all in the man pages if you want more options.<br />
+<br />
+man findhi<br />
+ Thanks  for ur reply..<br />
+<br />
+ But i am only new to linux. can u give me the details with some example..<br />
+<br />
+- arockiaI edited my post significantly. Have a look. I tested this on my machine, and it worked.It would help you understand what you want to do if you downloaded and read<br />
+       abs-guide-2.8.tar.bz2<br />
+at:<br />
+      <a href="http://212.219.56.131/sites/www.ibiblio.org/gentoo/distfiles/" target="_blank">http://212.219.56.131/sites/www.ibib...too/distfiles/</a>Well heres what the file needs to do:<br />
+ls -l and pipe it into grep to get the appropriate timestamp information (I can only think of how to make it find anything in between six months ago and 12 months ago at the moment). <br />
+<br />
+You could probably then redirect that to a file and then using something like geline (in C++) read the line to a string, save the substring beginning from the back until it reaches a colon (so you know that you've collected the file or directory name (spaces and all) ), and then remove the first 4 characters (a colon then 2 numbers and then a space). You'll be left with the file or directory name. You could then add that to a tar archive and then rm -rf on the filename to remove it.

@@ -1,0 +1,9 @@
+I agree that VMWare uses a lot of resources but that doesn't explain why kswapd0 should use all cpu if the physical memory is not used at its maximumVMware is a hog in itself, especially once you start loading up Windows XP and the such.  You could try running a lighter desktop if your using Gnome or KDE currently to free up some resources.<br />
+<br />
+We have a dedicated dual xeon 2.4GHz server with 4GB of RAM just for running VMware and nothing else if that tells you anything..  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" />Hi,<br />
+<br />
+I'm running Slackware 10.0 kernel 2.6.10 on a Dell latitude D800 laptop with 1 Gb of RAM. I run windows XP at the same time on a second screen using VMWare. This windows XP gets 512 Mb of RAM leaving about 300 Mb of RAM unused and thus no swapping occurs.  Every time I start the vmware session kswapd0 stats using up all my CPU for about 5 minutes while swapping is absolutely not necessary. Does somebody know how I can fix this?<br />
+<br />
+thank you for your help,<br />
+<br />
+maenho

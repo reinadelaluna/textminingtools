@@ -1,0 +1,50 @@
+I have install Nagios 1.2 and am having some problems. I want to change the icons in the status map. I have followed the directions and have added the line:<br />
+<br />
+xedtemplate_config_file=/etc/nagios/hostextinfo.cfg<br />
+<br />
+into the cgi.cfg file. I have created the file hostextinfo.cfg and added the following lines:<br />
+<br />
+define hostextinfo{<br />
+	host_name	novel1<br />
+	icon_image	novell40.png <br />
+	icon_image_alt	IntranetWare 4.11<br />
+	}<br />
+<br />
+What am I doing wrong?<br />
+<br />
+Thanks in advance.hi, <br />
+it ok<br />
+just make sure that you have appropriate all you icons in the default directory<br />
+/usr/lcoal/nagios/share/images/logos<br />
+all icons should have read permisions for all<br />
+<br />
+the files needed to be modified on the nagios server<br />
+1&gt; cgi.cfg<br />
+2&gt; hostextinfo.cfg<br />
+<br />
+edit your cgi.cfg<br />
+add<br />
+xedtemplate_config_file=/usr/local/nagios/etc/hostextinfo.cfg<br />
+<br />
+the hostextinfo.cfg file provides file names of images used in the status map screen.<br />
+<br />
+edit hostextinfo.cfg<br />
+add this<br />
+define hostextinfo{<br />
+host_name                         ahmed<br />
+icon_image                        Compaq_xxxx_yyyyp.jpg<br />
+icon_image_alt                  Ahmed<br />
+vrml_image                         Compaq_xxxx_yyyyp.jpg<br />
+statusmap_image              Compaq_xxxx_yyyyp.jpg<br />
+<br />
+gd2_image                          Compaq_xxxx_yyyyp.jpg<br />
+register                                  1<br />
+}<br />
+______________________________________________<br />
+i hope the host for which u need to add image in status map is already there<br />
+and nagios is working fine.<br />
+this config works fine for me i am using RedHat 9<br />
+your milage may vary <br />
+if any errors plzz mail me<br />
+at<br />
+<a href="mailto:ms_dream@rediffmail.com">ms_dream@rediffmail.com</a>

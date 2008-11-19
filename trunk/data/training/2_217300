@@ -1,0 +1,44 @@
+give a local ip adress to it and set a hostname<br />
+then<br />
+<br />
+service network restart<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by BigNate </i><br />
+<b>Hmmm very cryptic post...what do you mean.  Please give us more details.  Do you have a RJ45 plugged into the ethernet adapter or are you using a dial-up modem??  There are so many networking possibilities that I have no idea where to start with helping you <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> </b>
+			
+		</td>
+	</tr>
+	</table>
+</div><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by saurya_s </i><br />
+<b>Hi all<br />
+I am wondering when I installed Mdk 10 , and when it boots , it shows that it has failed to bring interface eth0. How can I correct it? Is it one of the reason that I am not able to install the modem driver?<br />
+Thanks for your help.<br />
+S </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+Hmmm very cryptic post...what do you mean.  Please give us more details.  Do you have a RJ45 plugged into the ethernet adapter or are you using a dial-up modem??  There are so many networking possibilities that I have no idea where to start with helping you <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />Hi<br />
+That is the message that I gget when I boot the machine though I am able to connect to the LAN at work. But I am not able to install HMR56 modem driver which I intend to use a t home. Eth0 failure might have nothing to do with modem driver installation. Everything was prefect when I was on Mdk 9.2 though,<br />
+DO I need to configure something?<br />
+S<br />
+<br />
+<br />
+Hello Punker,<br />
+How do I do that? Just to tell you, I am able to connect to LAN with DHCP, so I hope doing as you have suggested, would not screw up that?<br />
+ThanksHi all<br />
+I am wondering when I installed Mdk 10 , and when it boots , it shows that it has failed to bring interface eth0. How can I correct it? Is it one of the reason that I am not able to install the modem driver?<br />
+Thanks for your help.<br />
+S

@@ -1,0 +1,35 @@
+here is a slackware package of firefox-1-5.0.3 from an official slackware mirror<br />
+<br />
+<a href="http://slackware.cs.utah.edu/slackware-10.2/patches/packages/mozilla-firefox-1.5.0.3-i686-1.tgz" target="_blank">http://slackware.cs.utah.edu/slackwa...0.3-i686-1.tgz</a>the ./ configure tells me no such file or command <br />
+make and make install tell me no rule to make target install <br />
+ The install texts just sends me back to firefox's release notes and all they say under install is to extract all of the files from the tarball<br />
+<br />
+DL'd the file you linked 'okie'<br />
+and I don't see what I'm supposed to do with that, what am I overlooking or not seeing?<br />
+<br />
+I'm still lost <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/confused.gif" border="0" alt="" title="Confused" class="inlineimg" />I'm a newb too. This might work.<br />
+<br />
+<br />
+First of all. When you extract the tgz file into a directory there is probably a README or INSTALL file extracted there too. If my way doesn't work then you might want to try to read through those.<br />
+<br />
+Try this in the extracted directory.<br />
+type: ./configure then type: make<br />
+<br />
+Then as root type: make install<br />
+<br />
+<br />
+That should do it. If configure doesn't work you can still try the  make command in some cases. If make works then do make install as root.<br />
+<br />
+All else fails. Look for files in which there might be a predefined procedure for you to follow. 9 times out of 10 if I'm stuck, the answer is in the documentation...<br />
+<br />
+Don't extract it to an existing firefox directory, make a new one in /home/* or wherever.<br />
+<br />
+RegardsI'm a Linux newbie and I chose to use Slackware because I understand it to be the most UNIX like. (That's just what I heard not my own claim since I don't really know. I do understand that it isn't supposedly newbie friendly and I actually prefer it that way since the more I screw something up the better I learn what NOT to do.) <br />
+<br />
+Now, I went with most of the default packages and Firefox 1.0.6 was installed and I downloaded the latest tar.gz which is 1.5.0.3 and I want to install this new version, but there is not a script or executable labeled install, ./install or whatever and there is also no RPM at least not obviously so to me. I have even run ./firefox at a konsole set to this extracted directory and it just opens the old version of Firefox. I ran the command that is listed on Mozilla's site to do the extraction and ended up extracting it to my home folder. <br />
+<br />
+Am I correct in thinking that what I need to do is extract it to a currently existing firefox directory that holds the old installation for overwriting?  Where would that be?<br />
+<br />
+ What should I be doing here?<br />
+<br />
+<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/newbie.gif" border="0" alt="" title="Newbie" class="inlineimg" /> <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/headscratch1.gif" border="0" alt="" title="Head Scratch" class="inlineimg" />that file i linked to will install as a slackware package, as root run either pkgtool or as root run installpkg mozilla-firefox-1.5.0.3-i686-1.tgzyou don't need to install anything. just untar the tar.gz, which will create a firefox directory. to run it, go into the directory and do ./firefox.

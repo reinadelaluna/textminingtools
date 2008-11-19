@@ -1,0 +1,16 @@
+hello,<br />
+<br />
+anyways to change the email address that the email server is sent from?? we have 4 servers and we want them to all have the same 'From' address.<br />
+<br />
+<a href="mailto:eg.root@webserver1.test.com">eg.root@webserver1.test.com</a> (will be received as)--&gt;root@webserver.com<br />
+   <a href="mailto:root@webserver2.test.com">root@webserver2.test.com</a> (will be received as)--&gt;root@webserver.com<br />
+   <a href="mailto:root@webserver3.test.com">root@webserver3.test.com</a> (will be received as)--&gt;root@webserver.com<br />
+   <a href="mailto:root@webserver4.test.com">root@webserver4.test.com</a> (will be received as)--&gt;root@webserver.com<br />
+<br />
+We might want it to say something like 'support@webserver.com' in the 'From' field. Can this all be done with '/bin/mail' ??<br />
+<br />
+Cheers!Read the man page for the particular <i>mail</i> program you're using. On my system, /bin/mail is a symlink to /usr/bin/nail. With nail, you can specify a &quot;From&quot; address with the -r option:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">mail -r root@webserver.com user@somewhere.com</div></pre>
+</div>

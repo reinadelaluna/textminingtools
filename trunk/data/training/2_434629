@@ -1,0 +1,40 @@
+I couldn't get the &quot;Kernel Rebuild Guide&quot; to load, anyone else having this problem?<br />
+<br />
+Learing to compile your kernel is an excellent idea no matter what distro you use. I'm really glad I learned how to do it myself. Thier right about Fedora though, if your looking for a distro similar to Fedora but more on the stable side go with Kubuntu. It will be based off Debian so a few small things might change, like you'll no longer use YUM, but for the most part it'll just like Fedora, retaining the familiar KDE interface. Ubuntu is the same thing except with Gnome if you'd rather have that. Well on that note, you can use any window manager you want with Ubuntu, Xfce, Gnome, KDE, Fluxbox, etc.<b><font color="firebrick">Welcome to LQ!</font></b><br />
+<br />
+Just be sure to leave the kernel that was installed with your system intact so you can boot it. Don't know GRUB, which I think FC uses, but your kernels should be in boot:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:354px; overflow:auto"><div dir="ltr" style="text-align:left;">mingdao@silas:~$ ls -lh /boot/
+total 8.7M
+lrwxrwxrwx 1 root root   37 2006-01-27 01:20 README.initrd -&gt; /usr/doc/mkinitrd-1.0.1/README.initrd
+lrwxrwxrwx 1 root root   21 2006-04-14 10:21 System.map -&gt; System.map-ide-2.4.32
+-rw-r--r-- 1 root root 562K 2006-02-10 09:15 System.map-2.6.15
+-rw-r--r-- 1 root root 563K 2006-03-09 17:46 System.map-2.6.15.6
+-rw-r--r-- 1 root root 581K 2006-03-24 08:05 System.map-2.6.16
+-rw-r--r-- 1 root root 581K 2006-04-10 15:00 System.map-2.6.16.2
+-rw-r--r-- 1 root root 150K 2006-03-13 09:49 System.map-ide-2.4.32
+-rw-r--r-- 1 root root  512 2006-01-27 01:30 boot.0800
+lrwxrwxrwx 1 root root   17 2006-04-14 10:21 config -&gt; config-ide-2.4.32
+-rw-r--r-- 1 root root  41K 2006-03-13 09:49 config-ide-2.4.32
+-rw-r--r-- 1 root root 5.0K 2004-05-21 15:19 diag1.img
+-rw-r--r-- 1 root root 151K 2006-04-01 16:42 ins64a-1.bmp
+-rw------- 1 root root 221K 2006-04-10 15:03 map
+lrwxrwxrwx 1 root root   18 2006-04-14 10:21 vmlinuz -&gt; vmlinuz-ide-2.4.32
+-rw-r--r-- 1 root root 1.2M 2006-02-10 09:17 vmlinuz-2.6.15
+-rw-r--r-- 1 root root 1.2M 2006-03-09 17:47 vmlinuz-2.6.15.6
+-rw-r--r-- 1 root root 1.2M 2006-03-24 08:07 vmlinuz-2.6.16
+-rw-r--r-- 1 root root 1.2M 2006-04-10 15:02 vmlinuz-2.6.16.2-1
+-rw-r--r-- 1 root root 1.3M 2006-03-13 09:49 vmlinuz-ide-2.4.32</div></pre>
+</div>
+That 2.4.32 is the one I installed with, and it's never touched.<br />
+<br />
+You might need a new kernel for the Nvidia drivers (if you have Nvidia), also, if you switch to FC5. Here is a <a href="http://www.burdell.org/?p=435" target="_blank">snippet</a> from someone who works for Red Hat on the installer team for the Fedora Project.I am currently using Fedora Core 4 with kernel 2.6.15-1.1833 with no problems using my dial up connection to access the internet. However if I upgrade to the last kernel in FC4 (2.6.16) or upgrade to FC5 (any kernel)my dial up connection to the internet dials in and then completely locks up the computer. By lock up I mean that the keyboard and mouse become completely unresponsive and the screen and cursor are both frozen.The only way out is to hit the reset button. I thought that a clean install of FC5 may help but it didn't make any difference, the problem was still there. I have since reinstalled FC4 and updated to kernel 2.6.15-1.1833 which is working fine. The dial up problem will only return if I try to upgrade any further. Can anyone tell me what the problem may be or at least guide me in the right direction. Could it be a bug in those kernels? I would love to be able to use FC5 but until I can find out what the problem is with my dial up connection then I am stuck with FC4. Any help would be greatly appreciated.Fedora may not necessarily be to blame for your problems. If the 2.6.15 kernel from FC4 works fine, but the 2.6.16 does not, it could be an upstream problem. If possible compile your own kernel and if your modem works fine with it, then file a bug report to the FC team. If your own custom kernel has the same problems as the Fedora kernels, then file a bug report to the Linux kernel devs.<br />
+<br />
+If your previous kernel was working fine, then usually there is no need to upgrade. If you are interested in FC5, you could install the working F4 kernel in FC5 and use that until there is a fix for your problem.I checked when I posted and the guide loaded, and again just now. Perhaps it's a temporary problem you're having.Remember, RedHat basically gave up on the desktop market, and is targeting the Enterprise market. So the Fedora Core is really unstable, testing versions which will become RedHat Enterprise Linux. So, expect bugs and brokenness.<br />
+<br />
+Might I had some help so that you can build a new kernel?<br />
+<br />
+I've posted two short 'HOW-TO rebuild your kernel'guides -- one to <a href="http://www.linuxquestions.org/questions/showthread.php?p=2166621#post2166621" >build under /home</a>, and another to <a href="http://www.linuxquestions.org/questions/showthread.php?p=2197822#post2197822" >build under /usr/src</a>.<br />
+<br />
+But for a person new to rebuilding kernels, Kwan Lowe's <a href="http://www.digitalhermit.com/linux/Kernel-Build-HOWTO.html" target="_blank">Kernel Rebuild Guide</a> is a good place to start.Thanks for the replies everyone. It looks like I am going to have to learn to recompile my own kernel so I will be checking the kernel how to guides later today. Will post back on my success or otherwise.Learn to compile your own kernel and don't count on FC &quot;customized kernels&quot;. You currently see they are not reliable.

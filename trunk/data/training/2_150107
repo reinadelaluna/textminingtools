@@ -1,0 +1,39 @@
+There might be an answer for your problem on my <a href="http://users.pandora.be/Ice9/Linux%20stuff/Linux_tips.html" target="_blank">tips page</a> <br />
+Don't know if this is specific to KDE though since I don't use Gnome.<br />
+Let me know if it helped.okay i did that....still having the same problem ...thx thoughI received a mail a couple of days ago from someone who read my tip and he wrote :<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				I just so happend to find your article	on the<br />
+application/octet-stream<br />
+<a href="http://users.pandora.be/Ice9/Linux stuff/Linux_tips.html" target="_blank">http://users.pandora.be/Ice9/Linux s...inux_tips.html</a><br />
+<br />
+<br />
+There's a &quot;dirty&quot; way to fix the problem.<br />
+<br />
+According to <a href="http://www.dmvista.com/Resource/mime_test.html" target="_blank">http://www.dmvista.com/Resource/mime_test.html</a><br />
+<br />
+<br />
+The application/octet-stream can be various different URL's <br />
+<br />
+So ... To &quot;fix&quot; the problem you could quite easily (It<br />
+worked here anyways) <br />
+point it to konqueror. (or whatever browser you use.)<br />
+<br />
+I don't know if it's the right thing to do, but it works.  I tried<br />
+just <br />
+deleting the .desktop file, but no go.
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+So, apparently, neither did the solution I provided work for him and he found another way around it.for some reason my comp has been giving me this error when i try and start programs.. &quot;could not find mime type application/ocet stream&quot;<br />
+<br />
+not sure what the hell that means or why it started to come up all the time..it doesnt stop any programs from loading or anything but it is quite annoying..any help would be appreciated <br />
+<br />
+thx =)

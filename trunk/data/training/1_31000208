@@ -1,0 +1,50 @@
+I want to connect tomcat4, since it is the only thing under unstable, to apache.
+<br />
+Is there a way to do this?
+<br />
+Am I going to have to go to apache2?
+<br />
+If so, is there an easy way to convert from one version of apache to another?
+<br />
+
+<br />
+J. R. Westmoreland
+<br />
+
+<br />
+
+<br />
+-- 
+<br />
+J.R. Westmoreland  (W7JR)
+<br />
+E-mail: jr@jrw.org
+<br />
+
+<br />
+
+<br />
+
+<br />
+* J. R. Westmoreland (jr@jrw.org) wrote :
+<br />
+&gt; I want to connect tomcat4, since it is the only thing under unstable, to apache.
+<br />
+&gt; Is there a way to do this?
+<br />
+&gt; Am I going to have to go to apache2?
+<br />
+&gt; If so, is there an easy way to convert from one version of apache to another?
+<br />
+&gt; 
+<br />
+uh, use libapache-mod-jk?
+<br />
+-Thom
+<br />
+
+<br />
+
+<br />
+
+<br />

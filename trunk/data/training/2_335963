@@ -1,0 +1,69 @@
+MPlayer sometimes doesnt detect alsa even when it is installed. I dont know the reason. try using the OSS. It worked in my case.you can specify the default driver in the mplayer config file.<br />
+<br />
+/etc/mplayer/mplayer.conf<br />
+<br />
+use:<br />
+mplayer -ao help<br />
+<br />
+for a list of the available devices...I believe OSS is the default... <br />
+EXAMPLE:<br />
+Available audio output drivers:<br />
+        mpegpes Mpeg-PES audio output<br />
+        oss     OSS/ioctl audio output<br />
+        alsa    ALSA-0.9.x-1.x audio output<br />
+        arts    aRts audio output<br />
+        esd     EsounD audio output<br />
+        nas     NAS audio output<br />
+        sdl     SDLlib audio output<br />
+        null    Null audio output<br />
+        pcm     RAW PCM/WAVE file writer audio output<br />
+        plugin  Plugin audio output<br />
+<br />
+KCkencaz: When I type: mplayer -ao help, I only get the following:<br />
+<br />
+-------------------------------snip-------------------------------------------------<br />
+MPlayer 1.0pre7-3.3.5 (C) 2000-2005 MPlayer Team<br />
+CPU: Intel Pentium 4/Xeon/Celeron Foster (Family: 8, Stepping: 4)<br />
+Detected cache-line size is 64 bytes<br />
+CPUflags:  MMX: 1 MMX2: 1 3DNow: 0 3DNow2: 0 SSE: 1 SSE2: 1<br />
+Compiled for x86 CPU with extensions: MMX MMX2 SSE SSE2<br />
+<br />
+<br />
+Available audio output drivers:<br />
+        mpegpes DVB audio output<br />
+        oss     OSS/ioctl audio output<br />
+        null    Null audio output<br />
+        pcm     RAW PCM/WAVE file writer audio output<br />
+<br />
+--------------------------------------------------------------------------------------------------------<br />
+<br />
+How do you get alsa compiled compiled with mplayer?<br />
+I have tried: --enable-alsa when I do a ./configure<br />
+<br />
+Texicle: I do have permission to /dev/dsp, and I get this error in all window managers (even failsafe) So I don't think its anything using the sound and the same time.<br />
+<br />
+Thanks for your replies.try to start alsa (from root) first:<br />
+/etc/init.d/alsa start<br />
+<br />
+Then try to run:<br />
+mplayer -ao alsa <br />
+<br />
+I don't really know if you have to re-compile or not... Try it without first.<br />
+<br />
+KCCheck your permissions for /dev/dsp, etc.  Make sure you've got permission to access them.  Also, do you have anything else running at the same time that uses sound?First just use the mplayer packages from : <a href="http://sft.if.usp.br/debian-marillat/" target="_blank">http://sft.if.usp.br/debian-marillat/</a><br />
+<br />
+Second, a lot of sound hardware doesn't do hardware mixing and thus only allows one app to have the device open at a time. If you have xmms, xine, etc running shut them down. If you're using a software mixer like esd or artsd tell mplayer to use that or shut them down as well.So I have decided to compile/install mplayer. Everything seemed to go fine, video plays and everything, but I get the following audio error:<br />
+<br />
+&quot;Could not open/initialize audio device -&gt; no sound&quot;<br />
+<br />
+I'm assuming this has something to do with alsa, and it not detecting/using alsa.<br />
+<br />
+I have xmms and xine. They both work perfectly so I know my soundcard/drivers are working.<br />
+<br />
+I'm using Debian with kernel 2.6.8<br />
+<br />
+I have also tried compiling with: ./configure --enable-gui --enable-alsa<br />
+<br />
+and I also have OSS emulation installed.<br />
+<br />
+Anybody have any ideas?

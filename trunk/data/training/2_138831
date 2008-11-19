@@ -1,0 +1,34 @@
+To make a bootable iso you need to look at the -b and -G options and you will have to have a bootable image to supply.When I need an ISO made in the past I would use winISO. It makes me an ISO in APSI mode, it keeps all bootable information and what not..<br />
+<br />
+Can someone point me in a way on how I can create an ISO under Linux?<br />
+<br />
+I currently run SuSE9 w/ Ximian XD2 Desktop..<br />
+<br />
+Thanks all <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />if its an iso from CD/DVD, then with it <b>unmounted</b> you will type :<br />
+dd if=/dev/dvd of=dvd.iso<br />
+dd if=/dev/cdrom of=cd.iso<br />
+these are examples, your devices may be named something else<br />
+<br />
+To make an ISO from files on your hard drive, create a directory which holds the files you want. Then use the mkisofs command.<br />
+<br />
+mkisofs -o /tmp/output/cd.iso /directory/with/files<br />
+<br />
+type <b>man mkisofs</b> for more options to be used ..hmmm Well i used KE3 and it made an .img file with 2 or so clicks..<br />
+<br />
+I just want to fire off a command and it make an ISO (or whatever) that keeps all its propertys like winISO does..<br />
+<br />
+thanks for all your helpOk great! I checked and I have it..<br />
+<br />
+I tried as you said.. I looked at the MAN page too.. and HOY! <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> Lots of options..<br />
+<br />
+All I am trying to do is retain it as it were. I take it the -R saves bootable info? <br />
+<br />
+mkisofs -R -J -o CD1.iso /media/cdrom<br />
+<br />
+Thanks! <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> I am running that command as i typemkisofs is what you need.<br />
+<br />
+Options of interest are probably -J (joliet file names), -R (Rock Ridge directory info), and -o which sets the output file name.  An example, if I were going to make the directory myfiles into an iso would be<br />
+<br />
+mkisofs -R -J -o myfiles.iso myfiles<br />
+<br />
+If you have loopback support you can do a mount -o loop myfiles.iso some_dir to test to see what it looks like.

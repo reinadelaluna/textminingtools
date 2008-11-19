@@ -1,0 +1,26 @@
+Hi, <br />
+<br />
+I am using Debian (etch) running kernel 2.6.16 with GNOME. I was wondering if there is any utility(free is possible) for testing 2D graphics on Linux? Or even a generic benchmarking utility for Linux which includes testing of 2D graphics.<br />
+<br />
+thanksNot sure about etch, but when I apt-cache search for benchmark in Sarge, I come back with &quot;<b>xengine</b> -- A benchmark program for the X Window System&quot;.<br />
+<br />
+Here's a <a href="http://www.linuxnetmag.com/en/issue4/m4grafik1.html" target="_blank">link</a> I found, not sure if it'll be helpful or not...<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>pljvaldez</strong></div>
+				<div style="font-style:italic">Not sure about etch, but when I apt-cache search for benchmark in Sarge, I come back with &quot;<b>xengine</b> -- A benchmark program for the X Window System&quot;.<br />
+<br />
+Here's a <a href="http://www.linuxnetmag.com/en/issue4/m4grafik1.html" target="_blank">link</a> I found, not sure if it'll be helpful or not...</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<br />
+Thanks. Appreciate it very much. I used the xengine utility and it seems that it gives FPS as a performance measures. I have also used glxgears and this also gives FPS. Are both of these utilities the same? Because xengine give around 1000 FPS while glxgears gives around 50 FPS.?<br />
+<br />
+ThanksAnyone with experience with benchmarking 2D Graphics on Linux ???No idea.  I'm actually not very proficient with some of these tools.  I just am good with google and apt-cache search and can point people in the right directions.  I'm not nearly as &quot;Senior Member&quot; as this forum labels me...  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" />
