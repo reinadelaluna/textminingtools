@@ -1,0 +1,53 @@
+Hi.<br />
+<br />
+Have a look here:<br />
+<a href="http://www.linuxquestions.org/questions/showthread.php?postid=1614348#post1614348" >http://www.linuxquestions.org/questi...48#post1614348</a><br />
+<br />
+DaveThis is a known bug in the version of dmix you're using. I have the same problem. Upgrading alsalib is likely to fix it - unfortunately dmix has been unstable until very recently and tends to deadlock the audio pipeline etc.I had the same problem, and really seems to be XMMS.<br />
+I made this configuration:<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Output Plugin: Alsa<br />
+In the configuration above:<br />
+<br />
+Audio Device: default<br />
+Mixer: Master
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+And everything got good.<br />
+With 4, 5 and 6 sound instances.<br />
+<br />
+Bye!Thank you! <br />
+<br />
+EDIT: er, appearently it's caused some problems with xmms. It'll just stop playing a song right in the middle. It stops at the same place every time, and it doesn't stop with OSS, but then I can't hear GAIM. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" /> what do I do?<br />
+What do you have in the command box in the GAIM preferences? The reason I ask is that if 'aplay' is run without a file argument, it stays running doing nothing, which looks like what's happening to you.<br />
+<br />
+DaveI've found out what caused the problem.<br />
+<br />
+I did upgrade the kernel, but sadly, I found that sound would still stop in xmms at some point in a song. So I decided to look around the xmms options.<br />
+When using ALSA, there's an option to use Mmap mode. I had this checked. When I unchecked it, everything worked fine. So, what exactly is Mmap mode? I assume it means Memory Map Mode, but what exactly would that be?<br />
+<br />
+-thanks <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />It seems I can't upgrade alsalib, I've got ALSA compiled into the kernel, and when I try to compile alsalib, it says I need alsa-driver, and when I run ./configure for that, it says I can't use the version compiled into the kernel. Any way around this?ALSA &quot;locks up&quot; the soundcard, so only one program can use the soundcard at a time. I can't listen to music and use GAIM at the same time. What happens is, the music keeps playing untill the end of the song then I get a series of queued beeps from ALSA, then the music begins again.<br />
+<br />
+How can I fix this?<br />
+<br />
+I'm sorry if this has been asked before. I searched, but I didn't quite know what to search for.What happens when you run aplay with a .wav file on the command line? Do you get multiple instances?Yes, that is what's happening. Why is that bad? What should I be doing?<br />
+<br />
+Edit: oh, I understand. I don't know why gaim would call it and not play a sound. but in the box for gaim, I've got the command 'aplay'No it doesn't create multiple instances when just running a wav file.You need to upgrade your distro, really. There is info on upgrading ALSA manually on the official ALSA site and wiki.Hmmm.<br />
+<br />
+Have you tried the latest version of XMMS? I'm using XMMS, GAIM and this ALSA config, and I've never had a problem. What sound card are you using?<br />
+<br />
+DaveI'm using a built in CMI-8738-MX chipset. <br />
+<br />
+I've found that the problem, which eventually leads to me not being able to use sound at all, is aplay having about a hundred instances running at once. All my sound issues cleared up when I ran killall aplay, but that only works untill it starts running multiple instances of itself again.<br />
+<br />
+Why would this happen?

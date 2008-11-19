@@ -1,0 +1,26 @@
+You'll need to download, make and install 'checkinstall' if you cannot find that package available as a Fedora package. I don't know anything about Fedora.. however packages are distributed. Otherwise, just download and make the checkinstall program.<br />
+<br />
+<a href="http://asic-linux.com.mx/~izto/checkinstall/" target="_blank">http://asic-linux.com.mx/~izto/checkinstall/</a><br />
+<br />
+After you've installed 'checkinstall' go into the directory of that program that you've built that you wish to uninstall.<br />
+<br />
+checkinstall -R<br />
+will build an rpm package, so if you run<br />
+checkinstall -R make install<br />
+<br />
+Yes it will try to install that same program you want un-installed. After checkinstall is done, you will have an RPM of the installation. You should be able to remove it using rpm.<br />
+<br />
+checkinstall will build a few different packages, so you might want to check out the documentation before you use checkinstall. I actually highly recommend you read more about it from their website and docs rather than just by what I've described.<br />
+<br />
+Also, there may be uninstallation instructions somewhere with that program you want uninstalled, if you haven't already gone through them all.<br />
+<br />
+Good luck! <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />How can i uninstalled a package which was  compiled and installed by  make command. ...  (make install)Quite often, 'make uninstall' will do that. You also might want to check out a program called 'checkinstall'make uninstall said<br />
+make : *** no rule to make target 'uninstall' *** .stop.<br />
+<br />
+And<br />
+<br />
+checkinstall     command not found<br />
+<br />
+tried help of make but not found something like uninstall<br />
+<br />
+Using FC3

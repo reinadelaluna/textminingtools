@@ -1,0 +1,53 @@
+I have just installed linux SUSE 10.0, surprisingly it did not ask me to enter the password after the 5th CD finished installing. But I guess the software is fully installed because all the 5 CDs were propmted. Now when linux starts it asks me for a password (root), yet I dont remember puting in any password and it wont let me do anything without a password, please help and very very new on linuxYou could boot in single user mode into linux, once you get inside the OS, use the <div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">passwd</div></pre>
+</div> for create a new password or you can use a liveCD, mount the root partition and chroot it so you can be able to use passwd<br />
+<br />
+Other way will be type <div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">init=/bin/bash</div></pre>
+</div>, at the prompt, type <div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">mount -o remount,rw /</div></pre>
+</div> and then type <div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">passwd</div></pre>
+</div> to set a new password<br />
+<br />
+<br />
+<br />
+Regards<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>pixellany</strong></div>
+				<div style="font-style:italic">Is it possible that the default user is given sudo privileges?  ( a la Ubuntu and some others)<br />
+<br />
+If so, the just do &quot;sudo passwd root&quot;<br />
+<br />
+The other method is to boot from live CD, mount the partition in question and edit /etc/passwd---find the enrty for root and remove the &quot;x&quot; between two colons.  This disables the root password (allows you to log in as root with no password)</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+Suse like older distros does not use sudo like Ubuntu, so a root account is necessary. The root password thing seems to affect many users installing from the cd sets.Is it possible that the default user is given sudo privileges?  ( a la Ubuntu and some others)<br />
+<br />
+If so, the just do &quot;sudo passwd root&quot;<br />
+<br />
+The other method is to boot from live CD, mount the partition in question and edit /etc/passwd---find the enrty for root and remove the &quot;x&quot; between two colons.  This disables the root password (allows you to log in as root with no password)<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>Nylex</strong></div>
+				<div style="font-style:italic">Could you possibly use better thread titles in future please? When you post a thread, you are told to use descriptive titles.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+Agreed. I've edited the thread title so that it reflects the problem.Could you possibly use better thread titles in future please? When you post a thread, you are told to use descriptive titles.

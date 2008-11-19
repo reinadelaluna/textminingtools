@@ -1,0 +1,28 @@
+THe error is:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:242px; overflow:auto"><div dir="ltr" style="text-align:left;">========================= Installation results ===========================
+ 
+Copying documentation directory...
+        ==&gt; LINKING &quot;OBJ/athlon-linux-cc/mkisofs&quot;
+/usr/bin/ld: cannot find -lhfs
+collect2: ld returned 1 exit status
+make: *** [OBJ/athlon-linux-cc/mkisofs] Error 1
+ 
+****  Installation failed. Aborting package creation.
+ 
+Cleaning up...OK
+ 
+Bye.
+</div></pre>
+</div> <br />
+<br />
+<br />
+<br />
+<br />
+What the heck does that even mean? Can someone please help?You're missing <br />
+<br />
+/usr/lib/libhfs.a<br />
+<br />
+Install the cdrecord development package, that should provide that library. After that run ldconfig as root, and everything should work.

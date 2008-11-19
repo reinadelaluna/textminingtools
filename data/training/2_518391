@@ -1,0 +1,764 @@
+dont have alsoconf, i figured out the ./configure, but after running make i got several errors like the following:  <br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">ib/modules/2.6.18-3-486/build/include/asm/rwsem.h:249: error: expected ‘:’ or ‘)’ before ‘KBUILD_BASENAME’
+In file included from /lib/modules/2.6.18-3-486/build/include/linux/sched.h:57,
+                 from /lib/modules/2.6.18-3-486/build/include/linux/module.h:9,
+                 from /root/Audio/alsa-driver-1.0.4/include/adriver.h:51,
+                 from /root/Audio/alsa-driver-1.0.4/include/sound/driver.h:42,
+                 from hwdep.c:22:
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h: In function ‘down’:
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h:105: error: expected ‘:’ or ‘)’ before ‘KBUILD_BASENAME’
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h: In function ‘down_interruptible’:
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h:130: error: expected ‘:’ or ‘)’ before ‘KBUILD_BASENAME’
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h: In function ‘down_trylock’:
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h:155: error: expected ‘:’ or ‘)’ before ‘KBUILD_BASENAME’
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h: In function ‘up’:
+/lib/modules/2.6.18-3-486/build/include/asm/semaphore.h:179: error: expected ‘:’ or ‘)’ before ‘KBUILD_BASENAME’
+In file included from hwdep.c:27:
+/root/Audio/alsa-driver-1.0.4/include/sound/core.h:358:1: warning: multi-line comment
+/root/Audio/alsa-driver-1.0.4/include/sound/core.h:377:1: warning: multi-line comment
+hwdep.c: In function ‘snd_hwdep_info’:
+hwdep.c:188: warning: pointer targets in passing argument 1 of ‘strlcpy’ differ in signedness
+hwdep.c:189: warning: pointer targets in passing argument 1 of ‘strlcpy’ differ in signedness
+hwdep.c: In function ‘snd_hwdep_dsp_load’:
+hwdep.c:225: warning: implicit declaration of function ‘verify_area’
+make[1]: *** [hwdep.o] Error 1
+make[1]: Leaving directory `/root/Audio/alsa-driver-1.0.4/acore'
+make: *** [compile] Error 1
+debian64:~/Audio/alsa-driver-1.0.4# make install
+rm -f /lib/modules/0.0.0/misc/snd*.*o /lib/modules/0.0.0/misc/persist.o /lib/modules/0.0.0/misc/isapnp.o
+make[1]: Entering directory `/root/Audio/alsa-driver-1.0.4/acore'
+mkdir -p /lib/modules/0.0.0/misc
+cp snd-hwdep.o snd-page-alloc.o snd-pcm.o snd-rawmidi.o snd-timer.o snd.o /lib/modules/0.0.0/misc
+cp: cannot stat `snd-hwdep.o': No such file or directory
+cp: cannot stat `snd-page-alloc.o': No such file or directory
+cp: cannot stat `snd-pcm.o': No such file or directory
+cp: cannot stat `snd-rawmidi.o': No such file or directory
+cp: cannot stat `snd-timer.o': No such file or directory
+cp: cannot stat `snd.o': No such file or directory
+make[1]: *** [_modinst__] Error 1
+make[1]: Leaving directory `/root/Audio/alsa-driver-1.0.4/acore'
+make: *** [install-modules] Error 1</div></pre>
+</div>
+<br />
+so make failed thus make install can not run.<br />
+<br />
+making progress.Did you try # alsaconf?system specs:<br />
+<br />
+Asus A8N-SLI Premium MB<br />
+AMD X2 3800+<br />
+2x MSI Nvidia NX7600GS 256M PCI-e SLI configured vid cards<br />
+2G PC3200 ram<br />
+sATA HDD<br />
+DVD Burner internal<br />
+DVD Burner USB 2.0 external<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:50px; overflow:auto"><div dir="ltr" style="text-align:left;">uname -a
+Linux debian64 2.6.18-3-486 #1 Mon Dec 4 15:59:52 UTC 2006 i686 GNU/Linux</div></pre>
+</div>
+<br />
+My issues is the following:<br />
+<br />
+i started with debian etch amd64 vs due to my CPU being able to handle it so i figured id give it a try.  i had a few issues that made me choose to come back to the ix86 line for debian etch.<br />
+<br />
+1.  SLI performance was pathetic.  between 5k - 6k FPS with glxgears WITH SLI properly configured via the nvidia-xconfig tool and commands.<br />
+<br />
+2.  multimedia support does not exsist for amd64 (yes there are a few things that support it, but not enough to make it worth my time to NOT HAVE access to flash, DVDs, etc...)<br />
+<br />
+3.  not willing to run a chroot setup to deal with the lack of amd64 support from popular applications<br />
+<br />
+that all being said in this thread here:<br />
+<br />
+<a href="http://www.linuxquestions.org/questions/showthread.php?t=517581" >http://www.linuxquestions.org/questi...d.php?t=517581</a><br />
+<br />
+now last night i formatted and installed the ix86 vs of debian etch and have the system back to were it was under amd64 (love how fast and easy debian is to setup now that i have a semi clue what im doing in that area)<br />
+<br />
+under amd64 my sound worked GREAT.  first time i started up KDE no sound, but open kmix make a few adjustments and poof there is my sound.  under ix86, i get the following ERROR and have zero sound:<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Sound server informational message:<br />
+<br />
+Error while initializing the sound driver:<br />
+<br />
+device: default can't be opened for playback (No such device)<br />
+<br />
+The sound server will continue, using the null output device.
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+here are my lspci and dmesg for this system:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">lspci | grep audio<b>
+00:04.0 Multimedia audio controller: nVidia Corporation CK804 AC'97 Audio Controller (rev a2)</b>
+XXXXX@debian64:~$ lspci
+00:00.0 Memory controller: nVidia Corporation CK804 Memory Controller (rev a3)
+00:01.0 ISA bridge: nVidia Corporation CK804 ISA Bridge (rev a3)
+00:01.1 SMBus: nVidia Corporation CK804 SMBus (rev a2)
+00:02.0 USB Controller: nVidia Corporation CK804 USB Controller (rev a2)
+00:02.1 USB Controller: nVidia Corporation CK804 USB Controller (rev a3)<b>
+00:04.0 Multimedia audio controller: nVidia Corporation CK804 AC'97 Audio Controller (rev a2)</b>
+00:06.0 IDE interface: nVidia Corporation CK804 IDE (rev f2)
+00:07.0 IDE interface: nVidia Corporation CK804 Serial ATA Controller (rev f3)
+00:08.0 IDE interface: nVidia Corporation CK804 Serial ATA Controller (rev f3)
+00:09.0 PCI bridge: nVidia Corporation CK804 PCI Bridge (rev a2)
+00:0a.0 Bridge: nVidia Corporation CK804 Ethernet Controller (rev a3)
+00:0b.0 PCI bridge: nVidia Corporation CK804 PCIE Bridge (rev a3)
+00:0c.0 PCI bridge: nVidia Corporation CK804 PCIE Bridge (rev a3)
+00:0d.0 PCI bridge: nVidia Corporation CK804 PCIE Bridge (rev a3)
+00:0e.0 PCI bridge: nVidia Corporation CK804 PCIE Bridge (rev a3)
+00:18.0 Host bridge: Advanced Micro Devices [AMD] K8 [Athlon64/Opteron] HyperTransport Technology Configuration
+00:18.1 Host bridge: Advanced Micro Devices [AMD] K8 [Athlon64/Opteron] Address Map
+00:18.2 Host bridge: Advanced Micro Devices [AMD] K8 [Athlon64/Opteron] DRAM Controller
+00:18.3 Host bridge: Advanced Micro Devices [AMD] K8 [Athlon64/Opteron] Miscellaneous Control
+01:00.0 VGA compatible controller: nVidia Corporation G70 [GeForce 7600 GS] (rev a1)
+02:00.0 VGA compatible controller: nVidia Corporation G70 [GeForce 7600 GS] (rev a1)
+05:0a.0 RAID bus controller: Silicon Image, Inc. SiI 3114 [SATALink/SATARaid] Serial ATA Controller (rev 02)
+05:0b.0 FireWire (IEEE 1394): Texas Instruments TSB43AB22/A IEEE-1394a-2000 Controller (PHY/Link)
+05:0c.0 Ethernet controller: Marvell Technology Group Ltd. 88E8001 Gigabit Ethernet Controller (rev 13)
+XXXXX@debian64:~$ dmesg
+4 15) *0, disabled.
+ACPI: PCI Interrupt Link [LMAC] (IRQs 3 4 *5 7 9 10 11 12 14 15)
+ACPI: PCI Interrupt Link [LACI] (IRQs 3 4 5 7 9 10 11 *12 14 15)
+ACPI: PCI Interrupt Link [LMCI] (IRQs 3 4 5 7 9 10 11 12 14 15) *0, disabled.
+ACPI: PCI Interrupt Link [LSMB] (IRQs 3 4 *5 7 9 10 11 12 14 15)
+ACPI: PCI Interrupt Link [LUB2] (IRQs 3 4 5 7 9 10 11 *12 14 15)
+ACPI: PCI Interrupt Link [LIDE] (IRQs 3 4 5 7 9 10 11 12 14 15) *0, disabled.
+ACPI: PCI Interrupt Link [LSID] (IRQs 3 4 5 7 9 10 *11 12 14 15)
+ACPI: PCI Interrupt Link [LFID] (IRQs 3 4 *5 7 9 10 11 12 14 15)
+ACPI: PCI Interrupt Link [LPCA] (IRQs 3 4 5 7 9 10 11 12 14 15) *0, disabled.
+ACPI: PCI Interrupt Link [APC1] (IRQs 16) *0, disabled.
+ACPI: PCI Interrupt Link [APC2] (IRQs 17) *0, disabled.
+ACPI: PCI Interrupt Link [APC3] (IRQs 18) *0, disabled.
+ACPI: PCI Interrupt Link [APC4] (IRQs 19) *0, disabled.
+ACPI: PCI Interrupt Link [APC5] (IRQs *16), disabled.
+ACPI: PCI Interrupt Link [APCF] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCG] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCH] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCJ] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCK] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCS] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCL] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCZ] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APSI] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APSJ] (IRQs 20 21 22 23) *0, disabled.
+ACPI: PCI Interrupt Link [APCP] (IRQs 20 21 22 23) *0, disabled.
+Linux Plug and Play Support v0.97 (c) Adam Belay
+pnp: PnP ACPI init
+pnp: PnP ACPI: found 15 devices
+PnPBIOS: Disabled by ACPI PNP
+PCI: Using ACPI for IRQ routing
+PCI: If a device doesn't work, try &quot;pci=routeirq&quot;.  If it helps, post a report
+pnp: 00:01: ioport range 0x4000-0x407f could not be reserved
+pnp: 00:01: ioport range 0x4080-0x40ff has been reserved
+pnp: 00:01: ioport range 0x4400-0x447f has been reserved
+pnp: 00:01: ioport range 0x4480-0x44ff could not be reserved
+pnp: 00:01: ioport range 0x4800-0x487f has been reserved
+pnp: 00:01: ioport range 0x4880-0x48ff has been reserved
+PCI: Bridge: 0000:00:09.0
+  IO window: 7000-8fff
+  MEM window: d6000000-d7ffffff
+  PREFETCH window: d8100000-d81fffff
+PCI: Bridge: 0000:00:0b.0
+  IO window: disabled.
+  MEM window: disabled.
+  PREFETCH window: disabled.
+PCI: Bridge: 0000:00:0c.0
+  IO window: disabled.
+  MEM window: disabled.
+  PREFETCH window: disabled.
+PCI: Bridge: 0000:00:0d.0
+  IO window: 9000-9fff
+  MEM window: d0000000-d2ffffff
+  PREFETCH window: c0000000-cfffffff
+PCI: Bridge: 0000:00:0e.0
+  IO window: a000-afff
+  MEM window: d3000000-d5ffffff
+  PREFETCH window: b0000000-bfffffff
+PCI: Setting latency timer of device 0000:00:09.0 to 64
+PCI: Setting latency timer of device 0000:00:0b.0 to 64
+PCI: Setting latency timer of device 0000:00:0c.0 to 64
+PCI: Setting latency timer of device 0000:00:0d.0 to 64
+PCI: Setting latency timer of device 0000:00:0e.0 to 64
+NET: Registered protocol family 2
+IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+TCP established hash table entries: 131072 (order: 7, 524288 bytes)
+TCP bind hash table entries: 65536 (order: 6, 262144 bytes)
+TCP: Hash tables configured (established 131072 bind 65536)
+TCP reno registered
+audit: initializing netlink socket (disabled)
+audit(1168535009.824:1): initialized
+VFS: Disk quotas dquot_6.5.1
+Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+Initializing Cryptographic API
+io scheduler noop registered
+io scheduler anticipatory registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+PCI: Linking AER extended capability on 0000:00:0b.0
+PCI: Linking AER extended capability on 0000:00:0c.0
+PCI: Linking AER extended capability on 0000:00:0d.0
+PCI: Linking AER extended capability on 0000:00:0e.0
+PCI: Setting latency timer of device 0000:00:0b.0 to 64
+pcie_portdrv_probe-&gt;Dev[005d:10de] has invalid IRQ. Check vendor BIOS
+assign_interrupt_mode Found MSI capability
+Allocate Port Service[0000:00:0b.0:pcie00]
+Allocate Port Service[0000:00:0b.0:pcie03]
+PCI: Setting latency timer of device 0000:00:0c.0 to 64
+pcie_portdrv_probe-&gt;Dev[005d:10de] has invalid IRQ. Check vendor BIOS
+assign_interrupt_mode Found MSI capability
+Allocate Port Service[0000:00:0c.0:pcie00]
+Allocate Port Service[0000:00:0c.0:pcie03]
+PCI: Setting latency timer of device 0000:00:0d.0 to 64
+pcie_portdrv_probe-&gt;Dev[005d:10de] has invalid IRQ. Check vendor BIOS
+assign_interrupt_mode Found MSI capability
+Allocate Port Service[0000:00:0d.0:pcie00]
+Allocate Port Service[0000:00:0d.0:pcie03]
+PCI: Setting latency timer of device 0000:00:0e.0 to 64
+pcie_portdrv_probe-&gt;Dev[005d:10de] has invalid IRQ. Check vendor BIOS
+assign_interrupt_mode Found MSI capability
+Allocate Port Service[0000:00:0e.0:pcie00]
+Allocate Port Service[0000:00:0e.0:pcie03]
+isapnp: Scanning for PnP cards...
+isapnp: No Plug &amp; Play device found
+Serial: 8250/16550 driver $Revision: 1.90 $ 4 ports, IRQ sharing enabled
+serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+00:08: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+RAMDISK driver initialized: 16 RAM disks of 8192K size 1024 blocksize
+PNP: PS/2 Controller [PNP0303:PS2K] at 0x60,0x64 irq 1
+PNP: PS/2 controller doesn't have AUX irq; using default 12
+serio: i8042 AUX port at 0x60,0x64 irq 12
+serio: i8042 KBD port at 0x60,0x64 irq 1
+mice: PS/2 mouse device common for all mice
+EISA: Probing bus 0 at eisa.0
+Cannot allocate resource for EISA slot 4
+Cannot allocate resource for EISA slot 7
+Cannot allocate resource for EISA slot 8
+EISA: Detected 0 cards.
+TCP bic registered
+NET: Registered protocol family 1
+NET: Registered protocol family 17
+NET: Registered protocol family 8
+NET: Registered protocol family 20
+Using IPI Shortcut mode
+ACPI: (supports S0 S1 S3 S4 S5)
+Freeing unused kernel memory: 256k freed
+Time: tsc clocksource has been installed.
+ACPI: Fan [FAN] (on)
+ACPI: Getting cpuindex for acpiid 0x1
+ACPI: Thermal Zone [THRM] (40 C)
+usbcore: registered new driver usbfs
+usbcore: registered new driver hub
+SCSI subsystem initialized
+ohci_hcd: 2005 April 22 USB 1.1 'Open' Host Controller (OHCI) Driver (PCI)
+ACPI: PCI Interrupt Link [APCF] enabled at IRQ 23
+ACPI: PCI Interrupt 0000:00:02.0[A] -&gt; Link [APCF] -&gt; GSI 23 (level, low) -&gt; IRQ 217
+PCI: Setting latency timer of device 0000:00:02.0 to 64
+ohci_hcd 0000:00:02.0: OHCI Host Controller
+ohci_hcd 0000:00:02.0: new USB bus registered, assigned bus number 1
+ohci_hcd 0000:00:02.0: irq 217, io mem 0xd8004000
+forcedeth.c: Reverse Engineered nForce ethernet driver. Version 0.56.
+libata version 2.00 loaded.
+ieee1394: Initialized config rom entry `ip1394'
+usb usb1: configuration #1 chosen from 1 choice
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 10 ports detected
+input: AT Translated Set 2 keyboard as /class/input/input0
+ACPI: PCI Interrupt Link [APCL] enabled at IRQ 22
+ACPI: PCI Interrupt 0000:00:02.1[b] -&gt; Link [APCL] -&gt; GSI 22 (level, low) -&gt; IRQ 225
+PCI: Setting latency timer of device 0000:00:02.1 to 64
+ehci_hcd 0000:00:02.1: EHCI Host Controller
+ehci_hcd 0000:00:02.1: new USB bus registered, assigned bus number 2
+ehci_hcd 0000:00:02.1: debug port 1
+PCI: cache line size of 64 is not supported by device 0000:00:02.1
+ehci_hcd 0000:00:02.1: irq 225, io mem 0xfeb00000
+ehci_hcd 0000:00:02.1: USB 2.0 started, EHCI 1.00, driver 10 Dec 2004
+usb usb2: configuration #1 chosen from 1 choice
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 10 ports detected
+ACPI: PCI Interrupt Link [APCH] enabled at IRQ 21
+ACPI: PCI Interrupt 0000:00:0a.0[A] -&gt; Link [APCH] -&gt; GSI 21 (level, low) -&gt; IRQ 233
+PCI: Setting latency timer of device 0000:00:0a.0 to 64
+forcedeth: using HIGHDMA
+eth0: forcedeth.c: subsystem: 01043:8141 bound to 0000:00:0a.0
+sata_nv 0000:00:07.0: version 2.0
+ACPI: PCI Interrupt Link [APSI] enabled at IRQ 20
+ACPI: PCI Interrupt 0000:00:07.0[A] -&gt; Link [APSI] -&gt; GSI 20 (level, low) -&gt; IRQ 50
+PCI: Setting latency timer of device 0000:00:07.0 to 64
+ata1: SATA max UDMA/133 cmd 0x9F0 ctl 0xBF2 bmdma 0xD800 irq 50
+ata2: SATA max UDMA/133 cmd 0x970 ctl 0xB72 bmdma 0xD808 irq 50
+scsi0 : sata_nv
+usb 2-4: new high speed USB device using ehci_hcd and address 3
+usb 2-4: configuration #1 chosen from 1 choice
+Uniform Multi-Platform E-IDE driver Revision: 7.00alpha2
+ide: Assuming 33MHz system bus speed for PIO modes; override with idebus=xx
+Initializing USB Mass Storage driver...
+ata1: SATA link down (SStatus 0 SControl 300)
+scsi1 : sata_nv
+usb 1-2: new low speed USB device using ohci_hcd and address 2
+ata2: SATA link down (SStatus 0 SControl 300)
+ACPI: PCI Interrupt Link [APSJ] enabled at IRQ 23
+ACPI: PCI Interrupt 0000:00:08.0[A] -&gt; Link [APSJ] -&gt; GSI 23 (level, low) -&gt; IRQ 217
+PCI: Setting latency timer of device 0000:00:08.0 to 64
+ata3: SATA max UDMA/133 cmd 0x9E0 ctl 0xBE2 bmdma 0xC400 irq 217
+ata4: SATA max UDMA/133 cmd 0x960 ctl 0xB62 bmdma 0xC408 irq 217
+scsi2 : sata_nv
+usb 1-2: configuration #1 chosen from 1 choice
+scsi4 : SCSI emulation for USB Mass Storage devices
+usbcore: registered new driver usb-storage
+USB Mass Storage support registered.
+usb-storage: device found at 3
+usb-storage: waiting for device to settle before scanning
+usbcore: registered new driver hiddev
+input: Logitech Trackball as /class/input/input1
+input: USB HID v1.10 Mouse [Logitech Trackball] on usb-0000:00:02.0-2
+usbcore: registered new driver usbhid
+drivers/usb/input/hid-core.c: v2.6:USB HID core driver
+ata3: SATA link down (SStatus 0 SControl 300)
+ata3: EH pending after completion, repeating EH (cnt=4)
+scsi3 : sata_nv
+ata4: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+ata4.00: ATA-7, max UDMA/133, 490234752 sectors: LBA48 NCQ (depth 0/32)
+ata4.00: ata4: dev 0 multi count 1
+ata4.00: configured for UDMA/133
+  Vendor: ATA       Model: WDC WD2500YS-01S  Rev: 20.0
+  Type:   Direct-Access                      ANSI SCSI revision: 05
+NFORCE-CK804: IDE controller at PCI slot 0000:00:06.0
+NFORCE-CK804: chipset revision 242
+NFORCE-CK804: not 100% native mode: will probe irqs later
+NFORCE-CK804: 0000:00:06.0 (rev f2) UDMA133 controller
+    ide0: BM-DMA at 0xf000-0xf007, BIOS settings: hda:DMA, hdb:DMA
+    ide1: BM-DMA at 0xf008-0xf00f, BIOS settings: hdc:DMA, hdd:DMA
+Probing IDE interface ide0...
+SCSI device sda: 490234752 512-byte hdwr sectors (251000 MB)
+sda: Write Protect is off
+sda: Mode Sense: 00 3a 00 00
+SCSI device sda: drive cache: write back
+SCSI device sda: 490234752 512-byte hdwr sectors (251000 MB)
+sda: Write Protect is off
+sda: Mode Sense: 00 3a 00 00
+SCSI device sda: drive cache: write back
+ sda: sda1 sda2 &lt; sda5 &gt; sda3 sda4
+sd 3:0:0:0: Attached scsi disk sda
+hda: LITE-ON DVDRW SHW-160P6S, ATAPI CD/DVD-ROM drive
+ide0 at 0x1f0-0x1f7,0x3f6 on irq 14
+Probing IDE interface ide1...
+sata_sil 0000:05:0a.0: version 2.0
+ACPI: PCI Interrupt Link [APC4] enabled at IRQ 19
+ACPI: PCI Interrupt 0000:05:0a.0[A] -&gt; Link [APC4] -&gt; GSI 19 (level, low) -&gt; IRQ 58
+sata_sil 0000:05:0a.0: Applying R_ERR on DMA activate FIS errata fix
+ata5: SATA max UDMA/100 cmd 0xF8820080 ctl 0xF882008A bmdma 0xF8820000 irq 58
+ata6: SATA max UDMA/100 cmd 0xF88200C0 ctl 0xF88200CA bmdma 0xF8820008 irq 58
+ata7: SATA max UDMA/100 cmd 0xF8820280 ctl 0xF882028A bmdma 0xF8820200 irq 58
+ata8: SATA max UDMA/100 cmd 0xF88202C0 ctl 0xF88202CA bmdma 0xF8820208 irq 58
+scsi5 : sata_sil
+hda: ATAPI 48X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(66)
+Uniform CD-ROM driver Revision: 3.20
+ata5: SATA link down (SStatus 0 SControl 310)
+scsi6 : sata_sil
+ata6: SATA link down (SStatus 0 SControl 310)
+scsi7 : sata_sil
+ata7: SATA link down (SStatus 0 SControl 310)
+scsi8 : sata_sil
+ata8: SATA link down (SStatus 0 SControl 310)
+ACPI: PCI Interrupt Link [APC2] enabled at IRQ 17
+ACPI: PCI Interrupt 0000:05:0c.0[A] -&gt; Link [APC2] -&gt; GSI 17 (level, low) -&gt; IRQ 66
+skge 1.6 addr 0xd7004000 irq 66 chip Yukon-Lite rev 9
+skge eth0: addr 00:15:f2:e7:5e:9f
+ACPI: PCI Interrupt Link [APC1] enabled at IRQ 16
+ACPI: PCI Interrupt 0000:05:0b.0[A] -&gt; Link [APC1] -&gt; GSI 16 (level, low) -&gt; IRQ 74
+ohci1394: fw-host0: OHCI-1394 1.1 (PCI): IRQ=[74]  MMIO=[d7009000-d70097ff]  Max Packet=[2048]  IR/IT contexts=[4/8]
+Attempting manual resume
+kjournald starting.  Commit interval 5 seconds
+EXT3-fs: mounted filesystem with ordered data mode.
+  Vendor: _NEC      Model: DVD_RW ND-3540A   Rev: 1.01
+  Type:   CD-ROM                             ANSI SCSI revision: 00
+usb-storage: device scan complete
+ieee1394: Host added: ID:BUS[0-00:1023]  GUID[0011d8000098bb22]
+input: PC Speaker as /class/input/input2
+ts: Compaq touchscreen protocol output
+Real Time Clock Driver v1.12ac
+Floppy drive(s): fd0 is 1.44M
+sr0: scsi3-mmc drive: 48x/48x writer cd/rw xa/form2 cdda tray
+sr 4:0:0:0: Attached scsi CD-ROM sr0
+parport: PnPBIOS parport detected.
+parport0: PC-style at 0x378 (0x778), irq 7, dma 3 [PCSPP,TRISTATE,COMPAT,ECP,DMA]
+FDC 0 is a post-1991 82077
+sd 3:0:0:0: Attached scsi generic sg0 type 0
+sr 4:0:0:0: Attached scsi generic sg1 type 5
+eth1394: eth1: IEEE-1394 IPv4 over 1394 Ethernet (fw-host0)
+Intel 810 + AC97 Audio, version 1.01, 16:24:22 Dec  4 2006
+ACPI: PCI Interrupt Link [APCJ] enabled at IRQ 22
+ACPI: PCI Interrupt 0000:00:04.0[A] -&gt; Link [APCJ] -&gt; GSI 22 (level, low) -&gt; IRQ 225
+PCI: Setting latency timer of device 0000:00:04.0 to 64
+i810: NVIDIA nForce Audio found at IO 0xe000 and 0xdc00, MEM 0x0000 and 0x0000, IRQ 225<b>
+i810_audio: Audio Controller supports 6 channels.
+i810_audio: Defaulting to base 2 channel mode.
+i810_audio: Resetting connection 0
+ac97_codec: AC97  codec, id: ALG144 (Unknown)
+i810_audio: only 48Khz playback available.
+i810_audio: AC'97 codec 0 Unable to map surround DAC's (or DAC's not present), total channels = 2</b>
+i2c_adapter i2c-0: nForce2 SMBus adapter at 0x4c00
+i2c_adapter i2c-1: nForce2 SMBus adapter at 0x4c40
+Adding 497972k swap on /dev/sda5.  Priority:-1 extents:1 across:497972k
+EXT3 FS on sda3, internal journal
+loop: loaded (max 8 devices)
+ieee1394: sbp2: Driver forced to serialize I/O (serialize_io=1)
+ieee1394: sbp2: Try serialize_io=0 for better performance
+device-mapper: ioctl: 4.7.0-ioctl (2006-06-24) initialised: dm-devel@redhat.com
+kjournald starting.  Commit interval 5 seconds
+EXT3 FS on sda1, internal journal
+EXT3-fs: mounted filesystem with ordered data mode.
+kjournald starting.  Commit interval 5 seconds
+EXT3 FS on sda4, internal journal
+EXT3-fs: mounted filesystem with ordered data mode.
+ACPI: Power Button (FF) [PWRF]
+ACPI: Power Button (CM) [PWRB]
+ISO 9660 Extensions: Microsoft Joliet Level 3
+ISO 9660 Extensions: RRIP_1991A
+NET: Registered protocol family 10
+lo: Disabled Privacy Extensions
+IPv6 over IPv4 tunneling driver
+eth2: no IPv6 routers present
+Linux agpgart interface v0.101 (c) Dave Jones
+nvidia: module license 'NVIDIA' taints kernel.
+PCI: Enabling device 0000:02:00.0 (0000 -&gt; 0003)
+ACPI: PCI Interrupt 0000:02:00.0[A] -&gt; Link [APC4] -&gt; GSI 19 (level, low) -&gt; IRQ 58
+PCI: Setting latency timer of device 0000:02:00.0 to 64
+ACPI: PCI Interrupt Link [APC3] enabled at IRQ 18
+ACPI: PCI Interrupt 0000:01:00.0[A] -&gt; Link [APC3] -&gt; GSI 18 (level, low) -&gt; IRQ 82
+PCI: Setting latency timer of device 0000:01:00.0 to 64
+NVRM: loading NVIDIA UNIX x86 Kernel Module  1.0-9746  Fri Dec 15 09:54:45 PST 2006
+PCI: Setting latency timer of device 0000:02:00.0 to 64
+PCI: Setting latency timer of device 0000:01:00.0 to 64
+NVRM: loading NVIDIA UNIX x86 Kernel Module  1.0-9746  Fri Dec 15 09:54:45 PST 2006</div></pre>
+</div>
+<br />
+i bolded the lines about the audio.<br />
+<br />
+issues with this setup:<br />
+<br />
+1.  no audio.  this is a biggy<br />
+2.  still pathetic FPS with SLI configured:<br />
+<br />
+here is my xorg.conf:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">cat /etc/X11/xorg.conf
+# nvidia-xconfig: X configuration file generated by nvidia-xconfig
+# nvidia-xconfig:  version 1.0  (buildmeister@builder3)  Fri Dec 15 10:12:14 PST 2006
+
+# /etc/X11/xorg.conf (xorg X Window System server configuration file)
+#
+# This file was generated by dexconf, the Debian X Configuration tool, using
+# values from the debconf database.
+#
+# Edit this file with caution, and see the /etc/X11/xorg.conf manual page.
+# (Type &quot;man /etc/X11/xorg.conf&quot; at the shell prompt.)
+#
+# This file is automatically updated on xserver-xorg package upgrades *only*
+# if it has not been modified since the last upgrade of the xserver-xorg
+# package.
+#
+# If you have edited this file but would like it to be automatically updated
+# again, run the following command:
+#   sudo dpkg-reconfigure -phigh xserver-xorg
+
+Section &quot;ServerLayout&quot;
+    Identifier     &quot;Default Layout&quot;
+    Screen         &quot;Default Screen&quot; 0 0
+    InputDevice    &quot;Generic Keyboard&quot;
+    InputDevice    &quot;Configured Mouse&quot;
+EndSection
+
+Section &quot;Files&quot;
+
+        # path to defoma fonts
+    FontPath        &quot;/usr/share/fonts/X11/misc&quot;
+    FontPath        &quot;/usr/X11R6/lib/X11/fonts/misc&quot;
+    FontPath        &quot;/usr/share/fonts/X11/cyrillic&quot;
+    FontPath        &quot;/usr/X11R6/lib/X11/fonts/cyrillic&quot;
+    FontPath        &quot;/usr/share/fonts/X11/100dpi/:unscaled&quot;
+    FontPath        &quot;/usr/X11R6/lib/X11/fonts/100dpi/:unscaled&quot;
+    FontPath        &quot;/usr/share/fonts/X11/75dpi/:unscaled&quot;
+    FontPath        &quot;/usr/X11R6/lib/X11/fonts/75dpi/:unscaled&quot;
+    FontPath        &quot;/usr/share/fonts/X11/Type1&quot;
+    FontPath        &quot;/usr/X11R6/lib/X11/fonts/Type1&quot;
+    FontPath        &quot;/usr/share/fonts/X11/100dpi&quot;
+    FontPath        &quot;/usr/X11R6/lib/X11/fonts/100dpi&quot;
+    FontPath        &quot;/usr/share/fonts/X11/75dpi&quot;
+    FontPath        &quot;/usr/X11R6/lib/X11/fonts/75dpi&quot;
+    FontPath        &quot;/var/lib/defoma/x-ttcidfont-conf.d/dirs/TrueType&quot;
+EndSection
+
+Section &quot;Module&quot;
+    Load           &quot;i2c&quot;
+    Load           &quot;bitmap&quot;
+    Load           &quot;ddc&quot;
+    Load           &quot;extmod&quot;
+    Load           &quot;freetype&quot;
+    Load           &quot;glx&quot;
+    Load           &quot;int10&quot;
+    Load           &quot;vbe&quot;
+EndSection
+
+Section &quot;InputDevice&quot;
+    Identifier     &quot;Generic Keyboard&quot;
+    Driver         &quot;kbd&quot;
+    Option         &quot;CoreKeyboard&quot;
+    Option         &quot;XkbRules&quot; &quot;xorg&quot;
+    Option         &quot;XkbModel&quot; &quot;pc104&quot;
+    Option         &quot;XkbLayout&quot; &quot;us&quot;
+EndSection
+
+Section &quot;InputDevice&quot;
+    Identifier     &quot;Configured Mouse&quot;
+    Driver         &quot;mouse&quot;
+    Option         &quot;CorePointer&quot;
+    Option         &quot;Device&quot; &quot;/dev/input/mice&quot;
+    Option         &quot;Protocol&quot; &quot;ImPS/2&quot;
+    Option         &quot;Emulate3Buttons&quot; &quot;true&quot;
+EndSection
+
+Section &quot;Monitor&quot;
+    Identifier     &quot;Generic Monitor&quot;
+    HorizSync       28.0 - 64.0
+    VertRefresh     43.0 - 60.0
+    Option         &quot;DPMS&quot;
+EndSection
+
+Section &quot;Device&quot;
+    Identifier     &quot;Generic Video Card&quot;
+    Driver         &quot;nvidia&quot;
+EndSection
+
+Section &quot;Screen&quot;
+    Identifier     &quot;Default Screen&quot;
+    Device         &quot;Generic Video Card&quot;
+    Monitor        &quot;Generic Monitor&quot;
+    DefaultDepth    24
+ <b>   Option         &quot;MultiGPU&quot; &quot;on&quot;
+    Option         &quot;SLI&quot; &quot;on&quot;</b>
+    SubSection     &quot;Display&quot;
+        Depth       1
+        Modes      &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot;
+    EndSubSection
+    SubSection     &quot;Display&quot;
+        Depth       4
+        Modes      &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot;
+    EndSubSection
+    SubSection     &quot;Display&quot;
+        Depth       8
+        Modes      &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot;
+    EndSubSection
+    SubSection     &quot;Display&quot;
+        Depth       15
+        Modes      &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot;
+    EndSubSection
+    SubSection     &quot;Display&quot;
+        Depth       16
+        Modes      &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot;
+    EndSubSection
+    SubSection     &quot;Display&quot;
+        Depth       24
+        Modes      &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot;
+    EndSubSection
+EndSection</div></pre>
+</div>
+<br />
+again i bolded the 2 lines that nvidia-xconfig added to enable SLI yet i am getting pathetic results:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:194px; overflow:auto"><div dir="ltr" style="text-align:left;">glxgears -printfps
+28907 frames in 5.0 seconds = 5781.381 FPS
+29184 frames in 5.0 seconds = 5836.711 FPS
+29134 frames in 5.0 seconds = 5826.647 FPS
+29684 frames in 5.0 seconds = 5936.627 FPS
+29386 frames in 5.0 seconds = 5877.074 FPS
+29352 frames in 5.0 seconds = 5870.260 FPS
+29113 frames in 5.0 seconds = 5822.582 FPS
+29532 frames in 5.0 seconds = 5906.377 FPS
+29548 frames in 5.0 seconds = 5909.575 FPS
+29356 frames in 5.0 seconds = 5871.175 FPS</div></pre>
+</div>
+<br />
+that is just pathetic.  my older P4 with an AGP 6800 256M (maybe only a 128M) gets better then that and only has 1G ram.<br />
+<br />
+yes it too is running debian testing with KDE as its desktop.<br />
+<br />
+NVIDIA-Linux-x86-1.0-9746-pkg1.run<br />
+<br />
+that is the Nvidia driver set i am running.<br />
+<br />
+Please help with the lack of sound, and the pathetic FPS under linux.<br />
+<br />
+thank you.  if you need more information about the system, please tell me what you need and how to get it for you.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>rickh</strong></div>
+				<div style="font-style:italic"># apt-get alsa-base alsa-utils<br />
+# alsaconf<br />
+<br />
+FWIW, I think you should be using aptitude.  Lots of people disagree.  Whichever you use, use it exclusively.  If you decide to change to aptitude, first run ... # aptitude keep-all</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<br />
+worked like a CHARM.  i now have my sound.  many thanks.bloody hell, i grab the drivers from Asus web page for my MB, then try to follow their Readme.txt /rude it fails horridly:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:306px; overflow:auto"><div dir="ltr" style="text-align:left;">u -
+Password:
+debian64:~# ls
+ALC850_Linux.zip  Audio  debian-multimedia.key  Desktop  gpgkey.pub  NVIDIA-Linux-x86-1.0-9746-pkg1.run
+debian64:~# cd Au
+-su: cd: Au: No such file or directory
+debian64:~# cd Audio/
+debian64:~/Audio# cat Readme.txt
+
+The source code copy from www.alsa-project.org.      ver:A2.7
+Linux Source Code for ALC audio codec
+
+Installation:
+This Source Code is from www.alsa-project.org.
+For driver installation, please follow below steps.
+<b>
+Step 1. unzip source code
+        tar xfvj alcsound.tar.bz2</b></div></pre>
+</div>
+<br />
+this file DOES NOT EXSIST!!!!!<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">
+Step 2. Turn on sound support (soundcore module, default turn on)
+
+Step 3. Complied source code
+        a. ./configure
+        b. make
+        c. make install
+        d. ./snddevices
+
+Step 4. Edit your /etc/modules.conf or conf.modules depending on the distribution
+        (Please refer to the attached modules.conf)
+
+Step 5. reboot your machine
+
+Note:   1. The most detail information, can refer the alsa-kernel/Documenttation/ALSA-Configuration.txt
+                in the alcsound.tar.bz2.
+        2. Kernel Version must be 2.2.14 or later.
+        3. All mixer channels are muted by default. You must use a native
+                or OSS mixer program to unmute appropriate channels.
+        4. If can not compile the source code, try to rename the /usr/src/linux-2.x -&gt; /usr/src/linux.
+        5. The driver added to support the SPDIF functoin.
+        6. Suggest use alsamixer to control mixer function. you can find it in the alsa-utils-0.9.4 (www.alsa-project.org).<b>
+debian64:~/Audio# tar xfvj alcsound.tar.bz2
+tar: alcsound.tar.bz2: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error exit delayed from previous errors</b>
+debian64:~/Audio# ls
+alc-082604.tar.bz2  core.h  modules.conf  Readme.txt  turbolinux.txt
+debian64:~/Audio# ls -laF
+total 1984
+drwxr-xr-x 2 root root    4096 2007-01-12 01:17 ./
+drwxr-xr-x 9 root root    4096 2007-01-12 01:19 ../<b>
+-rw-r--r-- 1 root root 1988917 2004-08-31 13:36 alc-082604.tar.bz2</b>
+-rw-r--r-- 1 root root   14439 2004-08-31 13:36 core.h
+-rw-r--r-- 1 root root    1042 2004-08-31 13:36 modules.conf
+-rw-r--r-- 1 root root    1186 2004-08-31 13:37 Readme.txt
+-rw-r--r-- 1 root root     697 2004-08-31 13:36 turbolinux.txt
+debian64:~/Audio# ls
+alc-082604.tar.bz2  core.h  modules.conf  Readme.txt  turbolinux.txt<b>
+debian64:~/Audio# tar xfvj alc-082604.tar.bz2
+tar: bzip2: Cannot exec: No such file or directory
+tar: Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error exit delayed from previous errors
+</b></div></pre>
+</div><br />
+<br />
+oh wait even when i put in the correct file name i still get the same error.  WTF is going on here and what is WRONG?i will try that when i get home.  for some reason that box does not allow for ssh in.  ill have to muck with the host.allow and host.deny files too.# apt-get alsa-base alsa-utils<br />
+# alsaconf<br />
+<br />
+FWIW, I think you should be using aptitude.  Lots of people disagree.  Whichever you use, use it exclusively.  If you decide to change to aptitude, first run ... # aptitude keep-allYou are not getting same error ... pay closer attention. bzip2 is not installed.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>rickh</strong></div>
+				<div style="font-style:italic">Did you try # alsaconf?</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:114px; overflow:auto"><div dir="ltr" style="text-align:left;"># apt-get install alsaconf
+Reading package lists... Done
+Building dependency tree... Done
+E: Couldn't find package alsaconf
+debian64:~/Audio/alsa-driver-1.0.4# apt-cache search alsaconf
+debian64:~/Audio/alsa-driver-1.0.4#                              </div></pre>
+</div>
+<br />
+no clue were to go from there.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>Emerson</strong></div>
+				<div style="font-style:italic">You are not getting same error ... pay closer attention. bzip2 is not installed.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+thank you, that is how new i am to the real linux world...  next question:<br />
+<br />
+Step 2. Turn on sound support (soundcore module, default turn on)<br />
+<br />
+how do i do that?<br />
+<br />
+after adding bzip2 and tar xvfj i got a typical long string of files, next step is the turn on sound support???  no clue how do to this, and no clue were to go for step 3 - 4:<br />
+<br />
+Step 3. Complied source code<br />
+        a. ./configure<br />
+        b. make<br />
+        c. make install<br />
+        d. ./snddevices<br />
+<br />
+Step 4. Edit your /etc/modules.conf or conf.modules depending on the distribution<br />
+        (Please refer to the attached modules.conf)This is about kernel sound support, presumably it is &quot;turned on by default&quot; unless you compiled the kernel yourself and left it out.<br />
+<br />
+What you cannot understand about 3 and 4?<br />
+3 is how you build and install it.<br />
+4 means you need to add your freshly cooked module to a config file to get it loaded at boot.<br />
+<br />
+Tip: Use bash autocompletion with TAB key and your paths/filenames will be always correct. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />

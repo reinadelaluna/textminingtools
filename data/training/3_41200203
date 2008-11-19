@@ -1,0 +1,144 @@
+Hi,
+<br />
+
+<br />
+we run a dual opteron 246 system with pure64 here for
+<br />
+80 days now. the server only runs mysql 4.1. i always
+<br />
+use the latest official mysql 4.1 binary
+<br />
+&quot;mysql-standard-4.1.7-unknown-linux-x86_64-glibc23.tar.gz&quot;
+<br />
+
+<br />
+after changing pure64 to gcc-3.4 in apt/sources.list
+<br />
+and dist-upgrade, mysql always hang. tables got locked
+<br />
+but not unloked, so all queries blocked. also trying
+<br />
+to killall mysqld wasn't able - it just killed nothing
+<br />
+and the server kept running.
+<br />
+
+<br />
+does anybody know why this happens? did i miss anything
+<br />
+important to upgrade? (i read something about apt-get
+<br />
+--reinstall - how to to this with all packages? it always
+<br />
+wants a list of packages...)
+<br />
+
+<br />
+we reinstalled the whole system using pure64 and it works
+<br />
+again, so it must be something related to gcc-3.4.
+<br />
+
+<br />
+it would be great it someone could tell me how to upgrade
+<br />
+to gcc-3.4 from pure64 so everything just works fine but
+<br />
+a with a little more performance :)
+<br />
+
+<br />
+thanks a lot,
+<br />
+corin
+<br />
+
+<br />
+
+<br />
+
+<br />
+On 04-Dec-11 11:27, Corin Langosch wrote:
+<br />
+&gt; we run a dual opteron 246 system with pure64 here for
+<br />
+&gt; 80 days now. the server only runs mysql 4.1. i always
+<br />
+&gt; use the latest official mysql 4.1 binary
+<br />
+&gt; &quot;mysql-standard-4.1.7-unknown-linux-x86_64-glibc23.tar.gz&quot;
+<br />
+
+<br />
+Why don't you use the mysql package from the gcc-3.4 archive? 
+<br />
+I got some reports which indicated that this works fine.
+<br />
+
+<br />
+&gt; after changing pure64 to gcc-3.4 in apt/sources.list
+<br />
+&gt; and dist-upgrade, mysql always hang. tables got locked
+<br />
+&gt; but not unloked, so all queries blocked. also trying
+<br />
+&gt; to killall mysqld wasn't able - it just killed nothing
+<br />
+&gt; and the server kept running.
+<br />
+&gt; 
+<br />
+&gt; does anybody know why this happens? did i miss anything
+<br />
+&gt; important to upgrade? (i read something about apt-get
+<br />
+&gt; --reinstall - how to to this with all packages? it always
+<br />
+&gt; wants a list of packages...)
+<br />
+
+<br />
+You need to 'apt-get install --reinstall' all packages which use the 
+<br />
+'libstdc++5' when you upgrade from pure64 to the gcc-3.4 archive.
+<br />
+
+<br />
+Regards
+<br />
+Andreas Jochens
+<br />
+
+<br />
+
+<br />
+
+<br />
+On 04-Dec-11 14:03, Andreas Jochens wrote:
+<br />
+&gt; You need to 'apt-get install --reinstall' all packages which use the 
+<br />
+&gt; 'libstdc++5' when you upgrade from pure64 to the gcc-3.4 archive.
+<br />
+
+<br />
+An easy way to achieve this would be something like this:
+<br />
+
+<br />
+dpkg --get-selections | grep -w install | awk '{print $1}' | xargs -m 10 
+<br />
+-- apt-get -y --reinstall install
+<br />
+
+<br />
+Regards
+<br />
+Andreas Jochens
+<br />
+
+<br />
+
+<br />
+
+<br />

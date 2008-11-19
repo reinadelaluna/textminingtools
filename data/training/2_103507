@@ -1,0 +1,13 @@
+Which program i should use to burn nrg (nero) images i have under linux?Having searched LQ...<br />
+<br />
+A few answers are here:<br />
+<br />
+<a href="http://www.linuxquestions.org/questions/archive/2/2003/09/1/21921" >http://www.linuxquestions.org/questi...003/09/1/21921</a><br />
+<br />
+Try this one to convert the .nrg file to an .iso<br />
+<br />
+dd bs=1k if=image.nrg of=image.iso skip=300<br />
+<br />
+then burn using your usual tools.Apparently, you can use Nero on Linux thru wine. It's not practical and kinda useless. frogman's suggestions is your best shot, but just so you know, Nero runs on Linux:<br />
+<br />
+<a href="http://frankscorner.org/modules.php?op=modload&amp;name=Sections&amp;file=index&amp;req=viewarticle&amp;artid=34&amp;page=1" target="_blank">http://frankscorner.org/modules.php?...rtid=34&amp;page=1</a>

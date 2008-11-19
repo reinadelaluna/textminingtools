@@ -1,0 +1,410 @@
+Il Thu, 11 May 2006 14:48:19 +0200
+<br />
+Harald Wenninger &lt;usenet@bobok.org&gt; scrisse:
+<br />
+
+<br />
+&gt; my PCI wireless lan adapter recently got killed in an accident ;-(
+<br />
+&gt; so I'm searching for a new one.
+<br />
+&gt; I'd prefer a adapter which is directly supported by the kernel and not
+<br />
+&gt; via ndiswrapper, but if there are adapters which are real better and
+<br />
+&gt; only run with ndiswrapper, that's not the problem.
+<br />
+&gt; Which one would you recommend?
+<br />
+
+<br />
+I use a Trust speedTurbo with madwifi with no problem
+<br />
+
+<br />
+-- 
+<br />
+Sythos - <a  href="http://www.sythos.net">http://www.sythos.net</a>
+<br />
+
+<br />
+  ()  ASCII Ribbon Campaign - against html/rtf/vCard in mail
+<br />
+  /\                        - against M$ attachments
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Thursday 11 May 2006 20:04, Joachim Pedersen wrote:
+<br />
+&gt; I've found this site invaluable when I comes to wireless in linux:
+<br />
+&gt; <a  href="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/">http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/</a>
+<br />
+&gt;
+<br />
+&gt; Right now I use A RT2500 Device
+<br />
+&gt; <a  href="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Linux.Wireless.drivers">http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Linux.Wireless.drivers</a>
+<br />
+&gt;.802.11ag.html#Ralink2500
+<br />
+&gt;
+<br />
+&gt; It's not supported in kernel, but all the drivers are GPL, and in
+<br />
+&gt; Debian (see &quot;apt-cache search rt2500&quot; ) And it works GREAT!
+<br />
+&gt;
+<br />
+
+<br />
+Note: For smp kernels (like Athlon64 X2 ), you have to get a current cvs 
+<br />
+snapshot, since the smp support was added to the rt2500 module less than a 
+<br />
+month ago. I guess the rt2500 package uses a released version, so it won't 
+<br />
+work (but I haven't tried lately, only months ago).
+<br />
+
+<br />
+--
+<br />
+Antonio Larrosa
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Thu, May 11, 2006 at 02:48:19PM +0200, Harald Wenninger wrote:
+<br />
+&gt; my PCI wireless lan adapter recently got killed in an accident ;-(
+<br />
+&gt; so I'm searching for a new one.
+<br />
+&gt; I'd prefer a adapter which is directly supported by the kernel and not
+<br />
+&gt; via ndiswrapper, but if there are adapters which are real better and
+<br />
+&gt; only run with ndiswrapper, that's not the problem.
+<br />
+&gt; Which one would you recommend?
+<br />
+
+<br />
+<a  href="http://linux-wless.passys.nl/query_hostif.php?hostif=PCI&amp;zoek=Show">http://linux-wless.passys.nl/query_hostif.php?hostif=PCI&amp;zoek=Show</a> might
+<br />
+be useful, although most of the cards are probably not made anymore.
+<br />
+
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+Hi Harald,
+<br />
+
+<br />
+if USB is an option, then you might want to check this page:
+<br />
+
+<br />
+	<a  href="http://zd1211.ath.cx/">http://zd1211.ath.cx/</a>
+<br />
+
+<br />
+Got mine for about 20 Euro on Ebay.
+<br />
+
+<br />
+
+<br />
+Regards
+<br />
+
+<br />
+Harri
+<br />
+
+<br />
+
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00009.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> OpenPGP digital signature</p>
+<br />
+
+<br />
+On Thu, May 11, 2006 at 02:48:19PM +0200, Harald Wenninger wrote:
+<br />
+&gt; my PCI wireless lan adapter recently got killed in an accident ;-(
+<br />
+&gt; so I'm searching for a new one.
+<br />
+&gt; I'd prefer a adapter which is directly supported by the kernel and not
+<br />
+&gt; via ndiswrapper, but if there are adapters which are real better and
+<br />
+&gt; only run with ndiswrapper, that's not the problem.
+<br />
+&gt; Which one would you recommend?
+<br />
+
+<br />
+Atheros chipset works well for me. Non-free driver but native at least.
+<br />
+I didn't use it on amd64 though.
+<br />
+
+<br />
+
+<br />
+Hamish
+<br />
+-- 
+<br />
+Hamish Moffatt VK3SB &lt;hamish@debian.org&gt; &lt;hamish@cloud.net.au&gt;
+<br />
+
+<br />
+
+<br />
+
+<br />
+Hi,
+<br />
+
+<br />
+my PCI wireless lan adapter recently got killed in an accident ;-(
+<br />
+so I'm searching for a new one.
+<br />
+I'd prefer a adapter which is directly supported by the kernel and not
+<br />
+via ndiswrapper, but if there are adapters which are real better and
+<br />
+only run with ndiswrapper, that's not the problem.
+<br />
+Which one would you recommend?
+<br />
+
+<br />
+Greetings,
+<br />
+Harald
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00008.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> Digital signature</p>
+<br />
+
+<br />
+On Thu, May 11, 2006 at 02:48:19PM +0200, Harald Wenninger wrote:
+<br />
+&gt; my PCI wireless lan adapter recently got killed in an accident ;-(
+<br />
+&gt; so I'm searching for a new one.
+<br />
+&gt; I'd prefer a adapter which is directly supported by the kernel and not
+<br />
+&gt; via ndiswrapper, but if there are adapters which are real better and
+<br />
+&gt; only run with ndiswrapper, that's not the problem.
+<br />
+&gt; Which one would you recommend?
+<br />
+
+<br />
+2.6.17-rc kernels have the bcm43xx reverse engineered driver merged. It
+<br />
+doesn't work perfect yet (no WPA for me, but some have it working), but
+<br />
+good enough to be useful. I use it with a Linksys cardbus WPC54G-v3 EU,
+<br />
+but it's supposed to work with the PCI version as well (I might want to
+<br />
+try that this weekend, have the card but not yet enough time to plug it
+<br />
+into the machine).
+<br />
+
+<br />
+
+<br />
+Erik
+<br />
+
+<br />
+-- 
+<br />
++-- Erik Mouw -- www.harddisk-recovery.com -- +31 70 370 12 90 --
+<br />
+| Lab address: Delftechpark 26, 2628 XH, Delft, The Netherlands
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>I found this site, for the rt2x00 chip used in quite a few wifi 
+<br />
+installations.<br>
+<br />
+The chip manufacture actually supports Linux</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;"><br><a  href="http://rt2x00.serialmonkey.com/wiki/index.php/Hardware">http://rt2x00.serialmonkey.com/wiki/index.php/Hardware</a>
+<br />
+Harald Wenninger wrote:<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hi,</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">my PCI wireless lan adapter recently got killed in an accident ;-(
+<br />
+so I'm searching for a new one.
+<br />
+I'd prefer a adapter which is directly supported by the kernel and not
+<br />
+via ndiswrapper, but if there are adapters which are real better and
+<br />
+only run with ndiswrapper, that's not the problem.
+<br />
+Which one would you recommend?<br>
+<br />
+<tt>Greetings,<br>
+<br />
+Harald<br>
+<br />
+ </tt><br>
+<br />
+<br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<tt>--</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">J. Paul Bissonnette
+<br />
+<a  href="http://canadian-dream.com">http://canadian-dream.com</a><br>
+<br />
+<br>
+<br />
+
+<br />
+<pre style="margin: 0em;">I've found this site invaluable when I comes to wireless in linux:
+<br />
+<a  href="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/">http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/</a><br>
+<br />
+<pre style="margin: 0em;">Right now I use A RT2500 Device
+<br />
+<a  href="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Linux.Wireless.drivers.802.11ag.html#Ralink2500">http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Linux.Wireless.drivers.802.11ag.html#Ralink2500</a><br>
+<br />
+<pre style="margin: 0em;">It's not supported in kernel, but all the drivers are GPL, and in
+<br />
+Debian (see &quot;apt-cache search rt2500&quot; ) And it works GREAT!<br>
+<br />
+<tt><br>**joachimp</tt><br>
+<br />
+<br>
+<br />
+<tt><br>2006/5/11, J. Paul Bissonnette &lt;jpaulb@eastlink.ca&gt;:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">I found this site, for the rt2x00 chip used in quite a few wifi
+<br />
+installations.
+<br />
+The chip manufacture actually supports Linux<br>
+<br />
+<pre style="margin: 0em;"><br><a  href="http://rt2x00.serialmonkey.com/wiki/index.php/Hardware">http://rt2x00.serialmonkey.com/wiki/index.php/Hardware</a>
+<br />
+Harald Wenninger wrote:<br>
+<br />
+<pre style="margin: 0em;">&gt;Hi,
+<br />
+&gt;
+<br />
+&gt;my PCI wireless lan adapter recently got killed in an accident ;-(
+<br />
+&gt;so I'm searching for a new one.
+<br />
+&gt;I'd prefer a adapter which is directly supported by the kernel and not
+<br />
+&gt;via ndiswrapper, but if there are adapters which are real better and
+<br />
+&gt;only run with ndiswrapper, that's not the problem.
+<br />
+&gt;Which one would you recommend?
+<br />
+&gt;
+<br />
+&gt;Greetings,
+<br />
+&gt;Harald
+<br />
+&gt;
+<br />
+&gt;<br>
+<br />
+<tt><br>--</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">J. Paul Bissonnette
+<br />
+<a  href="http://canadian-dream.com">http://canadian-dream.com</a><br>
+<br />
+<pre style="margin: 0em;"><br>--
+<br />
+To UNSUBSCRIBE, email to debian-amd64-REQUEST@lists.debian.org
+<br />
+with a subject of &quot;unsubscribe&quot;. Trouble? Contact listmaster@lists.debian.org<br>
+<br />
+<br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<tt>--</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">-------
+<br />
+skype: joachimdp
+<br />
+MSNmsg' id: joachimp@gmail.com
+<br />
+----------------
+<br />
+Just wiki
+<br />
+<a  href="http://wikipedia.org">http://wikipedia.org</a>
+<br />
+------------------------------
+<br />
+
+<br />

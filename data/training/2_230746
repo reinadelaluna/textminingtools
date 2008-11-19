@@ -1,0 +1,51 @@
+Hello to all, I am a former W$ndoze Addict and have now moved on to SuSe 9.1 Pro and play a little with Mandrake. I am a newbie and must say that I have found replacements for most of that other OS's apps, with the exception of Quickbooks 2003 which I run in Cross Over Office.<br />
+<br />
+My problem is that I am learning as I go, which may be a partial mistake, but what a better time to learn. Anyway, my lack of knowledge may be causing me some problems I can't fix or don't know how. I am running SuSe Pro 9.1 on my laptop which has been working flawlessly for about a month going on two.<br />
+<br />
+Within the last week I have noticed that when I open my /home folder, Cross Over Office and some other applications, it takes roughly 10-15 minutes before they will open up? Whether I open them from the desktop or from the program list.<br />
+<br />
+Now a problem I was having is that my laptop would sit out in the kitchen on the table  plugged in. I would leave it run all night and some mornings I would come out and notice the laptop was dead-off. After this happening several times, I found the GFI breaker was blowing and shutting power off, thus my laptop would run until the battery died. I then moved to another power outlet but then found my wife was blowing out another GFI breaker, again killing the power to the laptop and then the batteries dying.<br />
+<br />
+So I am sure this has something to do with the slowness I am experiencing. My question is how an I get SuSe-Linux to repair any damage this may have caused or what can I try to remedy this problem? I don't get any errors that I am aware of when trying to open the programs. It just takes 10-15 minutes before the programs open up.<br />
+<br />
+I will mention I am running a ECS G732 Laptop, P4 2.66GHz, 512 DDRAM-PC2700, 60GB HD, CD-R/RW, Wireless Netgear WG511, SIS 900 Internal NIC, HSP56K Modem, USB 2.0, Firewire. ATI Radeon 9000 64MB Video Card. SIS 645DX Chipsets.<br />
+<br />
+The only software mods I have done are within the last 2 weeks and they were to Kaffiene, Gxine and Xine. I unistalled the stock programs from SuSe and installed the latest version with Codecs so I could watch DVDs, etc.<br />
+<br />
+I am also running KDE 3.3<br />
+<br />
+I do get an error when I try and open K3B it is “KDEinit could not launch “k3b”<br />
+<br />
+Programs that Open Right Away-To Name A Few<br />
+<br />
+Gimp opens <br />
+Thunderbird and FF <br />
+Control Center<br />
+Open Office<br />
+Kaffiene<br />
+KDE System Guard<br />
+Address Book<br />
+<br />
+<br />
+10-15 Minute Programs-To Name A Few<br />
+<br />
+YAST <br />
+KARAMBA <br />
+/home<br />
+SuSe Help Center<br />
+Kate<br />
+File Manager-Super User Mode<br />
+<br />
+Hope this sheds some light on my problem and hope someone can provide some guidance.<br />
+<br />
+Thanks,<br />
+<br />
+John<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/confused.gif" border="0" alt="" title="Confused" class="inlineimg" />Suggestion #1: SuSE it set up for commercial use, and may have installed/configured many services to start on boot which you don't need. Check the install cd's for kernels. There are several configurations. One of the others might be better suited to your needs. If not, then recompile the kernel and take out what you don't need. Boot and app startup will be much faster after you've done that. <br />
+<br />
+The learn-as-you-go route is a very steep learning curve (been there; done that). Took me about a year before I was confortable with command line operations (previous experience was with dos and win 3.1 when it was all the rage). <a href="http://www.google.com/linux" target="_blank">www.google.com/linux</a> is your friend. Use it to find tutorials, help files, scripts, manuals, etc. It's a great help.<br />
+<br />
+SuSE has a system monitor (click on the SuSE menu icon, then click on System/Info/Procman System Monitor) and look for resource hogs. There are many apps opened but not using cpu; and a few using cpu. Check those to see which are hogging the cpu cycles. Do you really need them? If not, shut them down. <br />
+<br />
+Which startup scripts to edit to prevent their startup is your next task.<br />
+<br />
+Good Luck and welcome to the sysadmin world (as in 'In Linux, you have to learn to be your own sysadmin').

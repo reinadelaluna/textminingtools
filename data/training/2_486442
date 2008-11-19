@@ -1,0 +1,2 @@
+how can i install mp3 codec on suse 10.1?<br />
+thanksIf you use xine backend, get libxine and libxine-extracodecs, probably using YaST. There are multiple topics about this specific &quot;problem&quot;, so use the Search tool on this site and find out the exact steps if you're unable to do it yourself.

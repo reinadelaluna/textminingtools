@@ -1,0 +1,112 @@
+Is there any way that I can check to see if my crontab is set up correctly?  It doesn't appear that my backup job executed automatically.<br />
+<br />
+I was thinking that there are commands to actually add it to the crontab for you?<br />
+<br />
+I suppose I could look all this up in the <b>man</b> but humans explain things a lot better!<br />
+<br />
+Thanks yet again!<font color="Blue">cp -dpR</font> is a useful command for creating a copy of a directory (and recursively copying the sub-directories) with the original permissions. If you like to keep the command brief, <font color="Blue">cp -a</font> is equivalent to <font color="Blue">cp -dpR</font>. So yes, putting it in the loop like that will work fine.Yeah, you can do it with either symlinks or just changing the script - the MySQL database files are under /var/lib/mysql by default.<br />
+<br />
+Running the script multiple times on one day will overwrite the file - running it on separate days creates new files.The line containing <font color="Blue">ARCHIVE=&quot;`/bin/hostname`-`date '+%F'`.tar&quot;</font> does that part. Have a look at the man page for tar, you don't have to do a full backup each time. I just prefer to be able to unzip an archive and get at all the data at once.That deletion can be incorporated into that same script.  Anyways, I'm not worried about that yet, I've got space to last me a while.<br />
+<br />
+How do I add that to crontab?  Isn't there a command that does it?<br />
+<br />
+Thanks yet againHello. I've searched thru the archives and couldn't find exactly what I needed.  I'm looking for a program that will backup my /srv and /etc directories to a 2nd harddrive, and also my mysql database.  Anything simple that could to this, maybe as a cron job?<br />
+<br />
+thanks!<br />
+JonathonAhh, that was really fast! So if I edit my crontab to look like this:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:50px; overflow:auto"><div dir="ltr" style="text-align:left;">0 23 * * fri (/usr/local/bin/backup.sh 2&gt;/dev/null | mail -s &quot;Backup complete&quot; root)
+0 3 * * * (/usr/bin/find /home/backup -type f -iname '*bz2' -mtime +60 -maxdepth 1 -exec rm {} \; | mail -s &quot;Deleted old files&quot; root)</div></pre>
+</div>
+I should be set?  I dont understand that whole second line, but close enough.  And what do those first few things mean? Like 0 23 * * fri   and 0 3 * * *  ?  I think I could have these run every monday morning (It's a mobile web proxy server, so more use is expected on weekends).    Also, for the 60 days is that the +60 (I'm assuming)?<br />
+<br />
+Thanks a lot, you've been a ton of help!actually, maybe i prefer to have it maybe just mirror the /etc   /srv, and /var/lib/mysql directories without even tar-ing them.  Would that just be   a for each KEEPER in $KEEPERS cp $KEEPER  /backup -r    ?  Or is there somethin else  i'm missing?  thanks!I have the following set up in my crontab:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">0 23 * * fri (/usr/local/bin/backup.sh 2&gt;/dev/null | mail -s &quot;Backup complete&quot; root)</div></pre>
+</div>
+/usr/local/bin/backup.sh contains the following (I've modified the keepers line to have /srv and /etc and the BACKUPDIR would be modified to your output locaction):<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">#!/bin/bash
+#
+# $Id: backup.sh,v 1.3 2006/02/03 19:53:02 steve Exp $
+#
+# Backup config/data files to a bzip2'ed tar file
+#
+
+# Locations
+BACKUPDIR=&quot;/usr/local/stuff/backup&quot;
+TMPDIR=&quot;/tmp&quot;
+KEEPERS=&quot;/srv /etc&quot;
+ARCHIVE=&quot;`/bin/hostname`-`date '+%F'`.tar&quot;
+ARCHIVEBZ2=${ARCHIVE}.bz2
+OPTS=&quot;-r --atime-preserve -f&quot;
+FSROOT=&quot;/&quot;
+
+[ -f $BACKUPDIR/$ARCHIVE ] &amp;&amp; /bin/rm -f $BACKUPDIR/$ARCHIVE
+[ -f $BACKUPDIR/$ARCHIVEBZ2 ] &amp;&amp; /bin/rm -f $BACKUPDIR/$ARCHIVEBZ2
+
+echo &quot;Creating tar file&quot;
+for KEEPER in $KEEPERS; do
+  /bin/tar $OPTS ${BACKUPDIR}/${ARCHIVE} -C $FSROOT $KEEPER
+done
+
+echo &quot;Compressing tar file&quot;
+[ -f ${BACKUPDIR}/${ARCHIVE} ] &amp;&amp; /bin/bzip2 -zv ${BACKUPDIR}/${ARCHIVE}
+
+/usr/bin/chmod 0600 ${BACKUPDIR}/${ARCHIVEBZ2}
+
+ls -l ${BACKUPDIR}/${ARCHIVEBZ2}
+
+echo &quot;Done.&quot;</div></pre>
+</div>
+Feel free to take what you want - or use it as the start of a discussion about other ways to backup. There are plenty of people with good advice on the subject here.alright looks good.  I did have to make 2 symlinks for it to work:  <br />
+    /bin/bzip2 -&gt; /usr/bin/bzip2<br />
+    /usr/bin/chmod -&gt; /bin/chmod<br />
+<br />
+now does this make a new tar file every time or will it overwrite?  i have a small backup drive and dont wanna quickly fill it.<br />
+<br />
+also, where is the mysql database stored, or how can i make a recover-able backup of it?<br />
+<br />
+thanks!You can set up a dummy entry to test that cron is running. Use <font color="Blue">crontab -e</font> or add the following to your system crontab. It will append the date to the file /tmp/cron.test every minute:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">* * * * * /usr/bin/date &gt;&gt; /tmp/cron.test</div></pre>
+</div>
+Once you're happy it's running, you only need to change the asterisks to values that control when the job runs.No problem <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> A couple of notes to hopefully explain better what it's doing. The crontab columns are:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Minute Hour Day Month DayOfWeek Command
+			
+		</td>
+	</tr>
+	</table>
+</div>
+So the first crontab entry runs at the 0th minute of the 23rd hour every Friday (11pm every Friday).<br />
+The second entry runs at the 0th minute of the 3rd hour every day (3am every day).<br />
+The find command bits are:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:130px; overflow:auto"><div dir="ltr" style="text-align:left;">/home/backup   Location to search
+-type f        Look for files (not directories, etc.)
+-iname '*bz2'  Look for filenames ending in bz2 (case insensitive)
+-mtime +60     Modification time of more than 60 days
+-maxdepth 1    Don't search sub-directores
+-exec rm       Execute the rm command
+{} \;          This is find's variable containing the found filename e.g. backup.tar.bz2</div></pre>
+</div>Ok, changing my mind again, i think i'll keep the tar files, but will i have to manually delete them after a couple months or so, to keep that drive from getting filled? or is there an easy way to have cron do this to the old ones?  like check the date and if its 2 months old delete itThe fastest way I know to return the list of files in a particular directory, older than a particular number of days would be the following:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">find /home/backup -type f -iname '*bz2' -mtime +60 -maxdepth 1 -exec basename {} \; 2&gt;/dev/null</div></pre>
+</div>
+This returns the names of the bz2 files in /home/backup (non-recursively) that are older than 60 days. Instead of just running <font color="Blue">basename</font>, you could run <font color="Blue">rm</font> and delete them from there. This command could be run in a script or added to your crontab:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">0 3 * * * (/usr/bin/find /home/backup -type f -iname '*bz2' -mtime +60 -maxdepth 1 -exec basename {} \; | mail -s &quot;Deleted old files&quot; root)</div></pre>
+</div>Glad to help - I wish the teachers at my son's high school felt the way you do <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" />Got it! makes perfect sense.  I love how I can learn so much in such a short time. They should teach linux in high school, I swear.  Thanks again!!

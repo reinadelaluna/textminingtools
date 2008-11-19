@@ -1,0 +1,32 @@
+tralalala... problem solve... : )Someone HELP... I am dying!!!..... &gt;.&lt;<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/cry.gif" border="0" alt="" title="Crying" class="inlineimg" /> .....hmm.. i am able to run the eclipse but i have this error <br />
+<br />
+&quot;Unable to read workbench state. Workbench UI layout will be reset&quot;<br />
+<br />
+although i am still able to enter the program. But under the File =&gt; new =&gt; no applicable items -_-??<br />
+<br />
+Thanks gilead for the prompt reply : )Hi there,<br />
+<br />
+I've got the same problem as stated above but deleting the 2 directories didnt work for me. In fact eclipse didnt even create both the directories. Only the workbench directory, but not the ~/.eclipse directory.<br />
+<br />
+I tried to create the ~/.eclipse directory but that didnt help either.<br />
+<br />
+Any ideas?<br />
+<br />
+Cheersjust to get email when there is a reply, sry but i din know another wayHi there,<br />
+<br />
+I got that problem because was using eclipse 3.1 with jdk 1.4.2 (default with Fedora Core 4), installing jdk 1.5 solved the problem for me.<br />
+<br />
+NOTE: You may need to use the -vm parameter with eclipse to tell him wich jdk to use.<br />
+ie: /opt/eclipse/eclipse -vm /opt/jdk1.5.0_06/bin/javaHi josephfley,<br />
+<br />
+Thnx. That did it for me. It's working now. Woohoo. I'm using kubuntu linux and I had jdk 1.4.2 as default too. Do you or anyone here know, how to change the default? I've got jdk 1.5.0 under the same directory as you.<br />
+<br />
+And thank you so much again. :-DDid running eclipse create 2 directories in you home directory? There should be a hidden directory called .eclipse and a visible directory called workspace. If you close eclipse and delete the 2 directories, then restart eclipse, do you get the same error? When I do this, I get a prompt from eclipse about where to create the workspace directory and then it goes ahead and re-creates the 2 directories.<br />
+<br />
+At this point, from the File/New menu, I get project, package, class, etc.Have you got a working Java installation on your PC? If so, just extract the eclipse files with `tar -zxf Eclipse-SDK-3.1.1-linux-gtk.ta.gz`. Change to the eclipse directory that the extract creates and run the eclipse program.<br />
+<br />
+There are other things you should do for completeness, like extracting to a standard location (under /usr/local or /opt) but the above stuff will get you goinghi ppl,<br />
+<br />
+I have just downloaded Eclipse-SDK-3.1.1-linux-gtk.ta.gz, I want to install this on my Fedora core 4 comp. Anyone can tell me the steps to do so? Sorry.. as i just change my comp to linux.. have abit of problem &gt;.&lt;<br />
+<br />
+snowyice

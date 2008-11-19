@@ -1,0 +1,258 @@
+
+<br />
+Hi Robin,
+<br />
+	I could close this bug straight ahead since it has been fixed
+<br />
+already in sid. Instead you should have checked the BTS where there are
+<br />
+already several explanation and workaround.
+<br />
+
+<br />
+Fabio
+<br />
+
+<br />
+On Mon, 29 Dec 2003, Robin Lee Powell wrote:
+<br />
+
+<br />
+&gt; Package: libapache-mod-perl
+<br />
+&gt; Version: 1.27-4
+<br />
+&gt; Severity: normal
+<br />
+&gt; Followup-For: Bug #225287
+<br />
+&gt;
+<br />
+&gt; This bug is *NOT* 'normal' severity.  The package is unusable, that
+<br />
+&gt; makes it grave.
+<br />
+&gt;
+<br />
+&gt; While downgrading the perl packages is a lovely theory, the 5.8.0
+<br />
+&gt; packages are no longer available, so mod_perl is, in fact, completely
+<br />
+&gt; unusable.  This renders my Apache unusable as well, as I have several
+<br />
+&gt; things that require mod_perl.
+<br />
+&gt;
+<br />
+&gt; If there *is* a workaround that does not involve taking packages from
+<br />
+&gt; unstable, I would very much appreciate specific instructions on how to
+<br />
+&gt; take advantage of it.
+<br />
+&gt;
+<br />
+&gt; -Robin
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt; -- System Information:
+<br />
+&gt; Debian Release: testing/unstable
+<br />
+&gt; Architecture: i386
+<br />
+&gt; Kernel: Linux chain.digitalkingdom.org 2.4.22-1-k7-smp #5 SMP Sat Oct 4 14:42:01 EST 2003 i686
+<br />
+&gt; Locale: LANG=C, LC_CTYPE=C
+<br />
+&gt;
+<br />
+&gt; Versions of packages libapache-mod-perl depends on:
+<br />
+&gt; ii  apache-common               1.3.27.0-2   Support files for all Apache webse
+<br />
+&gt; ii  libc6                       2.3.2.ds1-10 GNU C Library: Shared libraries an
+<br />
+&gt; ii  libdevel-symdump-perl       2.03-3       Perl module for inspecting perl's
+<br />
+&gt; ii  libperl5.8                  5.8.2-2      Shared Perl library.
+<br />
+&gt; ii  liburi-perl                 1.23-1       Manipulates and accesses URI strin
+<br />
+&gt; ii  libwww-perl                 5.69-4       WWW client/server library for Perl
+<br />
+&gt; ii  perl [libmime-base64-perl]  5.8.2-2      Larry Wall's Practical Extraction
+<br />
+&gt; ii  perl-base [perlapi-5.8.0]   5.8.2-2      The Pathologically Eclectic Rubbis
+<br />
+&gt;
+<br />
+&gt; -- no debconf information
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt;
+<br />
+
+<br />
+-- 
+<br />
+Our mission: make IPv6 the default IP protocol
+<br />
+&quot;We are on a mission from God&quot; - Elwood Blues
+<br />
+
+<br />
+<a  href="http://www.itojun.org/paper/itojun-nanog-200210-ipv6isp/mgp00004.html">http://www.itojun.org/paper/itojun-nanog-200210-ipv6isp/mgp00004.html</a>
+<br />
+
+<br />
+
+<br />
+
+<br />
+Package: libapache-mod-perl
+<br />
+Version: 1.27-4
+<br />
+Severity: normal
+<br />
+Followup-For: Bug #225287
+<br />
+
+<br />
+This bug is *NOT* 'normal' severity.  The package is unusable, that
+<br />
+makes it grave.
+<br />
+
+<br />
+While downgrading the perl packages is a lovely theory, the 5.8.0
+<br />
+packages are no longer available, so mod_perl is, in fact, completely
+<br />
+unusable.  This renders my Apache unusable as well, as I have several
+<br />
+things that require mod_perl.
+<br />
+
+<br />
+If there *is* a workaround that does not involve taking packages from
+<br />
+unstable, I would very much appreciate specific instructions on how to
+<br />
+take advantage of it.
+<br />
+
+<br />
+-Robin
+<br />
+
+<br />
+
+<br />
+-- System Information:
+<br />
+Debian Release: testing/unstable
+<br />
+Architecture: i386
+<br />
+Kernel: Linux chain.digitalkingdom.org 2.4.22-1-k7-smp #5 SMP Sat Oct 4 14:42:01 EST 2003 i686
+<br />
+Locale: LANG=C, LC_CTYPE=C
+<br />
+
+<br />
+Versions of packages libapache-mod-perl depends on:
+<br />
+ii  apache-common               1.3.27.0-2   Support files for all Apache webse
+<br />
+ii  libc6                       2.3.2.ds1-10 GNU C Library: Shared libraries an
+<br />
+ii  libdevel-symdump-perl       2.03-3       Perl module for inspecting perl's 
+<br />
+ii  libperl5.8                  5.8.2-2      Shared Perl library.
+<br />
+ii  liburi-perl                 1.23-1       Manipulates and accesses URI strin
+<br />
+ii  libwww-perl                 5.69-4       WWW client/server library for Perl
+<br />
+ii  perl [libmime-base64-perl]  5.8.2-2      Larry Wall's Practical Extraction 
+<br />
+ii  perl-base [perlapi-5.8.0]   5.8.2-2      The Pathologically Eclectic Rubbis
+<br />
+
+<br />
+-- no debconf information
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+Robin Lee Powell &lt;rlpowell@digitalkingdom.org&gt; [2003:12:29:11:41:02-0800] scribed:
+<br />
+&gt; Package: libapache-mod-perl
+<br />
+&gt; Version: 1.27-4
+<br />
+&gt; Severity: normal
+<br />
+&gt; Followup-For: Bug #225287
+<br />
+&gt; 
+<br />
+&gt; This bug is *NOT* 'normal' severity.  The package is unusable, that
+<br />
+&gt; makes it grave.
+<br />
+&lt;snip /&gt;
+<br />
+
+<br />
+   &lt;<a  href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=224049">http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=224049</a>&gt;
+<br />
+
+<br />
+-- 
+<br />
+Best Regards,
+<br />
+
+<br />
+mds
+<br />
+mds resource
+<br />
+877.596.8237
+<br />
+-
+<br />
+Dare to fix things before they break . . .
+<br />
+-
+<br />
+Our capacity for understanding is inversely proportional to how much
+<br />
+we think we know.  The more I know, the more I know I don't know . . .
+<br />
+--
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00030.pgp" ><tt>pgp00030.pgp</tt></a></strong><br>
+<br />
+<em>Description:</em> PGP signature</p>
+<br />
+
+<br />

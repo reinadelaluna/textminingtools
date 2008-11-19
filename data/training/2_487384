@@ -1,0 +1,19 @@
+It sounds like the CD drive is still mounted.  Try running &quot;umount /dev/cdrom0&quot; as root where /dev/cdrom0 is the device for your cdrom.  That should fix it.  The reason it works on reboot is that the OS automatically unmounts all mounted partitions before shutdown.<br />
+<br />
+~JustinHi,<br />
+<br />
+I'm running a Gentoo system with KDE<br />
+<br />
+My usual process for ripping a CD is to insert the CD. Konqueror opens up, I open up the Ogg Vorbis folder and drag and drop the contents to where I want it in my filesystem. <br />
+<br />
+I have a CD that just refuses to rip, and when the rip fails, I'll wait a while, give up and cancel the file transfer. I'll then eject the CD, but the Audio CD icon on the desktop doesn't go away. Once I put in a new CD, I won't be able to read anything off of it until I reboot the machine. Is there some daemon that I can restart to get this fixed?<br />
+<br />
+Grip was no help either.<br />
+<br />
+I'm using an aopen IDE DVD/CD burner to read my CDs. AMD64 system.Just stumbled on the answer today. As normal user, I did  <div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">killall kio_audiocd</div></pre>
+</div> Then ran <div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">kio_uiserver</div></pre>
+</div>. Now I can read the cd again

@@ -1,0 +1,17 @@
+Hello. I'm unsure if I should post this in the hardware or software section, so sorry if I'm asking in the wrong spot.<br />
+<br />
+I recently got a second monitor for my desktop, and now I want use my dual-headed video card (nVidia FX 5200) to have two independent monitors. My problem is, I keep finding HowTo's on TwinView. Now I must configure XOrg to see both of them. I had TwinView working at one time, so I know that it will work.<br />
+<br />
+To be honest, I'm not even sure where to start, anymore. I've read over quite a few explinations , but I'm still not sure.<br />
+<br />
+Running &quot;Xorg -scanpci&quot; returns:<br />
+(1:0:0) unknown card (0x1554/0x1152) using a nVidia Corporation NV34 [GeForce FX 5200]<br />
+and nothing more on the video card.<br />
+<br />
+My xorg.conf file is in shambles, so I don't think it'd be even worth the time to post here.<br />
+<br />
+Thanks for any help in advance.There are many xorg.conf files here posted. I would search here for that. Also this one might help. It uses three monitors but should be able to not add the thrid one. <a href="http://www.pantz.org/os/linux/xfree86/configsettings.shtml" target="_blank">http://www.pantz.org/os/linux/xfree8...settings.shtml</a><br />
+<br />
+I would also start by restoring a good clean xorg.conf<br />
+<br />
+Brian1

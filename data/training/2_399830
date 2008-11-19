@@ -1,0 +1,142 @@
+hi,<br />
+<br />
+someone in the mandriva section told me to move my question to this section hoping to find an answer.<br />
+<br />
+so here's a copy.<br />
+I'm trying to install nistnet.2.0.12c under manriva 2006 and with kernel release 2.6.12.<br />
+<br />
+when I try to run make it gives me the following error:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:98px; overflow:auto"><div dir="ltr" style="text-align:left;">/usr/bin/ld: cannot find -lXaw3d
+collect2: ld returned 1 exit status
+make[1]: *** [xnistnet] Error 1
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/monitor'
+make: *** [sub_dirs] Error 2</div></pre>
+</div>
+<br />
+<br />
+<br />
+here's the ./configure output<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">Kernel headers found at /lib/modules/2.6.12-12mdk/build/include/linux
+Add explicit congestion notification (ECN) support [yes]?
+Add class/type of service (COS) support [yes]?
+Which delay distribution do you want to use?
+        experimental normal pareto paretonormal? [ experimental ]
+Using -lXaw3d for the widget set...
+
+
+mv -f Makefile Makefile.bak
+imake -DUseInstalled -I/usr/X11R6/lib/X11/config
+make Makefiles
+making Makefiles in TextField-1.01...
+        mv -f Makefile Makefile.bak
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/monitor'
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/monitor'
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/monitor/TextField-1.01'
+make[1]: Nothing to be done for `Makefiles'.
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/monitor/TextField-1.01'
+making Makefiles in Frame-1.0...
+        mv -f Makefile Makefile.bak
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/monitor'
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/monitor'
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/monitor/Frame-1.0'
+make[1]: Nothing to be done for `Makefiles'.
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/monitor/Frame-1.0'
+make includes
+make: Nothing to be done for `includes'.
+make depend
+makedepend  --  -ITextField-1.01 -IFrame-1.0 -I/usr/X11R6/include/X11/Xaw -I/usr/X11R6/include/X11/Xmu -I.. -I../lib -I../include -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                             -D_POSIX_SOURCE -D_XOPEN_SOURCE                            -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                              -DFUNCPROTO=15 -DNARROWPROTO     -DUSE_MAKEDEPEND --
+makedepend  --  -ITextField-1.01 -IFrame-1.0 -I/usr/X11R6/include/X11/Xaw -I/usr/X11R6/include/X11/Xmu -I.. -I../lib -I../include -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                             -D_POSIX_SOURCE -D_XOPEN_SOURCE                            -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                              -DFUNCPROTO=15 -DNARROWPROTO     -DUSE_MAKEDEPEND --</div></pre>
+</div>
+<br />
+<br />
+And here's the output of make<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">set -e; for i in math lib cli monitor kernel man; do make -C $i ; done
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/math'
+rm -f makemutable makesigtable pareto.h pareto.mu.h pareto.sigma.h
+make DODISTRIBUTION='-DUSE_PARETO -DDISTRIBUTION_NAME=&quot;\&quot;pareto\&quot;&quot;' pareto makemutable makesigtable
+make[2]: Entering directory `/root/proggies/nistnet-3.0a/math'
+cc -I. -I../include -I. -I../include -DPARETOALPHA=3.2 -o pareto pareto.c -lm
+cc -I. -I../include -I. -I../include   -c -o random.o random.c
+cc -I. -I../include -I. -I../include   -c -o libstats.o libstats.c
+cc -DNO_MU_CORR -I. -I../include -I. -I../include -DUSE_PARETO -DDISTRIBUTION_NAME=&quot;\&quot;pareto\&quot;&quot; -DPARETOALPHA=3.2 -UMU_CORR -o unmucortabledist.o -c tabledist.c
+cc -DNO_MU_CORR -I. -I../include -I. -I../include -DUSE_PARETO -DDISTRIBUTION_NAME=&quot;\&quot;pareto\&quot;&quot; -DPARETOALPHA=3.2 -UMU_CORR -o makemutable makemutable.c unmucortabledist.o random.o libstats.o -lm
+cc -DNO_SIGMA_CORR -I. -I../include -I. -I../include -DUSE_PARETO -DDISTRIBUTION_NAME=&quot;\&quot;pareto\&quot;&quot; -DPARETOALPHA=3.2 -USIGMA_CORR -o unsigmacortabledist.o -c tabledist.c
+cc -DNO_SIGMA_CORR -I. -I../include -I. -I../include -DUSE_PARETO -DDISTRIBUTION_NAME=&quot;\&quot;pareto\&quot;&quot; -DPARETOALPHA=3.2 -USIGMA_CORR -o makesigtable makesigtable.c unsigmacortabledist.o random.o libstats.o -lm
+make[2]: Leaving directory `/root/proggies/nistnet-3.0a/math'
+./pareto &gt; pareto.h
+./makesigtable &gt; pareto.sigma.h
+./makemutable &gt; pareto.mu.h
+rm -f makemutable makesigtable
+cc -I. -I../include -o stats stats.c -lm
+cc -I. -I../include -DUSE_EXPERIMENTAL -DDISTRIBUTION_NAME=&quot;\&quot;experimental\&quot;&quot; -DPARETOALPHA=3.2 -o maketable maketable.c -lm
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/math'
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/lib'
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common   -c -o nistnetlib.o nistnetlib.c
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common   -c -o nistnetutil.o nistnetutil.c
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common   -c -o ../math/tabledist.o ../math/tabledist.c
+cp -p ../math/tabledist.o tabledist.o
+cp -p ../math/random.o random.o
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common   -c -o alarmingdns.o alarmingdns.c
+ar vr libnistnet.a nistnetlib.o nistnetutil.o tabledist.o random.o alarmingdns.o
+ar: creating libnistnet.a
+a - nistnetlib.o
+a - nistnetutil.o
+a - tabledist.o
+a - random.o
+a - alarmingdns.o
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/lib'
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/cli'
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -o hitbox hitbox.c ../lib/libnistnet.a -lm
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -o cnistnet cnistnet.c ../lib/libnistnet.a -lm
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -o mungebox mungebox.c -lm
+cc -I.. -I../include -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62  -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -I. -I../include -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62    -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE -fno-common -o nistspy nistspy.c
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/cli'
+make[1]: Entering directory `/root/proggies/nistnet-3.0a/monitor'
+making all in ./TextField-1.01...
+make[2]: Entering directory `/root/proggies/nistnet-3.0a/monitor/TextField-1.01'
+gcc -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                            -D_POSIX_SOURCE -D_XOPEN_SOURCE   -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                       -DFUNCPROTO=15 -DNARROWPROTO    -g -Wall   -c -o TextField.o TextField.c
+gcc -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                            -D_POSIX_SOURCE -D_XOPEN_SOURCE   -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                       -DFUNCPROTO=15 -DNARROWPROTO    -g -Wall   -c -o demo.o demo.c
+demo.c:134: warning: return type of 'main' is not 'int'
+demo.c: In function 'main':
+demo.c:140: warning: missing sentinel in function call
+rm -f demo
+gcc -o demo -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -L/usr/X11R6/lib   TextField.o demo.o -lXaw -lXmu -lXt -lSM -lICE -lXext -lX11 -lXt -lSM -lICE -lXext -lX11
+make[2]: Leaving directory `/root/proggies/nistnet-3.0a/monitor/TextField-1.01'
+making all in ./Frame-1.0...
+make[2]: Entering directory `/root/proggies/nistnet-3.0a/monitor/Frame-1.0'
+gcc -m32 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                               -D_POSIX_SOURCE -D_XOPEN_SOURCE                            -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                              -DFUNCPROTO=15 -DNARROWPROTO       -c -o framedemo.o framedemo.c
+framedemo.c: In function 'main':
+framedemo.c:142: warning: incompatible implicit declaration of built-in function 'exit'
+framedemo.c: In function 'WMProtocols':
+framedemo.c:229: warning: incompatible implicit declaration of built-in function 'exit'
+gcc -m32 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                               -D_POSIX_SOURCE -D_XOPEN_SOURCE                            -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                              -DFUNCPROTO=15 -DNARROWPROTO       -c -o Frame.o Frame.c
+gcc -m32 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                               -D_POSIX_SOURCE -D_XOPEN_SOURCE                            -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                              -DFUNCPROTO=15 -DNARROWPROTO       -c -o Gcs.o Gcs.c
+rm -f framedemo
+gcc -m32 -o framedemo -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -L/usr/X11R6/lib   framedemo.o Frame.o Gcs.o -lXaw -lXmu -lXt -lSM -lICE -lXpm -lXp -lXext -lX11
+make[2]: Leaving directory `/root/proggies/nistnet-3.0a/monitor/Frame-1.0'
+gcc -m32 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce     -ITextField-1.01 -IFrame-1.0 -I/usr/X11R6/include/X11/Xaw -I/usr/X11R6/include/X11/Xmu -I.. -I../lib -I../include -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                                 -D_POSIX_SOURCE -D_XOPEN_SOURCE   -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                       -DFUNCPROTO=15 -DNARROWPROTO    -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62      -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE   -c -o hitmonitor.o hitmonitor.c
+gcc -m32 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce     -ITextField-1.01 -IFrame-1.0 -I/usr/X11R6/include/X11/Xaw -I/usr/X11R6/include/X11/Xmu -I.. -I../lib -I../include -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                                 -D_POSIX_SOURCE -D_XOPEN_SOURCE   -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                       -DFUNCPROTO=15 -DNARROWPROTO    -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62      -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE   -c -o xhitutil.o xhitutil.c
+xhitutil.c: In function 'XMineCreatePixmapFromData':
+xhitutil.c:285: warning: pointer targets in passing argument 6 of 'XCreateImage' differ in signedness
+gcc -m32 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce     -ITextField-1.01 -IFrame-1.0 -I/usr/X11R6/include/X11/Xaw -I/usr/X11R6/include/X11/Xmu -I.. -I../lib -I../include -I/usr/X11R6/include    -Dlinux -D__i386__ -D_POSIX_C_SOURCE=199309L                                 -D_POSIX_SOURCE -D_XOPEN_SOURCE   -D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64                                                       -DFUNCPROTO=15 -DNARROWPROTO    -DDEVHITBOX=\&quot;/dev/hitbox\&quot; -DHITMAJOR=62      -DHITMINOR=0 -DDEVNISTNET=\&quot;/dev/nistnet\&quot; -DNISTNETMAJOR=62  -DNISTNETMINOR=1 -DDEVMUNGEBOX=\&quot;/dev/mungebox\&quot; -DMUNGEMAJOR=63 -DDEVSPYBOX=\&quot;/dev/spybox\&quot; -DSPYMAJOR=64 -DCONFIG_ECN -DCONFIG_COS -DCONFIG_DELAYSTART -DCONFIG_RTC_AGGRESSIVE   -c -o tabchain.o tabchain.c
+rm -f xnistnet
+gcc -m32 -o xnistnet -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -march=i586 -mtune=pentiumpro -fno-strict-aliasing -fno-strength-reduce      -L/usr/X11R6/lib   hitmonitor.o xhitutil.o tabchain.o TextField-1.01/TextField.o Frame-1.0/Frame.o Frame-1.0/Gcs.o -lXaw3d -lXt -lSM -lICE -lXmu -lXt -lSM -lICE -lXext -lX11 -lXext -lX11 ../lib/libnistnet.a -lm
+/usr/bin/ld: cannot find -lXaw3d
+collect2: ld returned 1 exit status
+make[1]: *** [xnistnet] Error 1
+make[1]: Leaving directory `/root/proggies/nistnet-3.0a/monitor'
+make: *** [sub_dirs] Error 2</div></pre>
+</div>
+<br />
+<br />
+NOTE: Xaw3d is already installed in my machine and it's being used by OpenOffice.org<br />
+<br />
+<br />
+RegardsU need Xaw3d-dev installed

@@ -1,0 +1,334 @@
+<tt>Lars Schimmer wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hi!
+<br />
+</tt></blockquote><br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">/home/user# java
+<br />
+Error occurred during initialization of VM
+<br />
+java/lang/NoClassDefFoundError: java/lang/Object
+<br />
+</blockquote><tt><br>Ok, that problem was easy to solve, I just unziped the .bin instead of 
+<br />
+sh ...bin it...</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">But now azureus won't run and jsut prints out:
+<br />
+# An unexpected error has been detected by HotSpot Virtual Machine:
+<br />
+#
+<br />
+#  SIGSEGV (0xb) at pc=0x00002aaaaae58fe0, pid=2406, tid=46912501810336
+<br />
+#
+<br />
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (1.5.0_03-b07 mixed mode)
+<br />
+# Problematic frame:
+<br />
+# C  [libc.so.6+0x7ffe0]
+<br />
+#
+<br />
+# An error report file with more information is saved as hs_err_pid2406.log
+<br />
+#
+<br />
+# If you would like to submit a bug report, please visit:
+<br />
+#   <a  href="http://java.sun.com/webapps/bugreport/crash.jsp">http://java.sun.com/webapps/bugreport/crash.jsp</a>
+<br />
+#
+<br />
+*WTF*<br>
+<br />
+<pre style="margin: 0em;">Bye &amp; thx,
+<br />
+Lars<br>
+<br />
+<br>
+<br />
+
+<br />
+<tt>Hi!</tt><br>
+<br />
+<br>
+<br />
+<tt>I tried to install java after the small guide on:<br>
+<br />
+<a  href="http://chrismetcalf.net/blog/archives/2005/05/19/mini-howto-installing-java-on-debian-unstable/">http://chrismetcalf.net/blog/archives/2005/05/19/mini-howto-installing-java-on-debian-unstable/</a><br>
+<br />
+with the package jdk-1_5_0_03-linux-amd64.bin from sun.<br>
+<br />
+It all worked well within isntallation, but then while trying to use 
+<br />
+java, I get a:<br>
+<br />
+/home/user# java<br>
+<br />
+Error occurred during initialization of VM<br>
+<br />
+java/lang/NoClassDefFoundError: java/lang/Object</tt><br>
+<br />
+<br>
+<br />
+<tt>Anyone has brought java to run without a problem?</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Cya
+<br />
+Lars<br>
+<br />
+<br>
+<br />
+
+<br />
+Hi Lars,
+<br />
+
+<br />
+El mar, 21-06-2005 a las 20:32 +0200, Lars Schimmer escribi&#xF3;:
+<br />
+&gt; Hi!
+<br />
+&gt; I tried to install java after the small guide on:
+<br />
+&gt; <a  href="http://chrismetcalf.net/blog/archives/2005/05/19/mini-howto-installing-java-on-debian-unstable/">http://chrismetcalf.net/blog/archives/2005/05/19/mini-howto-installing-java-on-debian-unstable/</a>
+<br />
+&gt; with the package jdk-1_5_0_03-linux-amd64.bin from sun.
+<br />
+&gt; It all worked well within isntallation, but then while trying to use 
+<br />
+&gt; java, I get a:
+<br />
+&gt; /home/user# java
+<br />
+&gt; Error occurred during initialization of VM
+<br />
+&gt; java/lang/NoClassDefFoundError: java/lang/Object
+<br />
+&gt; 
+<br />
+&gt; Anyone has brought java to run without a problem?
+<br />
+
+<br />
+Yes, and it works great here. I'm using the same JVM version which I
+<br />
+packaged with make-jpkg from the java-package package.
+<br />
+
+<br />
+Greetings,
+<br />
+-- 
+<br />
+Javier Kohen &lt;jkohen@users.sourceforge.net&gt;
+<br />
+ICQ: blashyrkh #2361802
+<br />
+Jabber: jkohen@jabber.org
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00073.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> This is a digitally signed message part</p>
+<br />
+
+<br />
+Hello,
+<br />
+
+<br />
+apt-get install java-package, (you might need to add contrib to your
+<br />
+sources.list) then as user run 
+<br />
+
+<br />
+fakeroot make-jpkg jdk-1_5_0_03-linux-amd64.bin
+<br />
+
+<br />
+and install the deb as root again.
+<br />
+
+<br />
+Best regards
+<br />
+Frederik Schueler
+<br />
+
+<br />
+On Tue, Jun 21, 2005 at 08:32:52PM +0200, Lars Schimmer wrote:
+<br />
+&gt; I tried to install java after the small guide on:
+<br />
+&gt; <a  href="http://chrismetcalf.net/blog/archives/2005/05/19/mini-howto-installing-java-on-debian-unstable/">http://chrismetcalf.net/blog/archives/2005/05/19/mini-howto-installing-java-on-debian-unstable/</a>
+<br />
+&gt; with the package jdk-1_5_0_03-linux-amd64.bin from sun.
+<br />
+&gt; It all worked well within isntallation, but then while trying to use 
+<br />
+&gt; java, I get a:
+<br />
+&gt; /home/user# java
+<br />
+&gt; Error occurred during initialization of VM
+<br />
+&gt; java/lang/NoClassDefFoundError: java/lang/Object
+<br />
+&gt; 
+<br />
+&gt; Anyone has brought java to run without a problem?
+<br />
+&gt; 
+<br />
+&gt; Cya
+<br />
+&gt; Lars
+<br />
+&gt; 
+<br />
+&gt; 
+<br />
+&gt; -- 
+<br />
+&gt; To UNSUBSCRIBE, email to debian-amd64-REQUEST@lists.debian.org
+<br />
+&gt; with a subject of &quot;unsubscribe&quot;. Trouble? Contact 
+<br />
+&gt; listmaster@lists.debian.org
+<br />
+
+<br />
+-- 
+<br />
+ENOSIG
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00072.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> Digital signature</p>
+<br />
+
+<br />
+<tt>could it be, that following is missing on sun amd64 java?</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">javaws (web start)
+<br />
+browser (firefox, ...) plugins<br>
+<br />
+<tt>??</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+When Installing my SF version of Azureus, I had to physically point it
+<br />
+at the sun java that I had downloaded and installed.  I run 1.5 r3 for
+<br />
+Azureus from my home dir, and black down 1.4.2 for Fx since the 1.5
+<br />
+does not have have a 64-bit mozilla plugin.  If you check the readme
+<br />
+it should tell you where in the config you should point Azureus at the
+<br />
+version of java that you want to use.
+<br />
+
+<br />
+-John
+<br />
+
+<br />
+On 6/21/05, Lars Schimmer &lt;schimmer@cg.cs.tu-bs.de&gt; wrote:
+<br />
+&gt; Lars Schimmer wrote:
+<br />
+&gt; &gt; Hi!
+<br />
+&gt; 
+<br />
+&gt; &gt; /home/user# java
+<br />
+&gt; &gt; Error occurred during initialization of VM
+<br />
+&gt; &gt; java/lang/NoClassDefFoundError: java/lang/Object
+<br />
+&gt; 
+<br />
+&gt; Ok, that problem was easy to solve, I just unziped the .bin instead of
+<br />
+&gt; sh ...bin it...
+<br />
+&gt; 
+<br />
+&gt; But now azureus won't run and jsut prints out:
+<br />
+&gt; # An unexpected error has been detected by HotSpot Virtual Machine:
+<br />
+&gt; #
+<br />
+&gt; #  SIGSEGV (0xb) at pc=0x00002aaaaae58fe0, pid=2406, tid=46912501810336
+<br />
+&gt; #
+<br />
+&gt; # Java VM: Java HotSpot(TM) 64-Bit Server VM (1.5.0_03-b07 mixed mode)
+<br />
+&gt; # Problematic frame:
+<br />
+&gt; # C  [libc.so.6+0x7ffe0]
+<br />
+&gt; #
+<br />
+&gt; # An error report file with more information is saved as hs_err_pid2406.log
+<br />
+&gt; #
+<br />
+&gt; # If you would like to submit a bug report, please visit:
+<br />
+&gt; #   <a  href="http://java.sun.com/webapps/bugreport/crash.jsp">http://java.sun.com/webapps/bugreport/crash.jsp</a>
+<br />
+&gt; #
+<br />
+&gt; *WTF*
+<br />
+&gt; 
+<br />
+&gt; Bye &amp; thx,
+<br />
+&gt; Lars
+<br />
+&gt; 
+<br />
+&gt; 
+<br />
+&gt; --
+<br />
+&gt; To UNSUBSCRIBE, email to debian-amd64-REQUEST@lists.debian.org
+<br />
+&gt; with a subject of &quot;unsubscribe&quot;. Trouble? Contact listmaster@lists.debian.org
+<br />
+&gt; 
+<br />
+&gt;
+<br />
+
+<br />
+
+<br />
+
+<br />

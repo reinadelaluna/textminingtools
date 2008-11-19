@@ -1,0 +1,351 @@
+After make I run make install:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:274px; overflow:auto"><div dir="ltr" style="text-align:left;"> make install make -C libavcodec 
+LIBPREF=lib LIBSUF=.a make[1]: 
+Entering directory
+ `/home/erlend/downloadz/mplayer-1.0Pre5/MPlayer-1.0pre5/libavcodec' cc
+ -I../libvo -I../../libvo -I/usr/X11R6/include -O4 -march=athlon-4 -mcpu=athlon-4
+ -pipe -ffast-math -fomit-frame-pointer 
+-D_REENTRANT -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 
+ -DHAVE_AV_CONFIG_H -I.. -D_FILE_OFFSET_BITS=64 
+-D_LARGEFILE_SOURCE -D_GNU_SOURCE -c -o ffv1.o ffv1.c ffv1.c:
+ In function `encode_rgb_frame': ffv1.c:465: internal compiler error: 
+in find_function_data, at function.c:329
+Please submit a full bug report, with preprocessed source if appropriate. 
+See &lt;URL:<a href="https://qa.mandrakesoft.com/" target="_blank">https://qa.mandrakesoft.com/</a>&gt; for instructions. make[1]: 
+*** [ffv1.o] Error 1 make[1]: 
+Leaving directory `/home/erlend/downloadz/mplayer-1.0Pre5/MPlayer-1.0pre5/libavcodec' 
+make: *** [libavcodec/libavcodec.a] Error 2 </div></pre>
+</div> <br />
+<br />
+Why does the installation fail? What do I have to do?I use Linux Mandrake 10.0<br />
+I currently have Mplayer 0.90 that i used by using urpmi.<br />
+I want to install Mplayer 1.0Pre5,  from source this time.<br />
+I seem to have run into some problems.<br />
+First I run ./configure<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:498px; overflow:auto"><div dir="ltr" style="text-align:left;">./configure Detected operating system: 
+Linux Detected host architecture: i386
+ Checking for cc version ... 3.3.2, ok 
+Checking for CPU vendor ... AuthenticAMD (6:8:1) 
+Checking for CPU type ...  AMD Athlon(TM) XP 1700+ 
+Checking for GCC &amp; CPU optimization abilities ... athlon-4 
+Checking for kernel support of mmx ... yes 
+Checking for kernel support of mmx2 ... yes 
+Checking for kernel support of 3dnow ... yes 
+Checking for kernel support of 3dnowex ... yes
+ Checking for kernel support of sse ... yes 
+Checking for mtrr support ... yes
+ Checking for assembler (as 2.14.90.0.7) ... ok 
+Checking for Linux kernel version ... 2.6.3-7mdk, ok 
+Checking for mplayer binary name ... mplayer 
+Checking for awk ... mawk Checking for extra headers ... none 
+Checking for extra libs ... none Checking for i18n ... yes 
+Checking for setlocale() ... yes Checking for iconv ... yes 
+Checking for langinfo ... yes 
+Checking for language ... using en (man pages: en) 
+Checking for enable sighandler ... yes 
+Checking for runtime cpudetection ... no 
+Checking for restrict keyword ... __restrict 
+Checking for kstat ... no 
+Checking for posix4 ... no Checking for lrintf ... yes 
+Checking for nanosleep ... yes 
+Checking for socklib ... yes (using -lnsl)
+ Checking for inet_pton() ... yes (using -lnsl)
+ Checking for inttypes.h (required) ... yes 
+Checking for int_fastXY_t in inttypes.h ... yes 
+Checking for word size ... 32 
+Checking for stddef.h ... yes
+ Checking for malloc.h ... yes 
+Checking for memalign() ... yes 
+Checking for alloca.h ... yes 
+Checking for mman.h ... yes 
+Checking for dynamic loader ... yes 
+Checking for dynamic a/v plugins support ... no 
+Checking for pthread ... yes (using -lpthread) 
+Checking for sys/soundcard.h ... yes 
+Checking for sys/dvdio.h ... no 
+Checking for sys/cdio.h ... no 
+Checking for linux/cdrom.h ... yes
+ Checking for dvd.h ... no Checking for BSDI dvd.h ... no 
+Checking for HPUX SCSI header ... no 
+Checking for userspace SCSI headers (Solaris) ... no 
+Checking for termcap ... no 
+Checking for termios ... yes (using sys/termios.h) 
+Checking for shm ... yes 
+Checking for linux devfs ... no 
+Checking for scandir() ... yes 
+Checking for strsep() ... yes 
+Checking for strlcpy() ... no 
+Checking for strlcat() ... no 
+Checking for fseeko() ... yes 
+Checking for localtime_r() ... yes 
+Checking for vsscanf() ... yes
+ Checking for posix select() ... yes 
+Checking for gettimeofday() ... yes 
+Checking for glob() ... yes
+ Checking for sys/sysinfo.h ... yes 
+Checking for Mac OS X APIs ... no 
+Checking for Samba support (libsmbclient) ... no 
+Checking for 3dfx ... no 
+Checking for tdfxfb ... no 
+Checking for tdfxvid ... no 
+Checking for tga ... yes 
+Checking for DirectFB headers presence ... not found 
+Checking for DirectFB ... no 
+Checking for X11 headers presence ... yes (using /usr/X11R6/include) 
+Checking for X11 libs presence ... yes (using /usr/X11R6/lib) 
+Checking for X11 ... yes Checking for DPMS ... yes (using Xdpms 4) 
+Checking for Xv ... yes Checking for XvMC ... no 
+Checking for Xinerama ... yes 
+Checking for Xxf86vm ... yes 
+Checking for DGA ... yes (using DGA 2.0) 
+Checking for OpenGL ... yes 
+Checking for /dev/mga_vid ... no 
+Checking for xmga ... no 
+Checking for GGI ... no 
+Checking for AA ... no 
+Checking for CACA ... no 
+Checking for SVGAlib ... no 
+Checking for FBDev ... yes 
+Checking for DVB ... no (specify path to DVB/ost/include with --with-dvbincdir=DIR) 
+Checking for DVB HEAD ... yes 
+Checking for PNG support ... yes 
+Checking for JPEG support ... yes 
+Checking for GIF support ... no 
+Checking for VESA support ... yes 
+Checking for SDL ... no 
+Checking for Windows waveout ... no 
+Checking for Directx ... no
+ Checking for NAS ... yes 
+Checking for DXR2 ... no 
+Checking for DXR3/H+ ... no 
+Checking for libmp1e ... no 
+Checking for libfame ... no
+ Checking for OSS Audio ... yes 
+Checking for aRts ... yes 
+Checking for EsounD ... yes 
+Checking for esd_get_latency() ... yes 
+Checking for JACK ... no 
+Checking for ALSA audio ... yes (using alsa 1.0.x and alsa/asoundlib.h)
+Checking for Sun audio ... no 
+Checking for Sun mediaLib ... no 
+Checking for SGI audio ... no 
+Checking for VCD support ... ok 
+Checking for DVD support (libmpdvdkit) ... yes 
+Checking for DVD support (libdvdread) ... disabled by libmpdvdkit2 
+Checking for cdparanoia ... no 
+Checking for freetype &gt;= 2.0.9 ... yes 
+Checking for fontconfig ... yes
+Checking for fribidi with charsets ... no 
+Checking for ENCA ... no 
+Checking for zlib ... yes 
+Checking for RTC ... yes 
+Checking for external liblzo support ... no 
+Checking for mad support ... yes 
+Checking for OggVorbis support ... yes 
+Checking for OggTheora support (only the CVS version!) ... no 
+Checking for mp3lib support ... yes 
+Checking for liba52 support ... yes 
+Checking for libmpeg2 support ... yes 
+Checking for Matroska support (external 0.6.0 or later OR internal) ... yes, internal 
+Checking for internal FAAD2 (AAC) support ... yes 
+Checking for external FAAD2 (AAC) support ... no 
+Checking for FAAD2 version ... 2.0 
+Checking for MacOS X SHLB (shared lib) support ... no 
+Checking for Win32 codec DLL support ... yes (using /usr/lib/win32) 
+Checking for Win32 loader support ... yes 
+Checking for DirectShow ... yes 
+Checking for XAnim DLL ... no 
+(no suitable directory found - see DOCS/HTML/en/codecs.html) 
+Checking for RealPlayer DLL ... yes (using /usr/lib/real) 
+Checking for LIVE.COM Streaming Media libraries ... no 
+Checking for FFmpeg libavcodec (static) ... yes
+Checking for FFmpeg libavformatc (static) ... no 
+Checking for libdv-0.9.5+ ... yes 
+Checking for zr ... no 
+Checking for bl ... no 
+Checking for XviD ... no 
+Checking for DivX4linux/DivX5linux/OpenDivX decore ... no 
+Checking for libmp3lame (for mencoder) ... yes 
+Checking for DivX4linux encore (for mencoder) ... no 
+Checking for mencoder ... yes 
+Checking for fastmemcpy ... yes 
+Checking for UniquE RAR File Library ... yes 
+Checking for TV interface ... yes 
+Checking for EDL support ... yes 
+Checking for *BSD BrookTree 848 TV interface ... no 
+Checking for Video 4 Linux TV interface ... no 
+Checking for Video 4 Linux 2 TV interface ... no 
+Checking for audio select() ... yes 
+Checking for network ... yes 
+Checking for ftp ... yes 
+Checking for byte order ... Little Endian 
+Checking for shared postprocess lib ... no 
+Checking for OSD menu ... no 
+Checking for QTX codecs ... yes 
+Checking for Subtitles sorting ... yes 
+Checking for XMMS inputplugin support ... no 
+Checking for inet6 ... yes 
+Checking for gethostbyname2 ... yes
+Checking for GUI ... no 
+Checking for ftello() ... yes 
+Checking for VIDIX ... yes 
+Checking for joystick ... no 
+Checking for lirc ... no 
+Checking for lircc ... no 
+Creating config.mak 
+Creating config.h 
+Creating libvo/config.mak 
+Creating libao2/config.mak 
+Creating help_mp.h  
+Config files successfully generated by ./configure !    
+Install prefix: /usr/local   Data directory: /usr/local/share/mplayer   
+Config direct.: /usr/local/etc/mplayer    
+Byte order: Little Endian   Optimizing for: athlon-4 mmx mmx2 3dnow 3dnowex sse mtrr    
+Languages:     
+Messages/GUI: en     
+Manual pages: en (no localization selected, use --language=all)    
+Enabled optional drivers:     
+Input: ftp network edl tv matroska(internal) mpdvdkit2 vcd dvb     
+Codecs: qtx libdv libavcodec real dshow/dmo win32 faad2(internal)
+libmpeg2 liba52 mp3lib libvorbis libmad     
+Audio output: alsa esd arts oss nas mpegpes(dvb)     
+Video output: xvidix cvidix vesa jpeg png mpegpes(dvb)
+ fbdev opengl dga xv x11 xover tga   
+Disabled optional drivers:    
+ Input: tv-v4l2 tv-v4l tv-bsdbt848 live.com cdda dvdread smb     
+Codecs: opendivx xvid xanim libtheora liblzo gif     
+Audio output: sgi sun jack dxr2 win32 sdl macosx     
+Video output: winvidix bl zr zr2 dxr3 dxr2 directx sdl gif89a 
+svga caca aa ggi xmga mga xvmc directfb tdfx_vid tdfxfb 3dfx quartz 
+'config.h' and 'config.mak' contain your configuration options. 
+Note: If you alter theses files (for instance CFLAGS) MPlayer may no longer       compile 
+*** DO NOT REPORT BUGS if you tweak these files *** 
+ 'make' will now compile MPlayer and 'make install' will install it. 
+Note: On non-Linux systems you might need to use 'gmake' instead of 'make'. 
+Please check mtrr settings at /proc/mtrr (see DOCS/HTML/en/devices.html#mtrr)   
+Check configure.log if you wonder why an autodetection failed 
+(check whether the development headers/packages are installed). 
+ If you suspect a bug, please read DOCS/HTML/en/bugreports.html. </div></pre>
+</div> <br />
+<br />
+I'm no expert on Linux, but I am trying to learn, and so far compiling programs is the biggest obticle.<br />
+To me ./configure looks fine. I then run make and make install<br />
+Edit: Can't post make.. too long. It takes a minute or so before it is finished.<br />
+This is the last few lines:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:146px; overflow:auto"><div dir="ltr" style="text-align:left;">ffv1.c: In function `encode_rgb_frame':
+ffv1.c:465: internal compiler error: in find_function_data, at function.c:329
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See &lt;URL:<a href="https://qa.mandrakesoft.com/" target="_blank">https://qa.mandrakesoft.com/</a>&gt; for instructions.
+gmake[1]: *** [ffv1.o] Error 1
+gmake[1]: Leaving directory `/home/erlend/downloadz/mplayer-1.0Pre5/MPlayer-1.0pre5/libavcodec'
+gmake: *** [libavcodec/libavcodec.a] Error 2</div></pre>
+</div>i am not trying to be rude, but are you asking something ?<br />
+<br />
+<br />
+nm that, you posted the error <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
+<br />
+but your going to have to make it more readable ...i believe that Micro420 ..<br />
+thats why i don't use them rpm based distros, cause<br />
+dependancy hell is one less stress point for me, and<br />
+like you said compiling a program from source, is like pulling <br />
+teeth with especially mandy ... i thought so anyways (also)<br />
+about a year ago when i tried it (mandrake)...<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by DrOzz </i><br />
+<b>you may wanna read this :<br />
+<a href="http://www.linuxquestions.org/questions/showthread.php?s=&amp;threadid=212331&amp;perpage=15&amp;pagenumber=1" >http://www.linuxquestions.org/questi...5&amp;pagenumber=1</a><br />
+<br />
+someone else had this problem, and a member of this fourm<br />
+showed some &quot;code changes&quot; that should be made, and it <br />
+worked .... so you can give that a go to <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /> </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+Thank you!<br />
+Don't really know how to edit C code, so I reinstalled mplayer with urpmi.<br />
+Glad to know that the problem was in the code, and not me beeing a total n00b <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+If anyone cold answer me how I can edit C code that would be nice.<br />
+Could come handy in the future <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />just open the file (in this case it was <b>ffv1.c </b>) with any<br />
+text editor .. this could be graphical or command line base ..<br />
+whatever your most comfortable with ...<br />
+when i edit stuff i use &quot;vim&quot; (Vi IMproved) .. <br />
+so if i was in the root of the directory where that file is located<br />
+i would type (in this example) :<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">vim ffv1.c</div></pre>
+</div>
+<br />
+and just referencing the thread i linked for you it said :<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				
+Find line 465 (the line mentioned in the error message)<br />
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+so i press :<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">:l 465</div></pre>
+</div>
+<br />
+to go straight to that line ... and then edit accordngly ....<br />
+in the case at hand since we are using vim, you have to either press :<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">i or INSERT</div></pre>
+</div>
+<br />
+to go into edit mode, then do your typing and then either :<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:66px; overflow:auto"><div dir="ltr" style="text-align:left;">ESC
+
+SHIFT ZZ</div></pre>
+</div>
+or <br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:66px; overflow:auto"><div dir="ltr" style="text-align:left;">ESC
+
+:wq</div></pre>
+</div>
+<br />
+to save the file and exit ...<br />
+<br />
+thats just a very quick crash course using vim on the command line, but there<br />
+are many many other ways of accomplishing this ...<br />
+some graphical programs are gedit, kate, etc ...<br />
+more command line programs are emacs, pico, etc ...you may wanna read this :<br />
+<a href="http://www.linuxquestions.org/questions/showthread.php?s=&amp;threadid=212331&amp;perpage=15&amp;pagenumber=1" >http://www.linuxquestions.org/questi...5&amp;pagenumber=1</a><br />
+<br />
+someone else had this problem, and a member of this fourm<br />
+showed some &quot;code changes&quot; that should be made, and it <br />
+worked .... so you can give that a go to <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" />just glad urpmi helped, for some reason, compiling from source seems to be a pain in the butt with mandrake, lucky for us other guru's wade thru the problems and give us binaries we can use. RPM's work well for rh9 on my mandrake systemi had same problem, try this<br />
+urpmi mplayeri compiled &quot;hello world!&quot; without any errors <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" />Should be a lot more readable now <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />I'll tell you right now that compiling in Mandrake is practically IMPOSSIBLE!  <br />
+<br />
+Mandrake is totally dependent on RPM's and URPMI for installing programs.  Don't believe me?  Try compiling other popular programs.  Good luck, and I seriously mean that.

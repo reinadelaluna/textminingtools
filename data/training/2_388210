@@ -1,0 +1,41 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by sundialsvcs </i><br />
+<b>It is unfortunate, although not unexpected, that the ASP technology is <i>strictly</i> wedded to the Windows-NT architecture and environment, and a single server.  It is definitely engineered to drive licensing revenue.<br />
+</b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+I'll google it again, but it looked to be possible from the few sites I read.  I just had no interest in reading furthur.  I'll try and find those sites again.<br />
+<br />
+&lt;EDIT&gt;<br />
+Here are the sites I found which make it seem like this is totally possible.<br />
+<br />
+<a href="http://linux.softpedia.com/get/Internet/Log-Analyzers/Apache-ASP-452.shtml" target="_blank">http://linux.softpedia.com/get/Inter...-ASP-452.shtml</a><br />
+<a href="http://www.devside.net/web/server/linux" target="_blank">http://www.devside.net/web/server/linux</a><br />
+<a href="http://www.apache-asp.org/" target="_blank">http://www.apache-asp.org/</a> <br />
+<br />
+I think it just reparses the asp code to execute from another language, so truely  it isn't running the asp code, it just converts it to a usable language.If you really like ASP, and want to continue using it, go with ASP.NET code and mono (<a href="http://www.mono-project.com/FAQ:_General" target="_blank">http://www.mono-project.com/FAQ:_General</a>). ASP is old and it takes minimal effort to translate to ASP.NET.it is possible.  I believe it requires mod_perl.  I don't see what would be gained over using php since a lot of the vb style coding and features of asp are designed for the windows host architecture and environment.<br />
+<br />
+Check out softpedia &amp; devshed.<br />
+This site doesn't seem to answer any questions, but it does imply it is possible <a href="http://www.apache-asp.org/install.html#Linux%20DSO%20Di0714bb20" target="_blank">http://www.apache-asp.org/install.ht...O%20Di0714bb20</a>Hello,<br />
+<br />
+does anyone know a possibility to use ASP (Active Server Pages) under Linux?<br />
+<br />
+I googled and found Chilisoft ASP. Does anyone has experiences with ChilisoftASP?<br />
+<br />
+SUN did have a appliance (SUN cobalt) which supported chiliASP, but as i know the SUN cobalt system is end of life. <br />
+<br />
+Thanks,<br />
+mcTwixiIt is unfortunate, although not unexpected, that the ASP technology is <i>strictly</i> wedded to the Windows-NT architecture and environment, and a single server.  It is definitely engineered to drive licensing revenue.<br />
+<br />
+If you are contemplating a <i>new</i> project, I would encourage you to consider <u>all</u> of the available systems.  Once you get in bed with Microsoft, you're there to stay, and when your site becomes popular it also becomes expensive.  <i>Per contra,</i> technologies like Perl and PHP are without license-cost, and the Linux environment is generally more satisfactory overall for hosting web-sites.<br />
+<br />
+It's easier to take a Apache/Perl/PHP site, and run it in Windows should the need arise, than it would be to go the other way.  Good development tools for PHP exist:  see for example  <a href="http://www.zend.com" target="_blank">Zend.com</a>.  And the same, of course, is true for Perl.

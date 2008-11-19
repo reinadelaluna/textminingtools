@@ -1,0 +1,48 @@
+hi<br />
+   i have fedora core 4 on my  system.  i want to use gtk. 2.0 to compile following code<br />
+  file name :- gtk1.c<br />
+  #include &lt;gtk/gtk.h&gt;<br />
+ <br />
+   int main (int argc , char *argv[])<br />
+{<br />
+        GtkWidget *window<br />
+        gtk_init (&amp;argc , &amp;argv);<br />
+        window = gtk_window_new(GTK_WINDOW_TOPLEVEL);<br />
+        gtk_widget_show(window);<br />
+       gtk_main();<br />
+       <br />
+        return 0;<br />
+}<br />
+i use following command for compilation<br />
+  $ gcc gtk1.c -o gtk1 `pkg-config -cflags -libs gtk+-2.0`<br />
+<br />
+i get the following error<br />
+      cannot find gtk.h<br />
+<br />
+can any body helphi tomdkat<br />
+     Thanks for the reply, but i am not  getting u, so please can u elobrate.Ok, in your post above change this:<br />
+<br />
+ $ gcc gtk1.c -o gtk1 `pkg-config -cflags -libs gtk+-2.0`<br />
+<br />
+to this:<br />
+ $ gcc gtk1.c -o gtk1 `<b>pkg-config --cflags --libs gtk+-2.0</b>`<br />
+<br />
+You need <b>two</b> dashes before &quot;clfags&quot; and &quot;libs&quot; to get the output you desire.  Consider this:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:98px; overflow:auto"><div dir="ltr" style="text-align:left;">tom@linux:~$ pkg-config -cflags -libs gtk+-2.0  
+-cflags: unknown option
+tom@linux:~$ pkg-config --cflags --libs gtk+-2.0
+-I/opt/gnome/include/gtk-2.0 -I/opt/gnome/lib/gtk-2.0/include -I/opt/gnome/include/atk-1.0 -I/opt/gnome/include/cairo -I/opt/gnome/include/pango-1.0 -I/opt/gnome/include/glib-2.0 -I/opt/gnome/lib/glib-2.0/include  -L/opt/gnome/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
+tom@linux:~$ </div></pre>
+</div>
+Give that a try.   <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+Peace...Try using this for the pkg-config part:<br />
+<br />
+pkg-config --cflags --libs gtk+-2.0<br />
+<br />
+Peace...hi tomdkat<br />
+     IT WORKS<br />
+    Thank you very much <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />

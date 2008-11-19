@@ -1,0 +1,16 @@
+How do I install all of the KDE 3.5 packages at once. I am still a novice and am not sure how I can upgrade from 3.4 to 3.5 . I am running SUSE 10.0 OSS.<br />
+<br />
+Thanks for help.<br />
+SteveIf you'd searched the forum you'd have seen that this has been covered numerous times but here goes.<br />
+<br />
+Run this:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">sudo installation_sources -a ftp://ftp.suse.com/pub/suse/i386/supplementary/KDE/update_for_10.0/yast-source</div></pre>
+</div>
+<br />
+Now go to the YaST -&gt; Software Management panel, Search for KDE and qt* packages and select those for upgrade.  Click next, wait a couple of hours for them to download and then click finish when completed, then restart the X windowing system (rcxdm restart)Dear Kim Vette, thanks for your help. I did do a search for KDE 3.5 but it did not highlight the installation.<br />
+I am very grateful.<br />
+<br />
+Steve

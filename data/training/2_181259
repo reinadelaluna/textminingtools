@@ -1,0 +1,26 @@
+any one know how to do it <br />
+ im stuck and need ur help<br />
+has any1 installed koffice 1.3.1<br />
+             its in tar.bz2 format . i can extract the files using tar -jxvf command but idont know what to do after that i know i have to use ./configure but i dont know anthing about using its options.what do i do after this . ichecked tho koffice.org website but it does not explain fully how to install it . any1 know how to do it?????<br />
+               <br />
+          also im tryin to install ati 9800 pro drivers when i execute the command it says<br />
+<br />
+          *** Trying to install a precompiled kernel module.<br />
+*** WARNING ***<br />
+Tailored kernel module for fglrx not present in your system.<br />
+You must go to /lib/modules/fglrx/build_mod subdir<br />
+and execute './make.sh' to build a fully customed kernel module.<br />
+Afterwards go to /lib/modules/fglrx and run './make_install.sh'<br />
+in order to install the module into your kernel's module repository.<br />
+(see readme.txt for more details.)<br />
+<br />
+As of now you can still run your XServer in 2D, but hardware acclerated<br />
+OpenGL will not work and 2D graphics will lack performance.<br />
+<br />
+failed.<br />
+*** Error: no kernel module build environment - please consult readme.<br />
+Installed: qt3 (gcc 3.2) based control panel application<br />
+<br />
+<br />
+         i checked ATI website where it listed a similar problem and how to solve it but i cant solve it<br />
+          i use mandrake 10

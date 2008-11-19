@@ -1,0 +1,4 @@
+I like using korganizer, but I don't use KDE (wmaker instead). However, when I start Korganizer in wmaker, it creates a systray icon (the icon associated to the korgac daemon), which gets a window for itself (quite annoyning). Is there any way of telling korganizer not to create a systray icon?oops, I think I wasn't clear. I DO want the korganizer daemon to be running, the trouble is that it creates a system tray icon. I want the daemon to run without the systray icon. BTW, nice link, I'll check the advices there.I don't have it installed at the min but I found this :<br />
+<a href="http://wiki.kde.org/tiki-pagehistory.php?page=Performance%20Tips&amp;source=2" target="_blank">http://wiki.kde.org/tiki-pagehistory...0Tips&amp;source=2</a><br />
+<br />
+Basically run up kcontrol and go to kde components then service manager and turn off kalarm Deamon.

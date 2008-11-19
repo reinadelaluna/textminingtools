@@ -1,0 +1,43 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by geeman2.0 </i><br />
+<b>Tell your friend to ditch hotmail and use gmail or something else that doesn't decide for you which programs you are allowed to download .<br />
+<br />
+I had the same problem before with hotmail with files that I was sure didn't/couldn't contain virii.<br />
+<br />
+This is a poor decision decision IMHO on M$'s part.<br />
+It'd be one thing if they warned you that a virus was suspected, but it's another thing altogether to deny you access to it <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/mad.gif" border="0" alt="" title="Mad" class="inlineimg" /> </b>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+that is the reason i dropped all of my MSN and hotmail accounts.  i refuse to deal with a company that forces me to use IE and does not give me access to my e-mails.<br />
+<br />
+as for cedega it is installed as a user so it is in my /home/user/.transgaming directory.  if that matters.  i hope that is ok.i made a file in OpenOffice as a report for the results of a tournament i held a few weeks back, then converted it to a PDF and e-mailed it to the other school that was in the tournament.<br />
+<br />
+After speeking with him on the phone the other day, MSN reported and deleted my e-mail claiming it was a virus...<br />
+<br />
+Now i run Debian linux so there are no windows viruses running on this system, all i did was export to PDF inside OO to creat the file, then e-mail him the file.<br />
+<br />
+Is MSN just that screwed up, or is it possible i have a virus somehow in my system i need to be concerned about?I don't think it's possible for a Windows virus to be hiding on a Linux system, most likely just that the email filter the person you sent it to is using was too senstive. Maybe it's configured to automatically block .pdf extentions or something. Have you tried sending it in a different format?now that is a good idea.  i was thinking false possitive knowing how MSN hates other web browser and e-mails that are not from MS or MSN.  that was the first thing that went though my head.sadly he does not have OO and is not computer literate enough to install it on his own.  Also with the tables in it for some reason Writer will not convert the tables to HTML for me, or id just post it to me web page for him to view that way.<br />
+<br />
+i can try it as a .doc and see if that works, but no clue.  have done little conversions that way.  <br />
+<br />
+it is good to know that the odds of a windows virus being on my linux box is very limited.  I did not think it was possible unless you were running windows apps in wine of one of its forks.  the only windows program i run is 1 game via cedega so doubt that is the cause of it as it is a rather popular game and a virus within that game would rock the world and would be known very fast.Virus scanners just look for virus signatures. It is coincidence that the pdf file has the same signature of a virus. Try to save it as a ping (png) file. If converting to a ping file does not work, try to upload a data server. I use streamload.com.<br />
+<br />
+BTW, check your cedega configuration if it uses the / directory for any of its drives.. If it does, try to reconfigure so it does not.Tell your friend to ditch hotmail and use gmail or something else that doesn't decide for you which programs you are allowed to download .<br />
+<br />
+I had the same problem before with hotmail with files that I was sure didn't/couldn't contain virii.<br />
+<br />
+This is a poor decision decision IMHO on M$'s part.<br />
+It'd be one thing if they warned you that a virus was suspected, but it's another thing altogether to deny you access to it <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/mad.gif" border="0" alt="" title="Mad" class="inlineimg" />It could be a false positive too.  I work at a place where a file in a program we use constantly gets tagged as a virus when we have made absolutely sure that it isn't.  It just happens sometimes when identifying viruses.<br />
+<br />
+Also, not too long ago there was a buffer overflow vulnerability in Adobe Reader 6.  If somebody created a specially crafted pdf they could exploit it.  Maybe somebody was trying to block that.....<br />
+<br />
+Another thing you could try is to make the pdf then zip it and send it too him.  Worth a shot if you ask me.

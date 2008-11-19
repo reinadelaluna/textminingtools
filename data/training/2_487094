@@ -1,0 +1,7 @@
+Use GnuPG.  It's fully compatible with PGP and it supports command line operation, ideal for embedding in a web interface.On my Linux server I need to install PGP (doesn't seem to be available for Linux yet as far as I can tell), X.509/PKCS #7, SAML, or SSO Web Services.<br />
+<br />
+Has anyone installed any of these on Linux?  Any ideas on ease of install of one over the others (I have limited knowledge).  <br />
+<br />
+Also, do you know which would be best/easiest for the following application (the only application it would be used for):  Creating an http post which includes a secure time stamp.<br />
+<br />
+Thank you for your help.  I need to have this installed and tested asap and I don't even know where to start.Thank you thank you thank you :-)

@@ -1,0 +1,59 @@
+When U installed Suse, did u grab the 'multimedia packs'?  If not, start an online update via the Suse watcher in the system tray.  If u scroll down, you should see 'multimedia packs 1,2,3' (and maybe 4?).  Install them, reboot and you will be good to go.  Suse does not have mp3 support until you install the above.<br />
+<br />
+EDIT: once you have installed the multimedia packs, run the following commands as root:<br />
+<br />
+alsaconf<br />
+(to configure your card)<br />
+<br />
+alsamixer<br />
+(adjust volume levels)<br />
+<br />
+alsactl store<br />
+(to store your settings)<br />
+<br />
+Let me know how it goes.Right, so... welcome to LinuxQuestions.<br />
+<br />
+MP3 is a registered (copyrighted whatever) format, that means that using it should cost something if you are going to natively enable it in your music software. That's why everyone uses certain plugins, most distros don't want to be seen as using these plugins or they might get slapped with suits and having to pay something. That's why you (as user) have to go and fish for these plugins and hope you can make your favorite music player work with 'em.<br />
+Now, after reading your post I think I can sum up your question as &quot;How can I play mp3s in my box?&quot;<br />
+First of all, what distro are you using? Unless I missed it in your post you forgot to mention that.<br />
+Second, what DE you use?<br />
+Third, have you seen all the players available out there? Do you have any favorite?<br />
+<br />
+These questions are just to help me help you. Otherwise if I had to list here all the different things, players, plugins, codecs and whatnot... well it would be a long post. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />lame is a encoder you might be looking for xmms-mp3 you might need the libmad packages also. have you tried compiling xmms from source1. Go to <a href="http://lame.sourceforge.net/download/download.html" target="_blank">http://lame.sourceforge.net/download/download.html</a> and download lame3.96.1.tar.gz<br />
+2. $ gunzip lame3.96.1.tar.gz<br />
+3. $ tar -xvf lame3.96.1.tar<br />
+4. Switch to root<br />
+5. Move the resulting folder to /usr/local/<br />
+6. # cd /usr/local/lame.3.96  (or whatever the directory is named)<br />
+7. # ./configure<br />
+8. # make<br />
+9. # make install<br />
+10.  At this point, xmms may start working immediately, or you may have to mess with it a little, but you'll have all the tools it needs to play mp3s.thanks. i'm running SuSe 9.3, and KDE. i'm not picky about what player to use, so long as it includes an mp3 codec and a playlist or media library. any suggestions anyone has would be nicesweet! alright, gonna log out of windows and into linux. hopefully, this mp3 codec, in conjunction with the network drivers, office, IM, and video codecs will ensure that i only come back here in linux<br />
+<br />
+yeah, i'm a total noob, if you can't tell. thanks for your help. which reminds me. i wanna post the  official total noob's guide to jumping into linux. like, never used console, don't know what to install, how to compile drivers from source code, etc. anyone willing to host it? thanks.no multimedia packs, just suse 9.3 dvd. no online either, because i haven't figured out how to set up wireless networking.i'm a uni student, and i'm going home either tomorrow or the day after, so i'm gonna use wired until i get back.<br />
+<br />
+so for these multimedia packs, i just run the online updater and it works? or do i have to d/l, compile, install, and config them? what kinda codecs do i get? <br />
+<br />
+on a side note, what's involved in setting up wireless for suse? i've downloaded, compiled, and installed the driver. yast recognizes the hardware, and i've configured it. kinternet isn't finding the hardware, though. i turned it on by typing &quot;ifconfig eth1 up&quot; in the root console, and iwconfig recognizes it, but that's it. yast, iwconfig, and ifconfig recognize it, but kinternet and other programs that list network interfaces don't see it (no eth1 or eth0, only loopback lo).  i've set up the essid and such in yast. any advice anyone can give me? it's a zd1211, i'm running KDE on Suse 9.3, AMD XP 2200 box w/ ASUS nforce2 mobo. i'm considering just packing the wireless adapter away and cutting a 40+ meter ethernet cable to the router three floors up. should i throw in the towel, or keep trying to set up wireless? i suppose it'd be educational for everyone when i tell the tale of it. and it doesn't look like a major incompatibility is impeding my progress.<br />
+<br />
+should i be using a different distro? i'm having all sorts of problems configuring wireless, my mouse dropped out the other night (since fixed), and now, for some reason, my sound card dropped out in windows (don't know if that's related).i've read a number of threads on mp3 codecs that beat about the bush, so i'm just gonna come out and ask the question straight out:<br />
+<br />
+are there any free, legal linux mp3 codecs out there? what's the whole story on the linux/mp3 debacle? can someone tell me the whole story regarding this subject?<br />
+<br />
+everyone says &quot;use xmms!&quot; but when i try to, it won't list or play mp3s. ditto with everything except for bloody realplayer. seeing as SUSE doesn't ship with a codec, what are my choices? am i stuck with realplayer for free mp3 playing? can i get a playlist plugin for realplayer?<br />
+<br />
+can i use my windows xp codecs?  or is that win32 library folder just for quicktime codecs? i copied mpeg1,2,3,&amp; 4, divx, xvid, AC-3, DVD, and any other useful windows codec into that folder, and none of them work.<br />
+<br />
+are there any players with built-in codecs? is that what xmms is? are there any free codecs? is there somewhere where i can go to buy a 50 cent mp3 codec (is that the fee for decoders?)thanks for your help everyone, but i figured it out<br />
+<br />
+i was using the xmms that came with suse. the suse wiki has a section on un-crippling its multimedia abilities.<br />
+<br />
+now to figure out the wireless networking configuration issues, and i'll be pretty much golden. the joystick support is damn good (better than windows), so i can use my playstation adapticator. anyhoo, back to studying. next week, i'm gonna post the official, trademarked/patented/copyrighted linux for noobs.if xmms looks like it is playing the mp3 (play time advances, scrollbar moves, visualization does its thing), but you just don't hear anything, check the xmms preferences to make sure it is using the right output plugin for your system.  If this is the case and you don't know which to use, try the other ones there (make sure you're changing the output plugin, not input), one of them should work.<br />
+<br />
+I had this problem on my laptop, and none of the default ones worked.  I had to install an xmms output plugin specific to the sound system on my laptop (esound 123 i think).<br />
+<br />
+Try the ones there, usually they workalright, i tried compiling lame from source, but it wasn't really happening. i think i'm missing some libraries or something.<br />
+<br />
+i've got xmms (installed from the suse 9.3 dvd), and it won't play mp3s. my guess is that i don't have a codec. should i recompile it? i've got libmad<br />
+<br />
+if none of this works, i'm gonna put all my linux projects on hold for a few days while i get wired networking up and running. i've just been having the weirdest hardware failures (sound doesn't play in windows, mouse doesn't work in linux.) maybe i just need a new compy.

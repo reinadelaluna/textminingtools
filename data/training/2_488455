@@ -1,0 +1,54 @@
+Hi, wonder if you could aid please. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" /> <br />
+<br />
+MY situation is this - <br />
+<br />
+I've managed to do the hard drive install of Knoppix 5 live and its gone well.<br />
+<br />
+I can get my wireless WG311T working and on the net.<br />
+<br />
+Problem is I'm wanting to use Airsnort and when I go into it if does nothing.<br />
+<br />
+I have the madwifi drivers and presume they are installed as I edited Kismet.conf to read source=madwifi_ag,ath0,atheros and is works in Kisemt so I presume the drivers are present. Without the entrance into Kismet kismet won't run for me so I guess the madwifi drivers are there.<br />
+<br />
+I've read alot about saying the madwifi drivers have to be 'patched' Can someone tell me if this 'patch' just means I have to have the regular drivers or if the 'patch' actually alters the Madwifi drivers as they are and adds something to them? From what I have read it points towards adding <br />
+something to the already existing bog-standard Madwifi drivers which allows 'packet injection' when using the likes of Airsnort / Aircrack etc. IS THIS CORRECT? Do I need to get a patch for my already existing Madwifi drivers? HELP ! PLEASE !<br />
+<br />
+Regardless I wish the ability of packet injection. How can I see if it has it?<br />
+<br />
+<br />
+I also read the to get AIRSNORT to work I need to do some kind of virtual lan emulation and point the ath0 to ath1 or something - is this correct too ?<br />
+<br />
+Any answers would be appreciated there is much conflicting information confusing me !<br />
+TaFrom the madwifi documentation:<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Atheros based wireless cards use the madwifi drivers and several different operating modes. The driver module created by madwifi is &quot;ath_pci&quot;. Along with this driver module, madwifi installs a configuration tool called &quot;wlanconfig&quot;. Madwifi and atheros wireless cards support many different &quot;modes&quot;, including the station mode(sta) which is the usual managed mode wifi interface; the access point mode(ap) which allows you to use the card as a wireless access point; monitor mode(monitor) which is used for wireless network monitoring and wireless &quot;cracking&quot; programs like Aircrack; and the additional modes of &quot;adhoc&quot; , &quot;wds&quot; and &quot;ahdemo&quot;.<br />
+When you load the ath_pci module, a station mode interface(sta) is created by default and given the name &quot;ath0&quot;. To avoid this default behaviour, you can run:<br />
+<br />
+# modprobe ath_pci autocreate=none<br />
+<br />
+when loading the driver.<br />
+<br />
+However, once an interface is created, the mode cannot be directly changed on the fly within madwifi. Instead, you need to destroy the interface whose mode you want to change and then recreate it in the correct mode:<br />
+# ifconfig ath0 down<br />
+# wlanconfig ath0 destroy<br />
+# wlanconfig ath0 create wlandev wifi0 wlanmode [sta|adhoc|ap|monitor|wds|ahdemo]
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+You are probably configured to run in station mode. To use cracking programs you need to run in monitor mode. Per the above, you can do that by opening a console, su to root and run:<br />
+<br />
+# ifconfig ath0 down<br />
+# wlanconfig ath0 destroy<br />
+# wlanconfig ath0 create wlandev wifi0 wlanmode monitor<br />
+# ifconfig ath0 up<br />
+<br />
+You should now be able to run your cracking program.

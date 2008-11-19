@@ -1,0 +1,30 @@
+I do not fully understand your question, but what I believe you are seeing are packages that have been selected for installation (the checkmarks in the boxes to the right) but not yet installed (the packages with the downward pointing arrows). You need to click &quot;Apply&quot; (or something like that--I am not at the correct computer to check) to have the install proceed. A little window with a progress bar will then appear somewhere else on your screen showing download and installation progress. If you did not notice the little box (which also says &quot;please wait,&quot; if I recall correctly), and stopped the process early, the selected packages would not be installed (of course). I hope that helps.Thanks cogar and reddazz for the help.<br />
+<br />
+I guess my question would have been &quot;What is going on here?&quot; <br />
+<br />
+I think what happened is that after the 16 hour download of 100 upgrade packages (dialup connection), the installation of these packages was blotched up due a missing dependency because I did get a message saying something to that effect at the very end. Each of the upgrade packages showed up in the package list window pane with the downward green checkmarks as well as the original package that needed the upgrade. I found out later that when the installation is successful, both the upgrade package and the original package merge into one package - NOT TWO - with a higher version number, usually by one digit.<br />
+<br />
+So what I had to do was remove the RPM that needed that depedency (that caused the error message) and clicked on &quot;apply&quot; again. This started the whole 16 hour download all over again but I let it finish just to see what it would do at the end. Much to my surprise, all but 5 of the 100 packages installed successfully. The 5 that didn't install had to do with xine.<br />
+<br />
+But the next time I will try raddazz's suggestion about using the terminal window.<br />
+<br />
+So, thanks much for your responses. They helped me much.<br />
+<br />
+RoyI don't really understand your question either. A less confusing way of updating your system is starting konsole, switching to root using &quot;su -&quot; and doing<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:50px; overflow:auto"><div dir="ltr" style="text-align:left;">#urpmi.update -a
+#urpmi --auto-select --auto</div></pre>
+</div>Hello forum,<br />
+<br />
+I downloaded all available bug fix updates using RPM Drake and each of the upgrade packages for bug fixes show up in the package list pane okay but they all arrows pointing downward in green circles and all of the original packages have check marks in green circles. And to add to the confusion, both the upgrade packages and the original packages also have another check mark just to the right of the green circkes but they are not in green circles.<br />
+<br />
+<br />
+I hope I am describing this accurate enough for you since I don't have a screen shot.<br />
+<br />
+But my question would be why are the arrows pointing downward for the upgrades and all of the original packages have check marks? What does the downward pointing arrow mean? Are the upgrade packages really installed?<br />
+<br />
+Mandriva 2007<br />
+<br />
+Thanks much,<br />
+Roy

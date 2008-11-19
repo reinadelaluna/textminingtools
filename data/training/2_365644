@@ -1,0 +1,5 @@
+I have redhat linux 7.2 installed. I downloaded and burned all the .iso for Fedora 4 core. now when i put disc one in and boot my coumpter it does nothing just starts redhat 7.2. ??? Its set to boot from cd////??/??<br />
+<br />
+<br />
+<br />
+thanksCheck the boot order of the system drives in the BIOS, most likely you BIOS is booting off of the hard disk first, and since it is finding something to boot off of it is not even looking at your CD drive. Try changing the boot order to floppy drive then CD drive then the hard disk.i wasnt buring the .iso as a cd image.... that was my problem

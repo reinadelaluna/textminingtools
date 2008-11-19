@@ -1,0 +1,28 @@
+KDE, and a lot of the apps for it, are written using the Qt toolkit. To compile programs for KDE at the very least you would need Qt installed (including headers - i.e. the devel packages).<br />
+<br />
+Other than that, without seeing exactly what errors you're encountering, it's hard to say what you need to change in order to get it to work.<br />
+<br />
+Automake generates the Makefile.in files needed by configure (I think). It relies on Autoconf to do this...so you would need both Autoconf and Automake to compile KDE programs also.Hi, I'm an experienced programmer trying to figure out the KDE<br />
+environment to create some new programs.  I wanted to<br />
+take a basic program that already works for KDE and see<br />
+if I could compile it.<br />
+<br />
+I chose KAsteroids, and grabbed the code, complete with<br />
+sound files, etc. from the CVS directory and put it in a<br />
+new directory all by itself.  I loaded up KDevelop, and<br />
+pressed the compile project button.<br />
+<br />
+Two hours later, after looking for tutorials on the web,<br />
+I had to give up.  There were a large number of config.in.in<br />
+files, different make files etc.  When I tried to compile the<br />
+program, it said it couldn't find the right make file even<br />
+though there were several already included in there.<br />
+<br />
+Does anyone know of a tutorial on how to compile the<br />
+little pieces of KDE, and where to find out information on<br />
+what's the difference between config.in and config.in.in,<br />
+and what all the different make files are for?  Why should<br />
+I do automake, what do I do if automake reports an error<br />
+saying it couldn't find the right files, etc.?<br />
+<br />
+Many many thanks!

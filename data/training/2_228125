@@ -1,0 +1,11 @@
+Now I don't get any sound anymore, not with alsaplayer nor with regular audio playersso I think I must have broken something. I guess I'll reinstall red hat because now it hangs everytime I try to run software that needs jack or alsaMusic is my passion and the main reason I switched to linux was because so many audio applications can be found for it (as in free ones). I followed the instructions on planet CCRMA<br />
+<br />
+<a href="http://ccrma.stanford.edu/planetccrma/software/install.html" target="_blank">http://ccrma.stanford.edu/planetccrm...e/install.html</a><br />
+<br />
+but I have a problem with the alsa thingy, the site said I should hear a sound when everything installed correctly but I didn't hear it and I got all [OK] lines when installing it.<br />
+<br />
+The site mentioned that maybe i should turn off sound modules that loaded in red hat because they use resources that alsa need so I turnd everything with &quot;snd&quot; in it off but I'm not really sure I did it correctly<br />
+<br />
+Can anybody help me to see if all ALSA stuff works correctly? If I enter &quot;alsamixer&quot; in the terminal I get some bars I can adjust, and while installing alsa it mentioned that I should unmute my soundcard but I think that's odd because I can hear sound while playing CD's or movie files.<br />
+<br />
+edit: I'm playing an mp3 file with AlsaPlayer, does that mean alsa is working fine? I'can't get any sound from rosegarden4.

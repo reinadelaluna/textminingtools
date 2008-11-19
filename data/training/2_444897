@@ -1,0 +1,163 @@
+the command i used is<br />
+<br />
+telnet xx.xxx.xx.xx 25<br />
+ <br />
+im configuring sendmail in my system and got some problems which i posted in another thread. Before proceeding further with sendmail config, i thought of checking whether im able to telnet to our smtp server and finally ended with one more thread with this problem..<br />
+Meanwhile im able to telnet to the smtp server from someother machines. Couldn understand what the problem is?<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>DENSVO</strong></div>
+				<div style="font-style:italic">Is there a difference in resolv.conf between the two servers? Also in sendmail.mc see if it has:<br />
+<br />
+FEATURE(`accept_unresolvable_domains')dnl<br />
+<br />
+<br />
+Best regards,<br />
+Den</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Both the resolv.conf files are same.. nameserver and domain name is correct. The FEATURE u asked is also there in sendmail.mc . i checked file by file, though all the files are same, server one is working fine and other is not working. After trying all these i started writing my own cf file using the O'Reily sendmail book.. now im able to send mails to local users through that file but getting the same error as before for email ids. i donno wats going wrong? <br />
+<br />
+with regards<br />
+gobiThe reason for configuring sendmail is that i have to use it for two purposes, one is with bugzilla and other with my portal developed using python. since sendmail is the ideal one for those purposes, i chose it. We are using two servers here, one is already configured with sendmail and is working fine from where i can telnet to the smtp server. Im wondering what went wrong in this machine and want to figure it out. As you suggested i can go for MUA but i dont know how to use it with bugzilla and python.<br />
+<br />
+is there any other output i should post here? im waiting for a solution..Your telnet connects to port 25 on the mail server alright.<br />
+I agree with taxtropel that your firewall can't be the problem. The mail server accepts the connection and then closes it.<br />
+<br />
+Please keep in mind that the connection on port 25 is supposed to be used to send out commands following the SMTP protocol. If you don't send the commands fast enough, the mail server may simply &quot;time out&quot; and close the connection.<br />
+<br />
+However, since the connection can be established, I don't see any problem for sendmail or any other program to send out mails to the server.<br />
+<br />
+If you want to be sure that you can send out mails, either try issuing the SMTP commands at the telnet prompt (SMTP is a very easy protocol), or use a MUA (mail user agent - a simple mail program), configured to send out mails via SMTP to the server to test if you can send out mails. Your local sendmail configuration than doesn't play any part in it.hi<br />
+im trying to telnet to our smtp server through port 25, but im getting connection closed error. Telnet is working fine for some ips..<br />
+<br />
+The output i got while trying is...<br />
+<br />
+Trying xx.xxx.xx.xx...<br />
+Connected to &lt;remote host name&gt;.com (xx.xxx.xx.xx).<br />
+Escape character is '^]'.<br />
+Connection closed by foreign host.<br />
+<br />
+My /etc/hosts.allow and /etc/hosts.deny are empty..<br />
+<br />
+can anyone tell me how to resolve this?<br />
+<br />
+Thanks in advanceif you are being told that you are connected to the remote host and what your escape char is, then you are not being restricted by your firewall. it simply looks like the remote host is disconnecting you? what is the exact command you are using to telnet in?<br />
+<br />
+on a side note, for what purpose are you trying to telnet into your smtp server?Could it be that your sendmail requires valid IP to hostname resolve by DNS? I think I had a similar problem with POP3 service.<br />
+<br />
+Best regards,<br />
+Den<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>timmeke</strong></div>
+				<div style="font-style:italic">What does the Python code look like? Does it use a sendmail program directly? Or does it open a connection to your &quot;mail server&quot; via port 25 (SMTP)?<br />
+<br />
+Have you checked the logfiles in /var/log?</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<br />
+python code invokes sendmail directly.. but while invoking sendmail through python or by command directly im facing a deferred connection error.. the error im getting is <br />
+<br />
+<a href="mailto:user@domain.com">user@domain.com</a>... Connecting to &lt;smtp server&gt; via hub...<br />
+<a href="mailto:user@domain.com">user@domain.com</a>... Deferred: Connection reset by &lt;smtp server&gt;<br />
+Closing connection to &lt;smtp server&gt;.<br />
+<br />
+so after getting this i guessed both that telnet problem and this error are related and so i want to fix that first.. is both related?<br />
+if not than what may be reason for this bug?<br />
+<br />
+i checked /var/log/messages, it doesnt have any message abt the telnet output.. is there any other log file dedicated for telnet?<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>DENSVO</strong></div>
+				<div style="font-style:italic">Could it be that your sendmail requires valid IP to hostname resolve by DNS? I think I had a similar problem with POP3 service.<br />
+<br />
+Best regards,<br />
+Den</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+i checked the same code in another server we have, it works without any problem.. The result i posted in my previous message shows the ouput when i invoked sendmail in shell..<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>gobi_dgm</strong></div>
+				<div style="font-style:italic">Both the resolv.conf files are same.. nameserver and domain name is correct. The FEATURE u asked is also there in sendmail.mc . i checked file by file, though all the files are same, server one is working fine and other is not working. After trying all these i started writing my own cf file using the O'Reily sendmail book.. now im able to send mails to local users through that file but getting the same error as before for email ids. i donno wats going wrong? <br /></div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Maybe changing loglevel will let sendmail tell us more about what's going on. Could you change it to higher level and post here the output?<br />
+<br />
+Best regards,<br />
+DenCheck your firewall and open the nessesary ports.hi,<br />
+can you tell me how to check firewall settings? i checked /etc/services file and found telnet is running in default port 23 in my machine..<br />
+<br />
+telnet          23/tcp<br />
+telnet          23/udp<br />
+# 24 - private mail system<br />
+<br />
+/etc/xinetd.d/telnet looks like this..<br />
+<br />
+# default: on<br />
+# description: The telnet server serves telnet sessions; it uses \<br />
+#       unencrypted username/password pairs for authentication.<br />
+service telnet<br />
+{<br />
+        disable = no<br />
+        flags           = REUSE<br />
+        socket_type     = stream<br />
+        wait            = no<br />
+        user            = root<br />
+        server          = /usr/sbin/in.telnetd<br />
+        log_on_failure  += USERID<br />
+}<br />
+<br />
+<br />
+is there any other files to be checked?What does the Python code look like? Does it use a sendmail program directly? Or does it open a connection to your &quot;mail server&quot; via port 25 (SMTP)?<br />
+<br />
+Have you checked the logfiles in /var/log?<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>gobi_dgm</strong></div>
+				<div style="font-style:italic">i checked the same code in another server we have, it works without any problem.. The result i posted in my previous message shows the ouput when i invoked sendmail in shell..</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Is there a difference in resolv.conf between the two servers? Also in sendmail.mc see if it has:<br />
+<br />
+FEATURE(`accept_unresolvable_domains')dnl<br />
+<br />
+<br />
+Best regards,<br />
+Den

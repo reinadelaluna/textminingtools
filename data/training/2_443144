@@ -1,0 +1,26 @@
+Using scantv will not work with tvtime. I do not remember the utility that tvtime comes with. I think it is tvtime-scan or something. If your tuner is not set up properly, than niether scantv and tvtime's scan utility will not work. Check your kernel logs to make sure it has setup a tuner for your card before making an assumption that the utilities are not working.hi<br />
+just type &quot;scantv&quot;.<br />
+<br />
+<br />
+type &quot;man scantv&quot; for more detailed information.<br />
+<br />
+<br />
+Please let me know what happens.There is no way for a program to know the model of the tuner so you will have to specify the tuner number. Unfortunately, you will have to try all tuners. You need to specify the tuner opition when loading up the saa7130 or saa7134 module. I suggest before doing this try testing the composite and S-Video connections. If they work, then you know the tuner will work when doing the trial and error process.<br />
+<br />
+Make sure for each tuner that you try, you run modprobe -r saa7130 tuner videodev. After you found a tuner that works, I suggest putting a line in either /etc/modules.conf or /etc/modprobe.conf that states &quot;options saa7134 tuner=X&quot;. Then reboot. If the tuner still works then you can try running tvtime-scanner.it is <br />
+tvtime-scanner<br />
+I did that but it says it did not find any tuner card at device 0<br />
+<br />
+Whereas in lspci,<br />
+my card saa7130 is clearly mentioned.<br />
+and in lsmod the module is clearly loaded.<br />
+<br />
+Dunno wat th eproblem is.I have TVTIME installed in UBUNTU.<br />
+<br />
+But all I get is a black blank screen.<br />
+How do i scan channels??<br />
+I have no idea..<br />
+Please help me people...<br />
+I live in India.(PAL I guess)<br />
+<br />
+-sanjay

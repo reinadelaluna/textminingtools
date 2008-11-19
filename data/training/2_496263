@@ -1,0 +1,29 @@
+Hello,<br />
+     I have obtained some information that some of the linux noobs may find useful. I am a noob as well so do not take it as an insult. If you have recently setup a dual boot with linux operating systems and windows xp this may be for you.<br />
+<br />
+I recently decided I was going to change linux os because I am trying to find the one which fits me. I booted to windows deleted linux partition and formated... I then rebooted and noticed that GRUB was still trying to load and I could not get to windows. After a little research I found this solution to completely rebuild your boot sector/mbr. Below is the solution to repair:<br />
+<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				
+1st - Boot To Windows Disk.<br />
+2nd - Open Repair Consol 'R'<br />
+3rd - Select OS Which Is Usuall Number &quot;1. C:\Windows&quot;<br />
+4th - If You Have Admin Password Type It In And Hit [ENTER]<br />
+5th - Now You Are In Repair Console Under (C)<br />
+6th - Type: fixboot [ENTER] Type: Y [ENTER]<br />
+7th - Type: fixmbr [ENTER] Type: Y [ENTER]<br />
+<br />
+Congratulations, You Have Repaired Boot, Now If Things Went Smoothly You Can Now Get To Windows<br />
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Cordially,<br />
+Brent A. SerioThanks for this TIP

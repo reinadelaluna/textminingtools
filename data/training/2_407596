@@ -1,0 +1,42 @@
+Trying to copy 8mm recorder tape to a file in Fedora Core 3 and then<br />
+burning that file to DVD.  Also play the file on computer using RealPlayer or some other software.  I have been using Linux for a short time and need some help in this area......and others.<br />
+<br />
+Tks<br />
+<br />
+JimDo you have a video recorder that you can connect to the computer and transfer the video? I think it is probably in DV format. In that case you can use kino to rip the video and do the editing. From kino you can export in mpeg2 format and burn to dvd using dvdstyler.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>ssfrstlstnm</strong></div>
+				<div style="font-style:italic">You cannot play 8mm tape in a VCR. Only VHC-C tape (from Handy cam) will work in a VCR with adapter. For 8mm, I think you will need a miniDV type camcorder to play it.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Sorry, but I have a bad habit of generalizing things.<br />
+I have an adapter cable that plugs into the camcorder (which is 8mm) <br />
+the other end is RCA a/v which goes to the vcr. <br />
+<br />
+I guess I should have asked if jim mann has something to play the <br />
+tape with. <br />
+<br />
+Also, jim mann, is it feasable for you to get a TV card?You can get the tape to the computer with a tv card.<br />
+That's what I do with my old HandyCam.<br />
+The cam won't connect directly to the tv card, <br />
+so I run it through a regular vcr. <br />
+<br />
+I capture with mencoder. (mplayer)<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">mencoder -oac lavc -lavcopts acodec=mp3:abitrate=128 -ovc lavc -lavcopts vbitrate=1800:vhq tv://3 -tv driver=v4l:norm=ntsc:chanlist=us-cable:width=320:height=240 -o video.avi</div></pre>
+</div>
+<br />
+Note that this is with 2.4.x kernel. 2.6.x may need &quot;driver=v4l2&quot;.<br />
+<br />
+As for dvd, I don't do it as I'm sans dvd burner, <br />
+but some one will help.You cannot play 8mm tape in a VCR. Only VHC-C tape (from Handy cam) will work in a VCR with adapter. For 8mm, I think you will need a miniDV type camcorder to play it.

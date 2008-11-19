@@ -1,0 +1,24 @@
+Hey ,<br />
+<br />
+My VoIP provider provides this neat little program that allows people to listen to their voicemail on their computer, trouble is it only runs in a Win32 environment from certain versions of Internet Explorer.<br />
+<br />
+There is an executable that runs and takes a single parameter. I think that this parameter contains the location of the voicemail file on their server. The following is an example of one of the codes:<br />
+<br />
+KLWW1o+6MSN/B1vcJxhm8g1Bwh/40CyXHy5ccTk9ZnoIyOlonQ3ayJTz8vOc3Yu/KcjEpDjq3vrXX9HgNdSoOIGdUZGj16XnLfYDrws+IijF+5PmOO83PROIvS5WO4TX0O7udNq8/2+waBtKtvzv4TIaENfuDvrQwyHUC6hvy/bDjQg5tGrveMaNaXIAp2PmRTbkWrW0YmHw1KMf2DVp8eGmjQduIy+DTb5gDxIvOIYg4q2npkN9fBrIH9K3K/F4UveDln0=<br />
+<br />
+I know that it contains one of the following two strings:<br />
+vml-01.tor.primus.ca or mytbb.primus.ca.<br />
+<br />
+I am clueless how I might go about decoding this string, if anyone has any thoughts as to were to begin?<br />
+<br />
+I thought first of decompiling the program, I thought it was written in C# but the C# compiler I used didn't seem to agree with me.<br />
+<br />
+I know when people do illegal activities and make key gens and stuff, they usually disassemble the application. Could this help?<br />
+<br />
+In terms of legalities, I read the the end user agreement from my telephone company and it has nothing written about decompiling this application. And the application has no license agreement.<br />
+<br />
+Any help would be appreciated.<br />
+<br />
+Thanks,<br />
+<br />
+DavidWell, I wrote to the software programmer's of this particular program and they told me the above was encoded using Base64. So I made a PHP script to decode it and it still doesn't make a lot of sense...

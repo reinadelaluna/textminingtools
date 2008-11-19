@@ -1,0 +1,34 @@
+I meant that the company which submitted the specification for PDF makes Acrobat too - they also make &quot;create pdf&quot; macros for word and excel which come bundled with distiller.Try using Scribus, it is a Desktop Publishing program like PageMaker that will export to PDF format. <br />
+<br />
+I use it and the PDF quality is very good. Here is the link.<br />
+<br />
+<a href="http://web2.altmuehlnet.de/fschmid/" target="_blank">http://web2.altmuehlnet.de/fschmid/</a><br />
+<br />
+daveDon't use ps2pdf. If you have a LaTeX source, check out the mighty pdftex. Try this:<br />
+<br />
+pdflatex file.tex<br />
+<br />
+This will give you a beautiful file.pdf. Be sure (important!) not to use any .eps pictures (there have to be converted to pdf first with ghostscript) and use only Type 1 fonts.<br />
+<br />
+Be sure to check out<br />
+\usepackage{hyperref}<br />
+which in its pdf mode will give you lots of nice functionality!PDFWriter and PDFDistiller are actually wrtten by Adobe not Microsoft and are general tools not tied to Word.  From my experience the best conversion from an word processor was from Lotus WordPro (I've used them all as part of my job.)ps2pdf is <i>awful</i> quality. I might wait for OpenOffice.org to update - it's a feature they've included in their beta version.<br />
+<br />
+Cheers<br />
+BertSorry to say it, I've followed the tutorials, written documents using latex, used epstopdf, pdflatex etc., but <i>none of them actually work</i>. One of the tutorials actually says &quot;use Windows Acrobat for making PDF documents&quot;!<br />
+<br />
+This is a real sticking point for me. I'm prepared to learn how to use latex and tetex instead of using word and acrobat for Windows but what's the point if they don't actually do the job?<br />
+<br />
+This is a big reason why I haven't deleted my Windows partition yet.<br />
+<br />
+Can anyone relay experiences / success stories on this?<br />
+<br />
+BertNever tried ps2pdf myself though it surprises me a bit that it is awfult.  At its base most level a PDF is nothing more than a wrapper around PostScript (with a lot of gee wiz tweeks)<br />
+<br />
+Then again Adobe distiller has issues in the same conversion, mostly scale problems.  <br />
+<br />
+It was worth a couple of bucks to me to get StarOffice.  Can't say how well/badly OO does PDF printing.The OO PDF driver essentially frontends ps2pdf. That's main cause of my problem. I can't quite see how the PDFWriter for Office prints great quality PDF (probably because it's made by the same company!) but the Linux equivalent is such poor quality.It's interesting that job recommends LaTeX - a PDF is of course an output format, and the aim I suppose is that from the LaTeX, you can output to .ps, .dvi etc. etc. but actually XML has taken over the role of describing documents with IBM PDF tools.<br />
+<br />
+Scribus is the de-facto solution to this problem, if you don't want the additional step of using meta information for your document.I have never used Latex but the latest StarOffice will allow you to create PDFs fairly painlessly.  You could also try printing to a PostScript file and using ps2pdf<br />
+<br />
+Edit: Note older versions of StarOffice did not print to PDF well if at all.

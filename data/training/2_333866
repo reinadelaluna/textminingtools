@@ -1,0 +1,19 @@
+Hi<br />
+<br />
+I'm in the process of sharing my Sunbird calender using webdav, but I'm having trouble.<br />
+<br />
+Where does one enter the username and password for the file? When I &quot;publish entire calendar&quot; for example, I get:<br />
+<br />
+&quot;status code 405: Method not allowed&quot;<br />
+<br />
+I have been unable to input a username and password, as there seems to be no place to do this.<br />
+<br />
+Can someone please point me in the right direction?<br />
+<br />
+thanks<br />
+hamish== fixed ==<br />
+<br />
+It asks for password when you publish file, just like when you acess restricted area in webpage.<br />
+<br />
+thanks.<br />
+hamish

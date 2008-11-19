@@ -1,0 +1,31 @@
+All,<br />
+<br />
+Mplayer returns the following error. How should mplayer be configured? The audio is alsa. There are several mplayer vidio options. How should they be configured? <br />
+<br />
+Thanks - Dan <br />
+<br />
+Audio: no sound<br />
+Starting playback...<br />
+VDec: vo config request - 720 x 480 (preferred colorspace: Planar YV12)<br />
+VDec: using Planar YV12 as output csp (no 0)<br />
+Movie-Aspect is 1.33:1 - prescaling to correct movie aspect.<br />
+VO: [xv] 720x480 =&gt; 720x540 Planar YV12<br />
+[ws] Error in display.?% ??,?% 0 0<br />
+[ws]  Error code: 11 ( BadAlloc (insufficient resources for operation) )<br />
+[ws]  Request code: 140<br />
+[ws]  Minor code: 19<br />
+[ws]  Modules: flip_pageYou don't have the display drivers set up correctly or you are running as the wrong user. I'm guessing you have nvidia.<br />
+<br />
+Once that's working, run gmplayer and right-click on it somewhere, go to preferences and set up audio and video. Can use OpenGL on most systems if video drivers are installed correctly...  click on a dvd.<br />
+<br />
+You may need some dvd libraries. On fedora they are:<br />
+<br />
+$ rpm -qa | grep livdvd<br />
+libdvdnav-0.1.10-3.fc5<br />
+libdvdcss-1.2.9-3.fc5.at<br />
+libdvdnav-0.1.10-3.fc5<br />
+libdvdread-0.9.6-3.fc5.at<br />
+libdvdread-0.9.6-3.fc5.at<br />
+<br />
+This is how I set up my DVD to play automatically upon insert using xine. Can be adapted to use Mplayer.<br />
+<a href="http://comptune.com/forums/viewtopic.php?t=242" target="_blank">http://comptune.com/forums/viewtopic.php?t=242</a>

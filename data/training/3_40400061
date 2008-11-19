@@ -1,0 +1,394 @@
+* TJ 
+<br />
+
+<br />
+| Is it something to be concerned with that I built a production webserver
+<br />
+| from those instructions yesterday?  It seems to be running fine thus
+<br />
+| far, are there pitfalls on the horizon?
+<br />
+
+<br />
+Apart from the fact that I wouldn't let multiarch or amd64 stuff
+<br />
+anywhere close to a box in production for at least a month, probably
+<br />
+more, if it works fine, it should continue to work fine.
+<br />
+
+<br />
+-- 
+<br />
+Tollef Fog Heen                                                        ,''`.
+<br />
+UNIX is user friendly, it's just picky about who its friends are      : :' :
+<br />
+                                                                      `. `' 
+<br />
+                                                                        `-  
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Hi everyone, i just see ya all talking about an AMD64 Howto.. but i 
+<br />
+can't finde one ... :'(</tt><br>
+<br />
+<br>
+<br />
+<tt>so , ist this howto online??</tt><br>
+<br />
+<br>
+<br />
+<tt>greetings</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+On Sun, Apr 18, 2004 at 03:14:03PM +0200, Tollef Fog Heen wrote:
+<br />
+&gt; * TJ 
+<br />
+&gt; 
+<br />
+&gt; | Is it something to be concerned with that I built a production web server
+<br />
+&gt; | from those instructions yesterday?  It seems to be running fine thus
+<br />
+&gt; | far, are there pitfalls on the horizon?
+<br />
+&gt; 
+<br />
+&gt; Apart from the fact that I wouldn't let multiarch or amd64 stuff
+<br />
+&gt; anywhere close to a box in production for at least a month, probably
+<br />
+&gt; more, if it works fine, it should continue to work fine.
+<br />
+&gt; 
+<br />
+&gt; -- 
+<br />
+&gt; Tollef Fog Heen                                                        ,''`.
+<br />
+&gt; UNIX is user friendly, it's just picky about who its friends are      : :' :
+<br />
+
+<br />
+Do you mean after a month of burn-in?  Or are there new projects coming
+<br />
+to fruition then, maybe a release of some sort? We generally give them 1 month out
+<br />
+in staging, 2 months as a backup fail over, then move them to primary.
+<br />
+Currently, the plan is to run the web servers as debian 32 with a biarch
+<br />
+chroot only for iptables, the database servers as debian 32 with a biarch chroot 
+<br />
+for iptables and a pure64 chroot running postgresql.  I've gotten both of these up 
+<br />
+over the weekend and initial regression tests are going smoothly.
+<br />
+
+<br />
+-- 
+<br />
+TJ Vanderpoel GCIA,GCIH
+<br />
+tj@theitspecialists.net
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Sat, Apr 17, 2004 at 03:10:03PM +0200, Tollef Fog Heen wrote:
+<br />
+&gt; * Frederik Schueler 
+<br />
+&gt; 
+<br />
+&gt; | could someone please update the HOWTO on alioth to the latest CVS
+<br />
+&gt; | version? The current version has errors and describes installation
+<br />
+&gt; | methods which no longer work.
+<br />
+&gt; 
+<br />
+&gt; You should now have permissions to do that yourself.  Please go
+<br />
+&gt; ahead. :)
+<br />
+&gt; 
+<br />
+&gt; -- 
+<br />
+&gt; Tollef Fog Heen                                                        ,''`.
+<br />
+
+<br />
+Is it something to be concerned with that I built a production webserver
+<br />
+from those instructions yesterday?  It seems to be running fine thus
+<br />
+far, are there pitfalls on the horizon?
+<br />
+
+<br />
+-- 
+<br />
+TJ Vanderpoel GCIA,GCIH
+<br />
+tj@theitspecialists.net
+<br />
+<p><strong>Attachment:
+<br />
+<a href="pgp00008.pgp" ><tt>signature.asc</tt></a></strong><br>
+<br />
+<em>Description:</em> Digital signature</p>
+<br />
+
+<br />
+* TJ 
+<br />
+
+<br />
+| Do you mean after a month of burn-in?
+<br />
+
+<br />
+No, I mean that Debian is not mature on amd64 and I would not run
+<br />
+something which is not mature on a production system.
+<br />
+
+<br />
+| Or are there new projects coming to fruition then, maybe a release
+<br />
+| of some sort?
+<br />
+
+<br />
+I'm hoping to have a working, generally-available development
+<br />
+environment by then.
+<br />
+
+<br />
+| We generally give them 1 month out in staging, 2 months as a backup
+<br />
+| fail over, then move them to primary.  Currently, the plan is to run
+<br />
+| the web servers as debian 32 with a biarch chroot only for iptables,
+<br />
+| the database servers as debian 32 with a biarch chroot for iptables
+<br />
+| and a pure64 chroot running postgresql.  I've gotten both of these
+<br />
+| up over the weekend and initial regression tests are going smoothly.
+<br />
+
+<br />
+Ok, you seem to have thought about how you are doing things, at
+<br />
+least. :)
+<br />
+
+<br />
+-- 
+<br />
+Tollef Fog Heen                                                        ,''`.
+<br />
+UNIX is user friendly, it's just picky about who its friends are      : :' :
+<br />
+                                                                      `. `' 
+<br />
+                                                                        `-  
+<br />
+
+<br />
+
+<br />
+
+<br />
+Hi list,
+<br />
+
+<br />
+could someone please update the HOWTO on alioth to the latest CVS
+<br />
+version? The current version has errors and describes installation
+<br />
+methods which no longer work.
+<br />
+
+<br />
+Frederik Schueler
+<br />
+
+<br />
+-- 
+<br />
+ENOSIG
+<br />
+
+<br />
+
+<br />
+
+<br />
+Hi,
+<br />
+
+<br />
+On Sun, Apr 18, 2004 at 02:16:36PM +0200, Christoph Lipp wrote:
+<br />
+&gt; Hi everyone, i just see ya all talking about an AMD64 Howto.. but i 
+<br />
+&gt; can't finde one ... :'(
+<br />
+&gt; 
+<br />
+&gt; so , ist this howto online??
+<br />
+
+<br />
+<a  href="https://alioth.debian.org/docman/view.php/1314/21/debian-amd64-howto.html">https://alioth.debian.org/docman/view.php/1314/21/debian-amd64-howto.html</a>
+<br />
+
+<br />
+
+<br />
+Frederik Schueler
+<br />
+
+<br />
+-- 
+<br />
+ENOSIG
+<br />
+
+<br />
+
+<br />
+
+<br />
+* Frederik Schueler 
+<br />
+
+<br />
+| could someone please update the HOWTO on alioth to the latest CVS
+<br />
+| version? The current version has errors and describes installation
+<br />
+| methods which no longer work.
+<br />
+
+<br />
+You should now have permissions to do that yourself.  Please go
+<br />
+ahead. :)
+<br />
+
+<br />
+-- 
+<br />
+Tollef Fog Heen                                                        ,''`.
+<br />
+UNIX is user friendly, it's just picky about who its friends are      : :' :
+<br />
+                                                                      `. `' 
+<br />
+                                                                        `-  
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Sat, Apr 17, 2004 at 03:10:03PM +0200, Tollef Fog Heen wrote:
+<br />
+&gt; You should now have permissions to do that yourself.  Please go
+<br />
+&gt; ahead. :)
+<br />
+
+<br />
+Thanks. Document updated :-)
+<br />
+
+<br />
+Frederik Schueler
+<br />
+
+<br />
+-- 
+<br />
+ENOSIG
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Frederik Schueler schrieb:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hi,</tt><br>
+<br />
+<br>
+<br />
+<tt>On Sun, Apr 18, 2004 at 02:16:36PM +0200, Christoph Lipp wrote:<br>
+<br />
+ </tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hi everyone, i just see ya all talking about an AMD64 Howto.. but i 
+<br />
+can't finde one ... :'(</tt><br>
+<br />
+<br>
+<br />
+<tt>so , ist this howto online??<br>
+<br />
+   </tt><br>
+<br />
+<br>
+<br />
+</blockquote><tt><br><a  href="https://alioth.debian.org/docman/view.php/1314/21/debian-amd64-howto.html">https://alioth.debian.org/docman/view.php/1314/21/debian-amd64-howto.html</a></tt><br>
+<br />
+<br>
+<br />
+<tt><br>Frederik Schueler</tt><br>
+<br />
+<br>
+<br />
+<tt> </tt><br>
+<br />
+<br>
+<br />
+</blockquote><tt>Hi, thx a lot!</tt><br>
+<br />
+<br>
+<br />
+<tt>Christoph</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />

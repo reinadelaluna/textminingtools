@@ -1,0 +1,46 @@
+<b>hii all <br />
+yesterday , i copied the configuration files of mysql in pc to another pc , <br />
+i copyied /etc/mysql/* <br />
+and /var/lib/mysql/* <br />
+because i needed to theses configuration in  the other pc. <br />
+when the copy finish , i try to enter the mysql , then messege display : <br />
+&quot;ERROR 2002 (HY000) : CanT connect to local MySql server through socket '/var/run/mysqld/mysql.sock' (111)&quot;<br />
+so , what is the solution , <br />
+another thing , when i want remove mysql , i type :<br />
+emerge -c mysql (or with version ) <br />
+the message dislay : &quot; &gt;&gt;clean : No packages selected for removal &quot; <br />
+how i can remove this . <br />
+thanxs for thelp .<br />
+</b><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>gentoo_user</strong></div>
+				<div style="font-style:italic">hii all <br />
+yesterday , i copied the configuration files of mysql in pc to another pc , <br />
+i copyied /etc/mysql/* <br />
+and /var/lib/mysql/* <br />
+because i needed to theses configuration in  the other pc. <br />
+when the copy finish , i try to enter the mysql , then messege display : <br />
+&quot;ERROR 2002 (HY000) : CanT connect to local MySql server through socket '/var/run/mysqld/mysql.sock' (111)&quot;<br />
+so , what is the solution , <br /></div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+This is most probably because mysql server is not started.<br />
+<br />
+To copy over a mysql installation in the way you're trying, this is the good sequence (pc1 is the one where mysql is installed, pc2 the one where you want to copy):<br />
+1- install on pc2 the <b>same version</b> of mysql (unsless you're looking for trouble...) that is on pc1 (upgrade mysql on pc1 if you need to and make sure everything runs smoothly)<br />
+2- stop the mysql servers on pc1 and on pc2<br />
+3- copy the files over as you just did<br />
+4- start mysql server on pc2 and test<br />
+<br />
+<br />
+There are other ways to copy databases from one server to an other. Using mysqldump might be easier and will work (to some extent) with different configuration options and different version of mysql.<br />
+<br />
+Good luck.

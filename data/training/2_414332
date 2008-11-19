@@ -1,0 +1,5 @@
+you'll onbly have that dep filled if rpm thinks lame libraries are installed. if you install lame from source you will probably still be unstuck. if it was an rpm does &quot;rpm -ql lame&quot; list the .so file it's after? mandrake always used to insist on splitting tools into as many pointless little packages as it could manage. are you missing something like liblame?I'm pretty much a newbie. I have installed Lame yet I still get this message:-<br />
+<br />
+mythtv-backend-0.18.1-7.mdk2006.0.mde.i586 (due to unsatisfied libmp3lame.so.0)<br />
+<br />
+Cany anyone suggest how I resolve it?

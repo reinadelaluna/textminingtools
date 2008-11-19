@@ -1,0 +1,12 @@
+Presumably, you are trying to change files that are owned by root (or someone else, not you), or the songs are in a directory you don't have write access to.I have FC-5 and use KDE.<br />
+<br />
+I'm using the &quot;easytag&quot; program to edit tags of music files. Yesterday I used this program to edit information in a file and it worked fine. Today it won't save the changes I make. It says:<br />
+<br />
+&quot;Can't write tag in file 'song #  song title'!&quot;<br />
+(success)<br />
+<br />
+I haven't made any big changes. If I log in as root the program works. Does anybody know what's going on?<br />
+<br />
+Thanks,<br />
+<br />
+royeo

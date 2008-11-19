@@ -1,0 +1,43 @@
+What if you put it in /etc/X11/Xsession ?This is driving me batty. I have an unsupported keyboard with a few multimedia keys I want to activate for all my users. I got the keycode info via &quot;xev&quot; and edited /etc/X11/Xmodmap to this; <br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				!<br />
+! This is the &quot;Xmodmap&quot; file for Standard Keyboards with Windows keys.<br />
+!<br />
+! If you want to have other keymappings for special X-Terminals, just <br />
+! create a &quot;Xmodmap.${DISPLAY}&quot; file with the according changes.<br />
+!<br />
+<br />
+keycode 22  = BackSpace<br />
+keycode 115 = F13<br />
+keycode 116 = XF86Launch0<br />
+keycode 117 = Menu<br />
+keycode 144 = XF86AudioPrev<br />
+keycode 153 = XF86AudioNext<br />
+keycode 160 = XF86AudioMute<br />
+keycode 162 = XF86AudioPlay<br />
+keycode 164 = XF86AudioStop<br />
+keycode 174 = XF86AudioLowerVolume<br />
+keycode 176 = XF86AudioRaiseVolume<br />
+keycode 178 = XF86HomePage<br />
+keycode 223 = XF86LogOff<br />
+keycode 230 = XF86Favorites<br />
+keycode 233 = XF86Forward<br />
+keycode 234 = XF86Back<br />
+keycode 236 = XF86Mail<br />
+			
+		</td>
+	</tr>
+	</table>
+</div>
+and I added this to /etc/X11/init/initrc &quot;xmodmap /etc/X11/Xmodmap&quot;.<br />
+<br />
+ All of this does nothing. I have put the xmodmap statement above and below the &quot;exec /etc/X11/Xsession $&quot; line with and without a space. I have put a script file in my own home directory under Autostart in kde with &quot;xmodmap /etc/X11/Xmodmap&quot; - still nothing.<br />
+If I enter the keycodes manually via konsole (i.e. xmodmap -e 'keycodeXXX=XF86Command') the<br />
+ keys work fine. If I manually execute the initrc script after logging in to X - the keys all work. If I manually launch the script in my Autostart directory, they all work. There is not a .initrc or .Xmodmap file in my home directory.<br />
+<br />
+Any answers????

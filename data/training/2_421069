@@ -1,0 +1,61 @@
+Something else that you might take a look at is Krename.  That will allow you to move, copy, rename, etc. batches of files in different directories and all that sort of thing.  It is a nice gui-based KDE app, if that sounds like something you're interested in.  Anyway, if the CLI thing is more hassle than you're in the mood for, Krename may help do what you're looking for.I've used &quot;dest-folder&quot; here as the name of the destination directory. Be careful with these command lists, as they move files and might overwrite something without prompting.<br />
+<br />
+This names the destination files dest-folder/&lt;former directory name&gt;-&lt;filename&gt;.<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">for i in folder*/*; do mv &quot;$i&quot; &quot;dest-folder/$(dirname $i)-$(basename $i)&quot;; done</div></pre>
+</div>
+<br />
+These commands put an incremental number always in front of the file name:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:50px; overflow:auto"><div dir="ltr" style="text-align:left;">j=0
+for i in folder*; do let j++; for k in $i/*; do mv $k dest-folder/$j-$(basename $k); done; done</div></pre>
+</div>
+<br />
+This uses a little trickery to put the icremental number only in the filenames that already exist:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:50px; overflow:auto"><div dir="ltr" style="text-align:left;">mv -f --backup=t folder*/* dest-folder
+for i in dest-folder/*~; do mv $i $(echo $i|sed -re 's/\/(.*).~(.*)~/\/\2-\1/'); done</div></pre>
+</div>
+<br />
+The command sequences would be easier to understand if broken down into lines of code. The semicolon marks a place where you can press Return; the prompt changes until you give the last <b>done</b> command. The <b>do</b>s are usually also followed by a newline. If you want to write the commands into an executable file, write <b>#!/bin/bash</b> as the first line, then every command on a separate line. When the file is saved use <b>chmod +x filename</b> to change it into an executable. Then run it like this: <b>./filename</b>.<br />
+<br />
+SimonSay that i have the following file structure:<br />
+<i>/folder1/1.jpg<br />
+/folder1/2.jpg<br />
+<br />
+/folder2/1.jpg<br />
+/folder2/2.jpg</i><br />
+<br />
+and i want to copy all jpg files to <i>/folder3</i>. How do i do that when they have the same names, but they actually are different files/pictures? The file names can maybe look something like this, it doesn't matter:<br />
+<i><br />
+/folder3/1-1.jpg<br />
+/folder3/2-2.jpg<br />
+/folder3/3-1.jpg<br />
+/folder3/4-2.jpg</i><br />
+<br />
+where an incremental number (starting at &quot;1&quot;, for example) and then a &quot;-&quot; is added at the beginning of the file name with each copy execution. I'm sure it is a combination of <b>cp</b> and some bash programming, but i'm not a bash wizard.<br />
+<br />
+Or here's my attempt at using date and random:<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">mv /folder*/*.jpg /folder3/$(date +%N)$RANDOM.jpg</div></pre>
+</div>
+<br />
+but i get an error that says:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				mv: when moving multiple files, last argument must be a directory
+			
+		</td>
+	</tr>
+	</table>
+</div>Hey wipe, thanks for the cool examples. I appreciate it =)Ignoring the academic challenge of the CLI, why not use the GUI &quot;Find Files&quot;  and then select the files you want and drop them into the folder you want?  I realise I am working from a simplified scenario of /home data files but this apears to be what your are doing Nick? <br />
+<br />
+- Phidor

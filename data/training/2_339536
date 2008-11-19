@@ -1,0 +1,34 @@
+FC4 does not include the ntfs file system. You will need to obtain the kernel source from FC and recompile it with ntfs support before you even start anything else. Make sure you download the source that matches your kernel.To add a new hard drive. First you will need create a partition on it and then format the partition. To add it to your system you need to create a new directory on your file system tree. This is where the drive will be mounted.<br />
+you nned to be root to complete these tasks.<br />
+&lt;directory&gt; This is replaced by the directory name you choose<br />
+&lt;drive&gt; This is replaced by the drive (hdb1 or whatever)<br />
+&lt;userid&gt; the number that identifies the owner of the mounted drive<br />
+&lt;groupid&gt; the number that identifies the group access to the mounted drive<br />
+#su<br />
+Password:  (insert you root password nothing will be echoed at all)<br />
+#md /mnt/&lt;directory&gt;<br />
+#echo &quot;/dev/&lt;drive&gt;  /mnt/&lt;directory&gt; auto iud=&lt;userid&gt;,gid-&lt;groupid&gt;  0  0&quot; &gt;&gt; /etc/fstab<br />
+#mount /mnt/&lt;directory&gt;<br />
+at this point the drive shoul be mounted<br />
+#exit<br />
+all done.<br />
+<br />
+<br />
+This will allow you to edit fstab andhow can i add new mounted hd to my computers section of fedora core?<br />
+i edited fstab and added fat32 partitions but i want to add them to my computers folder?<br />
+<br />
+one more thing how can i mount read only ntfs drive and how can i add language support for fat32 mounted drives because folder names looks different?<br />
+i am using turkish system..<br />
+<br />
+thanks alot...post fstab and we can see if you did it right.  Normally when you mount it it should have an icon show up on the desktop to reflect the drive.  Where you able to mount it or did it fail to mount - post the output you get when you try mounting it.  to add a ntfs partition read only you'd have to add ro to the options - im pretty sure you don't need a package to do that but if you wanted to write to the nfts drive you'd have to install something to do so. sorry i can't help you on the language issue. here is a link that explains fstab pretty well<br />
+<br />
+<a href="http://www.tuxfiles.org/linuxhelp/fstab.html" target="_blank">http://www.tuxfiles.org/linuxhelp/fstab.html</a><br />
+<br />
+try man mount for more info as well. good lucki know how to edit fstab..<br />
+thans for more detailed explanations<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+first of all, i want to learn to correct the cgaracter encoding of mounted fat32 partition...<br />
+second, i wanna learn to mount ntfs drive on fedora 4..<br />
+at last, i wanna learn to add mounted drive icon in &quot;my computer&quot; (this is a folder in fedora at desktop) folder.<br />
+<br />
+thanks to everyone..

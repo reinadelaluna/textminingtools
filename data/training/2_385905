@@ -1,0 +1,3 @@
+I am looking for a simple wiki software to install to allow fellow mud players to store data on game items.<br />
+<br />
+Any suggestions?I've used <a href="http://phpwiki.sourceforge.net/" target="_blank">http://phpwiki.sourceforge.net/</a> a few times and does exactly what it says on the tin. Can run from a flat-file rather than MySQL or other DB system for ease of install + use depending on much use it's going to get.

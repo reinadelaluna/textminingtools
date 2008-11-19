@@ -1,0 +1,37 @@
+Friends.<br />
+<br />
+I have installed the REd Hat Linux Advanced Server with Oracle9i as DAta Base.<br />
+Earlier i used to ftp the files from Data Base server through Graphical Tool availble free WS_ftp. But installing the new server after it got crash down it refused to let me in . Saying unable to connect to the server. Connection refused.<br />
+<br />
+Kindly answer the querry as early as possible.<br />
+<br />
+<a href="mailto:newmoong@yahoo.com">newmoong@yahoo.com</a><div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>navin_brd</strong></div>
+				<div style="font-style:italic">
+<br />
+Kindly answer the querry as early as possible.<br />
+<br />
+<a href="mailto:newmoong@yahoo.com">newmoong@yahoo.com</a></div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+This is not how it works---no one here is going to be in a big hurry just because YOU are in a hurry.<br />
+<br />
+Answers go on the forum and not to your e-mailI'm not sure, but it sounds like your ftp service is not running.  Try this command: service vsftpd status<br />
+<br />
+This will tell you if your ftp service is running or not.  If service says it can't find a service called that then it is probably not installed.<br />
+To start ftp: service vsftpd start  <br />
+or <br />
+service vsftpd restart<br />
+either should work.<br />
+<br />
+Hope this helps!I'm sorry, was there a question in there? I can't see a question mark so i guess the answer is no. Cool, moving on <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+I understand that english may not be your first language but you need to be a whole  lot more specific than that. So Oracle crashed, if Oracle has a built-in FTP server then of course you can't access it if the database crashed. If you're using another program for FTP was it configured properly, could you access it before? Can you SSH into to box and pull out some logs that might explain the crash or at least be able to restart your FTP server?

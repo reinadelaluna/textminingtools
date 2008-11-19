@@ -1,0 +1,5 @@
+You will need to run vmware-config.pl to configure VMware. It will compile the two modules vmmon and vmnet which are require to run a virtual machine. I rather use tar.gz or tar.bz2 files instead of RPM files.Took a while but its working now. Thank youHello. I have vmware and knoppix, slax, and a few other distros. I dont have much knowledge of linux yet. I wanna know why it says missing /dev/vmmon when i have installed vmware and try to run it in slax? It is the only distro i have tried so far. When i installed it, it was from rpm, I said - rpm ivh nodeps vmware.rpm and it installed. but when i tried to start a virtual machine the error came up: missing /dev/vmmon. What do i do?<br />
+Is it cause i installed it with nodeps? I figured that means no dependencies.<br />
+<br />
+Please help.<br />
+Thank you.

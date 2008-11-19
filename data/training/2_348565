@@ -1,0 +1,40 @@
+I have a Windows XP laptop on which I have some shares which I access from my Linux desktop machine. At the moment I'm unable to mount the shares as any other user than root.<br />
+<br />
+First, a bit of background. I've got the following mount-point defined in /etc/fstab:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">//cchqdave/c$     /mnt/laptop             smbfs   user,credentials=/home/david/.smbpasswd,rw,noauto       0 0</div></pre>
+</div>
+<br />
+If I try to mount this mount-point as myself (an unprivileged user), I get an error:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:66px; overflow:auto"><div dir="ltr" style="text-align:left;">[david@malvern ~]$ mount /mnt/laptop
+smbmnt must be installed suid root for direct user mounts (501,501)
+smbmnt failed: 1</div></pre>
+</div>
+<br />
+So I took the suggestion and made smbmount setuid root:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:34px; overflow:auto"><div dir="ltr" style="text-align:left;">[david@malvern ~]$ sudo chmod u+s `which smbmount`</div></pre>
+</div>
+<br />
+And tried mounting it again:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:82px; overflow:auto"><div dir="ltr" style="text-align:left;">[david@malvern ~]$ mount /mnt/laptop
+libsmb based programs must *NOT* be setuid root.
+12687: Connection to cchqdave failed
+SMB connection failed</div></pre>
+</div>
+<br />
+Which is weird. Anyone got any suggestions? I really don't want to have to do <font face="courier new">sudo mount /mnt/laptop</font> every time. It's probably worth mentioning if I do do <font face="courier new">sudo mount /mnt/laptop</font> then it works fine and I can access my shares without any problems - I just don't like having to stick in the sudo password every time because it's a pain.Why not use PAM_MOUNT. Alot better and secure then using fstab or smbfstabWell there are two binaries, smbmnt and smbmount.  It says smbmnt should have suid, but you made smbmount suid.<br />
+<br />
+I don't know what the difference is, but I know there is a difference.  Try to set the suid bit for smbmnt instead of smbmount, and call us in the morning.Um ... this is not how FC4 expects you to use smb shares ...<br />
+<br />
+You can set up the FC4 machine as the server - set the workgroup etc - and the share appears in your XP laptop. The whole thing works through the gui.

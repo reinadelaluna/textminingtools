@@ -1,0 +1,121 @@
+Hmm, that's interesting. I tried mplayer from the command line. The disk allegedly has 3 audio tracks followed by 1 video cd track. I can play the audio tracks with a cd player. When I try mplayer vcd://4 /dev/hdc it scans tracks 1,2 and 3 but can't find a 4th track. So I tried the disk in my standalone DVD player and that too can play 3 audio tracks but cannot find a 4th track. So, either Polydor are lying and there is no video track there or something strange is happening and the devices cannot see this track. <br />
+<br />
+AndyI cannot get xine to play VCD. I have FC5 with two CDRW/DVDR drives. I recently rebuilt after a my northbridge fried and i bought a new mobo. <br />
+<br />
+After installation, I ran yum update so the system is up to date. Then downloaded xine0.99.4 and xine-lib1.1.2 rpms and installed. This all worked except avi would not play so i downloaded the latest source and compiled and everything worked including avi, mpg, wmv and DVD (obvisouly i installed DVDCSS and w32 codecs). <br />
+<br />
+Then I found an old VCD disk and tried to play it but it won't. I am trying to play it in the same drive as I play DVDs in. I have checked the device settings in xine and the VCD device path is set to /dev/hdc but I have also tried creating a link /dev/vcd linked to /dev/hdc. Now, if I hit the VCD button on the xine control panel, nothing happens and the disk does not attemt to spin up. If I hit the VCDC button, the disk appears to spin up and xine crahses and exits. If I type xine vcd://4 (which is the correct track number) at a command line, xine starts and gives the error There is no input plugin available to handle 'vcd://4'. <br />
+<br />
+Any ideas please?<br />
+<br />
+<br />
+Thanks<br />
+<br />
+AndyYes, my Sony DVP-NS305 that sites under my VCR and Sky box. It only finds 3 audio tracks and no video although this is a Polycor musci CD with the VCD logao all over the cover.<br />
+<br />
+Here is the uotput when i try to play track 1 with mplayer -<br />
+<br />
+<br />
+<br />
+<br />
+[user@hostname ~]$ mplayer vcd://1 /dev/hdc<br />
+MPlayer dev-SVN-rUNKNOWN-4.1.1 (C) 2000-2006 MPlayer Team<br />
+CPU: Intel(R) Pentium(R) 4 CPU 3.06GHz (Family: 15, Model: 4, Stepping: 9)<br />
+CPUflags:  MMX: 1 MMX2: 1 3DNow: 0 3DNow2: 0 SSE: 1 SSE2: 1<br />
+Compiled with runtime CPU detection.<br />
+Opening joystick device /dev/input/js0<br />
+Can't open joystick device /dev/input/js0: No such file or directory<br />
+Can't init input joystick<br />
+Setting up LIRC support...<br />
+mplayer: could not connect to socket<br />
+mplayer: No such file or directory<br />
+Failed to open LIRC support.<br />
+You will not be able to use your remote control.<br />
+<br />
+Playing vcd://1.<br />
+track 01:  adr=1  ctrl=0  format=2  00:02:00  mode: 3<br />
+track 02:  adr=1  ctrl=0  format=2  06:02:12  mode: 3<br />
+track 03:  adr=1  ctrl=0  format=2  12:37:12  mode: 3<br />
+RAWDV file format detected.<br />
+VIDEO:  [DVSD]  720x480  24bpp  29.970 fps    0.0 kbps ( 0.0 kbyte/s)<br />
+No vidix driver name provided, probing available ones (-v option for details)!<br />
+[cyberblade] Error occurred during pci scan: Operation not permitted<br />
+[unichrome] Error occurred during pci scan: Operation not permitted<br />
+[nvidia_vid] Error occurred during pci scan: Operation not permitted<br />
+[radeon] Error occurred during pci scan: Operation not permitted<br />
+[pm3] Error occurred during pci scan: Operation not permitted<br />
+[mga] Error occurred during pci scan: Operation not permitted<br />
+[savage_vid] Error occurred during pci scan: Operation not permitted<br />
+[mga] Error occurred during pci scan: Operation not permitted<br />
+[mach64] Error occurred during pci scan: Operation not permitted<br />
+[rage128] Error occurred during pci scan: Operation not permitted<br />
+[SiS] Error occurred during pci scan: Operation not permitted<br />
+[VO_SUB_VIDIX] Couldn't find working VIDIX driver.<br />
+==========================================================================<br />
+Opening video decoder: [dshow] DirectShow video codecs<br />
+Decoder supports the following YUV formats: YUY2 UYVY<br />
+Decoder is capable of YUV output (flags 0x9)<br />
+VDec: vo config request - 720 x 480 (preferred colorspace: Packed YUY2)<br />
+[PP] Using codec's postprocessing, max q = 4.<br />
+VDec: using Packed YUY2 as output csp (no 0)<br />
+Movie-Aspect is undefined - no prescaling applied.<br />
+VO: [xv] 720x480 =&gt; 720x480 Packed YUY2<br />
+Selected video codec: [qdv] vfm: dshow (Sony Digital Video (DV))<br />
+==========================================================================<br />
+==========================================================================<br />
+Opening audio decoder: [libdv] Raw DV Audio Decoder<br />
+Unknown/missing audio format -&gt; no sound<br />
+ADecoder init failed <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" /><br />
+Opening audio decoder: [ffmpeg] FFmpeg/libavcodec audio decoders<br />
+Cannot find codec 'dvaudio' in libavcodec...<br />
+ADecoder init failed <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" /><br />
+ADecoder init failed <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" /><br />
+Cannot find codec for audio format 0x56444152.<br />
+Read DOCS/HTML/en/codecs.html!<br />
+Audio: no sound<br />
+Starting playback...<br />
+V:   0.0   0/  0 ??% ??% ??,?% 0 0<br />
+<br />
+Playing /dev/hdc.<br />
+Seek failed<br />
+<br />
+<br />
+Exiting... (End of file)<br />
+<br />
+<br />
+<br />
+<br />
+and here is the output when i try to play track 4 -<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+[user@hostname ~]$ mplayer vcd://4 /dev/hdc<br />
+MPlayer dev-SVN-rUNKNOWN-4.1.1 (C) 2000-2006 MPlayer Team<br />
+CPU: Intel(R) Pentium(R) 4 CPU 3.06GHz (Family: 15, Model: 4, Stepping: 9)<br />
+CPUflags:  MMX: 1 MMX2: 1 3DNow: 0 3DNow2: 0 SSE: 1 SSE2: 1<br />
+Compiled with runtime CPU detection.<br />
+Opening joystick device /dev/input/js0<br />
+Can't open joystick device /dev/input/js0: No such file or directory<br />
+Can't init input joystick<br />
+Setting up LIRC support...<br />
+mplayer: could not connect to socket<br />
+mplayer: No such file or directory<br />
+Failed to open LIRC support.<br />
+You will not be able to use your remote control.<br />
+<br />
+Playing vcd://4.<br />
+track 01:  adr=1  ctrl=0  format=2  00:02:00  mode: 3<br />
+track 02:  adr=1  ctrl=0  format=2  06:02:12  mode: 3<br />
+track 03:  adr=1  ctrl=0  format=2  12:37:12  mode: 3<br />
+ioctl dif1: Invalid argument<br />
+Error selecting VCD track. (seek)<br />
+Failed to open vcd://4.<br />
+<br />
+<br />
+Playing /dev/hdc.<br />
+Seek failed<br />
+<br />
+<br />
+Exiting... (End of file)By &quot;stand alone&quot; DVD player do you mean like an actual hook up to your TV DVD player?I had similar issues with an old vcd on Ubuntu - try mplayer.

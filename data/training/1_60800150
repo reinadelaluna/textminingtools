@@ -1,0 +1,90 @@
+I cannot reproduce this here with unstable (apache2-mpm-worker 
+<br />
+2.0.55-4.1).
+<br />
+
+<br />
+Cheers,
+<br />
+Stefan
+<br />
+
+<br />
+
+<br />
+
+<br />
+Package: apache2-mpm-worker
+<br />
+Version: 2.0.55-4
+<br />
+ 
+<br />
+Kernel version: Linux 2.6.12 #2 SMP i686 GNU/Linux
+<br />
+
+<br />
+Steps to Reproduce:
+<br />
+1) Create a site config file test in /etc/apache2/sites-available by
+<br />
+using following command:
+<br />
+cd /etc/apache2/sites-available 
+<br />
+echo Listen 1234 &gt; test
+<br />
+
+<br />
+2) Enable site test and reload
+<br />
+a2ensite test
+<br />
+/etc/init.d/apache2 reload
+<br />
+
+<br />
+3) Disable site test and reload
+<br />
+a2dissite test
+<br />
+/etc/init.d/apache2 reload
+<br />
+
+<br />
+After this reloading, apache will begin to use up all memory rapidly and
+<br />
+finally be killed by linux kernel.
+<br />
+
+<br />
+It can use up 2G memory in just 5 seconds!
+<br />
+
+<br />
+There is another server with the same apache2 version but using
+<br />
+apache2-mpm-prefork model doesn't have this problem.
+<br />
+
+<br />
+This problem won't happen if I use &quot;/etc/init.d/apache2 restart&quot;.
+<br />
+
+<br />
+I have reported this problem to apache2 but they can't reproduce this
+<br />
+problem on their system. 
+<br />
+
+<br />
+Thanks.
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />

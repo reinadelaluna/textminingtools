@@ -1,0 +1,8 @@
+bad ram or other equipment failing usuallyI have been trying to compile programs like BitchX, EPIC, ircii, everything works up till i type &quot;make&quot; and then i get errors like: *** [alias.o] Error 1 everytime.....<br />
+<br />
+I have no clue why its been doing this.<br />
+<br />
+Pentium 133<br />
+32MB ram<br />
+<br />
+ThanksIf gcc ends in segmentation faults for a number of programs, it's very likely that you've got a bad ram chip, as was said before. To be certain, go to <a href="http://www.memtest86.com" target="_blank">http://www.memtest86.com</a> where you can find a bootable program to test it. If it is bad, you can google for BadRAM, a patch to the kernel that reserves the bad sectors of RAM at boot and doesn't allow other programs to access them. That will of course require a kernel re-compile.

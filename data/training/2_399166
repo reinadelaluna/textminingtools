@@ -1,0 +1,10 @@
+Thanks Guys! It did the trick <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />Hey guys/gals,<br />
+<br />
+Just wondering I am using FC4 and GNOME and would like to change my settings (if possible) so that it uses the existing window to open a new folder. Example: When I am in a folder in GUI and I double click to go into the folder I <b>DO NOT</b> want a new window to pop up. I want the current view to switch into the folder that I clicked on. Is this possible and if it is where can I modify it. I have dug deeply through many config settings and have not had much luck.<br />
+<br />
+Thanks in Advance!I don't have gnome handy but, I think this is what you're talking about...<br />
+<br />
+Make the nautilus have split window look, not many windows (spartial)<br />
+gconf-editor, and change /apps/nautilus/preferences/always_use_browserhi,<br />
+<br />
+Just open Computer (on desktop) ==&gt; Edit ==&gt; Preferences ==&gt; Behavior ==&gt; check Always open in browser windows

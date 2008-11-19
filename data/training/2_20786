@@ -1,0 +1,15 @@
+no i think it is better when<br />
+<br />
+u install windows firstly<br />
+and then go to the linux and install it completly<br />
+this will make u able to put the partition of windows in C: partition with anyproblems<br />
+<br />
+and put the linux whereever u want<br />
+<br />
+and will not need a special config for lilo cos it will autoconfig itselfInstall windows. Then get FIPS off the net or perhaps the distros CD. FIPS resizes windows partition with absolutely no loss of data. (as long as you follow the instructions.) Then install linux and let its partitioning tool (Which i hear is very good for suse.) to create the required partitions.I generally find it easiest to<br />
+<br />
+* Start to install linux, but stop just after paritioning the hard disk<br />
+* Install Windows<br />
+* Install linux<br />
+<br />
+The Linux swap &quot;file&quot; shouldn't go anywhere, the swap partition can go anywhere you like, I generally tuck it at the back end of my hard disk.<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/newbie.gif" border="0" alt="" title="Newbie" class="inlineimg" /> Hello i am trying to install linux SuSE 7.1 and windows 98 Se. Which one should i install first? <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/confused.gif" border="0" alt="" title="Confused" class="inlineimg" /> and where should the linux swap file be, should the windows partition or linux partition be first, and where should i put lilo???

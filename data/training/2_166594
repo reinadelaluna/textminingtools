@@ -1,0 +1,56 @@
+Our clients are allways kind and send us a lot of viruses <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/rolleyes.gif" border="0" alt="" title="Roll Eyes (Sarcastic)" class="inlineimg" /><br />
+<br />
+What I am thinking about is that a linux machine collects the emails from the mail server and people can then read there mails from any computer that they are on using outlook... am I dreaming?<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by crazyswede </i><br />
+<b>Our clients are allways kind and send us a lot of viruses <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/rolleyes.gif" border="0" alt="" title="Roll Eyes (Sarcastic)" class="inlineimg" /><br />
+<br />
+What I am thinking about is that a linux machine collects the emails from the mail server and people can then read there mails from any computer that they are on using outlook... am I dreaming? </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> Its not the mail servers that are sending viruses, its the users clients which in this case is Outlook that send the viruses. You can use any mail server you want and have Outlook get the messages from, but why not convert your users to an alternative, in which people don't write viruses that don't affect them, etc.  <br />
+<br />
+Or setup web based email..  totally gets rid of the viruses as if they do get a virus, it can't be executed by just opening the email.Is there any good outlook mail server software that you would recommend?<br />
+<br />
+Thanks<br />
+<br />
+crazyswedeWhat do you mean by Outlook Mail Server?  As in actual MTA or the client that can connect to Exchange, or something that is just like Outlook minus the viruses..  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
+<br />
+<br />
+Clients = Evolution, Sylpheed, Kmail and many others..  <br />
+MTA = Sendmail, qmail, postfix...   etc.Hmm, I'm looking for somthing similar. I want to replace the MS Exchange server by some prog running under Linux. The clients are (for now) W98 machines running either Outlook 97 or Outlook 2000.<br />
+These MIGHT be replaced by OpenOffice (btw: is there an email client built-in?)<br />
+Sendmail configuration scares me a bit.<br />
+I want a central store for the mail and not the mail on the client pc's as with pop3.<br />
+<br />
+jpf<br />
+<br />
+ps the site is relatively small: 1 server (so far) and 12 pc's<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by trickykid </i><br />
+<b>Its not the mail servers that are sending viruses, its the users clients which in this case is Outlook that send the viruses. You can use any mail server you want and have Outlook get the messages from, but why not convert your users to an alternative, in which people don't write viruses that don't affect them, etc.  <br />
+<br />
+Or setup web based email..  totally gets rid of the viruses as if they do get a virus, it can't be executed by just opening the email. </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+Yes I know it is not the mail servers fault <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/rolleyes.gif" border="0" alt="" title="Roll Eyes (Sarcastic)" class="inlineimg" /> <br />
+<br />
+The problem is I need to use outlook as it is used with the business manager software that comes with the latest Office. I cna get away with having 2 machines with Outlook and 15 with some other software.The problem I always had when I was thinking of moving a MS Exchange server to a Linux alternative was the matter of authentication.<br />
+<br />
+How can Windows user's change their POP3 passwords?<br />
+<br />
+The Exchange server uses the Domain user names and passwords (which users can change from nearly any Windows machine), but I could never find a way to let Windows machines change the mail password. Unless maybe you use a Linux machine as a PDC, but that is even harder than setting up a mail server.

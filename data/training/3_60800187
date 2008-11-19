@@ -1,0 +1,1590 @@
+Am Dienstag, 15. August 2006 15:14 schrieb Lennart Sorensen:
+<br />
+&gt; On Tue, Aug 15, 2006 at 06:27:32AM +0200, Hans wrote:
+<br />
+&gt; &gt; Sorry, I maybe did not ask correctly. It is not the problem, that the
+<br />
+&gt; &gt; time is not shown correctly. The background is, that other timings are
+<br />
+&gt; &gt; running in double speed, too (i.e. keyboard clock and some other). This
+<br />
+&gt; &gt; is a known problem on AMD mobile processors and was discussed in earlier
+<br />
+&gt; &gt; days. The solution of it, was to add &quot;disable_timer_pin_1&quot; in the boot
+<br />
+&gt; &gt; vcommand on grub or lilo. Now I read about adding &quot;noapictimer&quot; should
+<br />
+&gt; &gt; solve this, too. My question aimed to an technical answer, if the
+<br />
+&gt; &gt; commands &quot;disable_timer_pin_1&quot; and &quot;noapictimer&quot; are doing the same, or
+<br />
+&gt; &gt; if they both solve the mentioned problem in different ways.
+<br />
+&gt;
+<br />
+&gt; I believe the problem occoured with ATI chipsets on laptops.  As far as
+<br />
+&gt; I have understood it, the problem is that the timer interrupts occour
+<br />
+&gt; both on the 8259 interrupt controller, and through the apic.  I believe
+<br />
+&gt; 'disable_timer_pin_1' makes the kernel ignore the 8259 interrupt for the
+<br />
+&gt; timer, and that 'noapictimer' ignores the apic interrupt for the timer.
+<br />
+&gt; Since the problem seems to be getting two interrupts for every timer
+<br />
+&gt; event, one for each interrupt method, it makes sense that disabling
+<br />
+&gt; either one will solve the problem.  It doesn't matter which one you
+<br />
+&gt; disable as long as you disable one of the two.
+<br />
+&gt;
+<br />
+&gt; It really looks like a bug in the design of the chipset, although it may
+<br />
+&gt; just be that the BIOS/ACPI tables are done wrong, which is rather common
+<br />
+&gt; it seems.  Too often the ACPI tables for windows work, but are
+<br />
+&gt; incomplete or wrong for other operating systems.  Apparently on such
+<br />
+&gt; systems, telling linux to lie to acpi and pretend to be windows xp often
+<br />
+&gt; solves such strange problems.
+<br />
+&gt;
+<br />
+&gt; --
+<br />
+&gt; Len Sorensen
+<br />
+
+<br />
+Hi Len !
+<br />
+
+<br />
+It seems, that in last kernel 2.6.17 this problem is solved. I read the 
+<br />
+documentation of the kernel, and (as you wrote), these timers just misbehave 
+<br />
+if you have a chipset of ATI. This is the case on my notebook: ATI chipset !
+<br />
+
+<br />
+Well, without this kernel-command it is running fine with the newest kernel. 
+<br />
+So there are no problems any more. I additionally did hope, that this could 
+<br />
+be the reason, why my 3D-accelertion with the &quot;fglrx&quot;-river is still slow. 
+<br />
+All 3D-functions are o.k., I get the box with the rotating wheels when 
+<br />
+starting &quot;fgl_glxgears&quot;, but they are rather slow. About 50 FPS, that is 
+<br />
+speed as mesa-glx shows ! Should be 600 FPS, that would be o.k. &quot;fglrxinfo&quot; 
+<br />
+shows the correct driver-version, and &quot;glxinfo |grep direct&quot; shows  &quot;direct 
+<br />
+rendering: Yes&quot;
+<br />
+
+<br />
+So verything seems t be o.k. with the software, and my idea was, something 
+<br />
+else, but not the driver is braking my system.
+<br />
+
+<br />
+You can believe me: I checked really everything, and do not know, where to 
+<br />
+look now. 
+<br />
+
+<br />
+Additonally I tested every xorg.conf I found in the web and checked a whole 
+<br />
+bunch of settings. Sadly no success ! ATI really sux ! (This notebook I got 
+<br />
+as new of a guarantee as exchanged, I had Nvidia-card on the other noteook).
+<br />
+
+<br />
+And I have never heard of someone who got 3d-acceleration really fast running 
+<br />
+with a pure 64-bit-system with ATI......
+<br />
+
+<br />
+Thats a little bit information about the background, maybe other people this 
+<br />
+could help, too
+<br />
+
+<br />
+Thanks for all your help !
+<br />
+
+<br />
+best regards
+<br />
+
+<br />
+Hans
+<br />
+
+<br />
+ 
+<br />
+
+<br />
+
+<br />
+  
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Monday 14 August 2006 11:07, Hans-J. Ullrich wrote:
+<br />
+&gt; Hello !
+<br />
+&gt; Just an easy question:
+<br />
+&gt;
+<br />
+&gt; Is there a difference between &quot;disable_timer_pin_1&quot; and
+<br />
+&gt; &quot;noapictimer&quot; at startup in grub ? If yes, what is the difference
+<br />
+&gt; ?
+<br />
+&gt;
+<br />
+&gt; (This command is needed to get the clock running correct)
+<br />
+&gt;
+<br />
+&gt; regards
+<br />
+&gt;
+<br />
+&gt; Hans
+<br />
+
+<br />
+Why not use Chrony and your local pool.ntp.org servers for time? 
+<br />
+Also what happens if you don't reboot for a long time, then how do 
+<br />
+you keep your time correct?
+<br />
+
+<br />
+Not that it makes a difference, but those are kernel commands, I 
+<br />
+believe all grub does is pass those on to the kernel anyway.  
+<br />
+
+<br />
+Your local search engine will be most useful here, might want to 
+<br />
+give it a go.
+<br />
+
+<br />
+Gnu_Raiz
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Monday 14 August 2006 14:40, Mike Reinehr wrote:
+<br />
+&gt; On Monday 14 August 2006 01:40 pm, Gnu-Raiz wrote:
+<br />
+&gt; &gt; On Monday 14 August 2006 11:07, Hans-J. Ullrich wrote:
+<br />
+&gt; &gt; &gt; Hello !
+<br />
+&gt; &gt; &gt; Just an easy question:
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; Is there a difference between &quot;disable_timer_pin_1&quot; and
+<br />
+&gt; &gt; &gt; &quot;noapictimer&quot; at startup in grub ? If yes, what is the
+<br />
+&gt; &gt; &gt; difference ?
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; (This command is needed to get the clock running correct)
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; regards
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; Hans
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Why not use Chrony and your local pool.ntp.org servers for
+<br />
+&gt; &gt; time? Also what happens if you don't reboot for a long time,
+<br />
+&gt; &gt; then how do you keep your time correct?
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Not that it makes a difference, but those are kernel commands,
+<br />
+&gt; &gt; I believe all grub does is pass those on to the kernel anyway.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Your local search engine will be most useful here, might want
+<br />
+&gt; &gt; to give it a go.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Gnu_Raiz
+<br />
+&gt;
+<br />
+&gt; ntp-simple couldn't be easier to install &amp; use and will keep your
+<br />
+&gt; system time synchronized with the national time servers. I also
+<br />
+&gt; would recommend ntpdate if you shut your system down frequently.
+<br />
+&gt; Ntpdate will set the time on boot, while ntp-simple will keep it
+<br />
+&gt; synchronized.
+<br />
+&gt;
+<br />
+&gt; HTH
+<br />
+&gt;
+<br />
+&gt; cmr
+<br />
+&gt; --
+<br />
+&gt; Debian 'Sarge': Registered Linux User #241964
+<br />
+&gt; ----
+<br />
+&gt; &quot;More laws, less justice.&quot; -- Marcus Tullius Ciceroca, 42 BC
+<br />
+&gt; --------
+<br />
+
+<br />
+:) I have one machine that uses ntpd, if your curious that is what 
+<br />
+Freebsd ships with except it's not turned on by default. Regardless 
+<br />
+the hardest part was doing the .conf  file, it was easy if you use 
+<br />
+the pool at ntp.org.
+<br />
+
+<br />
+If you really want to read up on the virtures of Chrony and why some 
+<br />
+suggest it for Debian you might want to search Debian user list, as 
+<br />
+it comes up once in a while. Let's just say that each has it ardent 
+<br />
+fans. 
+<br />
+
+<br />
+Gnu_Raiz
+<br />
+
+<br />
+
+<br />
+
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">It gives that ATI sucks! :-)
+<br />
+That's all.
+<br />
+</blockquote><pre style="margin: 0em;"><br>That might change, though, now that AMD owns ATi.  They _might_
+<br />
+release specs :-)<br>
+<br />
+<br>
+<br />
+
+<br />
+On Tue, Aug 15, 2006 at 09:57:43PM +0200, Matteo Vescovi wrote:
+<br />
+&gt; Here fglrx 8.27.10 is working fine... about 480 fps, not 600 but that's
+<br />
+&gt; not bad.
+<br />
+&gt; Your situation sounds strange.
+<br />
+
+<br />
+But my pathetic GF6200 is getting 1250fps... What gives?
+<br />
+
+<br />
+--
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+<pre style="margin: 0em;">Yes, but with the inevitable corporate shake up that will occur in
+<br />
+ATi's management at the upper levels because of the buyout, things
+<br />
+will have to change.<br>
+<br />
+<pre style="margin: 0em;">It's not like their drivers or their attitude towards GNU/Linux could
+<br />
+get any worse.
+<br />
+<a  href="http://airlied.livejournal.com/31180.html">http://airlied.livejournal.com/31180.html</a><br>
+<br />
+<tt><br>On 8/16/06, Matteo Vescovi &lt;mfv@altervista.org&gt; wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">-----BEGIN PGP SIGNED MESSAGE-----
+<br />
+Hash: SHA1<br>
+<br />
+<pre style="margin: 0em;">On 08/16/2006 03:24 AM, Robert Isaac wrote:
+<br />
+&gt; That might change, though, now that AMD owns ATi.  They _might_
+<br />
+&gt; release specs :-)<br>
+<br />
+<tt><a  href="http://news.com.com/2061-10791_3-6104655.html">http://news.com.com/2061-10791_3-6104655.html</a></tt><br>
+<br />
+<br>
+<br />
+<tt>Mmhh, it seems like it won't change so soon. :-(</tt><br>
+<br />
+<br>
+<br />
+<tt>Take care.</tt><br>
+<br />
+<br>
+<br />
+<tt>mfv</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">- --
+<br />
+Matteo Vescovi
+<br />
+System Administrator
+<br />
+Studio Vescovi Progettazioni
+<br />
+-----BEGIN PGP SIGNATURE-----
+<br />
+Version: GnuPG v1.4.5 (GNU/Linux)<br>
+<br />
+<pre style="margin: 0em;">iD8DBQFE4t2IwpmiLhhMAcoRAgFFAJ49gUfstGRTyMDxtF06DWhAnpOCZQCffsz5
+<br />
+xzIsLp4Ssl1UeuUtvgnwhPE=
+<br />
+=zU0q
+<br />
+-----END PGP SIGNATURE-----<br>
+<br />
+<pre style="margin: 0em;"><br>--
+<br />
+To UNSUBSCRIBE, email to debian-amd64-REQUEST@lists.debian.org
+<br />
+with a subject of &quot;unsubscribe&quot;. Trouble? Contact listmaster@lists.debian.org<br>
+<br />
+<br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+
+<br />
+Hello !
+<br />
+Just an easy question:
+<br />
+
+<br />
+Is there a difference between &quot;disable_timer_pin_1&quot; and &quot;noapictimer&quot; at 
+<br />
+startup in grub ? If yes, what is the difference ?
+<br />
+
+<br />
+(This command is needed to get the clock running correct)
+<br />
+
+<br />
+regards
+<br />
+
+<br />
+Hans
+<br />
+ 
+<br />
+
+<br />
+
+<br />
+
+<br />
+-----BEGIN PGP SIGNED MESSAGE-----
+<br />
+Hash: SHA1
+<br />
+
+<br />
+On 08/15/2006 11:23 PM, Lennart Sorensen wrote:
+<br />
+&gt; But my pathetic GF6200 is getting 1250fps... What gives?
+<br />
+
+<br />
+It gives that ATI sucks! :-)
+<br />
+That's all.
+<br />
+
+<br />
+&gt; Len Sorensen
+<br />
+
+<br />
+mfv
+<br />
+
+<br />
+
+<br />
+- --
+<br />
+Matteo Vescovi
+<br />
+System Administrator
+<br />
+Studio Vescovi Progettazioni
+<br />
+-----BEGIN PGP SIGNATURE-----
+<br />
+Version: GnuPG v1.4.5 (GNU/Linux)
+<br />
+
+<br />
+iD8DBQFE4kIvwpmiLhhMAcoRAmrSAJ90Saza0f5+av0xj01phi120dHsQgCgyj2L
+<br />
+NZPIE0oL15n7V1fsfBmUtIs=
+<br />
+=pLSk
+<br />
+-----END PGP SIGNATURE-----
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Hi Hans!</tt><br>
+<br />
+<br>
+<br />
+<tt>On 08/15/2006 06:27 AM, Hans wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Sorry, I maybe did not ask correctly. It is not the problem, that the time is 
+<br />
+not shown correctly. The background is, that other timings are running in 
+<br />
+double speed, too (i.e. keyboard clock and some other). This is a known 
+<br />
+problem on AMD mobile processors and was discussed in earlier days. The 
+<br />
+solution of it, was to add &quot;disable_timer_pin_1&quot; in the boot vcommand on grub 
+<br />
+or lilo. Now I read about adding &quot;noapictimer&quot; should solve this, too. My 
+<br />
+question aimed to an technical answer, if the commands &quot;disable_timer_pin_1&quot; 
+<br />
+and &quot;noapictimer&quot; are doing the same, or if they both solve the mentioned 
+<br />
+problem in different ways.</tt><br>
+<br />
+<br>
+<br />
+<tt>My hope was, someone knows, as I find there no answer in the web.</tt><br>
+<br />
+<br>
+<br />
+<tt><br>Best regards</tt><br>
+<br />
+<br>
+<br />
+<tt>Hans
+<br />
+</tt></blockquote><tt><br>First of all, which kernel version are you using??<br>
+<br />
+I had (as many others) the same problem with my HP laptop based on the 
+<br />
+ATI Xpress200M chipset. So, at the time of 2.6.15, I had to add 
+<br />
+&quot;disable_timer_pin_1&quot; to the grub parameters not to have a double timing 
+<br />
+of almost everything (but you already knew that).<br>
+<br />
+Now, starting with ker 2.6.16, the bug about wrong timing has been 
+<br />
+corrected directly in the kernel, so using this kernel version or above 
+<br />
+you won't need the explicit definition of that param anymore.<br>
+<br />
+Hope it could help.</tt><br>
+<br />
+<br>
+<br />
+<tt>Greetings.</tt><br>
+<br />
+<br>
+<br />
+<tt>mfv</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;"><br>--
+<br />
+Matteo Vescovi
+<br />
+System Administrator
+<br />
+Studio Vescovi Progettazioni<br>
+<br />
+<br>
+<br />
+
+<br />
+Am Dienstag, 15. August 2006 21:57 schrieb Matteo Vescovi:
+<br />
+&gt; Hi Hans,
+<br />
+&gt;
+<br />
+&gt; On 08/15/2006 02:38 PM, Hans wrote:
+<br />
+&gt; &gt; It seems, that in last kernel 2.6.17 this problem is solved. I read the
+<br />
+&gt; &gt; documentation of the kernel, and (as you wrote), these timers just
+<br />
+&gt; &gt; misbehave if you have a chipset of ATI. This is the case on my notebook:
+<br />
+&gt; &gt; ATI chipset !
+<br />
+&gt;
+<br />
+&gt; Hey, since you're new to the solution of the double timing, probably you
+<br />
+&gt; don't even know anything about the more problematic ACPI bug with the
+<br />
+&gt; ATI Xpress 200M chipset.
+<br />
+&gt; If you want to preserve your Turion64, pay a visit to:
+<br />
+&gt;
+<br />
+&gt; <a  href="http://bugzilla.kernel.org/show_bug.cgi?id=5534">http://bugzilla.kernel.org/show_bug.cgi?id=5534</a>
+<br />
+&gt;
+<br />
+&gt; &gt; Well, without this kernel-command it is running fine with the newest
+<br />
+&gt; &gt; kernel. So there are no problems any more. I additionally did hope, that
+<br />
+&gt; &gt; this could be the reason, why my 3D-accelertion with the &quot;fglrx&quot;-river is
+<br />
+&gt; &gt; still slow. All 3D-functions are o.k., I get the box with the rotating
+<br />
+&gt; &gt; wheels when starting &quot;fgl_glxgears&quot;, but they are rather slow. About 50
+<br />
+&gt; &gt; FPS, that is speed as mesa-glx shows ! Should be 600 FPS, that would be
+<br />
+&gt; &gt; o.k. &quot;fglrxinfo&quot; shows the correct driver-version, and &quot;glxinfo |grep
+<br />
+&gt; &gt; direct&quot; shows  &quot;direct rendering: Yes&quot;
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; So verything seems t be o.k. with the software, and my idea was,
+<br />
+&gt; &gt; something else, but not the driver is braking my system.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; You can believe me: I checked really everything, and do not know, where
+<br />
+&gt; &gt; to look now.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Additonally I tested every xorg.conf I found in the web and checked a
+<br />
+&gt; &gt; whole bunch of settings. Sadly no success ! ATI really sux ! (This
+<br />
+&gt; &gt; notebook I got as new of a guarantee as exchanged, I had Nvidia-card on
+<br />
+&gt; &gt; the other noteook).
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; And I have never heard of someone who got 3d-acceleration really fast
+<br />
+&gt; &gt; running with a pure 64-bit-system with ATI......
+<br />
+&gt;
+<br />
+&gt; Here fglrx 8.27.10 is working fine... about 480 fps, not 600 but that's
+<br />
+&gt; not bad.
+<br />
+&gt; Your situation sounds strange.
+<br />
+
+<br />
+I one time got 600FPS (ATI radeon X700), but after a restart of x-server, I 
+<br />
+got 50 FPS again. So I think, something does prevent the speed.
+<br />
+
+<br />
+Could you send me your /etx/X11/xorg.conf ?
+<br />
+
+<br />
+This way I would be able to look at the difference to mine.
+<br />
+
+<br />
+Thanks
+<br />
+
+<br />
+
+<br />
+Hans
+<br />
+
+<br />
+&gt;
+<br />
+&gt; &gt; Thats a little bit information about the background, maybe other people
+<br />
+&gt; &gt; this could help, too
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Thanks for all your help !
+<br />
+&gt; &gt; best regards
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Hans
+<br />
+&gt;
+<br />
+&gt; Greetings.
+<br />
+&gt;
+<br />
+&gt; mfv
+<br />
+&gt;
+<br />
+&gt; --
+<br />
+&gt; Matteo Vescovi
+<br />
+&gt; System Administrator
+<br />
+&gt; Studio Vescovi Progettazioni
+<br />
+
+<br />
+
+<br />
+
+<br />
+Am Montag, 14. August 2006 22:22 schrieb Lennart Sorensen:
+<br />
+&gt; On Mon, Aug 14, 2006 at 02:40:58PM -0500, Mike Reinehr wrote:
+<br />
+&gt; &gt; ntp-simple couldn't be easier to install &amp; use and will keep your system
+<br />
+&gt; &gt; time synchronized with the national time servers. I also would recommend
+<br />
+&gt; &gt; ntpdate if you shut your system down frequently. Ntpdate will set the
+<br />
+&gt; &gt; time on boot, while ntp-simple will keep it synchronized.
+<br />
+&gt;
+<br />
+&gt; There have been kernel/chipset combinations where the system clock ran
+<br />
+&gt; double speed.  This is outside the scope of what ntp will tolerate.  ntp
+<br />
+&gt; won't run on such a system.  The system has to be reasonably accurate
+<br />
+&gt; before ntp will work with it.
+<br />
+&gt;
+<br />
+&gt; --
+<br />
+&gt; Len Sorensen
+<br />
+
+<br />
+Hi Len !
+<br />
+
+<br />
+Sorry, I maybe did not ask correctly. It is not the problem, that the time is 
+<br />
+not shown correctly. The background is, that other timings are running in 
+<br />
+double speed, too (i.e. keyboard clock and some other). This is a known 
+<br />
+problem on AMD mobile processors and was discussed in earlier days. The 
+<br />
+solution of it, was to add &quot;disable_timer_pin_1&quot; in the boot vcommand on grub 
+<br />
+or lilo. Now I read about adding &quot;noapictimer&quot; should solve this, too. My 
+<br />
+question aimed to an technical answer, if the commands &quot;disable_timer_pin_1&quot; 
+<br />
+and &quot;noapictimer&quot; are doing the same, or if they both solve the mentioned 
+<br />
+problem in different ways.
+<br />
+
+<br />
+My hope was, someone knows, as I find there no answer in the web.
+<br />
+
+<br />
+
+<br />
+Best regards
+<br />
+
+<br />
+Hans
+<br />
+ 
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Tue, Aug 15, 2006 at 09:22:43AM +0200, Koen Vermeer wrote:
+<br />
+&gt; /usr/src/linux-source-2.6.17/Documentation/kernel-parameters.txt says:
+<br />
+&gt;         disable_timer_pin_1 [i386,x86-64]
+<br />
+&gt;                         Disable PIN 1 of APIC timer
+<br />
+&gt;                         Can be useful to work around chipset bugs.
+<br />
+
+<br />
+Hmm, that isn't what I thought it meant.  I must have misread something
+<br />
+before.
+<br />
+
+<br />
+&gt; /usr/src/linux-source-2.6.17/Documentation/x86-64/boot-options.txt says:
+<br />
+&gt;    noapictimer   Don't set up the APIC timer
+<br />
+&gt; 
+<br />
+&gt; Based on that, I'd say that 'noapictimer' just doesn't use that timer,
+<br />
+&gt; while disable_timer_pin_1 provides a workaround for the problem. I guess
+<br />
+&gt; I'd use the latter if it works.
+<br />
+
+<br />
+Sounds reasonable to me.
+<br />
+
+<br />
+--
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+Am Dienstag, 15. August 2006 10:51 schrieb Matteo Vescovi:
+<br />
+&gt; Hi Hans!
+<br />
+&gt;
+<br />
+&gt; On 08/15/2006 06:27 AM, Hans wrote:
+<br />
+&gt; &gt; Sorry, I maybe did not ask correctly. It is not the problem, that the
+<br />
+&gt; &gt; time is not shown correctly. The background is, that other timings are
+<br />
+&gt; &gt; running in double speed, too (i.e. keyboard clock and some other). This
+<br />
+&gt; &gt; is a known problem on AMD mobile processors and was discussed in earlier
+<br />
+&gt; &gt; days. The solution of it, was to add &quot;disable_timer_pin_1&quot; in the boot
+<br />
+&gt; &gt; vcommand on grub or lilo. Now I read about adding &quot;noapictimer&quot; should
+<br />
+&gt; &gt; solve this, too. My question aimed to an technical answer, if the
+<br />
+&gt; &gt; commands &quot;disable_timer_pin_1&quot; and &quot;noapictimer&quot; are doing the same, or
+<br />
+&gt; &gt; if they both solve the mentioned problem in different ways.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; My hope was, someone knows, as I find there no answer in the web.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Best regards
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Hans
+<br />
+&gt;
+<br />
+&gt; First of all, which kernel version are you using??
+<br />
+&gt; I had (as many others) the same problem with my HP laptop based on the
+<br />
+&gt; ATI Xpress200M chipset. So, at the time of 2.6.15, I had to add
+<br />
+&gt; &quot;disable_timer_pin_1&quot; to the grub parameters not to have a double timing
+<br />
+&gt; of almost everything (but you already knew that).
+<br />
+&gt; Now, starting with ker 2.6.16, the bug about wrong timing has been
+<br />
+&gt; corrected directly in the kernel, so using this kernel version or above
+<br />
+&gt; you won't need the explicit definition of that param anymore.
+<br />
+Hey, this is a new information ! Cool ! My adding was of the tim eof 2.6.15 
+<br />
+indeed.  I did not know, that this is fixed now. I am running kernel 2.6.17 
+<br />
+on my notebook Acer Aspire 5020
+<br />
+
+<br />
+&gt; Hope it could help.
+<br />
+&gt;
+<br />
+
+<br />
+ Oh yes, it does ! Great ! Thanks ! 
+<br />
+&gt; Greetings.
+<br />
+&gt;
+<br />
+&gt; mfv
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt; --
+<br />
+&gt; Matteo Vescovi
+<br />
+&gt; System Administrator
+<br />
+&gt; Studio Vescovi Progettazioni
+<br />
+regards
+<br />
+
+<br />
+Hans
+<br />
+
+<br />
+
+<br />
+
+<br />
+-----BEGIN PGP SIGNED MESSAGE-----
+<br />
+Hash: SHA1
+<br />
+
+<br />
+Hi Hans,
+<br />
+
+<br />
+On 08/15/2006 02:38 PM, Hans wrote:
+<br />
+&gt; It seems, that in last kernel 2.6.17 this problem is solved. I read the 
+<br />
+&gt; documentation of the kernel, and (as you wrote), these timers just misbehave 
+<br />
+&gt; if you have a chipset of ATI. This is the case on my notebook: ATI chipset !
+<br />
+
+<br />
+Hey, since you're new to the solution of the double timing, probably you
+<br />
+don't even know anything about the more problematic ACPI bug with the
+<br />
+ATI Xpress 200M chipset.
+<br />
+If you want to preserve your Turion64, pay a visit to:
+<br />
+
+<br />
+<a  href="http://bugzilla.kernel.org/show_bug.cgi?id=5534">http://bugzilla.kernel.org/show_bug.cgi?id=5534</a>
+<br />
+
+<br />
+&gt; Well, without this kernel-command it is running fine with the newest kernel. 
+<br />
+&gt; So there are no problems any more. I additionally did hope, that this could 
+<br />
+&gt; be the reason, why my 3D-accelertion with the &quot;fglrx&quot;-river is still slow. 
+<br />
+&gt; All 3D-functions are o.k., I get the box with the rotating wheels when 
+<br />
+&gt; starting &quot;fgl_glxgears&quot;, but they are rather slow. About 50 FPS, that is 
+<br />
+&gt; speed as mesa-glx shows ! Should be 600 FPS, that would be o.k. &quot;fglrxinfo&quot; 
+<br />
+&gt; shows the correct driver-version, and &quot;glxinfo |grep direct&quot; shows  &quot;direct 
+<br />
+&gt; rendering: Yes&quot;
+<br />
+&gt; 
+<br />
+&gt; So verything seems t be o.k. with the software, and my idea was, something 
+<br />
+&gt; else, but not the driver is braking my system.
+<br />
+&gt; 
+<br />
+&gt; You can believe me: I checked really everything, and do not know, where to 
+<br />
+&gt; look now. 
+<br />
+&gt; 
+<br />
+&gt; Additonally I tested every xorg.conf I found in the web and checked a whole 
+<br />
+&gt; bunch of settings. Sadly no success ! ATI really sux ! (This notebook I got 
+<br />
+&gt; as new of a guarantee as exchanged, I had Nvidia-card on the other noteook).
+<br />
+&gt; 
+<br />
+&gt; And I have never heard of someone who got 3d-acceleration really fast running 
+<br />
+&gt; with a pure 64-bit-system with ATI......
+<br />
+
+<br />
+Here fglrx 8.27.10 is working fine... about 480 fps, not 600 but that's
+<br />
+not bad.
+<br />
+Your situation sounds strange.
+<br />
+
+<br />
+&gt; Thats a little bit information about the background, maybe other people this 
+<br />
+&gt; could help, too
+<br />
+&gt; 
+<br />
+&gt; Thanks for all your help !
+<br />
+&gt; best regards
+<br />
+&gt; 
+<br />
+&gt; Hans
+<br />
+
+<br />
+Greetings.
+<br />
+
+<br />
+mfv
+<br />
+
+<br />
+- --
+<br />
+Matteo Vescovi
+<br />
+System Administrator
+<br />
+Studio Vescovi Progettazioni
+<br />
+-----BEGIN PGP SIGNATURE-----
+<br />
+Version: GnuPG v1.4.5 (GNU/Linux)
+<br />
+
+<br />
+iD8DBQFE4ic3wpmiLhhMAcoRAv2bAKDFV+VRDuuJta7VZ+/96HGtpwvHTwCgtHpX
+<br />
+AeszKZ2a/dewc+84UwwMeRs=
+<br />
+=mSwQ
+<br />
+-----END PGP SIGNATURE-----
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Monday 14 August 2006 03:22 pm, Lennart Sorensen wrote:
+<br />
+&gt; On Mon, Aug 14, 2006 at 02:40:58PM -0500, Mike Reinehr wrote:
+<br />
+&gt; &gt; ntp-simple couldn't be easier to install &amp; use and will keep your system
+<br />
+&gt; &gt; time synchronized with the national time servers. I also would recommend
+<br />
+&gt; &gt; ntpdate if you shut your system down frequently. Ntpdate will set the
+<br />
+&gt; &gt; time on boot, while ntp-simple will keep it synchronized.
+<br />
+&gt;
+<br />
+&gt; There have been kernel/chipset combinations where the system clock ran
+<br />
+&gt; double speed.  This is outside the scope of what ntp will tolerate.  ntp
+<br />
+&gt; won't run on such a system.  The system has to be reasonably accurate
+<br />
+&gt; before ntp will work with it.
+<br />
+&gt;
+<br />
+&gt; --
+<br />
+&gt; Len Sorensen
+<br />
+
+<br />
+Acknowledged!
+<br />
+
+<br />
+cmr
+<br />
+-- 
+<br />
+Debian 'Sarge': Registered Linux User #241964
+<br />
+----
+<br />
+&quot;More laws, less justice.&quot; -- Marcus Tullius Ciceroca, 42 BC
+<br />
+--------
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Monday 14 August 2006 03:13 pm, Gnu-Raiz wrote:
+<br />
+&gt; On Monday 14 August 2006 14:40, Mike Reinehr wrote:
+<br />
+&gt; &gt; On Monday 14 August 2006 01:40 pm, Gnu-Raiz wrote:
+<br />
+&gt; &gt; &gt; On Monday 14 August 2006 11:07, Hans-J. Ullrich wrote:
+<br />
+&gt; &gt; &gt; &gt; Hello !
+<br />
+&gt; &gt; &gt; &gt; Just an easy question:
+<br />
+&gt; &gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; &gt; Is there a difference between &quot;disable_timer_pin_1&quot; and
+<br />
+&gt; &gt; &gt; &gt; &quot;noapictimer&quot; at startup in grub ? If yes, what is the
+<br />
+&gt; &gt; &gt; &gt; difference ?
+<br />
+&gt; &gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; &gt; (This command is needed to get the clock running correct)
+<br />
+&gt; &gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; &gt; regards
+<br />
+&gt; &gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; &gt; Hans
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; Why not use Chrony and your local pool.ntp.org servers for
+<br />
+&gt; &gt; &gt; time? Also what happens if you don't reboot for a long time,
+<br />
+&gt; &gt; &gt; then how do you keep your time correct?
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; Not that it makes a difference, but those are kernel commands,
+<br />
+&gt; &gt; &gt; I believe all grub does is pass those on to the kernel anyway.
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; Your local search engine will be most useful here, might want
+<br />
+&gt; &gt; &gt; to give it a go.
+<br />
+&gt; &gt; &gt;
+<br />
+&gt; &gt; &gt; Gnu_Raiz
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; ntp-simple couldn't be easier to install &amp; use and will keep your
+<br />
+&gt; &gt; system time synchronized with the national time servers. I also
+<br />
+&gt; &gt; would recommend ntpdate if you shut your system down frequently.
+<br />
+&gt; &gt; Ntpdate will set the time on boot, while ntp-simple will keep it
+<br />
+&gt; &gt; synchronized.
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; HTH
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; cmr
+<br />
+&gt; &gt; --
+<br />
+&gt; &gt; Debian 'Sarge': Registered Linux User #241964
+<br />
+&gt; &gt; ----
+<br />
+&gt; &gt; &quot;More laws, less justice.&quot; -- Marcus Tullius Ciceroca, 42 BC
+<br />
+&gt; &gt; --------
+<br />
+&gt; &gt;
+<br />
+&gt; :) I have one machine that uses ntpd, if your curious that is what
+<br />
+&gt;
+<br />
+&gt; Freebsd ships with except it's not turned on by default. Regardless
+<br />
+&gt; the hardest part was doing the .conf  file, it was easy if you use
+<br />
+&gt; the pool at ntp.org.
+<br />
+
+<br />
+	That was why I suggested ntp-simple as it requires no configuration. It just 
+<br />
+works! (tm) Like you, I've used regular ntp and found the configuration to be 
+<br />
+pain. :-)
+<br />
+
+<br />
+&gt; If you really want to read up on the virtures of Chrony and why some
+<br />
+&gt; suggest it for Debian you might want to search Debian user list, as
+<br />
+&gt; it comes up once in a while. Let's just say that each has it ardent
+<br />
+&gt; fans.
+<br />
+
+<br />
+	I'm not familiar with Chrony and will look it up. Thanks!
+<br />
+
+<br />
+&gt; Gnu_Raiz
+<br />
+
+<br />
+	cmr
+<br />
+-- 
+<br />
+Debian 'Sarge': Registered Linux User #241964
+<br />
+----
+<br />
+&quot;More laws, less justice.&quot; -- Marcus Tullius Ciceroca, 42 BC
+<br />
+--------
+<br />
+
+<br />
+
+<br />
+
+<br />
+-----BEGIN PGP SIGNED MESSAGE-----
+<br />
+Hash: SHA1
+<br />
+
+<br />
+On 08/16/2006 03:24 AM, Robert Isaac wrote:
+<br />
+&gt; That might change, though, now that AMD owns ATi.  They _might_
+<br />
+&gt; release specs :-)
+<br />
+
+<br />
+<a  href="http://news.com.com/2061-10791_3-6104655.html">http://news.com.com/2061-10791_3-6104655.html</a>
+<br />
+
+<br />
+Mmhh, it seems like it won't change so soon. :-(
+<br />
+
+<br />
+Take care.
+<br />
+
+<br />
+mfv
+<br />
+
+<br />
+- --
+<br />
+Matteo Vescovi
+<br />
+System Administrator
+<br />
+Studio Vescovi Progettazioni
+<br />
+-----BEGIN PGP SIGNATURE-----
+<br />
+Version: GnuPG v1.4.5 (GNU/Linux)
+<br />
+
+<br />
+iD8DBQFE4t2IwpmiLhhMAcoRAgFFAJ49gUfstGRTyMDxtF06DWhAnpOCZQCffsz5
+<br />
+xzIsLp4Ssl1UeuUtvgnwhPE=
+<br />
+=zU0q
+<br />
+-----END PGP SIGNATURE-----
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Tue, Aug 15, 2006 at 06:27:32AM +0200, Hans wrote:
+<br />
+&gt; Sorry, I maybe did not ask correctly. It is not the problem, that the time is 
+<br />
+&gt; not shown correctly. The background is, that other timings are running in 
+<br />
+&gt; double speed, too (i.e. keyboard clock and some other). This is a known 
+<br />
+&gt; problem on AMD mobile processors and was discussed in earlier days. The 
+<br />
+&gt; solution of it, was to add &quot;disable_timer_pin_1&quot; in the boot vcommand on grub 
+<br />
+&gt; or lilo. Now I read about adding &quot;noapictimer&quot; should solve this, too. My 
+<br />
+&gt; question aimed to an technical answer, if the commands &quot;disable_timer_pin_1&quot; 
+<br />
+&gt; and &quot;noapictimer&quot; are doing the same, or if they both solve the mentioned 
+<br />
+&gt; problem in different ways.
+<br />
+
+<br />
+I believe the problem occoured with ATI chipsets on laptops.  As far as
+<br />
+I have understood it, the problem is that the timer interrupts occour
+<br />
+both on the 8259 interrupt controller, and through the apic.  I believe
+<br />
+'disable_timer_pin_1' makes the kernel ignore the 8259 interrupt for the
+<br />
+timer, and that 'noapictimer' ignores the apic interrupt for the timer.
+<br />
+Since the problem seems to be getting two interrupts for every timer
+<br />
+event, one for each interrupt method, it makes sense that disabling
+<br />
+either one will solve the problem.  It doesn't matter which one you
+<br />
+disable as long as you disable one of the two.
+<br />
+
+<br />
+It really looks like a bug in the design of the chipset, although it may
+<br />
+just be that the BIOS/ACPI tables are done wrong, which is rather common
+<br />
+it seems.  Too often the ACPI tables for windows work, but are
+<br />
+incomplete or wrong for other operating systems.  Apparently on such
+<br />
+systems, telling linux to lie to acpi and pretend to be windows xp often
+<br />
+solves such strange problems.
+<br />
+
+<br />
+--
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Monday 14 August 2006 01:40 pm, Gnu-Raiz wrote:
+<br />
+&gt; On Monday 14 August 2006 11:07, Hans-J. Ullrich wrote:
+<br />
+&gt; &gt; Hello !
+<br />
+&gt; &gt; Just an easy question:
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Is there a difference between &quot;disable_timer_pin_1&quot; and
+<br />
+&gt; &gt; &quot;noapictimer&quot; at startup in grub ? If yes, what is the difference
+<br />
+&gt; &gt; ?
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; (This command is needed to get the clock running correct)
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; regards
+<br />
+&gt; &gt;
+<br />
+&gt; &gt; Hans
+<br />
+&gt;
+<br />
+&gt; Why not use Chrony and your local pool.ntp.org servers for time?
+<br />
+&gt; Also what happens if you don't reboot for a long time, then how do
+<br />
+&gt; you keep your time correct?
+<br />
+&gt;
+<br />
+&gt; Not that it makes a difference, but those are kernel commands, I
+<br />
+&gt; believe all grub does is pass those on to the kernel anyway.
+<br />
+&gt;
+<br />
+&gt; Your local search engine will be most useful here, might want to
+<br />
+&gt; give it a go.
+<br />
+&gt;
+<br />
+&gt; Gnu_Raiz
+<br />
+
+<br />
+ntp-simple couldn't be easier to install &amp; use and will keep your system time 
+<br />
+synchronized with the national time servers. I also would recommend ntpdate 
+<br />
+if you shut your system down frequently. Ntpdate will set the time on boot, 
+<br />
+while ntp-simple will keep it synchronized.
+<br />
+
+<br />
+HTH
+<br />
+
+<br />
+cmr
+<br />
+-- 
+<br />
+Debian 'Sarge': Registered Linux User #241964
+<br />
+----
+<br />
+&quot;More laws, less justice.&quot; -- Marcus Tullius Ciceroca, 42 BC
+<br />
+--------
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Mon, Aug 14, 2006 at 02:40:58PM -0500, Mike Reinehr wrote:
+<br />
+&gt; ntp-simple couldn't be easier to install &amp; use and will keep your system time 
+<br />
+&gt; synchronized with the national time servers. I also would recommend ntpdate 
+<br />
+&gt; if you shut your system down frequently. Ntpdate will set the time on boot, 
+<br />
+&gt; while ntp-simple will keep it synchronized.
+<br />
+
+<br />
+There have been kernel/chipset combinations where the system clock ran
+<br />
+double speed.  This is outside the scope of what ntp will tolerate.  ntp
+<br />
+won't run on such a system.  The system has to be reasonably accurate
+<br />
+before ntp will work with it.
+<br />
+
+<br />
+--
+<br />
+Len Sorensen
+<br />
+
+<br />
+
+<br />
+
+<br />
+Op di, 15-08-2006 te 06:27 +0200, schreef Hans:
+<br />
+&gt; My 
+<br />
+&gt; question aimed to an technical answer, if the commands &quot;disable_timer_pin_1&quot; 
+<br />
+&gt; and &quot;noapictimer&quot; are doing the same, or if they both solve the mentioned 
+<br />
+&gt; problem in different ways.
+<br />
+
+<br />
+/usr/src/linux-source-2.6.17/Documentation/kernel-parameters.txt says:
+<br />
+        disable_timer_pin_1 [i386,x86-64]
+<br />
+                        Disable PIN 1 of APIC timer
+<br />
+                        Can be useful to work around chipset bugs.
+<br />
+
+<br />
+/usr/src/linux-source-2.6.17/Documentation/x86-64/boot-options.txt says:
+<br />
+   noapictimer   Don't set up the APIC timer
+<br />
+
+<br />
+Based on that, I'd say that 'noapictimer' just doesn't use that timer,
+<br />
+while disable_timer_pin_1 provides a workaround for the problem. I guess
+<br />
+I'd use the latter if it works.
+<br />
+
+<br />
+Koen
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />

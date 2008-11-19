@@ -1,0 +1,24 @@
+Here is an idea. Rather than troll, why not go use MSO...<br />
+<br />
+BTW, you can use MSO on linux, so linux users can do whatever they like...OOo2 has a DB that works much like Access. Easy to use and might do what you need.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>amosf</strong></div>
+				<div style="font-style:italic">OOo2 has a DB that works much like Access. Easy to use and might do what you need.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+<br />
+The resemblance is only superficial. OO.o Base is not even on a par with MS Access 1.0 (ca. 1994). There is no tab control for forms. Combo boxes can have only one column. After six days of intense struggling I discovered the only way to see data in sorted order while viewing it in a form is to create a query that sorts the data and base the form on the query. In MSA it is MUCH easier.<br />
+<br />
+I am very disappointed in OO.o Base. There are many Linux dB Front Ends that provide methods to access existing databases. Most expect me to learn a variety of SQL. None that I have found allow me to create a database from scratch, design forms and reports for it and maintain all of it, tables, forms, reports, queries, etc in a single file on my computer.<br />
+<br />
+Individuals needing a small (under 2000 records) database that they create and maintain are out in the cold as far as I can see under Linux.I am going to migrate FileMaker Pro from windows over to some comparable database that runs under Suse 9.1. What would be an equivalent to FM Pro?<br />
+<br />
+thanks  ##thanks ... that's a really good suggestion. I didn't know OO had a database!Check out OpenOffice.org Basedouble posted for some reason...

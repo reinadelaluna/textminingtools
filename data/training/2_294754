@@ -1,0 +1,25 @@
+I'm looking for a web browser which can run on more than one computer at the same time while also SHARING bookmarks.  When a bookmark is created or moved or deleted on one computer, these changes are reflected on another computer on the LAN.<br />
+<br />
+Firefox can't do this--when Firefox runs on one computer it &quot;locks&quot; the profile so it can't be used simultaneously on any other computer.  Also, a complex set of scripts to try to keep bookmarks.html synchronized won't work because Firefox completely ignores any changes to bookmarks.html while running.<br />
+<br />
+Here's an example of the sort of network friendliness I mean:<br />
+<br />
+1.  I open my web browser on my HTPC and also my server.<br />
+<br />
+2.  There's some problem with Xine on my HTPC but it's annoying to search the web on my TV.<br />
+<br />
+3.  I go to my server to Google for a solution.  I find a great web page with a fix and bookmark it.<br />
+<br />
+4.  I go to my HTPC and click on the &quot;bookmarks&quot; menu.  The web page which I just bookmarked on the server appears on my HTPC also!<br />
+<br />
+5.  I use that web page to fix my HTPC, and all is well...<br />
+<br />
+With Firefox, this scenario won't work.  I can do some ugly workarounds, or e-mail myself a link, or something, but it's simply a pain.  It would be far more elegant for all of my PCs to share bookmarks 100%, 24/7.<br />
+<br />
+Is there any web browser capable of this?<br />
+<br />
+Thanks!This isn't exactly what you asked I know but you can click on Bookmarks......Manage Bookmarks..... then choose File...Import or Export. (Firefox)<br />
+<br />
+That will keep your bookmarks up to date on all machines. Bookmarks are for a user, not for a machine I think. Although I just opened Konqueror as root and the users bookmarks aren't there. I opened Firefox as root and the users bookmarks are there. I don't know how you would cause all users on all machines on your network to update their bookmark.html upon editing on one machine.Just a thought...<br />
+<br />
+Maybe you could put the bookmarks file somewhere that is accessible by everyone, then replace individuals bookmark files with a symlink to the shared one.

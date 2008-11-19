@@ -1,0 +1,14 @@
+Are the other commands in rc.local being run at startup or are they failing too? Were there any errors in the Apache log files when you started the box and tried to run apachectl from rc.local?I was finally able to add it under chkconfig services after adding some lines to apache script file.<br />
+Not sure why the command in rc.local didn't work.  That was the only command in rc.local and didn't find anything in the logs.Hello,<br />
+<br />
+I compiled apache 2.2.3 on Redhat ES4.<br />
+Since it's compiled and not an RPM, when I do chkconfig, apache doesn't even show up.  The documentation says to include the <br />
+command to rc.local file so that it starts at boot time.<br />
+So added /usr/local/apache2/bin/apachectl start to rc.local file.<br />
+However when it reboots, it doesn't start apache.<br />
+I need to manually run /usr/local/apache2/bin/apache1 start then it starts up.<br />
+I tried doing ln -s /usr/local/apache2/bin/apachectl /etc/init.d/apache to see if it'll show<br />
+up under chkcofig --list so that I can chkconfig apache on but doesn't show.<br />
+What would I need to do so that apache starts at boot time automatically?<br />
+<br />
+Thanks.

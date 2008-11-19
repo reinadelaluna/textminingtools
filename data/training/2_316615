@@ -1,0 +1,12 @@
+any suggestion?hi body. i have to build a local net using a linux based gateway and some windows based clients. the gateway should share a fax with other clients. how can i install and share the fax and otherwise a printer with windows clients? tnx! urgent!for the print server, you need to look at <b>samba</b>:<br />
+<br />
+<a href="http://www.samba.org/" target="_blank">http://www.samba.org/</a><br />
+<br />
+<br />
+for the fax server, here's an article that will show you the way:<br />
+<br />
+<a href="http://linuxgazette.net/issue79/fraile.html" target="_blank">http://linuxgazette.net/issue79/fraile.html</a><br />
+<br />
+<br />
+just my two cents... good luck...<br />
+<br />

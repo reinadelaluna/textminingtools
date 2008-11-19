@@ -1,0 +1,21 @@
+How do I configure Sendmail to forward incoming mail to a different host?<br />
+<br />
+Youssef Eldakar<br />
+Bibliotheca Alexandrina<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by meshcurrent </i><br />
+<b>How do I configure Sendmail to forward incoming mail to a different host?<br />
+<br />
+Youssef Eldakar<br />
+Bibliotheca Alexandrina </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> Easiest way is to just setup whatever email you want forwarded using the aliases file..  /etc/mail/aliases<br />
+<br />
+If its all your mail, I'd say what's the point in that, just have the other host your main email server..  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" />

@@ -1,0 +1,33 @@
+try updating sqlite. What version do you have installed?I had same problem. Upgraded python-sqlite ...   and It helped! Thanks a lot!!!I've been trying to update my Fedora Core 3 server to 4 and then to 5 using yum but have run into a snag. The upgrade to 4 went relativley well but I now can't use yum to upgrade to 5. When I run &quot;yum update&quot; now I get the following:<br />
+<br />
+Setting up Update Process<br />
+Setting up repositories<br />
+livna                                                                [1/4]<br />
+livna                     100% |=========================|  951 B    00:00     <br />
+core                                                                 [2/4]<br />
+core                      100% |=========================| 1.1 kB    00:00     <br />
+updates                                                              [3/4]<br />
+updates                   100% |=========================|  951 B    00:00     <br />
+extras                                                               [4/4]<br />
+extras                    100% |=========================| 1.1 kB    00:00     <br />
+Reading repository metadata in from local files<br />
+killed<br />
+<br />
+I takes about 5 or so minutes to die and yum pegs the CPU and memroy the whole time. Any ideas. <br />
+Please let me know if there is any other info I can provide. Thanks.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>bosewicht</strong></div>
+				<div style="font-style:italic">try updating sqlite. What version do you have installed?</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+You're amazing! <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" /> I had the latest version of sqlite (3.3.3-1.2) but I had an old version of python-sqlite. I upgraded python-sqlite to version 1.1.7-1.2 and VOILA yum is upgrading on it's merry way!<br />
+<br />
+Thank you so much for your help! I fought with this one quite a while!

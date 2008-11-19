@@ -1,0 +1,52 @@
+(if you have it) PAM is the best way to block/allow user access thru FTP(or any other service).<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by Slf </i><br />
+<b>Hello, I've searched the forums and found a little bit of info concerning my problems.<br />
+<br />
+Anyway, Just need a few things cleared up<br />
+<br />
+Iï¿½ve installed Pure-ftp. Every thing is fine except I donï¿½t think it is secure enough and have very little knowledge of how ftp services work.<br />
+<br />
+Here are my questions...<br />
+<br />
+Answers/suggestions are welcome...<br />
+<br />
+Is it normal for all users and even root to be able to access ftp?<br />
+<br />
+How do I stop root from being able to be accessed through ftp?<br />
+<br />
+In reading another thread concerning ftp, users and apache. I was pointed to this documentation apache.org/docs-2.0/mod/mod_alias.html#alias. Is this the best was to do this? Or what would one suggest?<br />
+<br />
+How do I stop ftp users from being able to view anything but their folder? Is there a better way then making every folder in the file system but their folder only 'viewable' by root?<br />
+<br />
+Thanks </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+<br />
+there should be options you can set in the config file for disallowing root, or some programs like proftpd don't allow root logins by default. you should also be able to set the default root directory or a kind of chroot jail to limit users to the specified directories. have you read the pureftpd documentation? i'm sure it must be covered in there, as these are pretty basic functions. glHello, I've searched the forums and found a little bit of info concerning my problems.<br />
+<br />
+Anyway, Just need a few things cleared up<br />
+<br />
+I’ve installed Pure-ftp. Every thing is fine except I don’t think it is secure enough and have very little knowledge of how ftp services work.<br />
+<br />
+Here are my questions...<br />
+<br />
+Answers/suggestions are welcome...<br />
+<br />
+Is it normal for all users and even root to be able to access ftp?<br />
+<br />
+How do I stop root from being able to be accessed through ftp?<br />
+<br />
+In reading another thread concerning ftp, users and apache. I was pointed to this documentation apache.org/docs-2.0/mod/mod_alias.html#alias. Is this the best was to do this? Or what would one suggest?<br />
+<br />
+How do I stop ftp users from being able to view anything but their folder? Is there a better way then making every folder in the file system but their folder only 'viewable' by root?<br />
+<br />
+ThanksTry running vsftpd if you want a more secured ftp server. It's pretty much set up out of the box. <a href="http://vsftpd.beasts.org/" target="_blank">vsftpd</a>

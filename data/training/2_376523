@@ -1,0 +1,36 @@
+I don't use webmin .... what did it do to the /etc/exports<br />
+on the machine that has the nfs share?  Chances are<br />
+that it does an all_squash or root_squash (which is a very<br />
+sensible default).  Maybe you just need to mount the <br />
+share as a different user from root?<br />
+<br />
+<br />
+Cheers,<br />
+TinkThx all! The file did have the proper spacing or lack of (which I read about in previous posts). Turns out the no_root_squash was the statement I needed in my file. <br />
+<br />
+I suppose it's a security violation but how otherwise to get my backups to work properly?not a good idea but if you want root on to go both ways you need to have a no_root_squash on all exported file systems you want to have full root access on. If I read you right you need to add the no_root_squash option to the raid export on the raid system that only has the rw option. <br />
+<br />
+-Mattrsync springs to mind ... <br />
+<br />
+<br />
+Cheers,<br />
+TinkHi,  I'm running Fedora on my raid server (soft raid5) and Redhat Enterprise WS3 on another machine. Each machine has it's own password file although the root password and settings are the same on both machines. I'm exporting the home directories from  the Enterprise machine using NFS through Webmin. I've mounted the Fedora raid drive onto the Enterprise machine using Webmin's Disk and Network Filesystems mount utility. <br />
+<br />
+I found out that root doesn't seem to have root access to files or directories on those mounted filesystems. Only if I telnet or SSH to the machine where the files reside can I modify them. This is a problem since I'm trying to back up the Enterprise files onto the Fedora raid. Directories which are set to 700 for example cannot be backed up. How can I fix this?<br />
+<br />
+One answer is to move all files onto the raid system. However, I can't do this for other reasons.Are there actually spaces between the IPs and the <br />
+parenthesis? If that's a yes then that's your problem.<br />
+<br />
+<br />
+Cheers,<br />
+TinkIt didn't put anything. Maybe thats the problem. On the raid system it has in the /etc/exports :<br />
+<br />
+/raid 192.168.0.0/255.255.255.0 (rw)<br />
+<br />
+On the Enterprise system it has:<br />
+<br />
+/disk2 192.168.0.0/255.255.255.0 (rw,sync,no_wdelay,no_root_squash)<br />
+/cvs 192.168.0.0/255.255.255.0 (rw)<br />
+/home 192.168.0.0/255.255.255.0 (rw)<br />
+<br />
+The home directory is the one that is not accessible.

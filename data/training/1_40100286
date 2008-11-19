@@ -1,0 +1,246 @@
+
+<br />
+I don't understand why you are following up on this bug. In any case it is
+<br />
+a well known php4 problem (see BTS) and please do not mix bugs.
+<br />
+
+<br />
+Thanks
+<br />
+Fabio
+<br />
+
+<br />
+On Sun, 25 Jan 2004, Marko Mrdjenovic wrote:
+<br />
+
+<br />
+&gt; Package: apache
+<br />
+&gt; Version: 1.3.29.0.1-3
+<br />
+&gt; Severity: normal
+<br />
+&gt; Followup-For: Bug #219973
+<br />
+&gt;
+<br />
+&gt; After some testing I figured that apache dies only when php4 module is
+<br />
+&gt; loaded (php version: 4:4.3.3-4). At first it worked fine but then it just started
+<br />
+&gt; crashing, don't know why. Yet.
+<br />
+&gt;
+<br />
+&gt; -- System Information:
+<br />
+&gt; Debian Release: 3.x
+<br />
+&gt; Architecture: i386
+<br />
+&gt; Kernel: Linux blue 2.4.21-3-586tsc #1 Sun Jul 20 15:03:47 EST 2003 i586
+<br />
+&gt; Locale: LANG=C, LC_CTYPE=C
+<br />
+&gt;
+<br />
+&gt; Versions of packages apache depends on:
+<br />
+&gt; ii  apache-common               1.3.29.0.1-3 Support files for all Apache webse
+<br />
+&gt; ii  debconf                     1.3.22       Debian configuration management sy
+<br />
+&gt; ii  dpkg                        1.10.18      Package maintenance system for Deb
+<br />
+&gt; ii  libc6                       2.3.2.ds1-10 GNU C Library: Shared libraries an
+<br />
+&gt; ii  libdb4.1                    4.1.25-16    Berkeley v4.1 Database Libraries [
+<br />
+&gt; ii  libexpat1                   1.95.6-6     XML parsing C library - runtime li
+<br />
+&gt; ii  libmagic1                   4.06-2       File type determination library us
+<br />
+&gt; ii  libpam0g                    0.76-15      Pluggable Authentication Modules l
+<br />
+&gt; ii  logrotate                   3.6.5-2      Log rotation utility
+<br />
+&gt; ii  mime-support                3.24-1       MIME files 'mime.types' &amp; 'mailcap
+<br />
+&gt; ii  perl [perl5]                5.8.2-2      Larry Wall's Practical Extraction
+<br />
+&gt;
+<br />
+&gt; -- debconf information excluded
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt;
+<br />
+&gt;
+<br />
+
+<br />
+-- 
+<br />
+Our mission: make IPv6 the default IP protocol
+<br />
+&quot;We are on a mission from God&quot; - Elwood Blues
+<br />
+
+<br />
+<a  href="http://www.itojun.org/paper/itojun-nanog-200210-ipv6isp/mgp00004.html">http://www.itojun.org/paper/itojun-nanog-200210-ipv6isp/mgp00004.html</a>
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Further testing revealed that only php4 extension imap.so crashed 
+<br />
+apache. I did no further testing, since this is a php4-imap | 
+<br />
+libc-client2002debian | uw-mailutils bug.</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">Regards,
+<br />
+Marko Mrdjenovic<br>
+<br />
+<tt>Marko Mrdjenovic wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">Package: apache
+<br />
+Version: 1.3.29.0.1-3
+<br />
+Severity: normal
+<br />
+Followup-For: Bug #219973<br>
+<br />
+<pre style="margin: 0em;">After some testing I figured that apache dies only when php4 module is
+<br />
+loaded (php version: 4:4.3.3-4). At first it worked fine but then it just started
+<br />
+crashing, don't know why. Yet.<br>
+<br />
+<pre style="margin: 0em;">-- System Information:
+<br />
+Debian Release: 3.x
+<br />
+Architecture: i386
+<br />
+Kernel: Linux blue 2.4.21-3-586tsc #1 Sun Jul 20 15:03:47 EST 2003 i586
+<br />
+Locale: LANG=C, LC_CTYPE=C<br>
+<br />
+<tt>Versions of packages apache depends on:<br>
+<br />
+ii  apache-common               1.3.29.0.1-3 Support files for all Apache webse<br>
+<br />
+ii  debconf                     1.3.22       Debian configuration management sy<br>
+<br />
+ii  dpkg                        1.10.18      Package maintenance system for Deb<br>
+<br />
+ii  libc6                       2.3.2.ds1-10 GNU C Library: Shared libraries an<br>
+<br />
+ii  libdb4.1                    4.1.25-16    Berkeley v4.1 Database Libraries [<br>
+<br />
+ii  libexpat1                   1.95.6-6     XML parsing C library - runtime li<br>
+<br />
+ii  libmagic1                   4.06-2       File type determination library us<br>
+<br />
+ii  libpam0g                    0.76-15      Pluggable Authentication Modules l<br>
+<br />
+ii  logrotate                   3.6.5-2      Log rotation utility<br>
+<br />
+ii  mime-support                3.24-1       MIME files 'mime.types' &amp; 'mailcap<br>
+<br />
+ii  perl [perl5]                5.8.2-2      Larry Wall's Practical Extraction </tt><br>
+<br />
+<br>
+<br />
+<tt>-- debconf information excluded</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+Package: apache
+<br />
+Version: 1.3.29.0.1-3
+<br />
+Severity: normal
+<br />
+Followup-For: Bug #219973
+<br />
+
+<br />
+After some testing I figured that apache dies only when php4 module is
+<br />
+loaded (php version: 4:4.3.3-4). At first it worked fine but then it just started
+<br />
+crashing, don't know why. Yet.
+<br />
+
+<br />
+-- System Information:
+<br />
+Debian Release: 3.x
+<br />
+Architecture: i386
+<br />
+Kernel: Linux blue 2.4.21-3-586tsc #1 Sun Jul 20 15:03:47 EST 2003 i586
+<br />
+Locale: LANG=C, LC_CTYPE=C
+<br />
+
+<br />
+Versions of packages apache depends on:
+<br />
+ii  apache-common               1.3.29.0.1-3 Support files for all Apache webse
+<br />
+ii  debconf                     1.3.22       Debian configuration management sy
+<br />
+ii  dpkg                        1.10.18      Package maintenance system for Deb
+<br />
+ii  libc6                       2.3.2.ds1-10 GNU C Library: Shared libraries an
+<br />
+ii  libdb4.1                    4.1.25-16    Berkeley v4.1 Database Libraries [
+<br />
+ii  libexpat1                   1.95.6-6     XML parsing C library - runtime li
+<br />
+ii  libmagic1                   4.06-2       File type determination library us
+<br />
+ii  libpam0g                    0.76-15      Pluggable Authentication Modules l
+<br />
+ii  logrotate                   3.6.5-2      Log rotation utility
+<br />
+ii  mime-support                3.24-1       MIME files 'mime.types' &amp; 'mailcap
+<br />
+ii  perl [perl5]                5.8.2-2      Larry Wall's Practical Extraction 
+<br />
+
+<br />
+-- debconf information excluded
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<br />

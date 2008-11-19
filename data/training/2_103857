@@ -1,0 +1,6 @@
+This is something that is desirable to me.  The following is *not* a typo.  <br />
+<br />
+<br />
+If I use my old .config file to compile a new kernel, will it cause problems if the kernel I'm compiling is *older* than the one I got the .config file from?  Specifically, I want to use a .config file from 2.4.22 and use it to compile a 2.4.20.You'll run into modules from one not being in the older kernel which may cause problems in the compile but you should be able to remedy that by noting which ones caused the problems and removing them from the config file... any reason you are moving back a stable kernel? 2.4.22 runs sooo much better on my box.My advice: just try it. Copy your .config file over to the new(old?) kernel source, then do a 'make oldconfig', it should prompt you for the differences between the .config file and changes in the source.<br />
+<br />
+Not sure if it will work with an older kernell source but you might as well try right?

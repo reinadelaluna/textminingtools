@@ -1,0 +1,21 @@
+Have you tried logging into KDE from KDM (or a root shell) as root and then running k3bsetup?I am unable to login to KDE as root. It says I can't for some reason...<br />
+<br />
+Then I login as my one and only &quot;SHELL&quot; user and open konsole with the following:<br />
+<br />
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="bbcodeblock" style="margin:0px; padding:3px; border:1px inset; width:98%; height:82px; overflow:auto"><div dir="ltr" style="text-align:left;">carlos@workstation:~$ su -
+Password:
+workstation:~# k3b
+ERROR: KUniqueApplication: Can't determine DISPLAY. Aborting.</div></pre>
+</div>OK - K3b is giving me an error as you see below.<br />
+<br />
+<a href="http://img528.imageshack.us/img528/7969/k3b5pm.png" target="_blank">http://img528.imageshack.us/img528/7969/k3b5pm.png</a><br />
+<br />
+Now when I click on the &quot;K3bSETUP2&quot; button, it prompts me for the &quot;root&quot; password which is fine however then the setup window loads and it's blank. I keep waiting for it to populate the data on the window and it remains blank. I can click close on the blank window but there is no setup. Is there any other way to resolve this?<br />
+<br />
+Please help!You can enable root logins to kde by editing the kdmrc file, in debian I believe it is in /etc/kde3/kdm/kdmrc<br />
+<br />
+Look for a line that says AllowRootLogin=false and change it to AllowRootLogin=true then logout of kde and restart X (Crtl Alt Backspace)<br />
+<br />
+For security reasons, once you have k3b setup correctly it would be a good idea to undo those kdmrc changes.Let me see if I can logout and login as root...

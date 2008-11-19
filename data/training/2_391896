@@ -1,0 +1,24 @@
+This has been Firefox problem since the beginning. It has to do with Firefox caching pictures in uncompress form in the memory. Some guy actually did a study and had a fix for it. Didn't have the link now. I'm not sure whether it will be patch into Firefox code.<br />
+<br />
+By the way this is a problem for Firefox on all platforms.I was always partial to konqueror seems more stable uses less memory and just looks and feels better.Firefox is better than the old mozilla that came with every distro but still feels slow compared to konqueror not only on startup but when browsing also.Konqueror just works and you don't see to many people asking questions How to? on LQ about it either.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>mimithebrain</strong></div>
+				<div style="font-style:italic">Agreed... Konqueror is faster compared to firefox, but I find firefox along with a few plugins and its good compatibility, and the fact I can add and remove extensions and themes, makes up for it.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+Konqueror can use the same plugins as firefox, but you are right about the extensions. I don't use any extensions with Firefox, so Konqueror works quite well for me.Agreed... Konqueror is faster compared to firefox, but I find firefox along with a few plugins and its good compatibility, and the fact I can add and remove extensions and themes, makes up for it.I have noticed this as well and I am using Konqueror a lot more now. I hope they can fix this soon because its a bit of an annoyance on systems that don't have a lot of ram.Is it just me or does the new firefox have some memory issues? After a while of using firefox 1.5, my RAM slowly increases in used size, and my swap kicks in (my swap never usually kicks in, with 512 MB of memory, I use a quarter of it most of the time).<br />
+<br />
+It gradually increases until I can no longer browse, so I shutdown the browser to release the memory, and start it again to resume browsing.<br />
+<br />
+Comments anyone?<br />
+<br />
+*edit* with a bit more digging, I find that the All-in-one mouse gesture is guilty of the memory usage. */edit*It's not as bad now with the All-in-one mouse gesture gone I find.<br />
+<br />
+I'm looking forward to the time they fix it. Firefox is cool... <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />

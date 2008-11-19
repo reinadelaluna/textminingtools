@@ -1,0 +1,79 @@
+OK, by installing XFree86 4.3.x and dropping ATI's vid drivers, and using XFree-DRM drivers, I have fixed all the problems listed above.  Apparently, libXrandr.so.2 is supplied by XFree86 4.3.x, thus solving the compile problems and the gnome issue.<br />
+<br />
+I also found that giving fstab the users option for my fat32 patition, and by manually mounting the fat32 partition as my non-root user, I get full rights to the partition as a non-root user.  While this works, I would like to find a way to do it automatically through fstab.<br />
+<br />
+After emerging the latest XFree86, KDE screws up <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" />  I just can't win.  I get gnome working and everything else, and in doing so, KDE doesn't like it.  Evidently because I compiled KDE under XFree86 4.2.x, it's causing the display to be very disfigured, windows opening extremely long and going off the screen, the k menu not showing any text, only icons, and going off the screen as well, as well as a few other problems.  I tried to emerge KDE again, and even &quot;emerge unmerge kde&quot; and &quot;emerge -C KDE&quot; but that only removes kde-base, and when i &quot;emerge kde&quot; afterwards it doesn't recompile.  <br />
+<br />
+And arts still needs to be permanently erased from history.<br />
+<br />
+I hope this may help others who have similar problems.  <br />
+<br />
+If anybody has any ideas on how to recompile KDE and all it's sub-programs in Gentoo, please give me a shout.  <br />
+<br />
+Thanks again, <br />
+<br />
+ZakI have a few problems...  I'll start with the main ones and move to the small problems.  First, I am running Gentoo, with all of the latest stable builds of software.  XFree86 is not the latest version however... I am running ver. 4.2.x due to ATI having not released drivers compiled with 4.3.x.  I am on an Athlon XP based system.  Anyway... here is what happens, it's pretty much the same error on both sides, however on Gaim, it's not actually Gaim that errors, it's gtkspell.  When Gaim is emerged, portage automatically emerges gtkspell as it is a dependency.  <br />
+<br />
+This is the error for the gtkspell compile: <br />
+<br />
+/usr/lib/gcc-lib/i686-pc-linux-gnu/3.2.2/../../../../i686-pc-linux-gnu/bin/ld: warning: libXrandr.so.2, needed by /usr/lib/libgdk-x11-2.0.so, not found (try using -rpath or -rpath-link)<br />
+/usr/lib/libgdk-x11-2.0.so: undefined reference to `XRRUpdateConfiguration'<br />
+collect2: ld returned 1 exit status<br />
+make[1]: *** [advanced] Error 1<br />
+make[1]: *** Waiting for unfinished jobs....<br />
+/usr/lib/gcc-lib/i686-pc-linux-gnu/3.2.2/../../../../i686-pc-linux-gnu/bin/ld: warning: libXrandr.so.2, needed by /usr/lib/libgdk-x11-2.0.so, not found (try using -rpath or -rpath-link)<br />
+/usr/lib/libgdk-x11-2.0.so: undefined reference to `XRRUpdateConfiguration'<br />
+collect2: ld returned 1 exit status<br />
+make[1]: *** [simple] Error 1<br />
+make[1]: Leaving directory `/var/tmp/portage/gtkspell-2.0.2/work/gtkspell-2.0.2/examples'<br />
+make: *** [all-recursive] Error 1<br />
+<br />
+!!! ERROR: app-text/gtkspell-2.0.2 failed.<br />
+!!! Function src_compile, Line 20, Exitcode 2<br />
+!!! compile failure<br />
+<br />
+And this is the compile error for Gkrellm:<br />
+<br />
+/usr/lib/gcc-lib/i686-pc-linux-gnu/3.2.2/../../../../i686-pc-linux-gnu/bin/ld: warning: libXrandr.so.2, needed by /usr/lib/gcc-lib/i686-pc-linux-gnu/3.2.2/../../../libgdk-x11-2.0.so, not found (try using -rpath or -rpath-link)<br />
+/usr/lib/gcc-lib/i686-pc-linux-gnu/3.2.2/../../../libgdk-x11-2.0.so: undefined reference to `XRRUpdateConfiguration'<br />
+collect2: ld returned 1 exit status<br />
+make[1]: *** [gkrellm] Error 1<br />
+make[1]: Leaving directory `/var/tmp/portage/gkrellm-2.1.9/work/gkrellm-2.1.9/src'<br />
+make: *** [all] Error 2<br />
+<br />
+!!! ERROR: app-admin/gkrellm-2.1.9 failed.<br />
+!!! Function src_compile, Line 29, Exitcode 2<br />
+!!! (no error message)<br />
+<br />
+They both seem to be having an issue with libXrandr.so.2, but I don't know what to emerge to get that particular library.  I also have no clue as to what 'XRRUpdateConfiguration' is, and can find VERY little information on forums and google searches.<br />
+<br />
+Second, as a regular user(with the user id of 500) I cannot read/write nothing on my fat32 partition.  Everything is all groovy with root, but as standard user I can't even see the folder.  My fstab is below...<br />
+<br />
+/dev/hda2	/boot	reiserfs	noauto,noatime,notail	1 1<br />
+/dev/hda3	/		reiserfs	noatime,notail			0 0<br />
+/dev/hda4	none	swap	sw					0 0<br />
+/dev/cdroms/cdrom1	/mnt/cdrom	iso9660	auto,user	0 0<br />
+/dev/cdroms/cdrom0	/mnt/dvd		iso9660	auto,user 0 0<br />
+proc			/proc	proc			defaults 			0 0<br />
+/dev/hdc1		/media	vfat		auto,gid=500,umask=007  0 0<br />
+/dev/fd0		/mnt/floppy			defaults<br />
+<br />
+Some of that stuff might be wrong, as with Gentoo you have to build most of your fstab by yourself, and I don't know my way around the options at all.  I tried setting it up with some options a saw in a few threads on this forum.  <br />
+<br />
+Third, my system seems to be reading my CDROM as an ms-dos filesystem would, meaning it only displays the directory tree on my CD in 8 character filenames <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/confused.gif" border="0" alt="" title="Confused" class="inlineimg" /> This is causing me problems when I try to install Counter-Strike with winex.  The CS installer looks for files named counter-strike.exe and other long filenames, and doesn't find them because they are being displayed as counte~1.exe, so my install keeps erroring out... this *might* be a problem with my wine configuration... I don't know.  <br />
+<br />
+Forth, Gnome won't initialize.  I have KDE, blackbox, Gnome, and enlightenment installed, and all of them start fine except gnome.  <br />
+<br />
+This is the error when starting gnome:<br />
+<br />
+gnome-session: error while loading shared libraries: libXrandr.so.2: cannot open shared object file: No such file or directory <br />
+<br />
+It appears that libXrandr.so.2 is causing more problems than I see, from compiling software to starting gnome.  <br />
+<br />
+Fifth, does anybody know how to KILL arts??? all the stupid sounds drive me nutz.  I have turned down arts volume so I don't hear arts, but I would rather it not be running at all and using resources.<br />
+<br />
+One more thing, this is more of curiosty than anything,  I can use mplayer for everything on my system, but has anybody here successfully played a video or sound file that is embedded into a web page?  For instance, a lot of sites when you click on play video, pop up a seperate window with the video embedded into that window, and you select either wm, real, or quicktime as the format and it automatically uses that players browser plugin.  I tried adding the file type to fstab, specifying to use gmplayer, but that didn't work.  Is there a browser plugin for mplayer? or is there some trick, or are these types of media just unreachable from linux?  <br />
+<br />
+Thanks for all the help, <br />
+<br />
+Zak

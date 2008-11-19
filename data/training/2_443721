@@ -1,0 +1,18 @@
+My OpenOffice doesn't start working. Here is the log:<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				
+[12:00][MayskiyJuk][zs-71-04-a][~]<br />
+oowriter 1.doc<br />
+/usr/lib/openoffice.org1.9.104/program/javaldx: /lib/obsolete/linuxthreads/i686/libpthread.so.0: version `GLIBC_2.3.3' not found (required by /usr/lib/openoffice.org1.9.104/program/libuno_sal.so.3)<br />
+/usr/lib/openoffice.org1.9.104/program/soffice.bin: /lib/obsolete/linuxthreads/i686/libpthread.so.0: version `GLIBC_2.3.3' not found (required by /usr/lib/openoffice.org1.9.104/program/libuno_sal.so.3)<br />
+			
+		</td>
+	</tr>
+	</table>
+</div>
+I use FC4. Is there any ideas?Seems like you're lacking something..could it be possible that you don't have glibc_2.3.3? if so, use yum or visit rpm.pbone.net to get the needed rpm(s).

@@ -1,0 +1,15 @@
+Can anyone give me some good basic Reject lines for my postfix config to try to cut back the spam without wacking ledgemit mail?  I'm afraid I will put some lines in there that I really don't want?<br />
+<br />
+Thanks,<br />
+<br />
+BiGI have had great success setting up postfix with spam and virus filtering using <a href="http://www.amavis.org/" target="_blank">amavisd</a> (which in turn relies on <a href="http://www.clamav.net/" target="_blank">clamav</a> and SpamAssassin in my case) using <a href="http://forums.gentoo.org/viewtopic.php?t=163861" target="_blank">this guide</a>. The discussion is originally Gentoo-specific but applies to other distributions as well. Clamav does a great job detecting viruses and I highly recommend it.<br />
+<br />
+<br />
+HåkanThanks for the feedback.  I guess my situation is alittle different because I'm using postfix for my mail server not a relay but maybe this will step me in the right direction<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />  I will be a newbie for life!!<br />
+<br />
+Thanks,<br />
+BiGOk how about installing Spam Assassin with postfix does anybody have any right ups on that?  Again I'm running Fedora Core 1.  I have postfix running and working I started up spam assassin but it doesn’t seem to be filtering the mail.  I take it I need some sort of plug in for between the software?<br />
+<br />
+Thanks,<br />
+<br />
+BiG

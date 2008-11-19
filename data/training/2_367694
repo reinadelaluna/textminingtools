@@ -1,0 +1,22 @@
+I have just successfully installed Apache/MySQL/PHP and everyting is working fine.....I had a hard time configuring Apache by editing my httpd.conf file until I noticed there were two of them:<br />
+<br />
+/usr/local/apache2/conf/httpd.conf<br />
+/etc/httpd/conf/httpd.conf<br />
+<br />
+I had no previous installation of Apache and when I installed it, it created these two diretories.  I was editing the /etc/httpd/conf/httpd.conf file and it wasn't working.  I then discovered /usr/local/apache2/conf/httpd.conf, edited this file and everything is working okay......Now my quesiton:<br />
+<br />
+Is there a reason why there is two different httpd.conf files and how am I supposed to know which one to use?<br />
+<br />
+ThanksHoo yes. There is a reason for two httpd.conf files.<br />
+<br />
+You realise that  editing the httpd.conf is complex and you might <br />
+generate errors and completely corrupt the file. So, the <br />
+<br />
+/etc/httpd/conf/httpd.conf<br />
+<br />
+is used as backup.Thanks a lot!<br />
+<br />
+Any idea why the two httpd.conf files looked a little bit different before I did anything?  eg.<br />
+<br />
+/etc/httpd/conf/httpd.conf had whole bundh of &quot;LoadModule&quot; entries where /usr/local/apache2/conf/httpd.conf didn't have any of these entries.Oh wow! Maybe thats why I can't get cgi to work. I've been editing the one in /etcNormally there will be only one httpd.conf i.e in /etc but hey be warned it depends on the distro.. and if u have downloaded an newer version and installed without --prefix , Then there will be two apaches one that comes with the installation and one will be in /usr/local as it is in your case, <br />
+Dont end up running two apaches at a time It wont work and u will not be having a clue without having a look at messages file <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" />

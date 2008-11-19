@@ -1,0 +1,18 @@
+Securehack - I'm using Suse 9.2 as client and Windows 2000 domain.  Figured out my problem.  I was missing a shell statement in the smb.conf file.  I added &quot;template shell =/bin/bash&quot; and now I can log in at a console and KDE.<br />
+<br />
+Thanks for the response though.I am having the same problem...did you ever figure it out?Post your smb.conf file from both server-and-client side. Is the client using smb to connect to server?<br />
+<br />
+--Abid KazmiHeh. No problem. Have fun. =)<br />
+<br />
+--Abid KazmiI've got Samba v3.0.9-2.1 running as a PDC on SuSE 9.2.<br />
+I have a SuSE 9.2 client trying to connect to the samba server.<br />
+<br />
+The fallowing is my problem:<br />
+<br />
+The client can join the domain with out any problems. When I login with a domain user it logs on just fine then xdm gives me a error &quot;xsession: Login for DOMAIN\USER_NAME is disabled&quot; and kicks be back to the login screen. If I try to logon from a terminal it logs me on then logs me off be for I get the the prompt.<br />
+<br />
+I've looked and looked but every think I try the people have posted dose not work.<br />
+<br />
+Any help would be grate.<br />
+<br />
+Thanks,

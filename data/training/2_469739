@@ -1,0 +1,26 @@
+No, I can't use these.... When I boot up. it stays at the GRUB loading stage 2.. sceen longer then it should. Then it drops me to a GRUB shell and I dont know anything about it. I just need to reinstall grub. thats the only problem.. And I cant do it in terminal or download it or anything, because I dont have another linux computer.Have a read through this:<br />
+<a href="http://www.linuxjournal.com/article/4622" target="_blank">http://www.linuxjournal.com/article/4622</a>Yes, actually you can read the link in either reply to learn how to use the grub shell to boot into your machine. If you're not willing to learn this tiny little bit, then I guess someone else will have to help you.Here is different thread that might help you:<br />
+<a href="http://www.linuxquestions.org/questions/showthread.php?t=469378&amp;highlight=grub+bootloaderLook" >http://www.linuxquestions.org/questi...bootloaderLook</a>  the answer sure is better than what I can say.<br />
+<br />
+<br />
+<br />
+Go to the grub web site and it should help<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<div>Originally Posted by <strong>ciotog</strong></div>
+				<div style="font-style:italic">Yes, actually you can read the link in either reply to learn how to use the grub shell to boot into your machine. If you're not willing to learn this tiny little bit, then I guess someone else will have to help you.</div>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+33 years in the classroom taught me there are just some that have to learn the hard way. You can lead them to the answers but not force them to use them.<br />
+<br />
+Experience is a harsh teacher. First, she gives the test then the lesson. The lesson once learned changes the man forever. Paraphrase of Randy Alcorn in Safely HomeWell, my laptop has been dropped alot... SO I can imagine why the hard drive is a little crappy at the moment. I am running fedora core 4 on my laptop and the grub bootloader has died and I dont know the command to fix it.<br />
+Its wont load grub, so it brings me to a grub command screen and I have no clue what to do o.o Help would be great <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+~Thanks

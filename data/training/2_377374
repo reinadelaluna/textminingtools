@@ -1,0 +1,71 @@
+the purpose of md5 is to makesure that the file is complete/whole.  If they are different, it means it didn't all download, or the file is corrupted, or something similar. It means it won't work.  <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/frown.gif" border="0" alt="" title="Frown" class="inlineimg" /> <br />
+<br />
+You could try downloading again. <br />
+<br />
+Welcome to LQ!<br />
+<br />
+titanium_geekThanks, I'll try all those things. I ordered ubuntu about a month or 2 ago but never got anything. I ordered again yesterday &amp; we'll see what happens.<br />
+<br />
+The mirror thing confuses me a little:<br />
+<br />
+Table of contents<br />
+1 Mirrors that have the complete SUSE Linux OSS archive<br />
+<br />
+1.1 Europe<br />
+1.1.1 Austria<br />
+1.1.2 Bulgaria<br />
+1.1.3 Italy<br />
+1.1.4 Germany<br />
+1.1.5 Poland<br />
+1.2 Asia<br />
+1.2.1 Japan<br />
+<br />
+2 Mirrors that have some parts of the SUSE Linux OSS archive<br />
+<br />
+2.1 Americas<br />
+2.1.1 USA<br />
+2.2 Europe<br />
+2.2.1 Belgium<br />
+2.2.2 Germany<br />
+2.2.3 Italy<br />
+2.2.4 Spain<br />
+2.3 Oceania<br />
+2.3.1 Australia<br />
+<br />
+There are no complete mirrors in North America? Sorry for being a noob.what sort of connection do you have? sometimes mine will be slowly going on, then a burst and it finishes- of course it's bad. <br />
+<br />
+what linux are you trying to download? have you tried a different mirror?<br />
+<br />
+OH yeah- (edit) if you are outside the states (for other readers of the thread) download when the US is asleep.  Don't download when it is peak time for you or for them- (3-5 in the evenings and 8-9 in the mornings) The USA is a pretty heavy user of the internet, so avoiding those times is good. I had cracking awesome speed when it was 4.00am once. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" /><br />
+<br />
+titanium_geekCool, also, thanks for the links.I've done that 3 times, but I'll try again. Thanks for that &amp; your welcoming me here!I'm trying to download suse 10 from here:<br />
+<a href="http://www.opensuse.org/Released_Version" target="_blank">http://www.opensuse.org/Released_Version</a><br />
+I tried re-downloading the 1st 3 disks last nite. No go.<br />
+I thought if it was corrupt it would only show up as a little off, like:<br />
+should be 1234<br />
+but is 1239<br />
+not should be 1234<br />
+shows 00c0<br />
+Any help would be appreciated! (example: different site to download, different distro, etc)<br />
+Thanks guys!<br />
+<br />
+oops, forgot the mention that I have a very fast Comcast Cable connection.You might want to try downloading at night, when you arent using your internet connection for anything else. Large files can get corrupt quite easily otherwise.I downloaded iso's to install linux. (I am new to linux) I checked the checksums &amp; the program I used said something about it being binary &amp; should be ascii (or the other way around) The checksum looked like this: (made up numbers to give example)<br />
+436tg346t45yg45g457y (md5)<br />
+0000000000000000c00 (iso)<br />
+What am I doing wrong? How can I do it right?<br />
+I hope this makes sense, if not, I am sorry.<br />
+Thanks!there is a change over happening with ubuntu- so that might be why the shipping is slow- I got mine in 3months- and mail is notoriously slow here. <br />
+<br />
+wierd about the mirrors- but I'm not qualified to explain that, sorry- I don't have much SUSE experience.<br />
+<br />
+titanium_geekumm... if you get totaly disalusioned with downloading isos, check out ubuntu. They offer free CDs (free shipping handling and cds) at <a href="https://shipit.ubuntu.com/" target="_blank">https://shipit.ubuntu.com/</a><br />
+<br />
+Also, check out the <a href="http://iso.linuxquestions.org" target="_blank">LinuxQuestions ISO site</a> - look at the &quot;need help&quot; section on the left side aswell.  <a href="http://iso.linuxquestions.org/search.php?query=suse" target="_blank">http://iso.linuxquestions.org/search.php?query=suse</a> <br />
+<br />
+also, makesure you are using a <a href="http://wiki.linuxquestions.org/wiki/Mirror" target="_blank">mirror</a> that is close to you. <br />
+<br />
+this link might be useful:<br />
+<a href="http://wiki.linuxquestions.org/wiki/Installation#How_to_get_a_Distribution.3F" target="_blank">http://wiki.linuxquestions.org/wiki/...istribution.3F</a><br />
+<br />
+hope this helps. <br />
+titanium_geek

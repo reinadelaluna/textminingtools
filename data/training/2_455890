@@ -1,0 +1,8 @@
+Never mind - Had to enter the &quot;set nocompatible&quot; command (and chuck it in my vimrc file).Hey all,<br />
+<br />
+I just upgraded my VIM to v7 and now, when I enter a : and press &lt;TAB&gt; it doesn't come up with any commands. Same with autocompletion for commands (i.e. :set &lt;TAB&gt; would list the next :set command).<br />
+<br />
+Is there a command to enable this feature?<br />
+<br />
+Thanks heaps<br />
+Allan

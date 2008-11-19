@@ -1,0 +1,22 @@
+yahoo just restructured again, so gaim ONCE again no longer works for yahoo.<br />
+if you go to:<br />
+<br />
+<a href="http://groups.yahoo.com/group/ymessenger/" target="_blank">http://groups.yahoo.com/group/ymessenger/</a> and check the &quot;files&quot; section, there is a .tgz file from bender that works.  i use it in slack...it works great.Thanks  i am going to download itThey don't seem to do a source file install.  Since Messenger is pretty specific - why not grab Kopete or Gaim and use those?  Gaim, for example, will allow you to use xchat, yahoo and msn and aim all from the same client.I haved download the file Gaim in my home directory, I try to run the command pkgtool but it didn't detect the gaim-0.79-omdk9.1.i586.rpm then i convert it to gaim-0.79-omdk9.1.i586.tar format. then on I untar it in my home directory and i found the file gaim. so I run the command gaim and it pop up, I add the setting of which protocol to used (yahoo services) :-) but the my luck went out it was trying to connect, but it didn't, it said unable to connect and couldn't read the file. but then i didn't give up i copy the directory of gaim to /bin but it still didn't work. because i know most of the program run under /bin directory (-: so please can you help me out.  thanks alotYou can download the .deb file and run &quot;alien -s ymessenger*.deb&quot; on it to create a .tgz file that you can install on slack and run using &quot;/opt/ymessenger/bin/ymessenger&quot;. This may require a debian install to run alien, unless you want to install alien on your slack system, which may require some dependency satisfaction.I am a newbie to linux, I just install Slackware 9.1, I made the file .xinitrc to run windowmaker as default x window (startx) I want to get yahoo messenger to run in linux, I know there a yahoo version for linux and I didn't see a slackware base version so I  downloaded FREEBSD it to my home directory. I run the command pkgtool as root, then I went to my root directory i saw 5 new files +COMMENT +CONTENTS +POST-DEINSTALL +POST-INSTALL and +DESC. I dont know what this files mean. Anywhere i went to my bin directory, and i saw the files yahoo_gome.png, yahoo_kde.xpm, ymessenger, ymessenger.bin ymessenger.desktop, ymessenger.kdelnk.<br />
+then i run the ymessenger.bin files, but it said /bin/ymessenger: line 4: /opt/ymessenger.bin: No such file or directory<br />
+/bin/ymessenger: line 4: exec: /opt/ymessenger/bin/ymessenger.bin: cannot execute: No such file or directory. As I told you I am a newbie just learning linux, i have some linux documents (commmands) from online. So can anybody help me out I need yahoo messenger. thanks.<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>From <a href="http://gaim.sourceforge.net" target="_blank">Gaim's Website</a></i><br />
+<b> June 25th, 2004 - 12:59PM EST  	0.79 - Out with the bad air, in with the good air    <br />
+		<br />
+Alright everybody, prepare to party like it's 1999: we released 0.79. Yahoo! works. For now. See the ChangeLog for the grandiose list of changes.</b>
+			
+		</td>
+	</tr>
+	</table>
+</div>
+<br />
+Gaim now works.

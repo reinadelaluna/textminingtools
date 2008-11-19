@@ -1,0 +1,14 @@
+I've heard good things about <a href="http://www.partimage.org/Main_Page" target="_blank">PartImage</a> for doing this kind of thing.<br />
+<br />
+Theres also <a href="http://fbim.fh-regensburg.de/~feyrer/g4u/" target="_blank">G4u</a> which uses a live CD.i want to use &quot;dd&quot; to make an image of a windows machine. Since I work in IT i get many laptops to install, and reinstall. The problem is that the hard drives are 40gb on every laptop. Since windows is some sort of dissorgenized (or who knows what Bill's idea behind this) with it's files distribution on the HD, after installing a fresh copy of XP for instance, ou would see that the files are spread all over the HD (using the Defragmenting utility analyzer).<br />
+<br />
+Now I dont want to make an image of 40gb, I really need to find a way (or utility if you will) to &quot;dd&quot; the data in parts.<br />
+<br />
+So is there a utility that can tell me where there are actual files and where there are no files so I can &quot;dd&quot; part of the windows HD onto my imaging machine? or more exact, a utility that will tell me what sectors/blocks are used and which ones are unused<br />
+<br />
+Thanks<br />
+XThanks!<br />
+<br />
+PartImage works great<br />
+<br />
+X

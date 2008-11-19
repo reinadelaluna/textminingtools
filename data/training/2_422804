@@ -1,0 +1,21 @@
+Actually I am using Detailed List. I tried to change to Info List and Text View, but the same thing.<br />
+<br />
+<br />
+<br />
+jlinkelsI use Konqueror as my file manager. I am connected to a Windows NT server thru a symmetrical low latency 1 Mbit connection.<br />
+<br />
+It is no problem to connect to the Windows server. If the directory does not contain too many files (&lt; 20) the directory contents is showed almost instantly. However, in the directory I need to use, I have a few hundreds of files. Less than 1000. When I click on the directory tree, the directories fold out nicely. However, when I click on one of the directories to actually see the contents, the 1 Mb connection gets filled up with traffic, and it takes minutes (5-10 minutes) until the file list is displayed.<br />
+<br />
+What is happening here? Does Konqueror open and read ALL the files before it displays them?<br />
+<br />
+It is NOT an SMB connection problem:<br />
+<br />
+- If I move this server to the same LAN segment (100 Mbit) the display is satisfactory and fast. But it doesn't mean there is not that much traffic.<br />
+<br />
+- Smaller directories are browsed ok.<br />
+<br />
+- When I use the command line I can instantly get a ls listing, or open a file.<br />
+<br />
+- The SMB connection never breaks or becomes inaccessible.<br />
+<br />
+jlinkelsdoes it make a difference if you change view mode to list?

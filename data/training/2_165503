@@ -1,0 +1,23 @@
+You want files created by a script to be owned by the user that created them and not user nobody that apache runs as?<br />
+<br />
+What kind of script perl, PHP ?Hi, <br />
+<br />
+When I create a file on a server through the web, the owner is nobody and the group is nobody ... because this is the user/group that apache runs in ... how do I configure apache so that whenever a user runs a script in his/her directory, the files created by apache/php are owned by that user instead of apache?<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				<i>Originally posted by AutOPSY </i><br />
+<b>You want files created by a script to be owned by the user that created them and not user nobody that apache runs as?<br />
+<br />
+What kind of script perl, PHP ? </b>
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+Yes. PHP.<br />
+<br />
+Is the process different if using perl? If it is, I'd also like to know.

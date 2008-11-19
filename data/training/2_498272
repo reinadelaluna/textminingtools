@@ -1,0 +1,8 @@
+I have some kind of gentoo and kde. And i know that many have got the same problem but i'm so stupid to computers (and english too). but how to fix this problem?I think I just wrote an answer to a question like this..you should really learn to use the Search thing at the top of the page.<br />
+<br />
+Shortly said, most probably you lack some codecs, or to be more precise, the player <i>engine</i> Amarok uses (Amarok itself won't probably play anything) doesn't have the appropriate codecs installed, again probably due to somekind of copyright/other reasons. Anyway.<br />
+<br />
+1) Open Amarok, open settings, see which engine you are using (I guess it's Xine, but could be something else too)<br />
+2) Use your favourite package manager to download the needed codecs for that engine; more information you can search from the web, for example if your engine is Xine, then look from Xine's website -- Gentoo uses portage to install packages (doesn't it?) so if you don't know how to use it, read Gentoo's documentation from their website.<br />
+<br />
+If the engine is Xine as I suppose it is, you need <i>libxine-extracodecs</i>. If it was gstreamer, you'd need some <i>gstreamer-plugins</i> and so on.

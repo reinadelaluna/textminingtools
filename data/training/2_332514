@@ -1,0 +1,39 @@
+I recommend audio-convert, see<br />
+<br />
+<a href="http://freshmeat.net/projects/audio-convert" target="_blank">http://freshmeat.net/projects/audio-convert</a><br />
+<br />
+and<br />
+<br />
+<a href="http://forums.fedoraforum.org/showthread.php?t=63653&amp;page=3&amp;pp=15" target="_blank">http://forums.fedoraforum.org/showth...3&amp;page=3&amp;pp=15</a>Thanks, Oggasm worked great!<br />
+It would be nice with a GUI, though.<br />
+Also, dBPowerAmp works really great under Wine, so I guess I'll use it next time.oggenc might work.If Oggasm does what you want to do, I'd settle for the simple<br />
+# tar -vxzf oggasm_1.4.0.tar.gz<br />
+# ./install<br />
+<br />
+Costs about as much effort as finding an alternative and installing it from rpm/deb file <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/wink.gif" border="0" alt="" title="Wink" class="inlineimg" /><br />
+It's dependencies all seem to be available in rpm though <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/biggrin.gif" border="0" alt="" title="Big Grin" class="inlineimg" /><br />
+<br />
+<a href="http://www.gnuware.com/icecast/sect_07_04.html" target="_blank">http://www.gnuware.com/icecast/sect_07_04.html</a><br />
+<br />
+<a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=mpg321&amp;submit=Search+..." target="_blank">http://www.rpmfind.net/linux/rpm2htm...mit=Search+...</a><br />
+<a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=mad-libs&amp;submit=Search+...&amp;system=&amp;arch=" target="_blank">http://www.rpmfind.net/linux/rpm2htm...&amp;system=&amp;arch=</a><br />
+<a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=libao&amp;submit=Search+...&amp;system=&amp;arch=" target="_blank">http://www.rpmfind.net/linux/rpm2htm...&amp;system=&amp;arch=</a>Hi there!<br />
+<br />
+I'm looking for a good linux tool able to convert Mp3-files into Ogg vorbis-files.<br />
+I've looked at &quot;Oggasm&quot;, but there are no binary pakages available, so if somebody could either post a RPM of &quot;Oggasm&quot; or any other tool in RPM-format I'd be very grateful.<br />
+<br />
+Cheers<br />
+Talyz ProwerThank you!<br />
+I'll try that one...<br />
+<br />
+//Talyz ProwerThere is also <a href="http://faceprint.com/code/" target="_blank">mp32ogg</a>.I wrote a script.. but it's a little odd and probably not as good as any other tool you'd use. but wherever you run it from it'll recurse into subdirectories and convert everything. due to my lack of skill at scripting and use of such programs used for it. I had to use some funny techniques to get around the limitations in my own ability.<br />
+<br />
+<a href="http://doombaby.hopto.org/vorbify" target="_blank">http://doombaby.hopto.org/vorbify</a><br />
+<br />
+note that you should edit the QUALITY and RMORIG variables if you actually want to use it.<br />
+<br />
+I wrote it for me and as such it works okay except for cutting off long tags, I didn't bother making it read the tags itself. you need mpg321 oggenc and vorbiscomment. <br />
+<br />
+the only advantage of using this is that you won't need to install packages, it's just a script.<br />
+<br />
+additionally there's a perl converter called mp32ogg

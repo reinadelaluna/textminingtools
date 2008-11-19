@@ -1,0 +1,22 @@
+Folks,<br />
+<br />
+I had a couple ways to go on this, one being that I could just start over, and the other I could just move it. I choose the latter, with the former as a backup.<br />
+<br />
+All of the information can be obtained from the O'Reilly book Managing NIS and NFS, Chapter 2 &amp; 4.<br />
+<br />
+1. Bring up the the new server as a client with ypbind to get the inital maps..<br />
+2. Add the new server to ypservers and run make -C /var/yp<br />
+3. Run ypinit -s  ypxfr should transfer all the maps to the slave server. The book describes to use makedbm, but I could get this work. <br />
+4. Each map needs to be rebuilt on the new server. Copy over the Makefile and source files. do not push them out to the server(s) make NOPUSH=1<br />
+5. Copy the new maps (from the new master) to the old server and run 'ypxfr -h newmaster -f passwd.byname' and do this to all the maps. This force the old master server to get the new maps from the newmaster server.<br />
+6. If you have additional slave servers you push these maps to the existing slaves.<br />
+<br />
+TMy current NIS (master) server is dying. The hard drive is reporting massive amounts of disk errors. <br />
+<br />
+I want  to move the NIS master to another linux server. <br />
+<br />
+Has any one out there done this?<br />
+<br />
+Thanks,<br />
+<br />
+T

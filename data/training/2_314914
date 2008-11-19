@@ -1,0 +1,94 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				The branding on the disk doesn't necessarily reflect the manufacturer.
+			
+		</td>
+	</tr>
+	</table>
+</div> Useful site, thanks for that.  Turns out my drive is a coaster maker, according to most of the posts, but it hasn't gone wrong for me yet. (Still assuming I have a software problem).  Also turns out that the TDK's I'm using are unknown quantities, (i.e., noone who's used one with this drive has posted), but plenty of other brands look good.  I'm going to try another brand and see what happens.After throwing 6 cds to the trash with 2.6.8 i have also tried 2.6.9 and 2.6.10.<br />
+<br />
+2.6.9 worked fine for me but I had to continue using k3b as root to be able to burn cds, also the k3b page says that it does not work well with external cd burners (which I have not).<br />
+<br />
+2.6.10 works perfectly by the moment and I can execute k3b as non-root user again.Trying to burn a TDK DVD-RW x4 disk with K3B is causing me problems.  The error I get is shown below:<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				/dev/hdc: engaging DVD-RW DAO upon user request...<br />
+:-( Failed to change write speed: 1385-&gt;706
+			
+		</td>
+	</tr>
+	</table>
+</div> The drive I'm using is made by LG and is model GSA-4081B. Anyone had any experience with this drive/disk combination, or got any suggestions for what to try next?  <br />
+<br />
+ThanksFor what it's worth..<br />
+<br />
+I eventually got around to sorting this problem by buying different disks.  The item came with one Maxell disk (DVD RAM), so I bought some Maxell DVD-RW's.  They work, even with the 2.6.8 kernel.  Anyone interested in three unused TDK DVD+RW disks?When you are doing the burn in K3B, do you have the drive speed set to auto?  If so, set it to 4x.  If not, set it to auto (i.e., the opposite of the way that's not working).  Also, have you erased (blanked) the DVD-RW before trying to write on it?<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Do not use Kernel 2.6.8
+			
+		</td>
+	</tr>
+	</table>
+</div> Ah.  In that case I'll revert to 2.6.7 and give it a shot.  But not today as I've got other fish to fry.  Monday then.From the k3b site:<br />
+<br />
+&quot;Do not use Kernel 2.6.8<br />
+<br />
+A patch that was introduced into the kernel shortly before the 2.6.8 release makes K3b and also the dvd+rw-tools unusable on Linux (unless run as root but that is not recommended). The very important GET CONFIGURATION MMC command is rejected by the kernel for reasons I cannot see and writing commands like MODE SELECT also fail (K3b cannot detect CD writers without it) even when the device is opened O_RDWR. Until this issue has been solved I strongly recommend to stick to kernel version 2.6.7.<br />
+<br />
+Update: The kernel guys are currently fixing the problem so the next kernel release should work again. <img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /><br />
+<br />
+Update 2: The problem is NOT fixed in 2.6.8.1<br />
+<br />
+Update 3: Be aware that kernel 2.6.8 also contains the memory leak which makes it impossible to write audio cds, even as root.&quot;I have tried with the speed set to auto and also set at either 'ignore', 1x and 2x which are the only other possibilities - same result.<br />
+<br />
+I also tried to format the DVD and was informed that the 'media is already empty' and, 'Success!'. However, if I try and force the format, although I still get a, 'Success!' message, the output of the debug is as follows:<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Devices<br />
+-----------------------<br />
+HL-DT-ST DVDRAM GSA-4081B A100 (/dev/hdc, ) at /media/dvdram [CD-R; CD-RW; CD-ROM; DVD-ROM; DVD-RAM; DVD-R; DVD-RW; DVD+R; DVD+RW] [DVD-ROM; DVD-R Sequential; DVD-RAM; DVD-RW Restricted Overwrite; DVD-RW Sequential; DVD+RW; DVD+R; CD-ROM; CD-R; CD-RW] [SAO; TAO; RAW; SAO/R16; RAW/R96P; RAW/R96R]<br />
+<br />
+System<br />
+-----------------------<br />
+K3b Version: 0.11.23<br />
+KDE Version: 3.3.0<br />
+QT Version:  3.3.3<br />
+Kernel:      2.6.8-24.14-default<br />
+<br />
+dvd+rw-format<br />
+-----------------------<br />
+* DVD±RW/-RAM format utility by &lt;appro@fy.chalmers.se&gt;, version 4.10.<br />
+:-( failed to locate &quot;Quick Format&quot; descriptor.<br />
+:-( can't locate appropriate format descriptor<br />
+* 4.7GB DVD-RW media in Sequential mode detected.<br />
+:-[ PERFORM OPC failed with SK=5h/ASC=30h/ACQ=05h]: Wrong medium type<br />
+<br />
+dvd+rw-format comand:<br />
+-----------------------<br />
+/usr/bin/dvd+rw-format -gui -blank /dev/hdc 
+			
+		</td>
+	</tr>
+	</table>
+</div> <br />
+<br />
+<br />
+Therefore I assume that K3B has in fact done nothing and failed the format.  I thought perhaps that the LG and TDK disks might be incompatible, but I also found a review on the net for this device which stated that the disks which performed best were TDK.  This review was performed under a Windows system but that shouldn't reflect on the relationship between the device and the media.  Therefore I'm working on the assumption that it's a software problem.  <br />
+<br />
+The other avenue is the driver which is set to auto.  However, if the driver was faulty then I would assume that no recordings would be possible, which is not the case.  I also have a Maxell DVD-RAM disk which did record successfully.Kernel: 2.6.8-24.14-default<br />
+<br />
+Running as root makes no difference, but anyway I can burn CD's so that's probably not it.<a href="http://www.videohelp.com/dvdmedia.php?dvdmediasearch=TDK&amp;dvdmediadvdridsearch=&amp;type=6&amp;size=All&amp;dvdburnspeed=All&amp;order=Name&amp;hits=200&amp;search=Search+or+List+Media" target="_blank">The branding on the disk doesn't necessarily reflect the manufacturer</a>.  This particular media may simply not be compatible.which kernel are you running. are you running k3b as root or user. if you are user try running it as root

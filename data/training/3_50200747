@@ -1,0 +1,72 @@
+Hello,
+<br />
+
+<br />
+This is the error message I get when I start k3b.
+<br />
+
+<br />
+Unable to find cdrecord executable
+<br />
+K3b uses cdrecord to actually write CDs.
+<br />
+Solution: Install the cdrtools package which contains cdrecord.
+<br />
+
+<br />
+Well:
+<br />
+fzr:~# apt-get install cdrecord
+<br />
+Reading Package Lists... Done
+<br />
+Building Dependency Tree... Done
+<br />
+cdrecord is already the newest version.
+<br />
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+<br />
+
+<br />
+Any suggestions?
+<br />
+
+<br />
+
+<br />
+ERik
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Tuesday 22 February 2005 22:12, Erik Norman wrote:
+<br />
+&gt; This is the error message I get when I start k3b.
+<br />
+&gt;
+<br />
+&gt; Unable to find cdrecord executable
+<br />
+
+<br />
+&gt;
+<br />
+&gt; Any suggestions?
+<br />
+
+<br />
+using k3bsetup (you need root access) you can tell k3b where to look
+<br />
+
+<br />
+Ernest.
+<br />
+
+<br />
+
+<br />
+
+<br />

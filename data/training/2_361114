@@ -1,0 +1,7 @@
+W: GPG error: <a href="ftp://ftp.nerim.net" target="_blank">ftp://ftp.nerim.net</a> unstable Release: Couldn't access keyring: No such file or directory<br />
+<br />
+this is the error I get when I try to reload the lists in Synaptic Package Manager.<br />
+Also most of the lists show status as failed when I tried to reload them.  So as a consequece I can not update my distrobution.  I am using Simply-Mapis 3.3.1.<br />
+<br />
+Any help appreciated<br />
+thanx for reading bignester.Take a look at this <a href="http://www.linuxquestions.org/questions/showthread.php?s=&amp;postid=1825958" >thread</a> for a solution.

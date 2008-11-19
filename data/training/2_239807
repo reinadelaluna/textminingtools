@@ -1,0 +1,5 @@
+I am wanting to use a form in a HTML Document to execute a command on a local machine.<br />
+<br />
+My objectives are simply to automate certain processes that i do on a regular basis I would like to select a radial button on the page and have it execute a command in the shell on that machine, <br />
+<br />
+The reason i am looking to do this is that i have tools that i use frequently and i would like to be able to reduce the amount of typing required when a new machine comes in (e.g to map a /mnt share to my server) but without leaving any batch or config files locally on the machine.I think webmin allows that. Can verify just now but pretty sure it does.

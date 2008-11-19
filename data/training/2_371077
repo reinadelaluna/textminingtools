@@ -1,0 +1,35 @@
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="bbcodeblock" style="border:1px inset">
+			
+				Firstly firefox is slow! (but than again so is any other browser than IE in windows).
+			
+		</td>
+	</tr>
+	</table>
+</div>
+Yes, that's because IE is integrated into the OS, which is the big problem with IE. That's why web sites that your browser come in contact with can write to the registry, change system files, install spyware, keyloggers, execute code etc. Firefox is slower to launch because it isn't already running when you turn on the machine.<br />
+<br />
+I'll say something else. Firefox is on version 1. Do you recall when IE was on version 3 and 4? IE 3 was a JOKE compared to Firefox 1.<br />
+<br />
+Firefox is still a tad buggy sometimes. If you have looked the code over and can see what the problem is then drop Mozilla a line and tell them about it.<img src="http://linuxquestions.cachefly.net/images/questions/images/smilies/smile.gif" border="0" alt="" title="Smilie" class="inlineimg" /> <br />
+<br />
+Lastly I would use Firefox instead of IE because Microsoft does not make it.<br />
+<br />
+You may want to look at Dillo. A very fast little browser. Mozilla sometimes works better than Firefox too.Hey!<br />
+<br />
+Firstly firefox is slow! (but than again so is any other browser than IE in windows).<br />
+<br />
+Bugs that really bug me:<br />
+<br />
+1. Autofill suggestions won't go away for text box when I try and click somewhere else with the mouse, the only way to get rid of it is to press tab or accept what it is offering.<br />
+2. When I use quotes for SQL commands in phpMyAdmin or am editing PHP Scripts Firefox starts screwing things up, the find at the bottom will randomly open and I won't be able to continue what I am doing.<br />
+3. Half the plugins from the firefox site tell me they are invalid plugins.<br />
+<br />
+<br />
+<br />
+David<br />
+<br />
+(This is on both windows and Linux. But I am using linux at home.)

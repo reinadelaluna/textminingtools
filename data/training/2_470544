@@ -1,0 +1,11 @@
+Putting them in .bash_profile or .bashrc would only affect any login shells (or subsequent sub-shells) for the apache user. You are correct that if the apache user cannot login, these variables are never set.<br />
+<br />
+What is it that you need the LD_ASSUME_KERNEL variable to affect? I don't know of an Apache version that needs this setting.The only thing I can think of is web single signon - but I don't know of anyone who's using it (I think weblogic has a product?)...I need to set LD_ASSUME_KERNEL=2.4.19 for the apache user.<br />
+<br />
+Someone has suggested setting the value in .bash_profile or .bashrc. within apache's home directory.<br />
+<br />
+Question: If the Apache account is set to /sbin/nologin, will having these hidden files help define variables?<br />
+<br />
+In other words, with nologin, is the bash shell still being used?<br />
+<br />
+ChrisSomeone I work with is trying to get WSSO to work with Apache.  What is WSSO?

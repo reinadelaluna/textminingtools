@@ -1,0 +1,15 @@
+Hi!<br />
+<br />
+I have visited a website with flash video on it.  I was just wondering if there is a way to download the flash video? Thanks in  advance.I think you can try with wget option -A.swf , man wget :<br />
+<br />
+(-A acclist / -R rejlist --accept=acclist / --reject=rejlist<br />
+<br />
+    Comma-separated list of extensions to accept/reject. For example, if you wish to download only GIFs and JPEGs, you will use -A gif,jpg,jpeg. If you wish to download everything except cumbersome MPEGs and .AU files, you will use -R mpg,mpeg,au.)<br />
+<br />
+or<br />
+<br />
+go to source, then search for &quot;swf&quot; string and when you find a line starting with &quot;http&quot; and ending with &quot;.swf&quot; try to download itThere are a few extensions for Firefox to help you do this - I like DownloadHelper:-<br />
+<br />
+<a href="https://addons.mozilla.org/firefox/3006/" target="_blank">https://addons.mozilla.org/firefox/3006/</a><br />
+<br />
+Nice and simple, no problems so far.

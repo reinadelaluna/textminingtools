@@ -1,0 +1,598 @@
+The short anwer is Yes and Opteron too, although I don't see any text
+<br />
+about an FX chip.
+<br />
+
+<br />
+On 1/24/06, Patrick Carlson &lt;firefly2442@gmail.com&gt; wrote:
+<br />
+&gt; Hello all.  I'm looking to build a new system for Debian Linux.  I'm going
+<br />
+&gt; with an AMD64 chip.  However, does the Linux AMD 64 kernel support &quot;AMD64&quot;,
+<br />
+&gt; &quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?  Do they all work with the same AMD64
+<br />
+&gt; build?  Thanks for the help! :)
+<br />
+&gt;
+<br />
+
+<br />
+
+<br />
+--
+<br />
+Enga&ntilde;arse por amor es el enga&ntilde;o m&aacute;s terrible;
+<br />
+es una p&eacute;rdida eterna para la que no hay compensaci&oacute;n
+<br />
+ni en el tiempo ni en la eternidad.
+<br />
+
+<br />
+							Kierkegaard
+<br />
+
+<br />
+							Jaime Ochoa Malag&oacute;n
+<br />
+							Integrated Technology
+<br />
+							Tel: (55) 52 54 26 10
+<br />
+
+<br />
+
+<br />
+
+<br />
+They all use exactly the same core, give or take some L2 cache, only that X2 
+<br />
+and Opteron &gt;= 165 sport two cores, so an SMP-kernel makes a lot of sense 
+<br />
+there. Same for Turion64, Athlon64, Sempron64, Opteron.
+<br />
+
+<br />
+Use an AMD64 kernel, with or without smp depending on core count. Depending on 
+<br />
+the chipset I suggest 2.6.8 for sarge and AMD8000 chipset, for all newer 
+<br />
+chipsets 2.6.12+ from unstable, for dual core the spanking newest kernel you 
+<br />
+can get (see older thread below), eg. there's a 2.6.15 kernel in unstable.
+<br />
+
+<br />
+Am Mittwoch, 25. Januar 2006 00:42 schrieb Patrick Carlson:
+<br />
+&gt; Hello all.  I'm looking to build a new system for Debian Linux.  I'm going
+<br />
+&gt; with an AMD64 chip.  However, does the Linux AMD 64 kernel support &quot;AMD64&quot;,
+<br />
+&gt; &quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?  Do they all work with the same AMD64
+<br />
+&gt; build?  Thanks for the help! :)
+<br />
+
+<br />
+
+<br />
+
+<br />
+<tt>Soenke von Stamm wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>They all use exactly the same core, give or take some L2 cache, only that X2 
+<br />
+and Opteron &gt;= 165 sport two cores, so an SMP-kernel makes a lot of sense 
+<br />
+there. Same for Turion64, Athlon64, Sempron64, Opteron.</tt><br>
+<br />
+<br>
+<br />
+<tt>Use an AMD64 kernel, with or without smp depending on core count. Depending on 
+<br />
+the chipset I suggest 2.6.8 for sarge and AMD8000 chipset, for all newer 
+<br />
+chipsets 2.6.12+ from unstable, for dual core the spanking newest kernel you 
+<br />
+can get (see older thread below), eg. there's a 2.6.15 kernel in unstable.</tt><br>
+<br />
+<br>
+<br />
+<tt>Am Mittwoch, 25. Januar 2006 00:42 schrieb Patrick Carlson:<br>
+<br />
+ </tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">Hello all.  I'm looking to build a new system for Debian Linux.  I'm going
+<br />
+with an AMD64 chip.  However, does the Linux AMD 64 kernel support &quot;AMD64&quot;,
+<br />
+&quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?  Do they all work with the same AMD64
+<br />
+build?  Thanks for the help! :)<br>
+<br />
+</blockquote></blockquote><tt>Via K8T890. Cheap, cheerful, supports all current s939 chips, and plays 
+<br />
+fine with a 2.6.8 kernel.</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+<tt>Bool wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">On an ASUS A8N-VM (NVidia NForce 410 with GForce 6100),
+<br />
+I have to use 2.6.14 kernel to have network working.<br>
+<br />
+<tt>Jo Shields a &eacute;crit :</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Soenke von Stamm wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>They all use exactly the same core, give or take some L2 cache, only 
+<br />
+that X2 and Opteron &gt;= 165 sport two cores, so an SMP-kernel makes a 
+<br />
+lot of sense there. Same for Turion64, Athlon64, Sempron64, Opteron.</tt><br>
+<br />
+<br>
+<br />
+<tt>Use an AMD64 kernel, with or without smp depending on core count. 
+<br />
+Depending on the chipset I suggest 2.6.8 for sarge and AMD8000 
+<br />
+chipset, for all newer chipsets 2.6.12+ from unstable, for dual core 
+<br />
+the spanking newest kernel you can get (see older thread below), eg. 
+<br />
+there's a 2.6.15 kernel in unstable.</tt><br>
+<br />
+<br>
+<br />
+<tt>Am Mittwoch, 25. Januar 2006 00:42 schrieb Patrick Carlson:<br>
+<br />
+ </tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hello all.  I'm looking to build a new system for Debian Linux.  
+<br />
+I'm going<br>
+<br />
+with an AMD64 chip.  However, does the Linux AMD 64 kernel support 
+<br />
+&quot;AMD64&quot;,<br>
+<br />
+&quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?  Do they all work with the 
+<br />
+same AMD64<br>
+<br />
+build?  Thanks for the help! :)</tt><br>
+<br />
+<br>
+<br />
+</blockquote></blockquote><tt>Via K8T890. Cheap, cheerful, supports all current s939 chips, and 
+<br />
+plays fine with a 2.6.8 kernel.
+<br />
+</tt></blockquote><br>
+<br />
+</blockquote><tt><br>That's common to most nForce4 variants - though 2.6.12 can usually be 
+<br />
+persuaded to work, with some tweaking. nForce4 isn't a good bet for 
+<br />
+linux systems - none of the &quot;extra features&quot; it has over K8T890 work 
+<br />
+(the 'hardware firewall' and so on are windows driver-based jobs), so 
+<br />
+all it ends up being is more expensive.</tt><br>
+<br />
+<br>
+<br />
+<tt>Unless you really *need* the low-end onboard graphics, I suppose.</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+
+<br />
+On 1/25/06, hendrik@topoi.pooq.com &lt;hendrik@topoi.pooq.com&gt; wrote:
+<br />
+&gt; On Wed, Jan 25, 2006 at 03:28:41PM -0500, Robert Isaac wrote:
+<br />
+&gt; &gt; Actually, you should hold off until after June before buying any AMD64
+<br />
+&gt; &gt; CPU.  AMD will be releasing a new socket style and the current Socket
+<br />
+&gt; &gt; 939 and 754 chips should drop in prices, not sure about the Opterons
+<br />
+&gt; &gt; (Socket 940).
+<br />
+&gt;
+<br />
+&gt; Actually, you should probably hold off buying *any* piece of computing
+<br />
+&gt; equipment until you can't do without it, as prices keep going down.
+<br />
+&gt; Rare is the day I pay the price they quoted me at my local computer
+<br />
+&gt; store, because the price goes down too fast.
+<br />
+
+<br />
+Funny enough, the Athlon64 prices do not seem to drop very quickly. I
+<br />
+bought my 3000+ 939p for 109 Euro a year ago. Now it has been
+<br />
+discontinued, but the 3200+ is still quite a bit more expensive. Funny
+<br />
+that, because everything else in the PC has dropped in value
+<br />
+significantly.
+<br />
+
+<br />
+I think it took a while for the word to travel that the Athlon64 are
+<br />
+indeed a revolution in performance. And AMD certainly made the most
+<br />
+out of it, in terms of money :-). I guess future prices will depend a
+<br />
+lot on whether the new Intel chips deliver or not.
+<br />
+
+<br />
+Thomas
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Wednesday 25 January 2006 02:36 pm, hendrik@topoi.pooq.com wrote:
+<br />
+&gt; On Wed, Jan 25, 2006 at 03:28:41PM -0500, Robert Isaac wrote:
+<br />
+&gt; &gt; Actually, you should hold off until after June before buying
+<br />
+&gt; &gt; any AMD64 CPU.  AMD will be releasing a new socket style and
+<br />
+&gt; &gt; the current Socket 939 and 754 chips should drop in prices, not
+<br />
+&gt; &gt; sure about the Opterons (Socket 940).
+<br />
+&gt;
+<br />
+&gt; Actually, you should probably hold off buying *any* piece of
+<br />
+&gt; computing equipment until you can't do without it, as prices keep
+<br />
+&gt; going down. Rare is the day I pay the price they quoted me at my
+<br />
+&gt; local computer store, because the price goes down too fast.
+<br />
+&gt;
+<br />
+&gt; -- hendrik
+<br />
+
+<br />
+Like everything else its a judgement call, you can have your cake 
+<br />
+today, enjoy it for a lot longer.
+<br />
+
+<br />
+I came over this problem about a week ago, I was going to just get a 
+<br />
+socket 754 sempron chip, and use it later down the road in a pvr. 
+<br />
+
+<br />
+Almost everything was the same except the cost of the chip, the chip 
+<br />
+I really needed was over the two hundred dollar mark. As Myth TV 
+<br />
+likes it cpu power, if your working in 1080p.  Sure I could of got 
+<br />
+something less but then I have heard of people running into 
+<br />
+problems on 3200, 3400 Athlon 64's.  So I really needed a 3700 or 
+<br />
+better chip. In the end I ended up going for a Opteron 165, and as 
+<br />
+stated in another thread it only cost me about 60 dollars more than 
+<br />
+a single core 3700.
+<br />
+
+<br />
+So for that price it was a good investment, as I know that demand 
+<br />
+will keep the dual cores prices up for a while until the next big 
+<br />
+thing.
+<br />
+
+<br />
+Gnu_Raiz
+<br />
+
+<br />
+Also whats with all the top posting, it seem's that every other 
+<br />
+thread has a bunch of top posters?
+<br />
+
+<br />
+
+<br />
+
+<br />
+<pre style="margin: 0em;">the FX chip is the gaming model or something
+<br />
+its a little faster and costs a lot more<br>
+<br />
+<pre style="margin: 0em;">it would outperform a dual core on single threaded things
+<br />
+(ie games)<br>
+<br />
+<tt>Dean</tt><br>
+<br />
+<br>
+<br />
+<tt>Jaime Ochoa Malag&oacute;n wrote:
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">The short anwer is Yes and Opteron too, although I don't see any text
+<br />
+about an FX chip.<br>
+<br />
+<tt>On 1/24/06, Patrick Carlson &lt;firefly2442@gmail.com&gt; wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><pre style="margin: 0em;">Hello all.  I'm looking to build a new system for Debian Linux.  I'm going
+<br />
+with an AMD64 chip.  However, does the Linux AMD 64 kernel support &quot;AMD64&quot;,
+<br />
+&quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?  Do they all work with the same AMD64
+<br />
+build?  Thanks for the help! :)<br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;"><br>--
+<br />
+Enga&ntilde;arse por amor es el enga&ntilde;o m&aacute;s terrible;
+<br />
+es una p&eacute;rdida eterna para la que no hay compensaci&oacute;n
+<br />
+ni en el tiempo ni en la eternidad.<br>
+<br />
+<tt>							Kierkegaard</tt><br>
+<br />
+<br>
+<br />
+<pre style="margin: 0em;">							Jaime Ochoa Malag&oacute;n
+<br />
+							Integrated Technology
+<br />
+							Tel: (55) 52 54 26 10<br>
+<br />
+<br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+
+<br />
+Actually, you should hold off until after June before buying any AMD64
+<br />
+CPU.  AMD will be releasing a new socket style and the current Socket
+<br />
+939 and 754 chips should drop in prices, not sure about the Opterons
+<br />
+(Socket 940).
+<br />
+
+<br />
+On 1/24/06, Patrick Carlson &lt;firefly2442@gmail.com&gt; wrote:
+<br />
+&gt; Hello all.  I'm looking to build a new system for Debian Linux.  I'm going
+<br />
+&gt; with an AMD64 chip.  However, does the Linux AMD 64 kernel support &quot;AMD64&quot;,
+<br />
+&gt; &quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?  Do they all work with the same AMD64
+<br />
+&gt; build?  Thanks for the help! :)
+<br />
+&gt;
+<br />
+
+<br />
+
+<br />
+
+<br />
+On Wed, Jan 25, 2006 at 03:28:41PM -0500, Robert Isaac wrote:
+<br />
+&gt; Actually, you should hold off until after June before buying any AMD64
+<br />
+&gt; CPU.  AMD will be releasing a new socket style and the current Socket
+<br />
+&gt; 939 and 754 chips should drop in prices, not sure about the Opterons
+<br />
+&gt; (Socket 940).
+<br />
+
+<br />
+Actually, you should probably hold off buying *any* piece of computing 
+<br />
+equipment until you can't do without it, as prices keep going down.  
+<br />
+Rare is the day I pay the price they quoted me at my local computer 
+<br />
+store, because the price goes down too fast.
+<br />
+
+<br />
+-- hendrik
+<br />
+
+<br />
+
+<br />
+
+<br />
+Hello all.&nbsp; I'm looking to build a new system for Debian Linux.&nbsp; I'm going with an AMD64 chip.&nbsp; However, does the Linux AMD 64 kernel support &quot;AMD64&quot;, &quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?&nbsp; Do they all work with the same AMD64 build?&nbsp; Thanks for the help! :)
+<br />
+<br>
+<br />
+
+<br />
+<pre style="margin: 0em;">On an ASUS A8N-VM (NVidia NForce 410 with GForce 6100),
+<br />
+I have to use 2.6.14 kernel to have network working.<br>
+<br />
+<tt>Jo Shields a &eacute;crit :
+<br />
+</tt><blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Soenke von Stamm wrote:</tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>They all use exactly the same core, give or take some L2 cache, only 
+<br />
+that X2 and Opteron &gt;= 165 sport two cores, so an SMP-kernel makes a 
+<br />
+lot of sense there. Same for Turion64, Athlon64, Sempron64, Opteron.</tt><br>
+<br />
+<br>
+<br />
+<tt>Use an AMD64 kernel, with or without smp depending on core count. 
+<br />
+Depending on the chipset I suggest 2.6.8 for sarge and AMD8000 
+<br />
+chipset, for all newer chipsets 2.6.12+ from unstable, for dual core 
+<br />
+the spanking newest kernel you can get (see older thread below), eg. 
+<br />
+there's a 2.6.15 kernel in unstable.</tt><br>
+<br />
+<br>
+<br />
+<tt>Am Mittwoch, 25. Januar 2006 00:42 schrieb Patrick Carlson:<br>
+<br />
+ </tt><br>
+<br />
+<br>
+<br />
+<blockquote style="border-left: #0000FF solid 0.1em; margin: 0em; padding-left: 1.0em"><tt>Hello all.  I'm looking to build a new system for Debian Linux.  I'm 
+<br />
+going<br>
+<br />
+with an AMD64 chip.  However, does the Linux AMD 64 kernel support 
+<br />
+&quot;AMD64&quot;,<br>
+<br />
+&quot;AMD64 X2 Dual Core&quot;, and &quot;AMD64 FX&quot;?  Do they all work with the 
+<br />
+same AMD64<br>
+<br />
+build?  Thanks for the help! :)</tt><br>
+<br />
+<br>
+<br />
+</blockquote></blockquote><tt>Via K8T890. Cheap, cheerful, supports all current s939 chips, and 
+<br />
+plays fine with a 2.6.8 kernel.</tt><br>
+<br />
+<br>
+<br />
+<br>
+<br />
+</blockquote><tt></tt><br>
+<br />
+<br>
+<br />
+
+<br />
+Am Mittwoch, 25. Januar 2006 11:01 schrieb Jo Shields:
+<br />
+&gt; Bool wrote:
+<br />
+&gt; &gt; On an ASUS A8N-VM (NVidia NForce 410 with GForce 6100),
+<br />
+&gt; &gt; I have to use 2.6.14 kernel to have network working.
+<br />
+
+<br />
+So everything's working now (apart from NCQ I guess)? That's good news, as the 
+<br />
+chipset still is very new. The CSM variant is a very decent buy as it even 
+<br />
+sports DVI which makes it possible to have very cheap passively cooled 
+<br />
+dual-DVI setups!
+<br />
+
+<br />
+I needed to upgrade to the same kernel version to have sound in my a lot older 
+<br />
+Xpc ST20G5 which utilizes an ULi southbridge with Azalia sound. But the sound 
+<br />
+is still messy, so I'll try 2.6.15 soon, we'll see...
+<br />
+
+<br />
+&gt; That's common to most nForce4 variants - though 2.6.12 can usually be
+<br />
+&gt; persuaded to work, with some tweaking. nForce4 isn't a good bet for
+<br />
+&gt; linux systems - none of the &quot;extra features&quot; it has over K8T890 work
+<br />
+&gt; (the 'hardware firewall' and so on are windows driver-based jobs), so
+<br />
+&gt; all it ends up being is more expensive.
+<br />
+&gt;
+<br />
+&gt; Unless you really *need* the low-end onboard graphics, I suppose.
+<br />
+
+<br />
+I wouldn't call an NF6150 &quot;low-end&quot; exactly. What VIA and SIS integrate is 
+<br />
+low-end for sure, but with NF6150 you can even play games if you don't need 
+<br />
+to play them in 1280x1024 FSAA with all the spanking newest DX9+ features 
+<br />
+(which isn't available on Linux anyways ;).
+<br />
+
+<br />
+2ct
+<br />
+
+<br />
+
+<br />
+
+<br />
