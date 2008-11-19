@@ -1,0 +1,1 @@
+java -classpath "bin/:lib/weka.jar:lib/snowball.jar" zhaop.textmining.proj.Util
