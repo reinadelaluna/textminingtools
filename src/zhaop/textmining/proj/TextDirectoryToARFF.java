@@ -259,6 +259,10 @@ public class TextDirectoryToARFF implements Serializable {
 //    Util.printTable(m_ClassValues);
     // Process document.
     for (File f : files) {
+      if(f.isDirectory()){
+        System.out.println("Dir found: " + f.getName());
+        continue;
+      }
       String filePath = f.getAbsolutePath();
       System.out.println(filePath);
       String fileName = f.getName();
