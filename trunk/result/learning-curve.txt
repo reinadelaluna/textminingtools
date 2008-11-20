@@ -1,0 +1,2 @@
+Correctly Classified Instances         250              100      %
+Correctly Classified Instances         117               46.8    %
